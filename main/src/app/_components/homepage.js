@@ -2,23 +2,25 @@ import React, { useState } from "react";
 import StreamVideo from "./stream-video";
 
 export default function HomePage() {
-  const [image, setImage] = useState(null);
+  const [images, setImages] = useState([]);
 
-  const handleImageUpload = (event) => {
+  const handleImageUpload = (event, index) => {
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onloadend = async () => {
         const imageData = reader.result;
         console.log("Image data:", imageData);
-        setImage(imageData);
-        await uploadImage(imageData);
+        const newImages = [...images];
+        newImages[index] = imageData;
+        setImages(newImages);
+        await uploadImage(newImages);
       };
       reader.readAsDataURL(file);
     }
   };
 
-  const uploadImage = async (imageData) => {
+  const uploadImage = async (newImages) => {
     const user = JSON.parse(localStorage.getItem("user"));
     const email = user?.email;
     console.log("Email:", email);
@@ -26,13 +28,13 @@ export default function HomePage() {
       console.error("User email not found in local storage");
       return;
     }
-    console.log("body:", JSON.stringify({ email, photo_url: imageData }));
+
     const response = await fetch("/api/users", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email, photo_url: imageData }),
+      body: JSON.stringify({ email, photo_urls: newImages }),
     });
 
     if (!response.ok) {
@@ -46,17 +48,47 @@ export default function HomePage() {
   return (
     <div>
       <div>
-        <input type="file" accept="image/*" onChange={handleImageUpload} />
-        {image && (
+        <input
+          type="file"
+          accept="image/*"
+          onChange={(event) => handleImageUpload(event, 0)}
+        />
+        {images[0] && (
           <img
-            src={image}
+            src={images[0]}
             alt="Uploaded"
             style={{ maxWidth: "100%", height: "auto" }}
           />
         )}
       </div>
-
-      {/* <img src={base64String} alt="Decoded Base64" style={{ maxWidth: "100%", height: "auto" }} /> */}
+      <div>
+        <input
+          type="file"
+          accept="image/*"
+          onChange={(event) => handleImageUpload(event, 1)}
+        />
+        {images[1] && (
+          <img
+            src={images[1]}
+            alt="Uploaded"
+            style={{ maxWidth: "100%", height: "auto" }}
+          />
+        )}
+      </div>
+      <div>
+        <input
+          type="file"
+          accept="image/*"
+          onChange={(event) => handleImageUpload(event, 2)}
+        />
+        {images[2] && (
+          <img
+            src={images[2]}
+            alt="Uploaded"
+            style={{ maxWidth: "100%", height: "auto" }}
+          />
+        )}
+      </div>
       <StreamVideo />
     </div>
   );

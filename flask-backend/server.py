@@ -157,48 +157,54 @@ def verify_face():
             if not user_data.get("success"):
                 return jsonify({"error": "User not found"}), 404
 
-            photo_url = user_data["user"].get("photo_url")
-            if not photo_url:
-                return jsonify({"error": "No photo URL found for user"}), 400
+            photo_urls = user_data["user"].get("photo_urls")
+            if not photo_urls:
+                return jsonify({"error": "No photo URLs found for user"}), 400
             
         except Exception as fetch_error:
             print(f"Error fetching user data: {str(fetch_error)}")
             return jsonify({"error": "Failed to fetch user data"}), 500
 
-        # Convert Base64 image (photo_url) to a temporary file
-        try:
-            base64_data = photo_url.split(",")[-1]  # Extract Base64 part
-            reference_image = BytesIO(base64.b64decode(base64_data))
-            reference_image_path = os.path.join(app.config['UPLOAD_FOLDER'], f"{email}_reference.jpg")
+        combined_results = []
 
-            with open(reference_image_path, "wb") as ref_file:
-                ref_file.write(reference_image.getbuffer())
+        for photo_url in photo_urls:
+            # Convert Base64 image (photo_url) to a temporary file
+            try:
+                base64_data = photo_url.split(",")[-1]  # Extract Base64 part
+                reference_image = BytesIO(base64.b64decode(base64_data))
+                reference_image_path = os.path.join(app.config['UPLOAD_FOLDER'], f"{email}_reference.jpg")
 
-            print(f"Reference image saved to: {reference_image_path}")
+                with open(reference_image_path, "wb") as ref_file:
+                    ref_file.write(reference_image.getbuffer())
 
-        except Exception as decode_error:
-            print(f"Error decoding Base64 image: {str(decode_error)}")
-            return jsonify({"error": "Failed to decode reference image"}), 500
+                print(f"Reference image saved to: {reference_image_path}")
 
-        # Perform face verification
-        try:
-            results = DeepFace.verify(
-                img1_path=filepath,
-                img2_path=reference_image_path,
-                model_name="Facenet",
-                enforce_detection=False
-            )
-            print("Face verification completed")
+            except Exception as decode_error:
+                print(f"Error decoding Base64 image: {str(decode_error)}")
+                return jsonify({"error": "Failed to decode reference image"}), 500
 
-        except Exception as analysis_error:
-            print(f"DeepFace analysis error: {str(analysis_error)}")
-            return jsonify({"error": "Face verification failed"}), 500
+            # Perform face verification
+            try:
+                results = DeepFace.verify(
+                    img1_path=filepath,
+                    img2_path=reference_image_path,
+                    model_name="Facenet",
+                    enforce_detection=False
+                )
+                print("Face verification completed")
+                combined_results.append(results)
 
-        # Clean up saved files
+            except Exception as analysis_error:
+                print(f"DeepFace analysis error: {str(analysis_error)}")
+                return jsonify({"error": "Face verification failed"}), 500
+
+            # Clean up saved reference image file
+            os.remove(reference_image_path)
+
+        # Clean up uploaded file
         os.remove(filepath)
-        os.remove(reference_image_path)
 
-        return jsonify(results)
+        return jsonify(combined_results)
 
     except Exception as e:
         print(f"Error in /verify-face: {str(e)}")
@@ -364,4 +370,5 @@ def create_flashcards_from_audio():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
+    # os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
     app.run(debug=True)

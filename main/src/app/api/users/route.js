@@ -49,18 +49,18 @@ export async function PUT(req) {
     await connectToDatabase();
     const body = await req.json();
 
-    const { email, photo_url } = body;
-    if (!email || !photo_url) {
+    const { email, photo_urls } = body;
+    if (!email || !photo_urls || !Array.isArray(photo_urls)) {
       return new Response(
-        JSON.stringify({ success: false, error: "Missing fields" }),
+        JSON.stringify({ success: false, error: "Missing or invalid fields" }),
         { status: 400 }
       );
     }
 
-    // Update the user's photo_url by email
+    // Update the user's photo_urls by email
     const updatedUser = await User.findOneAndUpdate(
       { email },
-      { photo_url },
+      { photo_urls },
       { new: true }
     );
 
