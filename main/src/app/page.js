@@ -25,10 +25,11 @@ export default function Home() {
     <QueryClientProvider client={queryClient}>
       <div className="App">
         <div className="container">
-          {/* <div className="spline-container"> */}
-          {/* <Spline scene="https://prod.spline.design/ZCLA7cXZ95aBo0pU/scene.splinecode" /> */}
-          {/* </div> */}
-
+          {currentPage !== "home" && (
+            <div className="spline-container">
+              <Spline scene="https://prod.spline.design/ZCLA7cXZ95aBo0pU/scene.splinecode" />
+            </div>
+          )}
           <div className={`${currentPage}-container`}>
             {currentPage === "welcome" && (
               <Welcome onNavigate={setCurrentPage} />
