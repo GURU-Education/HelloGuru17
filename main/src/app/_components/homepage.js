@@ -10,6 +10,7 @@ export default function HomePage() {
       const reader = new FileReader();
       reader.onloadend = async () => {
         const imageData = reader.result;
+        console.log("Image data:", imageData);
         setImage(imageData);
         await uploadImage(imageData);
       };
@@ -26,7 +27,7 @@ export default function HomePage() {
       return;
     }
     console.log("body:", JSON.stringify({ email, photo_url: imageData }));
-    const response = await fetch("/api/userss", {
+    const response = await fetch("/api/users", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -54,6 +55,8 @@ export default function HomePage() {
           />
         )}
       </div>
+
+      {/* <img src={base64String} alt="Decoded Base64" style={{ maxWidth: "100%", height: "auto" }} /> */}
       <StreamVideo />
     </div>
   );

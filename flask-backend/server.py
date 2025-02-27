@@ -11,6 +11,9 @@ import whisperx
 import json
 import re
 from openai import OpenAI
+import base64
+from io import BytesIO
+import requests
 # from translate import Translator
 
 app = Flask(__name__)
@@ -127,46 +130,84 @@ def analyze_emotions():
 @app.route('/verify-face', methods=['POST'])
 def verify_face():
     try:
+        # Ensure the request contains an image and an email
         if 'image' not in request.files:
             return jsonify({"error": "No image file provided"}), 400
         
+        if 'email' not in request.form:
+            return jsonify({"error": "Email is required"}), 400
+        
         file = request.files['image']
+        email = request.form['email']
+
         if file.filename == '':
             return jsonify({"error": "No selected file"}), 400
-        
-        # Save the uploaded file locally for now
+
+        # Save the uploaded image
         filename = secure_filename(file.filename)
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(filepath)
-        
         print(f"File saved to: {filepath}")
-        
-        # Analyze the image
+
+        # Fetch user data from API
+        try:
+            user_response = requests.get(f"http://localhost:3000/api/users/{email}")
+            user_data = user_response.json()
+            
+            if not user_data.get("success"):
+                return jsonify({"error": "User not found"}), 404
+
+            photo_url = user_data["user"].get("photo_url")
+            if not photo_url:
+                return jsonify({"error": "No photo URL found for user"}), 400
+            
+        except Exception as fetch_error:
+            print(f"Error fetching user data: {str(fetch_error)}")
+            return jsonify({"error": "Failed to fetch user data"}), 500
+
+        # Convert Base64 image (photo_url) to a temporary file
+        try:
+            base64_data = photo_url.split(",")[-1]  # Extract Base64 part
+            reference_image = BytesIO(base64.b64decode(base64_data))
+            reference_image_path = os.path.join(app.config['UPLOAD_FOLDER'], f"{email}_reference.jpg")
+
+            with open(reference_image_path, "wb") as ref_file:
+                ref_file.write(reference_image.getbuffer())
+
+            print(f"Reference image saved to: {reference_image_path}")
+
+        except Exception as decode_error:
+            print(f"Error decoding Base64 image: {str(decode_error)}")
+            return jsonify({"error": "Failed to decode reference image"}), 500
+
+        # Perform face verification
         try:
             results = DeepFace.verify(
                 img1_path=filepath,
-                img2_path="",
+                img2_path=reference_image_path,
                 model_name="Facenet",
                 enforce_detection=False
             )
-            print("Analysis completed successfully")
+            print("Face verification completed")
+
         except Exception as analysis_error:
             print(f"DeepFace analysis error: {str(analysis_error)}")
-            raise analysis_error
-        
-        # Clean up - remove uploaded file after analysis
+            return jsonify({"error": "Face verification failed"}), 500
+
+        # Clean up saved files
         os.remove(filepath)
-        
-        print("Returning results:", results) 
+        os.remove(reference_image_path)
+
         return jsonify(results)
-    
+
     except Exception as e:
-        import traceback
-        print(f"Error in /analyze: {str(e)}")
-        print(traceback.format_exc())  # Print full traceback
+        print(f"Error in /verify-face: {str(e)}")
+        # print(traceback.format_exc())  # Print full traceback
+
         # Clean up in case of error
         if 'filepath' in locals() and os.path.exists(filepath):
             os.remove(filepath)
+
         return jsonify({"error": str(e)}), 500
 
 @app.route('/translate', methods=['POST'])
@@ -247,7 +288,7 @@ def create_flashcards(transcript):
                 "role": "system",
                 "content": """You are a helpful assistant that outputs JSON responses.
                 Always respond with a JSON object containing an array of flashcards under the 'flashcards' key.
-                Each flashcard must have exactly three fields: 'chinese', 'english', and 'explanation'."""
+                Each flashcard must have exactly four fields: 'chineseCharacter' (Only Chinese), 'englishTranslation' (Only English), 'pinyin' and 'explanation'."""
             },
             {
                 "role": "user",
@@ -257,9 +298,10 @@ def create_flashcards(transcript):
                 {{
                     "flashcards": [
                         {{
-                            "chinese": "捐赠, juān zèng",
-                            "english": "donate",
-                            "explanation": "To give money or goods for a cause. 捐款或捐赠物品给有需要的人或组织。"
+                            "chineseCharacter": "捐赠",
+                            "englishTranslation": "donate",
+                            "explanation": "To give money or goods for a cause. 捐款或捐赠物品给有需要的人或组织。",
+                            "pinyin": "juān zèng"
                         }},
                         // more flashcards...
                     ]

@@ -35,6 +35,9 @@ function StreamVideo() {
     mutationFn: async (imageBlob) => {
       const formData = new FormData();
       formData.append("image", imageBlob, "capture1.jpg");
+      const user = JSON.parse(localStorage.getItem("user"));
+      formData.append("email", user?.email);
+      console.log("User email:", user?.email);
 
       const response = await fetch("http://127.0.0.1:5000/verify-face", {
         method: "POST",
