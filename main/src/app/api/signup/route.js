@@ -21,8 +21,8 @@ export async function POST(req) {
         { status: 400 }
       );
     }
-
-    const newUser = new User({ email, password, username: "" });
+    const username = email + password;
+    const newUser = new User({ email, password, username: username });
     await newUser.save();
 
     return new Response(

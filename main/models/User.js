@@ -20,6 +20,14 @@ const UserSchema = new mongoose.Schema({
     type: [String],
     default: [],
   },
+  exp: {
+    type: Number,
+    default: 0,
+  },
+  level: {
+    type: Number,
+    default: 0,
+  },
 });
 
 // If the model already exists, use it; otherwise, create a new model
