@@ -1,15 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import StreamVideo from "./stream-video";
 import Spline from "@splinetool/react-spline";
 import { Button, Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./home.css";
+import "./homepage.css";
+import { useQuery } from "@tanstack/react-query";
+
+const fetchUser = async (email) => {
+  const response = await fetch("/api/users/" + email);
+  if (!response.ok) {
+    throw new Error("Failed to fetch user");
+  }
+  return response.json();
+};
+
 export default function HomePage() {
+  const email = JSON.parse(localStorage.getItem("user"))?.email;
+  console.log("Email:", email);
+  const {
+    data: user,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["user", email],
+    queryFn: () => fetchUser(email),
+    enabled: !!email,
+  });
+
+  console.log("User:", user);
   const [images, setImages] = useState([null, null, null]);
   const [showModal, setShowModal] = useState(false);
 
+  useEffect(() => {
+    if (user?.user?.photo_urls?.length === 0) {
+      console.log(user?.user?.photo_urls);
+      setShowModal(true);
+    }
+  }, [user]);
+
   const handleModalClose = () => setShowModal(false);
-  const handleModalShow = () => setShowModal(true);
 
   const handleImageUpload = (event, index) => {
     const file = event.target.files[0];
@@ -51,16 +80,14 @@ export default function HomePage() {
     }
   };
 
+  if (isLoading) {
+    return <div>Loading User Information...</div>;
+  }
+
   return (
     <div className="homepage">
       <div className="stream-container">
         <StreamVideo />
-      </div>
-
-      <div className="verification-button-container">
-        <Button variant="primary" onClick={handleModalShow}>
-          Upload Verification Images
-        </Button>
       </div>
 
       <Modal show={showModal} onHide={handleModalClose}>

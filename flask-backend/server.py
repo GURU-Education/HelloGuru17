@@ -14,11 +14,19 @@ from openai import OpenAI
 import base64
 from io import BytesIO
 import requests
-# from translate import Translator
+from translate import Translator
+import asyncio
 
 app = Flask(__name__)
 
 CORS(app, resources={r"/*": {"origins": "*"}})
+
+@app.after_request
+def add_cors_headers(response):
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+    return response
 
 
 UPLOAD_FOLDER = 'uploads-flask'
@@ -217,24 +225,27 @@ def verify_face():
         return jsonify({"error": str(e)}), 500
 
 @app.route('/translate', methods=['POST'])
-def translate_text():
+async def translate_text():
     try:
         data = request.json
         text = data['text']
-        print(f"Translating text: {text}")
-        translator = GoogleTranslator(source='zh-CN', target='id')
-        # translator = Translator(to_lang='id', from_lang='zh')
-        res = {}
-        words = jieba.lcut(text)
-        for word in words:
-            try:
-                res[word] = translator.translate(word)
-            except Exception as translation_error:
-                res[word] = ""
-        return jsonify(res)
+        # print(f"Segmenting text: {text}")
+
+        translator = GoogleTranslator(source='zh-CN', target='en')
+        # translator = Translator(to_lang='en', from_lang='zh')
+        segments = list(jieba.cut(text, cut_all=False))
+        # print(f"Chunks for translation: {segments}")
+
+        # Batch translate all words asynchronously
+        translated_segments = await asyncio.gather(*(asyncio.to_thread(translator.translate, word) for word in segments))
+
+        # Create mapping between original and translated words
+        translation_map = {orig: trans for orig, trans in zip(segments, translated_segments)}
+
+        print(translation_map)
+        return jsonify(translation_map)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-    
 
 def transcribe_audio(audio_file):
     device = "cpu" 
@@ -371,4 +382,5 @@ def create_flashcards_from_audio():
 
 if __name__ == '__main__':
     # os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
-    app.run(debug=True)
+    app.run(port=8000, debug=True)
+    # app.run(debug=True)
