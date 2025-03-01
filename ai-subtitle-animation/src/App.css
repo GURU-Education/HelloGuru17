@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+.subtitle-container {
+  position: absolute;
+  top: 50%;
+  right: 10%; /* Moves it to the right */
+  transform: translateY(-50%); /* Centers it vertically */
+  padding: 40px;
+  width: 500px;
+  height: 550px;
+  place-content: center;
+}
+
+.spline-container {
+  position: fixed; /* Ensures it covers the screen and stays in place */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}

@@ -1,5 +1,8 @@
 import React, { useState, useRef } from "react";
 import Spline from "@splinetool/react-spline";
+import Subtitle from "./subtitle";
+import './App.css';
+
 
 export default function App() {
   const [splineObj, setSplineObj] = useState(null);
@@ -99,11 +102,16 @@ export default function App() {
 
   return (
     <div className="App">
-      <Spline 
-        scene="https://prod.spline.design/Njxbejqx8MuiFCUy/scene.splinecode" 
-        onLoad={handleSplineLoad}
-      />
-      <button onClick={playAudio}>Play Audio</button>
+      <div className="spline-container">
+        <Spline 
+          scene="https://prod.spline.design/Njxbejqx8MuiFCUy/scene.splinecode" 
+          onLoad={handleSplineLoad}
+        />
+      </div>
+      <div className="subtitle-container">
+        <Subtitle text="This is an interactive subtitle. this hehe" email="user123@gmail.com" />
+        <button style={{margin: "15px"}} onClick={playAudio}>Play Audio</button>
+      </div>
     </div>
   );
 }
