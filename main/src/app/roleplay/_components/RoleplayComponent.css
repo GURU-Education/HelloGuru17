@@ -1,0 +1,211 @@
+/* ---------- COLOR VARIABLES (Light Mode) ---------- */
+:root {
+  --background-color: #f9f9f9;
+  --card-color: #ffffff;
+  --text-color: #333;
+  --button-color: #5f52f2;
+  --button-hover: #4928f0;
+  --button-text: #ffffff;
+  --reset-color: #ff4d4d;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --person1-bg: #0078ff;
+  --person2-bg: #4caf50;
+  --chat-bg: #f0f0f0;
+  --font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ---------- GLOBAL STYLES ---------- */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
+/* ---------- SPLIT SCREEN LAYOUT ---------- */
+.split-screen {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.left-section {
+  width: 50%;
+  height: 100%;
+  background: #e8e8e8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-section {
+  width: 50%;
+  height: 100%;
+  padding: 40px;
+  background: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto; /* Let the right side scroll if content overflows */
+}
+
+/* ---------- TITLE ---------- */
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: var(--button-color);
+}
+
+/* ---------- STEPS & BUTTONS ---------- */
+.step {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.step h2 {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.button-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+/* ---------- SHARED BUTTON STYLING ---------- */
+.btn {
+  padding: 14px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--button-text);
+  background: var(--button-color);
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, transform 0.2s;
+  box-shadow: 0 2px 6px var(--shadow-color);
+  width: 200px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.btn:hover {
+  background: var(--button-hover);
+  transform: scale(1.02);
+}
+
+/* ---------- CHAT CONTAINER ---------- */
+.chat-container {
+  width: 100%;
+  max-width: 600px;
+  background: var(--card-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Title inside the chat container */
+.chat-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-color);
+}
+
+/* Chat Box */
+.chat-box {
+  background: var(--chat-bg);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  padding: 16px;
+  height: 300px; /* fixed height so it doesn't push the buttons off-screen */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Chat Bubbles */
+.chat-bubble {
+  max-width: 70%;
+  padding: 12px 16px;
+  border-radius: 16px;
+  font-size: 16px;
+  line-height: 1.4;
+  box-shadow: 0 1px 3px var(--shadow-color);
+  color: #fff;
+}
+
+.chat-bubble.right {
+  background: var(--person1-bg);
+  align-self: flex-end;
+  text-align: left;
+  border-bottom-right-radius: 6px;
+}
+
+.chat-bubble.left {
+  background: var(--person2-bg);
+  align-self: flex-start;
+  text-align: left;
+  border-bottom-left-radius: 6px;
+}
+
+/* ---------- NEXT & RESET BUTTONS ---------- */
+.button-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.next-btn {
+  background-color: var(--button-color); /* Example: orange color for 'Next' */
+  color: #fff;
+}
+
+.next-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.reset-btn {
+  background: var(--reset-color);
+  color: #fff;
+}
+
+.reset-btn:hover {
+  background: #cc0000;
+  transform: scale(1.02);
+}
+
+/* Targeting the chat-box element's scrollbar */
+.chat-box::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar track */
+}
+
+/* Scrollbar track styling */
+.chat-box::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Background color of the track */
+  border-radius: 4px;
+}
+
+/* Scrollbar thumb (the draggable part) */
+.chat-box::-webkit-scrollbar-thumb {
+  background-color: #999; /* Initial thumb color */
+  border-radius: 6px; /* Roundness of the thumb corners */
+  border: 2px solid #f0f0f0; /* Creates space around thumb for a "groove" effect */
+}
+
+/* Hover state for the scrollbar thumb */
+.chat-box::-webkit-scrollbar-thumb:hover {
+  background-color: #666; /* Darker color on hover */
+}
