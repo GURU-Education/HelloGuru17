@@ -141,7 +141,7 @@ const MandarinDashboard = () => {
   const [selectedWord, setSelectedWord] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [wordMetrics, setWordMetrics] = useState({});
-  const [wordHistory, setWordHistory] = useState([]);
+  const [, setWordHistory] = useState([]);
 
   useEffect(() => {
     // const styleElement = document.createElement("style");
@@ -718,9 +718,9 @@ const MandarinDashboard = () => {
                       variant="info"
                       className="mb-2"
                     />
-                    <small className="text-muted">
+                    <b className="text-muted">
                       Optimal range: 70-90 WPM for beginners
-                    </small>
+                    </b>
                   </div>
                 </Card.Body>
               </Card>
@@ -804,24 +804,375 @@ const MandarinDashboard = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <Container fluid className="py-4 bg-dark text-light min-vh-100">
-        <Row className="mb-4">
+      <Container
+        fluid
+        className="py-4 bg-light min-vh-100"
+        style={{
+          backgroundImage: 'url("/pattern-randomized.svg")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        {/* Dashboard Header */}
+        <motion.div
+          className="dashboard-header text-center mb-5"
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+        >
+          <div className="mb-4 position-relative d-inline-block">
+            <h1
+              className="display-4 fw-bold mb-0"
+              style={{
+                background: "linear-gradient(135deg, #007bff, #6610f2)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                textShadow: "0 5px 15px rgba(0,0,0,0.1)",
+              }}
+            >
+              XiaoQiu [小球] Dashboard
+            </h1>
+            <div className="position-absolute" style={{ top: -15, right: -30 }}>
+              <motion.div
+                initial={{ scale: 0, rotate: -15 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{
+                  delay: 0.5,
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 15,
+                }}
+              >
+                <Badge
+                  bg="warning"
+                  pill
+                  className="px-3 py-2 shadow-lg"
+                  style={{ transform: "rotate(15deg)" }}
+                >
+                  <i className="bi bi-stars me-1"></i> VIP
+                </Badge>
+              </motion.div>
+            </div>
+          </div>
+          <p className="lead text-muted mx-auto" style={{ maxWidth: "700px" }}>
+            Your personalized dashboard for tracking pronunciation progress and
+            practice habits
+          </p>
+
+          <motion.div
+            className="dashboard-stats d-flex flex-wrap justify-content-center gap-3 mt-4 mb-4"
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            {[
+              {
+                icon: "calendar3",
+                label: "Last Session",
+                value: "Yesterday",
+                color: "#4361ee",
+              },
+              {
+                icon: "clock-history",
+                label: "Total Practice",
+                value: "120 min",
+                color: "#3a0ca3",
+              },
+              {
+                icon: "star-fill",
+                label: "Top Word",
+                value: "你好",
+                color: "#7209b7",
+              },
+              {
+                icon: "trophy",
+                label: "Most Improved",
+                value: "78.5%",
+                color: "#f72585",
+              },
+            ].map((stat, index) => (
+              <motion.div
+                key={index}
+                className="stat-badge py-2 px-3 rounded-pill shadow-sm d-flex align-items-center bg-white"
+                whileHover={{ y: -5, boxShadow: "0 10px 20px rgba(0,0,0,0.1)" }}
+                transition={{ type: "spring", stiffness: 300, damping: 15 }}
+              >
+                <div
+                  className="rounded-circle me-2 d-flex align-items-center justify-content-center"
+                  style={{
+                    width: "32px",
+                    height: "32px",
+                    backgroundColor: stat.color,
+                    color: "white",
+                  }}
+                >
+                  <i className={`bi bi-${stat.icon}`}></i>
+                </div>
+                <div className="d-flex flex-column">
+                  <span className="stat-label small text-muted">
+                    {stat.label}
+                  </span>
+                  <span className="stat-value fw-bold">{stat.value}</span>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
+        {/* <Row className="mb-4">
           <Col>
             <motion.div
               initial={{ y: -30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="text-center mb-4 text-primary">
-                Mandarin Learning Dashboard
-              </h1>
-              <p className="text-center text-secondary">
-                Track your pronunciation progress and practice habits
-              </p>
+              <div className="text-center position-relative">
+                <h1 className="text-center mb-4 text-primary display-4 fw-bold">
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    V
+                  </motion.span>
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.05 }}
+                  >
+                    i
+                  </motion.span>
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.1 }}
+                  >
+                    e
+                  </motion.span>
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.15 }}
+                  >
+                    w
+                  </motion.span>
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.2 }}
+                  >
+                    {" "}
+                  </motion.span>
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.25 }}
+                  >
+                    Y
+                  </motion.span>
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.3 }}
+                  >
+                    o
+                  </motion.span>
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.35 }}
+                  >
+                    u
+                  </motion.span>
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.4 }}
+                  >
+                    r
+                  </motion.span>
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.45 }}
+                  >
+                    {" "}
+                  </motion.span>
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.5 }}
+                  >
+                    S
+                  </motion.span>
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.55 }}
+                  >
+                    t
+                  </motion.span>
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.6 }}
+                  >
+                    a
+                  </motion.span>
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.65 }}
+                  >
+                    t
+                  </motion.span>
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.7 }}
+                  >
+                    s
+                  </motion.span>
+                </h1>
+
+                <motion.p
+                  className="text-center text-muted lead"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.8 }}
+                >
+                  Track your pronunciation progress and practice habits
+                </motion.p>
+
+                <motion.div
+                  className="d-flex justify-content-center align-items-center mb-4 mt-3"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 1 }}
+                >
+                  <div className="d-flex gap-2 flex-wrap justify-content-center">
+                    <div className="badge bg-light text-dark p-2 border shadow-sm">
+                      <i className="bi bi-calendar3 me-1 text-primary"></i>
+                      Last Session: Yesterday
+                    </div>
+                    <div className="badge bg-light text-dark p-2 border shadow-sm">
+                      <i className="bi bi-clock-history me-1 text-success"></i>
+                      Total Practice: 120 min
+                    </div>
+                    <div className="badge bg-light text-dark p-2 border shadow-sm">
+                      <i className="bi bi-star-fill me-1 text-warning"></i>
+                      Top Word: 你好
+                    </div>
+                    <div className="badge bg-light text-dark p-2 border shadow-sm">
+                      <i className="bi bi-trophy me-1 text-danger"></i>
+                      Most Improved: 78.5%
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  className="text-center quote-container p-3 bg-light rounded-3 border mb-4 shadow-sm"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 1.2 }}
+                  style={{ maxWidth: "800px", margin: "0 auto" }}
+                >
+                  <i className="bi bi-quote fs-3 text-primary"></i>
+                  <blockquote className="blockquote mb-0">
+                    <p className="fst-italic">
+                      "Learning a language is a journey of a thousand small
+                      victories."
+                    </p>
+                    <footer className="blockquote-footer">
+                      Chinese Proverb
+                    </footer>
+                  </blockquote>
+                  <motion.div
+                    className="mt-2"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1.5 }}
+                  >
+                    <div className="d-flex justify-content-center gap-3">
+                      <Button
+                        variant="outline-primary"
+                        size="sm"
+                        className="rounded-pill"
+                      >
+                        <i className="bi bi-shuffle me-1"></i>
+                        New Quote
+                      </Button>
+                      <Button
+                        variant="outline-info"
+                        size="sm"
+                        className="rounded-pill"
+                      >
+                        <i className="bi bi-share me-1"></i>
+                        Share
+                      </Button>
+                    </div>
+                  </motion.div>
+                </motion.div>
+              </div>
             </motion.div>
           </Col>
-        </Row>
-
+        </Row> */}
+        {/* Decorative floating elements */}
+        <div
+          className="decorative-elements"
+          style={{
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            top: 0,
+            left: 0,
+            overflow: "hidden",
+            pointerEvents: "none",
+            zIndex: 0,
+          }}
+        >
+          {[...Array(5)].map((_, i) => (
+            <motion.div
+              key={i}
+              initial={{
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                scale: Math.random() * 0.5 + 0.5,
+                rotate: Math.random() * 360,
+              }}
+              animate={{
+                y: [
+                  Math.random() * window.innerHeight,
+                  Math.random() * window.innerHeight,
+                  Math.random() * window.innerHeight,
+                ],
+                x: [
+                  Math.random() * window.innerWidth,
+                  Math.random() * window.innerWidth,
+                  Math.random() * window.innerWidth,
+                ],
+                rotate: [0, 180, 360],
+              }}
+              transition={{
+                duration: Math.random() * 60 + 60,
+                ease: "linear",
+                repeat: Infinity,
+                repeatType: "reverse",
+              }}
+              style={{
+                // position: "absolute",
+                width: Math.random() * 100 + 50,
+                height: Math.random() * 100 + 50,
+                borderRadius: "50%",
+                background: `rgba(${Math.floor(
+                  Math.random() * 255
+                )}, ${Math.floor(Math.random() * 255)}, ${Math.floor(
+                  Math.random() * 255
+                )}, 0.05)`,
+                filter: "blur(20px)",
+              }}
+            />
+          ))}
+        </div>
         <Row className="mb-4">
           <Col>
             <motion.div
@@ -829,15 +1180,29 @@ const MandarinDashboard = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <Card className="shadow-lg bg-dark border-secondary">
+              <Card className="shadow-lg border-light">
                 <Card.Header className="bg-primary text-white">
                   <h4 className="mb-0">Speaking & Pronunciation Metrics</h4>
                 </Card.Header>
-                <Card.Body className="bg-dark text-light">
-                  <p className="text-secondary mb-4">
-                    Click on any word to see detailed metrics and progress over
-                    time.
-                  </p>
+                <Card.Body>
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.3 }}
+                  >
+                    <div
+                      className="alert alert-info d-flex align-items-center"
+                      role="alert"
+                    >
+                      <i className="bi bi-info-circle-fill me-2 fs-4"></i>
+                      <div>
+                        <strong>Pro Tip:</strong> Click on any word to see
+                        detailed metrics and progress over time. Regular
+                        practice of challenging words can increase your fluency
+                        by 35%!
+                      </div>
+                    </div>
+                  </motion.div>
 
                   <Row>
                     {Object.keys(wordMetrics).map((word, index) => {
@@ -851,14 +1216,14 @@ const MandarinDashboard = () => {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{
                               duration: 0.5,
-                              delay: 0.1 * index,
+                              delay: 0.01 * index,
                               type: "spring",
                               stiffness: 200,
                               damping: 20,
                             }}
                             whileHover={{
                               scale: 1.05,
-                              boxShadow: `0 0 15px rgba(var(--bs-${scoreColor}-rgb), 0.7)`,
+                              boxShadow: `0 0 15px rgba(var(--bs-${scoreColor}-rgb), 0.5)`,
                             }}
                             whileTap={{ scale: 0.98 }}
                           >
@@ -869,11 +1234,11 @@ const MandarinDashboard = () => {
                                 cursor: "pointer",
                                 transition: "all 0.3s ease",
                                 border: `1px solid var(--bs-${scoreColor})`,
-                                backgroundColor: "#222",
+                                backgroundColor: "#fff",
                               }}
                             >
                               <Card.Body className="text-center">
-                                <h3 className="mb-2 text-light">{word}</h3>
+                                <h3 className="mb-2">{word}</h3>
                                 <motion.div
                                   className="d-flex justify-content-center align-items-center mb-2"
                                   initial={{ scale: 0 }}
@@ -887,8 +1252,8 @@ const MandarinDashboard = () => {
                                 >
                                   <div
                                     style={{
-                                      width: "60px",
-                                      height: "60px",
+                                      width: "90px",
+                                      height: "90px",
                                       borderRadius: "50%",
                                       backgroundColor: `var(--bs-${scoreColor})`,
                                       display: "flex",
@@ -896,18 +1261,18 @@ const MandarinDashboard = () => {
                                       justifyContent: "center",
                                       color: "white",
                                       fontWeight: "bold",
-                                      fontSize: "15px",
-                                      boxShadow: `0 0 10px var(--bs-${scoreColor})`,
+                                      fontSize: "20px",
+                                      boxShadow: `0 0 10px rgba(var(--bs-${scoreColor}-rgb), 0.5)`,
                                     }}
                                   >
                                     {metrics.avgAccuracy}%
                                   </div>
                                 </motion.div>
                                 <div className="mt-2">
-                                  <small className="text-secondary d-block">
+                                  <b className="text-muted d-block">
                                     Practice count: {metrics.count}
-                                  </small>
-                                  <small className="text-secondary d-block">
+                                  </b>
+                                  <b className="text-muted d-block">
                                     Improvement:
                                     <span
                                       className={
@@ -919,7 +1284,7 @@ const MandarinDashboard = () => {
                                       {metrics.improvementRate > 0 ? " +" : " "}
                                       {metrics.improvementRate}%
                                     </span>
-                                  </small>
+                                  </b>
                                 </div>
                               </Card.Body>
                             </Card>
@@ -940,12 +1305,13 @@ const MandarinDashboard = () => {
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
+              // delay={0.4}
             >
-              <Card className="shadow-lg h-100 bg-dark border-secondary">
+              <Card className="shadow-lg h-100 border-light">
                 <Card.Header className="bg-success text-white">
                   <h4 className="mb-0">Engagement & Practice Habits</h4>
                 </Card.Header>
-                <Card.Body className="bg-dark text-light">
+                <Card.Body>
                   {practiceMetrics && (
                     <Row>
                       <Col sm={6} className="mb-4">
@@ -954,9 +1320,9 @@ const MandarinDashboard = () => {
                           animate={{ y: 0, opacity: 1 }}
                           transition={{ delay: 0.5, duration: 0.5 }}
                         >
-                          <Card className="h-100 border-0 shadow bg-dark-secondary">
+                          <Card className="h-100 border-0 shadow-sm bg-white">
                             <Card.Body className="text-center">
-                              <h6 className="text-secondary">
+                              <h6 className="text-muted">
                                 Total Speaking Time
                               </h6>
                               <motion.h2
@@ -983,9 +1349,9 @@ const MandarinDashboard = () => {
                           animate={{ y: 0, opacity: 1 }}
                           transition={{ delay: 0.6, duration: 0.5 }}
                         >
-                          <Card className="h-100 border-0 shadow bg-dark-secondary">
+                          <Card className="h-100 border-0 shadow-sm bg-white">
                             <Card.Body className="text-center">
-                              <h6 className="text-secondary">
+                              <h6 className="text-muted">
                                 Avg. Session Length
                               </h6>
                               <motion.h2
@@ -1012,11 +1378,9 @@ const MandarinDashboard = () => {
                           animate={{ y: 0, opacity: 1 }}
                           transition={{ delay: 0.7, duration: 0.5 }}
                         >
-                          <Card className="h-100 border-0 shadow bg-dark-secondary">
+                          <Card className="h-100 border-0 shadow-sm bg-white">
                             <Card.Body className="text-center">
-                              <h6 className="text-secondary">
-                                Consistency Streak
-                              </h6>
+                              <h6 className="text-muted">Consistency Streak</h6>
                               <div className="d-flex justify-content-center">
                                 {[...Array(7)].map((_, i) => (
                                   <motion.div
@@ -1037,7 +1401,7 @@ const MandarinDashboard = () => {
                                       backgroundColor:
                                         i < practiceMetrics.consistencyStreak
                                           ? "#28a745"
-                                          : "#343a40",
+                                          : "#e9ecef",
                                       display: "flex",
                                       alignItems: "center",
                                       justifyContent: "center",
@@ -1057,7 +1421,7 @@ const MandarinDashboard = () => {
                                   </motion.div>
                                 ))}
                               </div>
-                              <p className="mt-2 mb-0 text-secondary small">
+                              <p className="mt-2 mb-0 text-muted small">
                                 4 days in a row!
                               </p>
                             </Card.Body>
@@ -1071,9 +1435,9 @@ const MandarinDashboard = () => {
                           animate={{ y: 0, opacity: 1 }}
                           transition={{ delay: 0.8, duration: 0.5 }}
                         >
-                          <Card className="h-100 border-0 shadow bg-dark-secondary">
+                          <Card className="h-100 border-0 shadow-sm bg-white">
                             <Card.Body>
-                              <h6 className="text-secondary text-center mb-3">
+                              <h6 className="text-muted text-center mb-3">
                                 Peak Learning Times
                               </h6>
                               <motion.div
@@ -1093,13 +1457,12 @@ const MandarinDashboard = () => {
                                       width={80}
                                       axisLine={false}
                                       tickLine={false}
-                                      tick={{ fill: "#adb5bd" }}
+                                      tick={{ fill: "#495057" }}
                                     />
                                     <Tooltip
                                       contentStyle={{
-                                        backgroundColor: "#343a40",
-                                        borderColor: "#495057",
-                                        color: "#f8f9fa",
+                                        backgroundColor: "#ffffff",
+                                        borderColor: "#dee2e6",
                                       }}
                                     />
                                     <Bar
@@ -1144,11 +1507,11 @@ const MandarinDashboard = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <Card className="shadow-lg h-100 bg-dark border-secondary">
+              <Card className="shadow-lg h-100 border-light">
                 <Card.Header className="bg-info text-white">
                   <h4 className="mb-0">Word Cloud & Common Phrases</h4>
                 </Card.Header>
-                <Card.Body className="text-center bg-dark text-light">
+                <Card.Body className="text-center">
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -1160,13 +1523,13 @@ const MandarinDashboard = () => {
                       className="word-cloud-container p-3"
                       style={{
                         minHeight: "200px",
-                        background: "linear-gradient(145deg, #1a1a1a, #252525)",
+                        // background: "linear-gradient(145deg, #f8f9fa, #e9ecef)",
                         borderRadius: "10px",
-                        boxShadow: "inset 0 0 10px rgba(0,0,0,0.5)",
+                        boxShadow: "inset 0 0 10px rgba(0,0,0,0.1)",
                       }}
                     >
                       {wordCloudData.map((word, index) => {
-                        const fontSize = 12 + word.value / 5;
+                        const fontSize = 32 + word.value / 2;
                         const opacity = 0.7 + (word.accuracy / 100) * 0.3;
 
                         return (
@@ -1176,13 +1539,13 @@ const MandarinDashboard = () => {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{
                               duration: 0.4,
-                              delay: 0.8 + index * 0.05,
+                              // delay: 0.1 + index * 0.05,
                               type: "spring",
                               stiffness: 200,
                             }}
                             whileHover={{
-                              scale: 1.1,
-                              textShadow: "0 0 8px rgba(52, 152, 219, 0.8)",
+                              scale: 1.2,
+                              boxShadow: "0 0 4px rgba(52, 152, 219, 0.6)",
                             }}
                             style={{ display: "inline-block" }}
                           >
@@ -1197,8 +1560,9 @@ const MandarinDashboard = () => {
                                   opacity - 0.2
                                 }))`,
                                 display: "inline-block",
-                                border: "1px solid rgba(255, 255, 255, 0.1)",
-                                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.3)",
+                                border: "1px solid rgba(255, 255, 255, 0.5)",
+                                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                                color: "white",
                               }}
                               onClick={() => handleWordClick(word.text)}
                             >
@@ -1214,9 +1578,10 @@ const MandarinDashboard = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.9 }}
+                    // className="d-flex justify-content-center"
                   >
-                    <h5 className="mb-3">Common Mistakes</h5>
-                    <Row>
+                    <h5 className="mb-3 text-center">Common Mistakes</h5>
+                    <Row className="justify-content-center">
                       {Object.keys(wordMetrics)
                         .filter((word) => wordMetrics[word].avgAccuracy < 70)
                         .slice(0, 4)
@@ -1236,7 +1601,7 @@ const MandarinDashboard = () => {
                                 }}
                                 whileHover={{
                                   scale: 1.05,
-                                  boxShadow: "0 0 15px rgba(220, 53, 69, 0.6)",
+                                  boxShadow: "0 0 15px rgba(220, 53, 69, 0.4)",
                                 }}
                               >
                                 <Card
@@ -1245,14 +1610,14 @@ const MandarinDashboard = () => {
                                   style={{
                                     cursor: "pointer",
                                     backgroundImage:
-                                      "linear-gradient(145deg, #2d1e1e, #251515)",
-                                    border: "1px solid #6b2d2d",
-                                    boxShadow: "0 4px 8px rgba(0,0,0,0.3)",
+                                      "linear-gradient(145deg, #fff0f0, #ffe6e6)",
+                                    border: "1px solid #f8d7da",
+                                    boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
                                   }}
                                 >
                                   <Card.Body className="text-center py-2">
-                                    <h5 className="mb-1 text-light">{word}</h5>
-                                    <p className="mb-0 small text-light">
+                                    <h5 className="mb-1 text-dark">{word}</h5>
+                                    <p className="mb-0 small text-dark">
                                       Accuracy:{" "}
                                       <span className="text-danger">
                                         {metrics.avgAccuracy}%
@@ -1279,13 +1644,13 @@ const MandarinDashboard = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 1.1 }}
             >
-              <Card className="shadow-lg bg-dark border-secondary">
+              <Card className="shadow-lg border-light">
                 <Card.Header className="bg-secondary text-white">
                   <h4 className="mb-0">Recent Practice Sessions</h4>
                 </Card.Header>
-                <Card.Body className="bg-dark text-light">
+                <Card.Body>
                   <div className="table-responsive">
-                    <table className="table table-hover table-dark">
+                    <table className="table table-hover">
                       <thead>
                         <tr>
                           <th>Date</th>
@@ -1317,11 +1682,17 @@ const MandarinDashboard = () => {
                                 delay: 1.2 + index * 0.1,
                               }}
                               whileHover={{
-                                backgroundColor: "rgba(60, 60, 60, 0.5)",
+                                backgroundColor: "rgba(0, 123, 255, 0.05)",
                                 transition: { duration: 0.2 },
                               }}
                             >
-                              <td>{date}</td>
+                              <td>
+                                {new Date(date).toLocaleDateString("en-GB", {
+                                  day: "2-digit",
+                                  month: "short",
+                                  year: "numeric",
+                                })}
+                              </td>
                               <td>{duration} min</td>
                               <td>
                                 <motion.span
