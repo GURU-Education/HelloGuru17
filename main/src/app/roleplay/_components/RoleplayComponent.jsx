@@ -108,8 +108,10 @@ export default function RoleplayComponent() {
         ) : /* STEP 2: Select Topic */
         !selectedTopic ? (
           <div className="step">
-            <h2>Select a Conversation Topic for HSK {selectedLevel}:</h2>
-            <div className="button-column">
+            <h2 style={{ marginBottom: 35 }}>
+              Select a Conversation Topic for HSK {selectedLevel}:
+            </h2>
+            <div className="button-grid">
               {selectedHSK.topics.map((topic) => (
                 <button
                   key={topic.name}

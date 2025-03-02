@@ -209,3 +209,11 @@ body {
 .chat-box::-webkit-scrollbar-thumb:hover {
   background-color: #666; /* Darker color on hover */
 }
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns on larger screens */
+  gap: 16px; /* spacing between items */
+  max-width: 700px; /* optional, to control overall width */
+  margin: 0 auto; /* center the grid if you like */
+}
