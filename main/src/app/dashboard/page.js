@@ -29,9 +29,112 @@ import {
   RadialBarChart,
   RadialBar,
 } from "recharts";
+import { motion, AnimatePresence } from "framer-motion";
 import _ from "lodash";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+// Custom dark theme CSS
+const darkThemeStyles = `
+  body {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+  
+  .bg-dark-custom {
+    background-color: #1e1e1e !important;
+  }
+  
+  .bg-dark-accent {
+    background-color: #2d2d2d !important;
+  }
+  
+  .card {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+  }
+  
+  .card-header {
+    border-bottom: 1px solid #333;
+  }
+  
+  .text-muted {
+    color: #aaaaaa !important;
+  }
+  
+  .table {
+    color: #e0e0e0;
+  }
+  
+  .table thead th {
+    border-bottom-color: #333;
+  }
+  
+  .table td, .table th {
+    border-top-color: #333;
+  }
+  
+  .modal-content {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+  }
+  
+  .modal-header, .modal-footer {
+    border-color: #333;
+  }
+  
+  .list-group-item {
+    background-color: #1e1e1e;
+    border-color: #333;
+  }
+  
+  .nav-tabs {
+    border-bottom-color: #333;
+  }
+  
+  .nav-tabs .nav-link.active {
+    background-color: #2d2d2d;
+    border-color: #333 #333 #2d2d2d;
+    color: #e0e0e0;
+  }
+  
+  .nav-tabs .nav-link {
+    color: #aaaaaa;
+  }
+  
+  .nav-tabs .nav-link:hover {
+    border-color: #333 #333 #333;
+  }
+  
+  .alert-info {
+    background-color: #193047;
+    border-color: #175073;
+    color: #9fcdff;
+  }
+  
+  /* Custom card glow effects */
+  .card-glow:hover {
+    box-shadow: 0 0 15px rgba(var(--glow-color-rgb), 0.7) !important;
+    border-color: rgba(var(--glow-color-rgb), 0.7) !important;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #1e1e1e;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #777;
+  }
+`;
 const MandarinDashboard = () => {
   // Parse the JSON data
   const [sessions, setSessions] = useState([]);
@@ -41,6 +144,9 @@ const MandarinDashboard = () => {
   const [wordHistory, setWordHistory] = useState([]);
 
   useEffect(() => {
+    // const styleElement = document.createElement("style");
+    // styleElement.innerHTML = darkThemeStyles;
+    // document.head.appendChild(styleElement);
     // In a real app, you would fetch this data
     const data = [
       {
@@ -371,6 +477,14 @@ const MandarinDashboard = () => {
     return "danger";
   };
 
+  // Get RGB values for glow effects
+  const getGlowColorRGB = (score) => {
+    if (score >= 85) return "40, 167, 69"; // success
+    if (score >= 70) return "23, 162, 184"; // info
+    if (score >= 50) return "255, 193, 7"; // warning
+    return "220, 53, 69"; // danger
+  };
+
   // Modal content for word details
   const renderWordModal = () => {
     if (!selectedWord || !wordMetrics[selectedWord]) return null;
@@ -685,359 +799,618 @@ const MandarinDashboard = () => {
   };
 
   return (
-    <Container fluid className="py-4 bg-light min-vh-100">
-      <Row className="mb-4">
-        <Col>
-          <h1 className="text-center mb-4">Mandarin Learning Dashboard</h1>
-          <p className="text-center text-muted">
-            Track your pronunciation progress and practice habits
-          </p>
-        </Col>
-      </Row>
-
-      <Row className="mb-4">
-        <Col>
-          <Card className="shadow-sm">
-            <Card.Header className="bg-primary text-white">
-              <h4 className="mb-0">Speaking & Pronunciation Metrics</h4>
-            </Card.Header>
-            <Card.Body>
-              <p className="text-muted mb-4">
-                Click on any word to see detailed metrics and progress over
-                time.
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <Container fluid className="py-4 bg-dark text-light min-vh-100">
+        <Row className="mb-4">
+          <Col>
+            <motion.div
+              initial={{ y: -30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6 }}
+            >
+              <h1 className="text-center mb-4 text-primary">
+                Mandarin Learning Dashboard
+              </h1>
+              <p className="text-center text-secondary">
+                Track your pronunciation progress and practice habits
               </p>
+            </motion.div>
+          </Col>
+        </Row>
 
-              <Row>
-                {Object.keys(wordMetrics).map((word, index) => {
-                  const metrics = wordMetrics[word];
-                  const scoreColor = getScoreColor(metrics.avgAccuracy);
+        <Row className="mb-4">
+          <Col>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <Card className="shadow-lg bg-dark border-secondary">
+                <Card.Header className="bg-primary text-white">
+                  <h4 className="mb-0">Speaking & Pronunciation Metrics</h4>
+                </Card.Header>
+                <Card.Body className="bg-dark text-light">
+                  <p className="text-secondary mb-4">
+                    Click on any word to see detailed metrics and progress over
+                    time.
+                  </p>
 
-                  return (
-                    <Col key={index} md={3} sm={6} className="mb-3">
-                      <Card
-                        className="h-100 word-card shadow-sm"
-                        onClick={() => handleWordClick(word)}
-                        style={{
-                          cursor: "pointer",
-                          transition: "transform 0.2s",
-                          border: `1px solid ${scoreColor}`,
-                        }}
-                        onMouseOver={(e) =>
-                          (e.currentTarget.style.transform = "scale(1.05)")
-                        }
-                        onMouseOut={(e) =>
-                          (e.currentTarget.style.transform = "scale(1)")
-                        }
-                      >
-                        <Card.Body className="text-center">
-                          <h3 className="mb-2">{word}</h3>
-                          <div className="d-flex justify-content-center align-items-center mb-2">
-                            <div
-                              style={{
-                                width: "60px",
-                                height: "60px",
-                                borderRadius: "50%",
-                                backgroundColor: `var(--bs-${scoreColor})`,
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                color: "white",
-                                fontWeight: "bold",
-                                fontSize: "15px",
-                              }}
-                            >
-                              {metrics.avgAccuracy}%
-                            </div>
-                          </div>
-                          <div className="mt-2">
-                            <small className="text-muted d-block">
-                              Practice count: {metrics.count}
-                            </small>
-                            <small className="text-muted d-block">
-                              Improvement:
-                              <span
-                                className={
-                                  metrics.improvementRate > 0
-                                    ? "text-success"
-                                    : "text-danger"
-                                }
-                              >
-                                {metrics.improvementRate > 0 ? " +" : " "}
-                                {metrics.improvementRate}%
-                              </span>
-                            </small>
-                          </div>
-                        </Card.Body>
-                      </Card>
-                    </Col>
-                  );
-                })}
-              </Row>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-
-      <Row className="mb-4">
-        <Col md={6}>
-          <Card className="shadow-sm h-100">
-            <Card.Header className="bg-success text-white">
-              <h4 className="mb-0">Engagement & Practice Habits</h4>
-            </Card.Header>
-            <Card.Body>
-              {practiceMetrics && (
-                <Row>
-                  <Col sm={6} className="mb-4">
-                    <Card className="h-100 border-0 shadow-sm">
-                      <Card.Body className="text-center">
-                        <h6 className="text-muted">Total Speaking Time</h6>
-                        <h2 className="text-success mb-0">
-                          {practiceMetrics.totalSpeakingTimeMin} min
-                        </h2>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-
-                  <Col sm={6} className="mb-4">
-                    <Card className="h-100 border-0 shadow-sm">
-                      <Card.Body className="text-center">
-                        <h6 className="text-muted">Avg. Session Length</h6>
-                        <h2 className="text-primary mb-0">
-                          {practiceMetrics.avgSessionLengthMin} min
-                        </h2>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-
-                  <Col sm={6} className="mb-4">
-                    <Card className="h-100 border-0 shadow-sm">
-                      <Card.Body className="text-center">
-                        <h6 className="text-muted">Consistency Streak</h6>
-                        <div className="d-flex justify-content-center">
-                          {[...Array(7)].map((_, i) => (
-                            <div
-                              key={i}
-                              style={{
-                                width: "30px",
-                                height: "30px",
-                                borderRadius: "50%",
-                                margin: "0 2px",
-                                backgroundColor:
-                                  i < practiceMetrics.consistencyStreak
-                                    ? "#28a745"
-                                    : "#e9ecef",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                color:
-                                  i < practiceMetrics.consistencyStreak
-                                    ? "white"
-                                    : "#6c757d",
-                                fontSize: "12px",
-                                fontWeight: "bold",
-                              }}
-                            >
-                              {i + 1}
-                            </div>
-                          ))}
-                        </div>
-                        <p className="mt-2 mb-0 text-muted small">
-                          4 days in a row!
-                        </p>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-
-                  <Col sm={6} className="mb-4">
-                    <Card className="h-100 border-0 shadow-sm">
-                      <Card.Body>
-                        <h6 className="text-muted text-center mb-3">
-                          Peak Learning Times
-                        </h6>
-                        <ResponsiveContainer width="100%" height={100}>
-                          <BarChart
-                            data={practiceMetrics.peakLearningTimes}
-                            layout="vertical"
-                          >
-                            <XAxis type="number" hide />
-                            <YAxis
-                              dataKey="hour"
-                              type="category"
-                              width={80}
-                              axisLine={false}
-                              tickLine={false}
-                            />
-                            <Tooltip />
-                            <Bar
-                              dataKey="sessions"
-                              fill="#17a2b8"
-                              radius={[0, 4, 4, 0]}
-                            />
-                          </BarChart>
-                        </ResponsiveContainer>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                </Row>
-              )}
-            </Card.Body>
-          </Card>
-        </Col>
-
-        <Col md={6}>
-          <Card className="shadow-sm h-100">
-            <Card.Header className="bg-info text-white">
-              <h4 className="mb-0">Word Cloud & Common Phrases</h4>
-            </Card.Header>
-            <Card.Body className="text-center">
-              <div className="mb-4">
-                <h5 className="mb-3">Most Used Words</h5>
-                <div
-                  className="word-cloud-container p-3"
-                  style={{ minHeight: "200px" }}
-                >
-                  {wordCloudData.map((word, index) => {
-                    const fontSize = 12 + word.value / 5;
-                    const opacity = 0.7 + (word.accuracy / 100) * 0.3;
-                    return (
-                      <Badge
-                        key={index}
-                        pill
-                        className="m-1"
-                        style={{
-                          fontSize: `${fontSize}px`,
-                          padding: "8px 12px",
-                          cursor: "pointer",
-                          backgroundColor: `rgba(52, 152, 219, ${opacity})`,
-                          display: "inline-block",
-                        }}
-                        onClick={() => handleWordClick(word.text)}
-                      >
-                        {word.text}
-                      </Badge>
-                    );
-                  })}
-                </div>
-              </div>
-
-              <div>
-                <h5 className="mb-3">Common Mistakes</h5>
-                <Row>
-                  {Object.keys(wordMetrics)
-                    .filter((word) => wordMetrics[word].avgAccuracy < 70)
-                    .slice(0, 4)
-                    .map((word, index) => {
+                  <Row>
+                    {Object.keys(wordMetrics).map((word, index) => {
                       const metrics = wordMetrics[word];
+                      const scoreColor = getScoreColor(metrics.avgAccuracy);
+
                       return (
-                        <Col key={index} md={6} className="mb-3">
-                          <Card
-                            className="needs-improvement-card"
-                            onClick={() => handleWordClick(word)}
-                            style={{
-                              cursor: "pointer",
-                              backgroundColor: "#fff0f0",
+                        <Col key={index} md={3} sm={6} className="mb-3">
+                          <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{
+                              duration: 0.5,
+                              delay: 0.1 * index,
+                              type: "spring",
+                              stiffness: 200,
+                              damping: 20,
                             }}
+                            whileHover={{
+                              scale: 1.05,
+                              boxShadow: `0 0 15px rgba(var(--bs-${scoreColor}-rgb), 0.7)`,
+                            }}
+                            whileTap={{ scale: 0.98 }}
                           >
-                            <Card.Body className="text-center py-2">
-                              <h5 className="mb-1">{word}</h5>
-                              <p className="mb-0 small">
-                                Accuracy:{" "}
-                                <span className="text-danger">
-                                  {metrics.avgAccuracy}%
-                                </span>
-                              </p>
-                            </Card.Body>
-                          </Card>
+                            <Card
+                              className="h-100 word-card shadow"
+                              onClick={() => handleWordClick(word)}
+                              style={{
+                                cursor: "pointer",
+                                transition: "all 0.3s ease",
+                                border: `1px solid var(--bs-${scoreColor})`,
+                                backgroundColor: "#222",
+                              }}
+                            >
+                              <Card.Body className="text-center">
+                                <h3 className="mb-2 text-light">{word}</h3>
+                                <motion.div
+                                  className="d-flex justify-content-center align-items-center mb-2"
+                                  initial={{ scale: 0 }}
+                                  animate={{ scale: 1 }}
+                                  transition={{
+                                    type: "spring",
+                                    stiffness: 260,
+                                    damping: 20,
+                                    delay: 0.3 + 0.1 * index,
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      width: "60px",
+                                      height: "60px",
+                                      borderRadius: "50%",
+                                      backgroundColor: `var(--bs-${scoreColor})`,
+                                      display: "flex",
+                                      alignItems: "center",
+                                      justifyContent: "center",
+                                      color: "white",
+                                      fontWeight: "bold",
+                                      fontSize: "15px",
+                                      boxShadow: `0 0 10px var(--bs-${scoreColor})`,
+                                    }}
+                                  >
+                                    {metrics.avgAccuracy}%
+                                  </div>
+                                </motion.div>
+                                <div className="mt-2">
+                                  <small className="text-secondary d-block">
+                                    Practice count: {metrics.count}
+                                  </small>
+                                  <small className="text-secondary d-block">
+                                    Improvement:
+                                    <span
+                                      className={
+                                        metrics.improvementRate > 0
+                                          ? "text-success"
+                                          : "text-danger"
+                                      }
+                                    >
+                                      {metrics.improvementRate > 0 ? " +" : " "}
+                                      {metrics.improvementRate}%
+                                    </span>
+                                  </small>
+                                </div>
+                              </Card.Body>
+                            </Card>
+                          </motion.div>
                         </Col>
                       );
                     })}
-                </Row>
-              </div>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
+                  </Row>
+                </Card.Body>
+              </Card>
+            </motion.div>
+          </Col>
+        </Row>
 
-      <Row>
-        <Col>
-          <Card className="shadow-sm">
-            <Card.Header className="bg-secondary text-white">
-              <h4 className="mb-0">Recent Practice Sessions</h4>
-            </Card.Header>
-            <Card.Body>
-              <div className="table-responsive">
-                <table className="table table-hover">
-                  <thead>
-                    <tr>
-                      <th>Date</th>
-                      <th>Duration</th>
-                      <th>Accuracy</th>
-                      <th>Fluency</th>
-                      <th>Completeness</th>
-                      <th>Overall Score</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {sessions.map((session, index) => {
-                      const date = new Date(
-                        session.Offset / 10000
-                      ).toLocaleDateString();
-                      const duration = (session.Duration / 60000000).toFixed(2);
-                      const metrics = session.NBest[0].PronunciationAssessment;
+        <Row className="mb-4">
+          <Col md={6}>
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <Card className="shadow-lg h-100 bg-dark border-secondary">
+                <Card.Header className="bg-success text-white">
+                  <h4 className="mb-0">Engagement & Practice Habits</h4>
+                </Card.Header>
+                <Card.Body className="bg-dark text-light">
+                  {practiceMetrics && (
+                    <Row>
+                      <Col sm={6} className="mb-4">
+                        <motion.div
+                          initial={{ y: 20, opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          transition={{ delay: 0.5, duration: 0.5 }}
+                        >
+                          <Card className="h-100 border-0 shadow bg-dark-secondary">
+                            <Card.Body className="text-center">
+                              <h6 className="text-secondary">
+                                Total Speaking Time
+                              </h6>
+                              <motion.h2
+                                className="text-success mb-0"
+                                initial={{ scale: 0 }}
+                                animate={{ scale: 1 }}
+                                transition={{
+                                  type: "spring",
+                                  stiffness: 200,
+                                  damping: 15,
+                                  delay: 0.7,
+                                }}
+                              >
+                                {practiceMetrics.totalSpeakingTimeMin} min
+                              </motion.h2>
+                            </Card.Body>
+                          </Card>
+                        </motion.div>
+                      </Col>
 
-                      return (
-                        <tr key={index}>
-                          <td>{date}</td>
-                          <td>{duration} min</td>
-                          <td>
-                            <span
-                              className={`badge bg-${getScoreColor(
-                                metrics.AccuracyScore
-                              )}`}
+                      <Col sm={6} className="mb-4">
+                        <motion.div
+                          initial={{ y: 20, opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          transition={{ delay: 0.6, duration: 0.5 }}
+                        >
+                          <Card className="h-100 border-0 shadow bg-dark-secondary">
+                            <Card.Body className="text-center">
+                              <h6 className="text-secondary">
+                                Avg. Session Length
+                              </h6>
+                              <motion.h2
+                                className="text-primary mb-0"
+                                initial={{ scale: 0 }}
+                                animate={{ scale: 1 }}
+                                transition={{
+                                  type: "spring",
+                                  stiffness: 200,
+                                  damping: 15,
+                                  delay: 0.8,
+                                }}
+                              >
+                                {practiceMetrics.avgSessionLengthMin} min
+                              </motion.h2>
+                            </Card.Body>
+                          </Card>
+                        </motion.div>
+                      </Col>
+
+                      <Col sm={6} className="mb-4">
+                        <motion.div
+                          initial={{ y: 20, opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          transition={{ delay: 0.7, duration: 0.5 }}
+                        >
+                          <Card className="h-100 border-0 shadow bg-dark-secondary">
+                            <Card.Body className="text-center">
+                              <h6 className="text-secondary">
+                                Consistency Streak
+                              </h6>
+                              <div className="d-flex justify-content-center">
+                                {[...Array(7)].map((_, i) => (
+                                  <motion.div
+                                    key={i}
+                                    initial={{ scale: 0 }}
+                                    animate={{ scale: 1 }}
+                                    transition={{
+                                      type: "spring",
+                                      stiffness: 300,
+                                      damping: 15,
+                                      delay: 0.9 + i * 0.1,
+                                    }}
+                                    style={{
+                                      width: "30px",
+                                      height: "30px",
+                                      borderRadius: "50%",
+                                      margin: "0 2px",
+                                      backgroundColor:
+                                        i < practiceMetrics.consistencyStreak
+                                          ? "#28a745"
+                                          : "#343a40",
+                                      display: "flex",
+                                      alignItems: "center",
+                                      justifyContent: "center",
+                                      color:
+                                        i < practiceMetrics.consistencyStreak
+                                          ? "white"
+                                          : "#6c757d",
+                                      fontSize: "12px",
+                                      fontWeight: "bold",
+                                      boxShadow:
+                                        i < practiceMetrics.consistencyStreak
+                                          ? "0 0 10px rgba(40, 167, 69, 0.5)"
+                                          : "none",
+                                    }}
+                                  >
+                                    {i + 1}
+                                  </motion.div>
+                                ))}
+                              </div>
+                              <p className="mt-2 mb-0 text-secondary small">
+                                4 days in a row!
+                              </p>
+                            </Card.Body>
+                          </Card>
+                        </motion.div>
+                      </Col>
+
+                      <Col sm={6} className="mb-4">
+                        <motion.div
+                          initial={{ y: 20, opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          transition={{ delay: 0.8, duration: 0.5 }}
+                        >
+                          <Card className="h-100 border-0 shadow bg-dark-secondary">
+                            <Card.Body>
+                              <h6 className="text-secondary text-center mb-3">
+                                Peak Learning Times
+                              </h6>
+                              <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 1.2, duration: 0.5 }}
+                              >
+                                <ResponsiveContainer width="100%" height={100}>
+                                  <BarChart
+                                    data={practiceMetrics.peakLearningTimes}
+                                    layout="vertical"
+                                  >
+                                    <XAxis type="number" hide />
+                                    <YAxis
+                                      dataKey="hour"
+                                      type="category"
+                                      width={80}
+                                      axisLine={false}
+                                      tickLine={false}
+                                      tick={{ fill: "#adb5bd" }}
+                                    />
+                                    <Tooltip
+                                      contentStyle={{
+                                        backgroundColor: "#343a40",
+                                        borderColor: "#495057",
+                                        color: "#f8f9fa",
+                                      }}
+                                    />
+                                    <Bar
+                                      dataKey="sessions"
+                                      fill="#17a2b8"
+                                      radius={[0, 4, 4, 0]}
+                                      animationDuration={1500}
+                                      animationEasing="ease-out"
+                                    >
+                                      {practiceMetrics.peakLearningTimes.map(
+                                        (entry, index) => (
+                                          <Cell
+                                            key={`cell-${index}`}
+                                            fill={`rgba(23, 162, 184, ${
+                                              0.6 +
+                                              (index /
+                                                practiceMetrics
+                                                  .peakLearningTimes.length) *
+                                                0.4
+                                            })`}
+                                          />
+                                        )
+                                      )}
+                                    </Bar>
+                                  </BarChart>
+                                </ResponsiveContainer>
+                              </motion.div>
+                            </Card.Body>
+                          </Card>
+                        </motion.div>
+                      </Col>
+                    </Row>
+                  )}
+                </Card.Body>
+              </Card>
+            </motion.div>
+          </Col>
+
+          <Col md={6}>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <Card className="shadow-lg h-100 bg-dark border-secondary">
+                <Card.Header className="bg-info text-white">
+                  <h4 className="mb-0">Word Cloud & Common Phrases</h4>
+                </Card.Header>
+                <Card.Body className="text-center bg-dark text-light">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.6 }}
+                    className="mb-4"
+                  >
+                    <h5 className="mb-3">Most Used Words</h5>
+                    <div
+                      className="word-cloud-container p-3"
+                      style={{
+                        minHeight: "200px",
+                        background: "linear-gradient(145deg, #1a1a1a, #252525)",
+                        borderRadius: "10px",
+                        boxShadow: "inset 0 0 10px rgba(0,0,0,0.5)",
+                      }}
+                    >
+                      {wordCloudData.map((word, index) => {
+                        const fontSize = 12 + word.value / 5;
+                        const opacity = 0.7 + (word.accuracy / 100) * 0.3;
+
+                        return (
+                          <motion.span
+                            key={index}
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{
+                              duration: 0.4,
+                              delay: 0.8 + index * 0.05,
+                              type: "spring",
+                              stiffness: 200,
+                            }}
+                            whileHover={{
+                              scale: 1.1,
+                              textShadow: "0 0 8px rgba(52, 152, 219, 0.8)",
+                            }}
+                            style={{ display: "inline-block" }}
+                          >
+                            <Badge
+                              pill
+                              className="m-1"
+                              style={{
+                                fontSize: `${fontSize}px`,
+                                padding: "8px 12px",
+                                cursor: "pointer",
+                                background: `linear-gradient(145deg, rgba(52, 152, 219, ${opacity}), rgba(52, 152, 219, ${
+                                  opacity - 0.2
+                                }))`,
+                                display: "inline-block",
+                                border: "1px solid rgba(255, 255, 255, 0.1)",
+                                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.3)",
+                              }}
+                              onClick={() => handleWordClick(word.text)}
                             >
-                              {metrics.AccuracyScore}%
-                            </span>
-                          </td>
-                          <td>
-                            <span
-                              className={`badge bg-${getScoreColor(
-                                metrics.FluencyScore
-                              )}`}
-                            >
-                              {metrics.FluencyScore}%
-                            </span>
-                          </td>
-                          <td>
-                            <span
-                              className={`badge bg-${getScoreColor(
-                                metrics.CompletenessScore
-                              )}`}
-                            >
-                              {metrics.CompletenessScore}%
-                            </span>
-                          </td>
-                          <td>
-                            <span
-                              className={`badge bg-${getScoreColor(
-                                metrics.PronScore
-                              )}`}
-                            >
-                              {metrics.PronScore.toFixed(1)}%
-                            </span>
-                          </td>
+                              {word.text}
+                            </Badge>
+                          </motion.span>
+                        );
+                      })}
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.9 }}
+                  >
+                    <h5 className="mb-3">Common Mistakes</h5>
+                    <Row>
+                      {Object.keys(wordMetrics)
+                        .filter((word) => wordMetrics[word].avgAccuracy < 70)
+                        .slice(0, 4)
+                        .map((word, index) => {
+                          const metrics = wordMetrics[word];
+                          return (
+                            <Col key={index} md={6} className="mb-3">
+                              <motion.div
+                                initial={{
+                                  opacity: 0,
+                                  x: index % 2 === 0 ? -20 : 20,
+                                }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{
+                                  duration: 0.5,
+                                  delay: 1.0 + index * 0.1,
+                                }}
+                                whileHover={{
+                                  scale: 1.05,
+                                  boxShadow: "0 0 15px rgba(220, 53, 69, 0.6)",
+                                }}
+                              >
+                                <Card
+                                  className="needs-improvement-card"
+                                  onClick={() => handleWordClick(word)}
+                                  style={{
+                                    cursor: "pointer",
+                                    backgroundImage:
+                                      "linear-gradient(145deg, #2d1e1e, #251515)",
+                                    border: "1px solid #6b2d2d",
+                                    boxShadow: "0 4px 8px rgba(0,0,0,0.3)",
+                                  }}
+                                >
+                                  <Card.Body className="text-center py-2">
+                                    <h5 className="mb-1 text-light">{word}</h5>
+                                    <p className="mb-0 small text-light">
+                                      Accuracy:{" "}
+                                      <span className="text-danger">
+                                        {metrics.avgAccuracy}%
+                                      </span>
+                                    </p>
+                                  </Card.Body>
+                                </Card>
+                              </motion.div>
+                            </Col>
+                          );
+                        })}
+                    </Row>
+                  </motion.div>
+                </Card.Body>
+              </Card>
+            </motion.div>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1.1 }}
+            >
+              <Card className="shadow-lg bg-dark border-secondary">
+                <Card.Header className="bg-secondary text-white">
+                  <h4 className="mb-0">Recent Practice Sessions</h4>
+                </Card.Header>
+                <Card.Body className="bg-dark text-light">
+                  <div className="table-responsive">
+                    <table className="table table-hover table-dark">
+                      <thead>
+                        <tr>
+                          <th>Date</th>
+                          <th>Duration</th>
+                          <th>Accuracy</th>
+                          <th>Fluency</th>
+                          <th>Completeness</th>
+                          <th>Overall Score</th>
                         </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
+                      </thead>
+                      <tbody>
+                        {sessions.map((session, index) => {
+                          const date = new Date(
+                            session.Offset / 10000
+                          ).toLocaleDateString();
+                          const duration = (
+                            session.Duration / 60000000
+                          ).toFixed(2);
+                          const metrics =
+                            session.NBest[0].PronunciationAssessment;
 
-      {renderWordModal()}
-    </Container>
+                          return (
+                            <motion.tr
+                              key={index}
+                              initial={{ opacity: 0, x: -20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{
+                                duration: 0.3,
+                                delay: 1.2 + index * 0.1,
+                              }}
+                              whileHover={{
+                                backgroundColor: "rgba(60, 60, 60, 0.5)",
+                                transition: { duration: 0.2 },
+                              }}
+                            >
+                              <td>{date}</td>
+                              <td>{duration} min</td>
+                              <td>
+                                <motion.span
+                                  className={`badge bg-${getScoreColor(
+                                    metrics.AccuracyScore
+                                  )}`}
+                                  whileHover={{ scale: 1.2 }}
+                                >
+                                  {metrics.AccuracyScore}%
+                                </motion.span>
+                              </td>
+                              <td>
+                                <motion.span
+                                  className={`badge bg-${getScoreColor(
+                                    metrics.FluencyScore
+                                  )}`}
+                                  whileHover={{ scale: 1.2 }}
+                                >
+                                  {metrics.FluencyScore}%
+                                </motion.span>
+                              </td>
+                              <td>
+                                <motion.span
+                                  className={`badge bg-${getScoreColor(
+                                    metrics.CompletenessScore
+                                  )}`}
+                                  whileHover={{ scale: 1.2 }}
+                                >
+                                  {metrics.CompletenessScore}%
+                                </motion.span>
+                              </td>
+                              <td>
+                                <motion.span
+                                  className={`badge bg-${getScoreColor(
+                                    metrics.PronScore
+                                  )}`}
+                                  whileHover={{ scale: 1.2 }}
+                                >
+                                  {metrics.PronScore.toFixed(1)}%
+                                </motion.span>
+                              </td>
+                            </motion.tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                </Card.Body>
+              </Card>
+            </motion.div>
+          </Col>
+        </Row>
+
+        {/* Floating Action Button */}
+        <motion.div
+          className="position-fixed"
+          style={{ bottom: "30px", right: "30px", zIndex: 999 }}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            delay: 1.5,
+            type: "spring",
+            stiffness: 260,
+            damping: 20,
+          }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          <Button
+            style={{
+              width: "60px",
+              height: "60px",
+              borderRadius: "50%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "24px",
+              boxShadow: "0 4px 10px rgba(0, 123, 255, 0.5)",
+              background: "linear-gradient(145deg, #0069d9, #007bff)",
+              border: "none",
+            }}
+          >
+            <i className="bi bi-plus"></i>
+          </Button>
+        </motion.div>
+
+        {renderWordModal()}
+      </Container>
+    </motion.div>
   );
 };
 
