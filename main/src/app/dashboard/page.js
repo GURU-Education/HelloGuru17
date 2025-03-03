@@ -32,109 +32,109 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import _ from "lodash";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import Spline from "@splinetool/react-spline";
 // Custom dark theme CSS
-const darkThemeStyles = `
-  body {
-    background-color: #121212;
-    color: #e0e0e0;
-  }
-  
-  .bg-dark-custom {
-    background-color: #1e1e1e !important;
-  }
-  
-  .bg-dark-accent {
-    background-color: #2d2d2d !important;
-  }
-  
-  .card {
-    background-color: #1e1e1e;
-    border: 1px solid #333;
-  }
-  
-  .card-header {
-    border-bottom: 1px solid #333;
-  }
-  
-  .text-muted {
-    color: #aaaaaa !important;
-  }
-  
-  .table {
-    color: #e0e0e0;
-  }
-  
-  .table thead th {
-    border-bottom-color: #333;
-  }
-  
-  .table td, .table th {
-    border-top-color: #333;
-  }
-  
-  .modal-content {
-    background-color: #1e1e1e;
-    border: 1px solid #333;
-  }
-  
-  .modal-header, .modal-footer {
-    border-color: #333;
-  }
-  
-  .list-group-item {
-    background-color: #1e1e1e;
-    border-color: #333;
-  }
-  
-  .nav-tabs {
-    border-bottom-color: #333;
-  }
-  
-  .nav-tabs .nav-link.active {
-    background-color: #2d2d2d;
-    border-color: #333 #333 #2d2d2d;
-    color: #e0e0e0;
-  }
-  
-  .nav-tabs .nav-link {
-    color: #aaaaaa;
-  }
-  
-  .nav-tabs .nav-link:hover {
-    border-color: #333 #333 #333;
-  }
-  
-  .alert-info {
-    background-color: #193047;
-    border-color: #175073;
-    color: #9fcdff;
-  }
-  
-  /* Custom card glow effects */
-  .card-glow:hover {
-    box-shadow: 0 0 15px rgba(var(--glow-color-rgb), 0.7) !important;
-    border-color: rgba(var(--glow-color-rgb), 0.7) !important;
-  }
-  
-  /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: #1e1e1e;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: #555;
-    border-radius: 4px;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: #777;
-  }
-`;
+// const darkThemeStyles = `
+//   body {
+//     background-color: #121212;
+//     color: #e0e0e0;
+//   }
+
+//   .bg-dark-custom {
+//     background-color: #1e1e1e !important;
+//   }
+
+//   .bg-dark-accent {
+//     background-color: #2d2d2d !important;
+//   }
+
+//   .card {
+//     background-color: #1e1e1e;
+//     border: 1px solid #333;
+//   }
+
+//   .card-header {
+//     border-bottom: 1px solid #333;
+//   }
+
+//   .text-muted {
+//     color: #aaaaaa !important;
+//   }
+
+//   .table {
+//     color: #e0e0e0;
+//   }
+
+//   .table thead th {
+//     border-bottom-color: #333;
+//   }
+
+//   .table td, .table th {
+//     border-top-color: #333;
+//   }
+
+//   .modal-content {
+//     background-color: #1e1e1e;
+//     border: 1px solid #333;
+//   }
+
+//   .modal-header, .modal-footer {
+//     border-color: #333;
+//   }
+
+//   .list-group-item {
+//     background-color: #1e1e1e;
+//     border-color: #333;
+//   }
+
+//   .nav-tabs {
+//     border-bottom-color: #333;
+//   }
+
+//   .nav-tabs .nav-link.active {
+//     background-color: #2d2d2d;
+//     border-color: #333 #333 #2d2d2d;
+//     color: #e0e0e0;
+//   }
+
+//   .nav-tabs .nav-link {
+//     color: #aaaaaa;
+//   }
+
+//   .nav-tabs .nav-link:hover {
+//     border-color: #333 #333 #333;
+//   }
+
+//   .alert-info {
+//     background-color: #193047;
+//     border-color: #175073;
+//     color: #9fcdff;
+//   }
+
+//   /* Custom card glow effects */
+//   .card-glow:hover {
+//     box-shadow: 0 0 15px rgba(var(--glow-color-rgb), 0.7) !important;
+//     border-color: rgba(var(--glow-color-rgb), 0.7) !important;
+//   }
+
+//   /* Custom scrollbar */
+//   ::-webkit-scrollbar {
+//     width: 8px;
+//   }
+
+//   ::-webkit-scrollbar-track {
+//     background: #1e1e1e;
+//   }
+
+//   ::-webkit-scrollbar-thumb {
+//     background: #555;
+//     border-radius: 4px;
+//   }
+
+//   ::-webkit-scrollbar-thumb:hover {
+//     background: #777;
+//   }
+// `;
 const MandarinDashboard = () => {
   // Parse the JSON data
   const [sessions, setSessions] = useState([]);
@@ -193,6 +193,78 @@ const MandarinDashboard = () => {
                   ErrorType: "None",
                 },
               },
+              {
+                Word: "我",
+                Offset: 187500000,
+                Duration: 3000000,
+                PronunciationAssessment: {
+                  AccuracyScore: 50,
+                  ErrorType: "None",
+                },
+              },
+              {
+                Word: "一个",
+                Offset: 190500000,
+                Duration: 4000000,
+                PronunciationAssessment: {
+                  AccuracyScore: 70,
+                  ErrorType: "None",
+                },
+              },
+              {
+                Word: "人",
+                Offset: 194500000,
+                Duration: 3000000,
+                PronunciationAssessment: {
+                  AccuracyScore: 65,
+                  ErrorType: "None",
+                },
+              },
+              {
+                Word: "请",
+                Offset: 197500000,
+                Duration: 3000000,
+                PronunciationAssessment: {
+                  AccuracyScore: 75,
+                  ErrorType: "None",
+                },
+              },
+              {
+                Word: "给",
+                Offset: 200500000,
+                Duration: 3000000,
+                PronunciationAssessment: {
+                  AccuracyScore: 40,
+                  ErrorType: "None",
+                },
+              },
+              {
+                Word: "我",
+                Offset: 203500000,
+                Duration: 3000000,
+                PronunciationAssessment: {
+                  AccuracyScore: 85,
+                  ErrorType: "None",
+                },
+              },
+              {
+                Word: "一个",
+                Offset: 206500000,
+                Duration: 4000000,
+                PronunciationAssessment: {
+                  AccuracyScore: 70,
+                  ErrorType: "None",
+                },
+              },
+              {
+                Word: "靠窗",
+                Offset: 210500000,
+                Duration: 4000000,
+                PronunciationAssessment: {
+                  AccuracyScore: 65,
+                  ErrorType: "None",
+                },
+              },
             ],
           },
         ],
@@ -232,6 +304,78 @@ const MandarinDashboard = () => {
               {
                 Word: "我",
                 Offset: 182500000,
+                Duration: 3000000,
+                PronunciationAssessment: {
+                  AccuracyScore: 90,
+                  ErrorType: "None",
+                },
+              },
+              {
+                Word: "想",
+                Offset: 185500000,
+                Duration: 4000000,
+                PronunciationAssessment: {
+                  AccuracyScore: 75,
+                  ErrorType: "None",
+                },
+              },
+              {
+                Word: "要",
+                Offset: 189500000,
+                Duration: 3000000,
+                PronunciationAssessment: {
+                  AccuracyScore: 80,
+                  ErrorType: "None",
+                },
+              },
+              {
+                Word: "一个",
+                Offset: 192500000,
+                Duration: 4000000,
+                PronunciationAssessment: {
+                  AccuracyScore: 85,
+                  ErrorType: "None",
+                },
+              },
+              {
+                Word: "靠窗",
+                Offset: 196500000,
+                Duration: 4000000,
+                PronunciationAssessment: {
+                  AccuracyScore: 70,
+                  ErrorType: "None",
+                },
+              },
+              {
+                Word: "的",
+                Offset: 200500000,
+                Duration: 3000000,
+                PronunciationAssessment: {
+                  AccuracyScore: 75,
+                  ErrorType: "None",
+                },
+              },
+              {
+                Word: "座位",
+                Offset: 203500000,
+                Duration: 4000000,
+                PronunciationAssessment: {
+                  AccuracyScore: 80,
+                  ErrorType: "None",
+                },
+              },
+              {
+                Word: "谢谢",
+                Offset: 207500000,
+                Duration: 4000000,
+                PronunciationAssessment: {
+                  AccuracyScore: 85,
+                  ErrorType: "None",
+                },
+              },
+              {
+                Word: "请",
+                Offset: 211500000,
                 Duration: 3000000,
                 PronunciationAssessment: {
                   AccuracyScore: 90,
@@ -286,48 +430,75 @@ const MandarinDashboard = () => {
                   ErrorType: "None",
                 },
               },
-            ],
-          },
-        ],
-      },
-      {
-        Id: "3b4d5e6f7a8b9c10def2345678901234",
-        RecognitionStatus: "Success",
-        Offset: 175000000,
-        Duration: 235000000,
-        Channel: 0,
-        DisplayText: "你好，我想要靠窗的位置，谢谢，请给我一份宫保鸡丁和米饭。",
-        SNR: 28.654321,
-        NBest: [
-          {
-            Confidence: 0.799876,
-            Lexical:
-              "你好 我 想 要 靠 窗 的 位置 谢谢 请 给 我 一 份 宫保鸡丁 和 米饭",
-            ITN: "你好 我 想 要 靠 窗 的 位置 谢谢 请 给 我 一 份 宫保鸡丁 和 米饭",
-            MaskedITN: "你好我想要靠窗的位置谢谢请给我一份宫保鸡丁和米饭",
-            Display: "你好，我想要靠窗的位置，谢谢，请给我一份宫保鸡丁和米饭。",
-            PronunciationAssessment: {
-              AccuracyScore: 67,
-              FluencyScore: 48,
-              CompletenessScore: 60,
-              PronScore: 52.3,
-            },
-            Words: [
               {
-                Word: "你好",
-                Offset: 175000000,
-                Duration: 11000000,
+                Word: "人",
+                Offset: 187700000,
+                Duration: 3000000,
                 PronunciationAssessment: {
-                  AccuracyScore: 88,
+                  AccuracyScore: 90,
+                  ErrorType: "None",
+                },
+              },
+              {
+                Word: "请",
+                Offset: 190700000,
+                Duration: 3000000,
+                PronunciationAssessment: {
+                  AccuracyScore: 80,
+                  ErrorType: "None",
+                },
+              },
+              {
+                Word: "给",
+                Offset: 193700000,
+                Duration: 3000000,
+                PronunciationAssessment: {
+                  AccuracyScore: 85,
+                  ErrorType: "None",
+                },
+              },
+              {
+                Word: "我",
+                Offset: 196700000,
+                Duration: 3000000,
+                PronunciationAssessment: {
+                  AccuracyScore: 90,
+                  ErrorType: "None",
+                },
+              },
+              {
+                Word: "一个",
+                Offset: 199700000,
+                Duration: 4000000,
+                PronunciationAssessment: {
+                  AccuracyScore: 95,
+                  ErrorType: "None",
+                },
+              },
+              {
+                Word: "靠窗",
+                Offset: 203700000,
+                Duration: 4000000,
+                PronunciationAssessment: {
+                  AccuracyScore: 100,
+                  ErrorType: "None",
+                },
+              },
+              {
+                Word: "的",
+                Offset: 207700000,
+                Duration: 3000000,
+                PronunciationAssessment: {
+                  AccuracyScore: 85,
                   ErrorType: "None",
                 },
               },
               {
                 Word: "位置",
-                Offset: 186000000,
+                Offset: 210700000,
                 Duration: 4000000,
                 PronunciationAssessment: {
-                  AccuracyScore: 92,
+                  AccuracyScore: 90,
                   ErrorType: "None",
                 },
               },
@@ -798,6 +969,11 @@ const MandarinDashboard = () => {
     );
   };
 
+  const getColorByIndex = (index) => {
+    const colors = ["#037ca6", "#0375e1", "#035b87", "#1e7598", "#52bdc9"];
+    return colors[index % colors.length];
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -813,309 +989,287 @@ const MandarinDashboard = () => {
           backgroundPosition: "center",
         }}
       >
+        {/* <Spline scene="https://prod.spline.design/ZCLA7cXZ95aBo0pU/scene.splinecode" /> */}
+
         {/* Dashboard Header */}
+
         <motion.div
-          className="dashboard-header text-center mb-5"
-          initial={{ y: -50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
+          className="dashboard-header mb-5 overflow-hidden rounded-4 shadow-lg"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
         >
-          <div className="mb-4 position-relative d-inline-block">
-            <h1
-              className="display-4 fw-bold mb-0"
+          <Row className="g-0">
+            {/* Left panel with gradient background and 3D elements */}
+            <Col
+              md={6}
+              className="p-5 position-relative overflow-hidden"
               style={{
-                background: "linear-gradient(135deg, #007bff, #6610f2)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                textShadow: "0 5px 15px rgba(0,0,0,0.1)",
+                background: "linear-gradient(135deg, #FF9671 0%, #FFC75F 100%)",
+                boxShadow: "inset 0 0 30px rgba(0,0,0,0.1)",
               }}
             >
-              XiaoQiu [小球] Dashboard
-            </h1>
-            <div className="position-absolute" style={{ top: -15, right: -30 }}>
-              <motion.div
-                initial={{ scale: 0, rotate: -15 }}
-                animate={{ scale: 1, rotate: 0 }}
-                transition={{
-                  delay: 0.5,
-                  type: "spring",
-                  stiffness: 300,
-                  damping: 15,
-                }}
-              >
-                <Badge
-                  bg="warning"
-                  pill
-                  className="px-3 py-2 shadow-lg"
-                  style={{ transform: "rotate(15deg)" }}
-                >
-                  <i className="bi bi-stars me-1"></i> VIP
-                </Badge>
-              </motion.div>
-            </div>
-          </div>
-          <p className="lead text-muted mx-auto" style={{ maxWidth: "700px" }}>
-            Your personalized dashboard for tracking pronunciation progress and
-            practice habits
-          </p>
-
-          <motion.div
-            className="dashboard-stats d-flex flex-wrap justify-content-center gap-3 mt-4 mb-4"
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            {[
-              {
-                icon: "calendar3",
-                label: "Last Session",
-                value: "Yesterday",
-                color: "#4361ee",
-              },
-              {
-                icon: "clock-history",
-                label: "Total Practice",
-                value: "120 min",
-                color: "#3a0ca3",
-              },
-              {
-                icon: "star-fill",
-                label: "Top Word",
-                value: "你好",
-                color: "#7209b7",
-              },
-              {
-                icon: "trophy",
-                label: "Most Improved",
-                value: "78.5%",
-                color: "#f72585",
-              },
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                className="stat-badge py-2 px-3 rounded-pill shadow-sm d-flex align-items-center bg-white"
-                whileHover={{ y: -5, boxShadow: "0 10px 20px rgba(0,0,0,0.1)" }}
-                transition={{ type: "spring", stiffness: 300, damping: 15 }}
-              >
-                <div
-                  className="rounded-circle me-2 d-flex align-items-center justify-content-center"
+              {/* Animated floating circles */}
+              {[...Array(5)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="position-absolute rounded-circle"
                   style={{
-                    width: "32px",
-                    height: "32px",
-                    backgroundColor: stat.color,
-                    color: "white",
+                    top: `${Math.random() * 80}%`,
+                    left: `${Math.random() * 80}%`,
+                    width: `${Math.random() * 40 + 20}px`,
+                    height: `${Math.random() * 40 + 20}px`,
+                    background: `rgba(255, 255, 255, ${
+                      Math.random() * 0.3 + 0.1
+                    })`,
+                    zIndex: 0,
+                  }}
+                  animate={{
+                    y: [0, Math.random() * 30 - 15, 0],
+                    x: [0, Math.random() * 30 - 15, 0],
+                    scale: [1, Math.random() * 0.5 + 0.8, 1],
+                  }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: Math.random() * 8 + 4,
+                    ease: "easeInOut",
+                  }}
+                />
+              ))}
+
+              <div className="position-relative z-1 d-flex flex-column justify-content-center align-items-end h-100">
+                {/* Background Chinese characters with animated glow effect */}
+                <motion.div
+                  className="position-absolute"
+                  style={{
+                    top: "5%",
+                    left: "5%",
+                    fontSize: "18rem",
+                    fontWeight: "bold",
+                    fontFamily: "'Noto Serif SC', serif",
+                    zIndex: 0,
+                    color: "rgba(255, 255, 255, 0.15)",
+                    filter: "blur(2px)",
+                  }}
+                  animate={{
+                    textShadow: [
+                      "0 0 20px rgba(255,60,0,0)",
+                      "0 0 40px rgba(255,60,0,0.3)",
+                      "0 0 20px rgba(255,60,0,0)",
+                    ],
+                  }}
+                  transition={{
+                    duration: 5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
                   }}
                 >
-                  <i className={`bi bi-${stat.icon}`}></i>
-                </div>
-                <div className="d-flex flex-column">
-                  <span className="stat-label small text-muted">
-                    {stat.label}
-                  </span>
-                  <span className="stat-value fw-bold">{stat.value}</span>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
-        {/* <Row className="mb-4">
-          <Col>
-            <motion.div
-              initial={{ y: -30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="text-center position-relative">
-                <h1 className="text-center mb-4 text-primary display-4 fw-bold">
-                  <motion.span
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    V
-                  </motion.span>
-                  <motion.span
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3, delay: 0.05 }}
-                  >
-                    i
-                  </motion.span>
-                  <motion.span
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3, delay: 0.1 }}
-                  >
-                    e
-                  </motion.span>
-                  <motion.span
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3, delay: 0.15 }}
-                  >
-                    w
-                  </motion.span>
-                  <motion.span
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3, delay: 0.2 }}
-                  >
-                    {" "}
-                  </motion.span>
-                  <motion.span
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3, delay: 0.25 }}
-                  >
-                    Y
-                  </motion.span>
-                  <motion.span
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3, delay: 0.3 }}
-                  >
-                    o
-                  </motion.span>
-                  <motion.span
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3, delay: 0.35 }}
-                  >
-                    u
-                  </motion.span>
-                  <motion.span
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3, delay: 0.4 }}
-                  >
-                    r
-                  </motion.span>
-                  <motion.span
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3, delay: 0.45 }}
-                  >
-                    {" "}
-                  </motion.span>
-                  <motion.span
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3, delay: 0.5 }}
-                  >
-                    S
-                  </motion.span>
-                  <motion.span
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3, delay: 0.55 }}
-                  >
-                    t
-                  </motion.span>
-                  <motion.span
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3, delay: 0.6 }}
-                  >
-                    a
-                  </motion.span>
-                  <motion.span
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3, delay: 0.65 }}
-                  >
-                    t
-                  </motion.span>
-                  <motion.span
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3, delay: 0.7 }}
-                  >
-                    s
-                  </motion.span>
-                </h1>
-
-                <motion.p
-                  className="text-center text-muted lead"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.8 }}
-                >
-                  Track your pronunciation progress and practice habits
-                </motion.p>
-
-                <motion.div
-                  className="d-flex justify-content-center align-items-center mb-4 mt-3"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 1 }}
-                >
-                  <div className="d-flex gap-2 flex-wrap justify-content-center">
-                    <div className="badge bg-light text-dark p-2 border shadow-sm">
-                      <i className="bi bi-calendar3 me-1 text-primary"></i>
-                      Last Session: Yesterday
-                    </div>
-                    <div className="badge bg-light text-dark p-2 border shadow-sm">
-                      <i className="bi bi-clock-history me-1 text-success"></i>
-                      Total Practice: 120 min
-                    </div>
-                    <div className="badge bg-light text-dark p-2 border shadow-sm">
-                      <i className="bi bi-star-fill me-1 text-warning"></i>
-                      Top Word: 你好
-                    </div>
-                    <div className="badge bg-light text-dark p-2 border shadow-sm">
-                      <i className="bi bi-trophy me-1 text-danger"></i>
-                      Most Improved: 78.5%
-                    </div>
-                  </div>
+                  小球
                 </motion.div>
 
                 <motion.div
-                  className="text-center quote-container p-3 bg-light rounded-3 border mb-4 shadow-sm"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 1.2 }}
-                  style={{ maxWidth: "800px", margin: "0 auto" }}
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3, duration: 0.8, type: "spring" }}
+                  className="text-end"
                 >
-                  <i className="bi bi-quote fs-3 text-primary"></i>
-                  <blockquote className="blockquote mb-0">
-                    <p className="fst-italic">
-                      "Learning a language is a journey of a thousand small
-                      victories."
-                    </p>
-                    <footer className="blockquote-footer">
-                      Chinese Proverb
-                    </footer>
-                  </blockquote>
+                  <h1
+                    className="mb-1 display-3 fw-bold"
+                    style={{
+                      color: "#FFFFFF",
+                      textShadow: "0 4px 12px rgba(0,0,0,0.15)",
+                      letterSpacing: "-1px",
+                    }}
+                  >
+                    <span style={{ color: "#5F4B8B" }}>Xiao</span>Qiu
+                  </h1>
+
                   <motion.div
-                    className="mt-2"
+                    initial={{ width: 0 }}
+                    animate={{ width: "100%" }}
+                    transition={{ delay: 0.6, duration: 0.8 }}
+                    style={{
+                      height: "4px",
+                      background:
+                        "linear-gradient(90deg, #5F4B8B, transparent)",
+                      marginBottom: "10px",
+                    }}
+                  />
+
+                  <motion.h4
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 1.5 }}
+                    transition={{ delay: 0.8, duration: 0.5 }}
+                    className="mb-4 fw-light"
+                    style={{
+                      color: "#5F4B8B",
+                      letterSpacing: "3px",
+                      textTransform: "uppercase",
+                    }}
                   >
-                    <div className="d-flex justify-content-center gap-3">
-                      <Button
-                        variant="outline-primary"
-                        size="sm"
-                        className="rounded-pill"
-                      >
-                        <i className="bi bi-shuffle me-1"></i>
-                        New Quote
-                      </Button>
-                      <Button
-                        variant="outline-info"
-                        size="sm"
-                        className="rounded-pill"
-                      >
-                        <i className="bi bi-share me-1"></i>
-                        Share
-                      </Button>
-                    </div>
-                  </motion.div>
+                    Dashboard
+                  </motion.h4>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.0, duration: 0.6 }}
+                  className="mt-3 text-end"
+                >
+                  <p
+                    className="lead mb-0"
+                    style={{
+                      color: "#5F4B8B",
+                      fontSize: "1.5rem",
+                      fontStyle: "italic",
+                    }}
+                  >
+                    Your personalized dashboard for tracking
+                    <br />
+                    pronunciation progress and practice habits
+                  </p>
                 </motion.div>
               </div>
-            </motion.div>
-          </Col>
-        </Row> */}
+            </Col>
+
+            {/* Right panel with glass morphism stats */}
+            <Col
+              md={6}
+              className="p-0 position-relative overflow-hidden"
+              style={{
+                background: "linear-gradient(135deg, #42047E 0%, #07F2F2 100%)",
+              }}
+            >
+              {/* Animated wave background */}
+              <svg
+                className="position-absolute w-100 h-100"
+                style={{ top: 0, left: 0, zIndex: 0, opacity: 0.2 }}
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+              >
+                <motion.path
+                  d="M0,50 C30,60 70,40 100,50 L100,100 L0,100 Z"
+                  fill="rgba(255,255,255,0.2)"
+                  animate={{
+                    d: [
+                      "M0,50 C30,60 70,40 100,50 L100,100 L0,100 Z",
+                      "M0,40 C30,50 70,30 100,40 L100,100 L0,100 Z",
+                      "M0,60 C30,40 70,60 100,60 L100,100 L0,100 Z",
+                      "M0,50 C30,60 70,40 100,50 L100,100 L0,100 Z",
+                    ],
+                  }}
+                  transition={{
+                    duration: 20,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+              </svg>
+
+              <div className="p-4 pt-4 position-relative z-1">
+                <motion.div
+                  className="text-white text-end mb-4"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, duration: 0.6 }}
+                >
+                  <h4 className="mb-0 fw-bold">Welcome back James!</h4>
+                  <p className="small mb-0 opacity-75">Keep up the good work</p>
+                </motion.div>
+
+                <motion.div
+                  className="d-flex flex-column"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.6 }}
+                >
+                  {/* Stats with cascading reveal animation */}
+                  {[
+                    { label: "Most Improved", value: "78%", width: "80%" },
+                    {
+                      label: "Total Practice (mins)",
+                      value: "120",
+                      width: "85%",
+                    },
+                    { label: "Last Session (days)", value: "1", width: "90%" },
+                    {
+                      label: "Top Word",
+                      value: "你好",
+                      width: "95%",
+                      isChinese: true,
+                    },
+                  ].map((stat, index) => (
+                    <motion.div
+                      key={index}
+                      className="stat-card mb-3 ms-auto"
+                      style={{ width: stat.width }}
+                      initial={{ x: 100, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{
+                        delay: index * 0.1,
+                        duration: 0.7,
+                        type: "spring",
+                        stiffness: 100,
+                      }}
+                      whileHover={{
+                        scale: 1.02,
+                        boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
+                      }}
+                    >
+                      <div
+                        className="d-flex justify-content-between align-items-center p-3 rounded-3"
+                        style={{
+                          background: "rgba(255, 255, 255, 0.15)",
+                          backdropFilter: "blur(10px)",
+                          border: "1px solid rgba(255, 255, 255, 0.2)",
+                          boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
+                        }}
+                      >
+                        <div className="d-flex align-items-center">
+                          <div
+                            className="rounded-circle d-flex align-items-center justify-content-center me-3"
+                            style={{
+                              width: "36px",
+                              height: "36px",
+                              background: getColorByIndex(index),
+                            }}
+                          >
+                            <i></i>
+                          </div>
+                          <span
+                            className="text-white"
+                            style={{ fontSize: "14px", fontWeight: 500 }}
+                          >
+                            {stat.label}
+                          </span>
+                        </div>
+                        <motion.span
+                          className="text-white fw-bold"
+                          style={{
+                            fontSize: "2.5rem",
+                            lineHeight: 1,
+                            fontFamily: stat.isChinese
+                              ? "'Noto Serif SC', serif"
+                              : "inherit",
+                          }}
+                          initial={{ scale: 0.8 }}
+                          animate={{ scale: 1 }}
+                          transition={{
+                            delay: 1.0 + index * 0.15,
+                            type: "spring",
+                          }}
+                        >
+                          {stat.value}
+                        </motion.span>
+                      </div>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </div>
+            </Col>
+          </Row>
+        </motion.div>
         {/* Decorative floating elements */}
         <div
           className="decorative-elements"
@@ -1203,14 +1357,13 @@ const MandarinDashboard = () => {
                       </div>
                     </div>
                   </motion.div>
-
                   <Row>
                     {Object.keys(wordMetrics).map((word, index) => {
                       const metrics = wordMetrics[word];
                       const scoreColor = getScoreColor(metrics.avgAccuracy);
 
                       return (
-                        <Col key={index} md={3} sm={6} className="mb-3">
+                        <Col key={index} md={2} sm={4} className="mb-3">
                           <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
@@ -1228,7 +1381,7 @@ const MandarinDashboard = () => {
                             whileTap={{ scale: 0.98 }}
                           >
                             <Card
-                              className="h-100 word-card shadow"
+                              className="h-20 word-card shadow"
                               onClick={() => handleWordClick(word)}
                               style={{
                                 cursor: "pointer",
@@ -1238,7 +1391,7 @@ const MandarinDashboard = () => {
                               }}
                             >
                               <Card.Body className="text-center">
-                                <h3 className="mb-2">{word}</h3>
+                                <h4 className="mb-2">{word}</h4>
                                 <motion.div
                                   className="d-flex justify-content-center align-items-center mb-2"
                                   initial={{ scale: 0 }}
@@ -1252,8 +1405,8 @@ const MandarinDashboard = () => {
                                 >
                                   <div
                                     style={{
-                                      width: "90px",
-                                      height: "90px",
+                                      width: "70px",
+                                      height: "70px",
                                       borderRadius: "50%",
                                       backgroundColor: `var(--bs-${scoreColor})`,
                                       display: "flex",
@@ -1261,7 +1414,7 @@ const MandarinDashboard = () => {
                                       justifyContent: "center",
                                       color: "white",
                                       fontWeight: "bold",
-                                      fontSize: "20px",
+                                      fontSize: "15px",
                                       boxShadow: `0 0 10px rgba(var(--bs-${scoreColor}-rgb), 0.5)`,
                                     }}
                                   >
