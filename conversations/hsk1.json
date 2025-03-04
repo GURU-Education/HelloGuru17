@@ -1,0 +1,244 @@
+[
+    {
+        "hsk-level": "1",
+        "topic": "self-introduction",
+        "conversation": [
+            "Person 1: 你好！你叫什么名字？我是丽丽。",
+            "Person 2: 你好！我叫小明。很高兴认识你！",
+            "Person 1: 我也是！你是哪国人？",
+            "Person 2: 我是美国人。你呢？",
+            "Person 1: 我是中国人。你几岁了？",
+            "Person 2: 我二十岁。你呢？",
+            "Person 1: 我二十二岁。"
+      ]
+    },
+    {
+        "hsk-level": "1",
+        "topic": "self-introduction",
+        "conversation": [
+          "Person 1: 你好！请介绍一下自己。",
+          "Person 2: 我叫王明，今年二十五岁，来自北京。",
+          "Person 1: 你做什么工作？",
+          "Person 2: 我是学生，你呢？",
+          "Person 1: 我是老师。很高兴认识你！"
+        ]
+      },
+      {
+        "hsk-level": "1",
+        "topic": "self-introduction",
+        "conversation": [
+          "Person 1: 你叫什么名字？",
+          "Person 2: 我叫小张，你呢？",
+          "Person 1: 我叫丽丽。你来自哪里？",
+          "Person 2: 我来自上海，你呢？",
+          "Person 1: 我来自北京。"
+        ]
+      },
+    {
+        "hsk-level": "1",
+        "topic": "ordering food",
+        "conversation": [
+            "Waiter: 你好，欢迎光临！请问你要点什么？",
+            "Customer: 你好！我要一碗牛肉面和一杯茶。",
+            "Waiter: 好的，你要不要加辣？",
+            "Customer: 不要，谢谢。",
+            "Waiter: 好的，请稍等。"
+      ]
+    },
+    {
+        "hsk-level": "1",
+        "topic": "ordering food",
+        "conversation": [
+            "Waiter: 你好，这个十五块钱，你要买一个吗？",
+            "Customer: 好的，我要一个，谢谢！这是十五块。",
+            "Waiter: 收到了，不客气！祝你用餐愉快！"
+      ]
+    },
+    {
+        "hsk-level": "1",
+        "topic": "asking for directions",
+        "conversation": [
+            "Person 1: 你好，请问厕所在哪里？",
+            "Person 2: 厕所在那边，左转就是。",
+            "Person 1: 好的，谢谢！",
+            "Person 2: 不客气。祝你一天愉快！"
+      ]
+    },
+    {
+        "hsk-level": "1",
+        "topic": "asking for directions",
+        "conversation": [
+            "Person 1: 你好，请问银行在哪儿？",
+            "Person 2: 银行在前面，右转就到了。",
+            "Person 1: 右转吗？好的，谢谢！",
+            "Person 2: 对的，不客气！"
+      ]
+    },
+    {
+        "hsk-level": "1",
+        "topic": "numbers & prices",
+        "conversation": [
+            "Seller: 这个二十块，你要买吗？",
+            "Customer: 太贵了！可以便宜一点吗？",
+            "Seller: 好吧，十八块怎么样？",
+            "Customer: 好，我买了！给你十八块。",
+            "Seller: 谢谢，祝你购物愉快！"
+      ]
+    },
+    {
+        "hsk-level": "1",
+        "topic": "numbers & prices",
+        "conversation": [
+            "Seller: 这杯咖啡十块钱，两杯十八块。",
+            "Customer: 好的，我要两杯。这是十八块。",
+            "Seller: 好的，谢谢！请稍等。"
+      ]
+    },
+    {
+        "hsk-level": "1",
+        "topic": "daily activities",
+        "conversation": [
+            "Person 1: 你每天几点起床？",
+            "Person 2: 我每天七点起床。你呢？",
+            "Person 1: 我六点半起床，起床后我会先喝一杯水。",
+            "Person 2: 你吃早餐吗？",
+            "Person 1: 是的，我每天吃早餐。你呢？",
+            "Person 2: 有时候吃，有时候不吃。"
+      ]
+    },
+    {
+        "hsk-level": "1",
+        "topic": "daily activities",
+        "conversation": [
+            "Person 1: 你晚上几点睡觉？",
+            "Person 2: 我十点睡觉。你呢？",
+            "Person 1: 我十一点睡觉，有时候会晚一点。",
+            "Person 2: 你喜欢看电视吗？",
+            "Person 1: 喜欢！有时候我会看电视到很晚。",
+            "Person 2: 你喜欢看什么节目？",
+            "Person 1: 我喜欢看电影和新闻。"
+      ]
+    },
+    {
+        "hsk-level": "1",
+        "topic": "family & friends",
+        "conversation": [
+          "Person 1: 这是你的家人吗？",
+          "Person 2: 是的，这是我的爸爸妈妈。",
+          "Person 1: 他们叫什么名字？",
+          "Person 2: 我爸爸叫王强，妈妈叫李芳。",
+          "Person 1: 他们做什么工作？",
+          "Person 2: 我爸爸是医生，妈妈是老师。",
+          "Person 1: 你有兄弟姐妹吗？",
+          "Person 2: 有，我有一个哥哥和一个妹妹。"
+        ]
+      },
+      {
+        "hsk-level": "1",
+        "topic": "family & friends",
+        "conversation": [
+          "Person 1: 你有兄弟姐妹吗？",
+          "Person 2: 有，我有一个哥哥和一个妹妹。",
+          "Person 1: 他们多大了？",
+          "Person 2: 哥哥二十八岁，妹妹十六岁。",
+          "Person 1: 你们一起住吗？",
+          "Person 2: 不是，哥哥住在上海，妹妹住在家里。"
+        ]
+      },
+      {
+        "hsk-level": "1",
+        "topic": "shopping for essentials",
+        "conversation": [
+          "Seller: 你好，欢迎光临！你要买什么？",
+          "Customer: 你好，我想买一瓶水和一包饼干。",
+          "Seller: 好的，一共十块钱。",
+          "Customer: 这是十块，谢谢！",
+          "Seller: 谢谢，欢迎下次再来！",
+          "Customer: 好的，再见！"
+        ]
+      },
+      {
+        "hsk-level": "1",
+        "topic": "shopping for essentials",
+        "conversation": [
+          "Seller: 你好，需要帮忙吗？",
+          "Customer: 是的，我想买一件T恤。",
+          "Seller: 这件怎么样？",
+          "Customer: 很好！多少钱？",
+          "Seller: 八十块。",
+          "Customer: 这个有别的颜色吗？",
+          "Seller: 有，红色和蓝色。",
+          "Customer: 好的，我要蓝色的！"
+        ]
+      },
+      {
+        "hsk-level": "1",
+        "topic": "likes & dislikes",
+        "conversation": [
+          "Person 1: 你喜欢什么颜色？",
+          "Person 2: 我喜欢蓝色，你呢？",
+          "Person 1: 我喜欢红色。",
+          "Person 2: 你喜欢穿蓝色衣服吗？",
+          "Person 1: 是的，我每天都穿蓝色衣服！"
+        ]
+      },
+      {
+        "hsk-level": "1",
+        "topic": "likes & dislikes",
+        "conversation": [
+          "Person 1: 你喜欢吃什么？",
+          "Person 2: 我喜欢吃面条，你呢？",
+          "Person 1: 我喜欢吃米饭。",
+          "Person 2: 你会做饭吗？",
+          "Person 1: 会，我会做米饭！"
+        ]
+      },{
+        "hsk-level": "1",
+        "topic": "telling the time & dates",
+        "conversation": [
+          "Person 1: 现在几点？",
+          "Person 2: 现在三点半。",
+          "Person 1: 我们四点见，好吗？",
+          "Person 2: 好的，四点见！",
+          "Person 1: 你四点在哪儿？",
+          "Person 2: 我在咖啡店。"
+        ]
+      },
+      {
+        "hsk-level": "1",
+        "topic": "telling the time & dates",
+        "conversation": [
+          "Person 1: 今天星期几？",
+          "Person 2: 今天星期五。",
+          "Person 1: 太好了！周末你有时间吗？",
+          "Person 2: 有的，我们一起去公园怎么样？",
+          "Person 1: 好啊！几点去？",
+          "Person 2: 早上十点，怎么样？",
+          "Person 1: 没问题，十点见！"
+        ]
+      },
+      {
+        "hsk-level": "1",
+        "topic": "weather & seasons",
+        "conversation": [
+          "Person 1: 今天天气怎么样？",
+          "Person 2: 今天很热，三十度。",
+          "Person 1: 太热了！明天天气怎么样？",
+          "Person 2: 明天会下雨，会凉快一点。",
+          "Person 1: 那我要带伞！",
+          "Person 2: 对，小心别淋湿了！"
+        ]
+      },
+      {
+        "hsk-level": "1",
+        "topic": "weather & seasons",
+        "conversation": [
+          "Person 1: 你最喜欢哪个季节？",
+          "Person 2: 我喜欢春天，因为不冷也不热。",
+          "Person 1: 我喜欢冬天，可以滑雪！",
+          "Person 2: 但是冬天太冷了！",
+          "Person 1: 是的，可是我喜欢雪。"
+        ]
+      }
+  ]
+  

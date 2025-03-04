@@ -1,0 +1,526 @@
+[
+    {
+        "hsk-level": "3",
+        "topic": "seeing a doctor",
+        "conversation": [
+            "Person 1: 医生，我这几天一直咳嗽，还有点发烧。",
+            "Doctor: 你什么时候开始咳嗽的？",
+            "Person 1: 大概三天前，刚开始只是嗓子不舒服，后来越来越严重。",
+            "Doctor: 你有流鼻涕或者头疼吗？",
+            "Person 1: 有一点头疼，不过没有流鼻涕。",
+            "Doctor: 我先给你量一下体温，你要多喝水，多休息。我给你开一些药，每天吃三次，吃完后如果还不舒服，再来复查。",
+            "Person 1: 好的，谢谢医生。"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "seeing a doctor",
+        "conversation": [
+            "Person 1: 医生，我的胃很不舒服，吃了东西就想吐。",
+            "Doctor: 你昨天吃了什么？",
+            "Person 1: 我吃了海鲜和一些冰淇淋，可能是吃坏了。",
+            "Doctor: 你有拉肚子吗？",
+            "Person 1: 有，而且肚子一直疼。",
+            "Doctor: 可能是食物中毒，我给你开一些药，这几天不要吃油腻和生冷的食物，多喝热水。",
+            "Person 1: 明白了，谢谢医生。"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "seeing a doctor",
+        "conversation": [
+            "Person 1: 医生，我最近总是睡不好，晚上很难入睡。",
+            "Doctor: 你平时什么时候睡觉？",
+            "Person 1: 一般是十一点左右，但是最近躺在床上很久都睡不着。",
+            "Doctor: 你是不是经常看手机或者喝咖啡？",
+            "Person 1: 是的，我每天都会喝两杯咖啡，睡前也会刷手机。",
+            "Doctor: 这可能影响了你的睡眠。建议你晚上少喝咖啡，睡前一个小时不要看手机，试试听点轻音乐放松自己。",
+            "Person 1: 好的，我试试看，谢谢医生！"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "seeing a doctor",
+        "conversation": [
+            "Person 1: 医生，我的腿摔伤了，走路的时候很疼。",
+            "Doctor: 让我看看，你是怎么摔伤的？",
+            "Person 1: 我昨天骑自行车的时候不小心摔倒了，膝盖撞到地上了。",
+            "Doctor: 你的腿有肿吗？",
+            "Person 1: 有一点，而且有淤青。",
+            "Doctor: 我帮你检查一下，好在没有骨折，只是软组织受伤。你需要涂药膏，每天用冰敷十五分钟，避免剧烈运动。",
+            "Person 1: 明白了，谢谢医生！"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "giving & following directions",
+        "conversation": [
+            "Person 1: 请问，最近的地铁站怎么走？",
+            "Person 2: 你从这里直走，到第二个红绿灯右转，然后一直走，大概五分钟就能看到地铁站。",
+            "Person 1: 好的，谢谢！那附近有公交车站吗？",
+            "Person 2: 有的，地铁站旁边就有一个公交车站，你可以在那里坐车。",
+            "Person 1: 明白了，非常感谢！"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "giving & following directions",
+        "conversation": [
+            "Person 1: 你好，我想去市中心的那个大商场，该怎么走？",
+            "Person 2: 你先往前走，大约500米后会看到一个公园，在公园的右边有一条小路，你从那里走进去，过了两个路口就能看到商场。",
+            "Person 1: 哦，好的。那商场前面有停车场吗？",
+            "Person 2: 有的，商场正门前面就是一个大停车场。",
+            "Person 1: 明白了，谢谢你的帮助！"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "giving & following directions",
+        "conversation": [
+            "Person 1: 你好，请问附近有邮局吗？",
+            "Person 2: 有的，你从这里一直往前走，大概十分钟后会看到一个超市，邮局就在超市旁边。",
+            "Person 1: 好的，谢谢！那邮局几点关门？",
+            "Person 2: 平常是下午六点关门，周末可能会早一点。",
+            "Person 1: 明白了，谢谢你的帮助！"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "giving & following directions",
+        "conversation": [
+            "Person 1: 不好意思，请问医院怎么走？",
+            "Person 2: 你往前走，到第三个路口左转，然后一直走，大概十分钟就能看到医院。",
+            "Person 1: 这个医院大吗？",
+            "Person 2: 很大，你不会错过的，医院门口有一个很高的白色建筑。",
+            "Person 1: 好的，谢谢！"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "renting an apartment",
+        "conversation": [
+            "Person 1: 你好，我想租一间公寓，你们这里有房源吗？",
+            "Person 2: 有的，请问您想租多大的公寓？",
+            "Person 1: 我想租一室一厅的，最好有厨房和阳台。",
+            "Person 2: 这边有几套符合您的要求，租金大概在四千到五千元之间。",
+            "Person 1: 这个价格包含水电费吗？",
+            "Person 2: 不包含，水电费和网费需要您自己交。",
+            "Person 1: 明白了，我可以先看房吗？",
+            "Person 2: 当然，我现在可以带您去看看。"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "renting an apartment",
+        "conversation": [
+            "Person 1: 请问这间公寓一个月的租金是多少？",
+            "Person 2: 这间公寓一个月四千五百元。",
+            "Person 1: 需要押金吗？",
+            "Person 2: 需要押一付三，也就是要先交三个月的房租和一个月的押金。",
+            "Person 1: 哦，那房间里有家具吗？",
+            "Person 2: 有的，有床、沙发、桌子和空调。",
+            "Person 1: 这个小区安全吗？",
+            "Person 2: 很安全，有24小时保安，还有监控系统。",
+            "Person 1: 好的，我再考虑一下，谢谢！"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "renting an apartment",
+        "conversation": [
+            "Person 1: 你好，我想找一个离地铁站近的公寓。",
+            "Person 2: 我们这里有几套离地铁站步行五分钟的房子，您想要多大的？",
+            "Person 1: 一室一厅就可以，不要太贵。",
+            "Person 2: 这个月刚好有一间，一个月四千二百元，水电费另算。",
+            "Person 1: 可以养宠物吗？",
+            "Person 2: 这个房东不允许养宠物，您介意吗？",
+            "Person 1: 嗯，我有一只猫，那就不合适了。",
+            "Person 2: 没关系，我可以帮您找找允许养宠物的公寓。",
+            "Person 1: 太好了，谢谢！"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "renting an apartment",
+        "conversation": [
+            "Person 1: 你好，我对这间公寓很感兴趣，租期是怎么规定的？",
+            "Person 2: 最少租一年，合同签好后不能随便退租。",
+            "Person 1: 如果我提前退租怎么办？",
+            "Person 2: 需要提前一个月通知房东，否则可能不会退押金。",
+            "Person 1: 明白了，那这个房间的网费是多少？",
+            "Person 2: 网费一个月一百块，和水电费一起交。",
+            "Person 1: 好的，我可以再看看其他的房源吗？",
+            "Person 2: 当然，我这边有几套类似的，可以带您去看一下。"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "travel plans & hotel check-ins",
+        "conversation": [
+            "Person 1: 你好，我想预订一个双人房。",
+            "Person 2: 你好，请问您要入住几晚？",
+            "Person 1: 三晚，明天入住。",
+            "Person 2: 好的，您需要含早餐的吗？",
+            "Person 1: 是的，另外请问酒店有没有健身房？",
+            "Person 2: 有的，健身房在三楼，早上六点到晚上十点开放。",
+            "Person 1: 太好了，那我可以现在付款吗？",
+            "Person 2: 可以的，我们接受信用卡和微信支付。",
+            "Person 1: 好的，我用信用卡支付，谢谢！"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "travel plans & hotel check-ins",
+        "conversation": [
+            "Person 1: 你好，我想问一下，你们酒店有机场接送服务吗？",
+            "Person 2: 有的，您需要我们安排接送吗？",
+            "Person 1: 是的，我的航班晚上十点到。",
+            "Person 2: 没问题，请提供您的航班号，我们会安排司机在机场等您。",
+            "Person 1: 太好了，谢谢！另外，我的房间可以提前入住吗？",
+            "Person 2: 如果房间有空的话，您可以提前入住，但可能需要额外收费。",
+            "Person 1: 明白了，那我到时候再确认。",
+            "Person 2: 好的，欢迎您的到来！"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "travel plans & hotel check-ins",
+        "conversation": [
+            "Person 1: 你好，我的房间里没有热水，请问可以帮我看看吗？",
+            "Person 2: 很抱歉给您带来不便，我马上安排工程师检查。",
+            "Person 1: 谢谢！另外，房间里有吹风机吗？",
+            "Person 2: 有的，在浴室的柜子里。",
+            "Person 1: 好的，还有一件事，我想延长住宿两天，可以吗？",
+            "Person 2: 我帮您查一下……好的，您的房间可以续住，费用和之前一样。",
+            "Person 1: 太好了，那我现在支付吧。",
+            "Person 2: 好的，非常感谢！"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "travel plans & hotel check-ins",
+        "conversation": [
+            "Person 1: 你好，我想问一下，你们酒店附近有什么景点可以推荐吗？",
+            "Person 2: 当然，我们酒店旁边有一个著名的博物馆，还有一个很漂亮的公园。",
+            "Person 1: 听起来不错！那交通方便吗？",
+            "Person 2: 很方便，您可以坐地铁或者打车，大概十分钟就能到。",
+            "Person 1: 太好了，谢谢！另外，酒店有游泳池吗？",
+            "Person 2: 有的，游泳池在五楼，每天早上六点到晚上十点开放。",
+            "Person 1: 好的，我一定会去试试！"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "talking about past experiences",
+        "conversation": [
+            "Person 1: 你上个周末做了什么？",
+            "Person 2: 我去了一个很漂亮的海边城市。",
+            "Person 1: 真的啊？你在那里做了什么？",
+            "Person 2: 我去海滩散步，还吃了很多新鲜的海鲜。",
+            "Person 1: 听起来很不错！那里的天气怎么样？",
+            "Person 2: 天气很好，阳光明媚，不过有点热。",
+            "Person 1: 你住在哪里？",
+            "Person 2: 我住在一个很舒服的小旅馆，老板很热情。",
+            "Person 1: 那你玩得开心吗？",
+            "Person 2: 非常开心！下次你也可以去试试！"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "talking about past experiences",
+        "conversation": [
+            "Person 1: 你以前学过什么语言？",
+            "Person 2: 我小时候学过一点法语，不过现在忘得差不多了。",
+            "Person 1: 真的啊？为什么学法语？",
+            "Person 2: 因为我小时候住在法国三年。",
+            "Person 1: 那你觉得法语难吗？",
+            "Person 2: 语法有点复杂，发音也不太容易，不过挺有趣的。",
+            "Person 1: 现在你还想继续学吗？",
+            "Person 2: 是的，我最近开始重新学习，希望可以说得更流利。"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "talking about past experiences",
+        "conversation": [
+            "Person 1: 你以前去过中国吗？",
+            "Person 2: 去过，我两年前去过北京和上海。",
+            "Person 1: 那里怎么样？",
+            "Person 2: 北京的历史文化很丰富，我参观了故宫和长城。",
+            "Person 1: 哇！长城怎么样？",
+            "Person 2: 非常壮观，不过爬上去有点累。",
+            "Person 1: 那上海呢？",
+            "Person 2: 上海很现代，夜景特别漂亮，我去了外滩和东方明珠塔。",
+            "Person 1: 听起来你玩得很开心！",
+            "Person 2: 是啊，那次旅行让我印象深刻。"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "talking about past experiences",
+        "conversation": [
+            "Person 1: 你以前做过什么特别的事情吗？",
+            "Person 2: 有一次我去过一个很偏远的村庄做志愿者。",
+            "Person 1: 哇！你在那里做了什么？",
+            "Person 2: 我们帮忙教小孩子英语，还修了一座小桥。",
+            "Person 1: 真的很有意义！你在那里待了多久？",
+            "Person 2: 大概两个星期，虽然时间不长，但收获很多。",
+            "Person 1: 那里的生活怎么样？",
+            "Person 2: 生活很简单，但是人们都很友好。",
+            "Person 1: 你以后还想再去吗？",
+            "Person 2: 当然！如果有机会，我一定会再去的。"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "work & study life",
+        "conversation": [
+            "Person 1: 你现在在哪儿工作？",
+            "Person 2: 我在一家科技公司做软件工程师。",
+            "Person 1: 哇，那一定很忙吧？",
+            "Person 2: 是的，我们经常加班，特别是项目快要完成的时候。",
+            "Person 1: 你平时的工作内容是什么？",
+            "Person 2: 主要是写代码、测试软件，还要和团队讨论新的功能。",
+            "Person 1: 你喜欢这份工作吗？",
+            "Person 2: 喜欢，虽然有时候压力大，但是能学到很多东西。"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "work & study life",
+        "conversation": [
+            "Person 1: 你是学生吗？",
+            "Person 2: 是的，我在大学读经济学。",
+            "Person 1: 经济学听起来很难，你觉得怎么样？",
+            "Person 2: 是有点难，特别是数学和统计分析的部分。",
+            "Person 1: 你每天上几节课？",
+            "Person 2: 一般有三到四节课，有时候还有讨论课。",
+            "Person 1: 你们考试多吗？",
+            "Person 2: 还好，但是作业特别多，经常要写论文和做研究。"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "work & study life",
+        "conversation": [
+            "Person 1: 你在公司工作多久了？",
+            "Person 2: 我已经工作两年了。",
+            "Person 1: 你觉得工作和上学有什么不同？",
+            "Person 2: 工作更有压力，需要自己解决问题，而上学的时候老师会帮你。",
+            "Person 1: 你平时怎么安排时间？",
+            "Person 2: 白天上班，晚上有时候学习新技能，比如编程和外语。",
+            "Person 1: 你觉得继续学习重要吗？",
+            "Person 2: 当然，时代变化快，不学习就会落后。"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "work & study life",
+        "conversation": [
+            "Person 1: 你最喜欢的课程是什么？",
+            "Person 2: 我最喜欢历史课。",
+            "Person 1: 为什么？",
+            "Person 2: 因为我喜欢了解过去的事情，觉得很有意思。",
+            "Person 1: 你以后想从事和历史相关的工作吗？",
+            "Person 2: 可能吧，但我现在还不确定，也许会去做研究或者当老师。",
+            "Person 1: 你的老师怎么样？",
+            "Person 2: 他们都很好，特别是我的历史老师，他讲课特别生动。"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "making & rejecting invitations",
+        "conversation": [
+            "Person 1: 这个周末你有时间吗？",
+            "Person 2: 有啊，怎么了？",
+            "Person 1: 我打算举办一个小型聚会，你要来吗？",
+            "Person 2: 听起来不错！会有很多人吗？",
+            "Person 1: 是的，我邀请了十几个朋友。",
+            "Person 2: 那太好了！我一定会来，几点开始？",
+            "Person 1: 晚上七点，地址我发给你。",
+            "Person 2: 好的，我会准时到！"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "making & rejecting invitations",
+        "conversation": [
+            "Person 1: 你想一起去看电影吗？",
+            "Person 2: 哪一天？",
+            "Person 1: 明天晚上，刚上映一部新电影，听说很好看。",
+            "Person 2: 明天晚上我可能没办法，我有一个重要的会议。",
+            "Person 1: 啊，太可惜了！那我们改天再去吧。",
+            "Person 2: 好啊，周末怎么样？",
+            "Person 1: 周末可以！我再提前和你确认。",
+            "Person 2: 好的，期待一起看电影！"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "making & rejecting invitations",
+        "conversation": [
+            "Person 1: 下周六是我的生日，你能来参加派对吗？",
+            "Person 2: 你生日？当然要去！在哪儿办？",
+            "Person 1: 在我家，晚上六点开始。",
+            "Person 2: 太好了！我会带礼物过去。",
+            "Person 1: 不用带礼物，来就好！",
+            "Person 2: 怎么能不带呢？你喜欢什么？",
+            "Person 1: 哈哈，真的不用，不过谢谢你！",
+            "Person 2: 好，那我就带个小蛋糕吧。",
+            "Person 1: 太棒了！期待见到你！"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "making & rejecting invitations",
+        "conversation": [
+            "Person 1: 这个周五我们去郊游吧，你觉得怎么样？",
+            "Person 2: 听起来不错！去哪儿？",
+            "Person 1: 去一个风景很美的地方，可以爬山、野餐。",
+            "Person 2: 很有意思，但我周五有点忙，可能去不了。",
+            "Person 1: 哎呀，真可惜！那周六呢？",
+            "Person 2: 周六可以！我们几点出发？",
+            "Person 1: 早上八点怎么样？",
+            "Person 2: 可以，我会准时到！"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "public transportation issues",
+        "conversation": [
+            "Person 1: 糟糕，我刚刚错过了公交车！",
+            "Person 2: 你要去哪里？",
+            "Person 1: 我要去市中心，但下一班车要半个小时后才来。",
+            "Person 2: 你可以坐地铁，地铁更快，而且不会堵车。",
+            "Person 1: 你觉得我应该在哪一站换乘？",
+            "Person 2: 你可以在红线换到蓝线，然后坐三站就到了。",
+            "Person 1: 好主意，我去试试！谢谢你的建议！"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "public transportation issues",
+        "conversation": [
+            "Person 1: 这辆公交车怎么还不来？已经等了二十分钟了。",
+            "Person 2: 可能是堵车了，你查一下公交车的实时信息吧。",
+            "Person 1: 好的，我看看……天啊，居然取消了这趟车！",
+            "Person 2: 那你可以换别的路线，或者打车去。",
+            "Person 1: 打车太贵了，我看看有没有别的公交线路。",
+            "Person 2: 你可以坐 42 路到地铁站，然后再换乘地铁。",
+            "Person 1: 这个办法不错，谢谢！"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "public transportation issues",
+        "conversation": [
+            "Person 1: 我今天早上坐公交车上班，结果堵车了，迟到了！",
+            "Person 2: 早上高峰时间公交车总是很慢，你有没有别的选择？",
+            "Person 1: 我可以坐地铁，但地铁里人太多了。",
+            "Person 2: 你可以早点出门，这样人可能会少一点。",
+            "Person 1: 也是个办法，或者我可以试试骑共享单车。",
+            "Person 2: 对啊，骑车很方便，还能锻炼身体。",
+            "Person 1: 好主意！明天我就试试！"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "public transportation issues",
+        "conversation": [
+            "Person 1: 你有遇到过公交车突然改路线的情况吗？",
+            "Person 2: 有啊，有一次我要去机场，结果公交车改道了，害我差点误机！",
+            "Person 1: 太糟糕了！后来你怎么办？",
+            "Person 2: 我赶紧下车，打了一辆出租车，最后刚好赶上了。",
+            "Person 1: 现在出门前最好查一下公交线路，以免发生意外。",
+            "Person 2: 是的，或者用导航软件来看看哪条路线最快。",
+            "Person 1: 好主意！下次我一定先查好路线。"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "buying electronics & gadgets",
+        "conversation": [
+          "Person 1: 我想买一部新手机，你有什么推荐吗？",
+          "Person 2: 你比较喜欢苹果还是安卓？",
+          "Person 1: 我以前用苹果，但感觉安卓的功能更多。",
+          "Person 2: 是的，安卓手机性价比更高，而且可以自定义很多东西。",
+          "Person 1: 那你觉得哪一款比较好？",
+          "Person 2: 如果你喜欢拍照，最新的X牌手机有很好的摄像头。",
+          "Person 1: 听起来不错，我去看看！"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "buying electronics & gadgets",
+        "conversation": [
+            "Person 1: 你觉得买笔记本电脑应该看什么参数？",
+            "Person 2: 主要看处理器、内存和显卡。如果你要用来做设计或者玩游戏，就需要更好的配置。",
+            "Person 1: 我主要是办公和上网，偶尔剪辑视频。",
+            "Person 2: 那16GB内存比较合适，处理器至少要i5或者更高。",
+            "Person 1: 这台电脑不错，可是有点贵。",
+            "Person 2: 你可以等打折的时候买，或者看看二手的。",
+            "Person 1: 这个主意不错，我再比较一下。"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "buying electronics & gadgets",
+        "conversation": [
+            "Person 1: 这家店的耳机和音箱都在打折，我不知道买哪个好。",
+            "Person 2: 你主要是想听音乐还是看电影？",
+            "Person 1: 两个都想，不过更常听音乐。",
+            "Person 2: 那你可以买个好一点的耳机，音质会更清晰。",
+            "Person 1: 这个耳机有降噪功能，我很喜欢。",
+            "Person 2: 那就买这个吧！降噪功能在外面用特别有用。",
+            "Person 1: 好，就它了！谢谢你的建议！"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "expressing opinions",
+        "conversation": [
+            "Person 1: 你觉得咖啡好喝还是茶好喝？",
+            "Person 2: 我更喜欢茶，因为茶比较健康，而且不会让我睡不着。",
+            "Person 1: 但我觉得咖啡的味道更好，而且能让我更有精神。",
+            "Person 2: 这倒是，不过咖啡喝多了对胃不好。",
+            "Person 1: 也是，所以我尽量控制每天只喝一杯。",
+            "Person 2: 这样比较好，适量就行。"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "expressing opinions",
+        "conversation": [
+            "Person 1: 你觉得住在城市里好，还是乡下好？",
+            "Person 2: 当然是城市！城市的交通便利，生活很方便。",
+            "Person 1: 但是城市太吵了，空气也不太好。",
+            "Person 2: 乡下确实空气好，可是购物、上班都不方便。",
+            "Person 1: 也是，不过我还是喜欢安静的环境。",
+            "Person 2: 也许住在城市边上比较好，这样能有两者的优点。"
+        ]
+    },
+    {
+        "hsk-level": "3",
+        "topic": "expressing opinions",
+        "conversation": [
+            "Person 1: 你觉得学习外语重要吗？",
+            "Person 2: 当然重要！会外语可以和更多人交流，也有更多工作机会。",
+            "Person 1: 但学外语很难，需要很多时间。",
+            "Person 2: 是的，但是现在有很多学习工具，比如手机应用、网课。",
+            "Person 1: 这倒是。不过不是每个人都需要学外语吧？",
+            "Person 2: 可能吧，但我觉得至少会英语对工作很有帮助。"
+        ]
+      },
+      {
+        "hsk-level": "3",
+        "topic": "expressing opinions",
+        "conversation": [
+            "Person 1: 你觉得网络购物比去商店买东西好吗？",
+            "Person 2: 当然好！在网上买东西又便宜又方便。",
+            "Person 1: 但网上买东西看不到实物，质量可能不好。",
+            "Person 2: 现在很多店都有退货服务，不合适可以退。",
+            "Person 1: 可是有时候等快递要很久，去商店买可以马上拿到。",
+            "Person 2: 这倒是，看情况吧。如果是急需的东西，我会去商店买。"
+        ]
+      }           
+]

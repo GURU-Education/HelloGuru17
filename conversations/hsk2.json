@@ -1,0 +1,334 @@
+[
+    {
+        "hsk-level": "2",
+        "topic": "talking about hobbies",
+        "conversation": [
+            "Person 1: 你有什么爱好？",
+            "Person 2: 我喜欢踢足球，也喜欢听音乐。你呢？",
+            "Person 1: 我喜欢看电影，特别是动作片。",
+            "Person 2: 你最喜欢哪部电影？",
+            "Person 1: 我最喜欢《速度与激情》。你喜欢看电影吗？",
+            "Person 2: 喜欢！我喜欢喜剧电影。"
+        ]
+    },
+    {
+        "hsk-level": "2",
+        "topic": "talking about hobbies",
+        "conversation": [
+            "Person 1: 你会弹钢琴吗？",
+            "Person 2: 会一点，我小时候学过。你呢？",
+            "Person 1: 我不会弹钢琴，但是我会弹吉他。",
+            "Person 2: 真的吗？吉他难学吗？",
+            "Person 1: 还好，只要多练习就可以。你想学吗？",
+            "Person 2: 想啊！你可以教我吗？",
+            "Person 1: 当然可以！"
+      ]
+    },
+    {
+        "hsk-level": "2",
+        "topic": "talking about hobbies",
+        "conversation": [
+            "Person 1: 你有什么爱好？",
+            "Person 2: 我喜欢听音乐和看电影。",
+            "Person 1: 你最喜欢什么音乐？",
+            "Person 2: 我喜欢流行音乐，你呢？",
+            "Person 1: 我喜欢摇滚乐。你最喜欢的电影是什么？",
+            "Person 2: 我最喜欢《狮子王》，因为它很感人。",
+            "Person 1: 我也喜欢这部电影！"
+        ]
+      },
+    {
+        "hsk-level": "2",
+        "topic": "making an appointment",
+        "conversation": [
+            "Person 1: 你明天有空吗？",
+            "Person 2: 早上没有空，下午可以。怎么了？",
+            "Person 1: 我们一起去图书馆学习吧？",
+            "Person 2: 好啊！几点见？",
+            "Person 1: 下午两点怎么样？",
+            "Person 2: 可以，我两点在图书馆门口等你。"
+        ]
+    },
+    {
+        "hsk-level": "2",
+        "topic": "making an appointment",
+        "conversation": [
+            "Person 1: 你好，我想预约一个医生。",
+            "Person 2: 好的，请问您想约什么时候？",
+            "Person 1: 明天下午可以吗？",
+            "Person 2: 下午三点有空位，您可以吗？",
+            "Person 1: 可以，谢谢！我明天下午三点来。",
+            "Person 2: 好的，请准时到医院。"
+        ]
+    },
+    {
+        "hsk-level": "2",
+        "topic": "transportation & travel",
+        "conversation": [
+            "Person 1: 请问，这班公交车去火车站吗？",
+            "Person 2: 是的，可以到火车站。",
+            "Person 1: 车票多少钱？",
+            "Person 2: 五块钱一张。",
+            "Person 1: 好的，谢谢！",
+            "Person 2: 不客气！"
+        ]
+    },
+    {
+        "hsk-level": "2",
+        "topic": "transportation & travel",
+        "conversation": [
+            "Person 1: 你知道去机场的地铁是几号线吗？",
+            "Person 2: 是十号线，直接到机场。",
+            "Person 1: 需要换乘吗？",
+            "Person 2: 不需要，十号线是直达的。",
+            "Person 1: 太好了，谢谢！",
+            "Person 2: 不用客气！"
+        ]
+    },
+    {
+        "hsk-level": "2",
+        "topic": "transportation & travel",
+        "conversation": [
+            "Person 1: 你好，请问去机场怎么走？",
+            "Person 2: 你可以坐地铁或者打车。",
+            "Person 1: 地铁快还是出租车快？",
+            "Person 2: 地铁大概四十分钟，出租车三十分钟，但出租车贵一些。",
+            "Person 1: 明白了，谢谢你的建议！",
+            "Person 2: 不客气，祝你旅途愉快！"
+        ]
+    },      
+    {
+        "hsk-level": "2",
+        "topic": "shopping & bargaining",
+        "conversation": [
+            "Seller: 你好，这件衣服一共三百块。",
+            "Customer: 能便宜一点吗？",
+            "Seller: 你想要多少？",
+            "Customer: 二百五怎么样？",
+            "Seller: 好吧，二百八，最低价了。",
+            "Customer: 行，买了！"
+        ]
+    },
+    {
+        "hsk-level": "2",
+        "topic": "shopping & bargaining",
+        "conversation": [
+            "Seller: 这双鞋很不错，四百块。",
+            "Customer: 能不能再便宜点？",
+            "Seller: 你出个价吧。",
+            "Customer: 三百块可以吗？",
+            "Seller: 三百五，不能再低了。",
+            "Customer: 好，我要了！"
+        ]
+    },
+    {
+        "hsk-level": "2",
+        "topic": "describing people & places",
+        "conversation": [
+            "Person 1: 你的老师长什么样？",
+            "Person 2: 他很高，大概一米八，头发是黑色的。",
+            "Person 1: 他的眼睛大吗？",
+            "Person 2: 还好，不是特别大，但是很有神。",
+            "Person 1: 他看起来严肃吗？",
+            "Person 2: 不，他总是笑，很和蔼。"
+        ]
+    },
+    {
+        "hsk-level": "2",
+        "topic": "describing people & places",
+        "conversation": [
+            "Person 1: 你家附近有什么有趣的地方？",
+            "Person 2: 这里有一个很大的公园，还有很多小吃店。",
+            "Person 1: 这个公园怎么样？",
+            "Person 2: 很漂亮，有很多树和花，还有一个湖。",
+            "Person 1: 听起来很不错，周末我可以去玩吗？",
+            "Person 2: 当然！我们可以一起去！"
+        ]
+    },
+    {
+        "hsk-level": "2",
+        "topic": "describing people & places",
+        "conversation": [
+            "Person 1: 你的新同事怎么样？",
+            "Person 2: 她很友好，也很聪明。",
+            "Person 1: 她长什么样？",
+            "Person 2: 她不高，大概一米六，戴眼镜，头发是棕色的。",
+            "Person 1: 听起来是个很好相处的人。",
+            "Person 2: 是的，我们相处得很好。"
+        ]
+    },
+    {
+        "hsk-level": "2",
+        "topic": "daily routines & schedules",
+        "conversation": [
+            "Person 1: 你每天几点起床？",
+            "Person 2: 我一般早上七点起床。",
+            "Person 1: 你起床后做什么？",
+            "Person 2: 我先刷牙洗脸，然后吃早饭。",
+            "Person 1: 你几点去上班？",
+            "Person 2: 八点半出门，九点到公司。"
+        ]
+    },
+    {
+        "hsk-level": "2",
+        "topic": "daily routines & schedules",
+        "conversation": [
+            "Person 1: 你周末一般做什么？",
+            "Person 2: 我喜欢睡懒觉，然后去运动。",
+            "Person 1: 你做什么运动？",
+            "Person 2: 我喜欢跑步，有时候去游泳。",
+            "Person 1: 你晚上几点睡觉？",
+            "Person 2: 一般十一点左右。"
+        ]
+    },
+    {
+        "hsk-level": "2",
+        "topic": "daily routines & schedules",
+        "conversation": [
+            "Person 1: 你的工作时间是怎么样的？",
+            "Person 2: 我早上九点开始工作，下午六点下班。",
+            "Person 1: 那你午饭时间是几点？",
+            "Person 2: 中午十二点到一点。",
+            "Person 1: 下班后你会做什么？",
+            "Person 2: 我有时候去健身房，有时候在家看书。"
+        ]
+    },
+    {
+        "hsk-level": "2",
+        "topic": "basic health issues",
+        "conversation": [
+            "Person 1: 你怎么了？",
+            "Person 2: 我头很疼。",
+            "Person 1: 你吃药了吗？",
+            "Person 2: 还没有，我要去买药。",
+            "Person 1: 你要多休息。",
+            "Person 2: 好的，谢谢你。"
+        ]
+      },
+      {
+        "hsk-level": "2",
+        "topic": "basic health issues",
+        "conversation": [
+            "Person 1: 你看起来不舒服。",
+            "Person 2: 是的，我发烧了。",
+            "Person 1: 你去医院了吗？",
+            "Person 2: 还没，我想先休息一下。",
+            "Person 1: 多喝水，早点休息。",
+            "Person 2: 谢谢，我会的。"
+        ]
+      },
+      {
+        "hsk-level": "2",
+        "topic": "basic health issues",
+        "conversation": [
+            "Person 1: 你怎么了？",
+            "Person 2: 我肚子疼，可能吃坏了东西。",
+            "Person 1: 你要不要去看医生？",
+            "Person 2: 先看看情况，如果不好就去。",
+            "Person 1: 你今天别吃太油的东西。",
+            "Person 2: 好的，我会注意。"
+        ]
+    },
+    {
+        "hsk-level": "2",
+        "topic": "basic health issues",
+        "conversation": [
+            "Person 1: 你怎么了？",
+            "Person 2: 我头很疼。",
+            "Person 1: 你吃药了吗？",
+            "Person 2: 还没有，我要去买药。",
+            "Person 1: 你要多休息。",
+            "Person 2: 好的，谢谢你。"
+        ]
+    },
+    {
+        "hsk-level": "2",
+        "topic": "basic health issues",
+        "conversation": [
+            "Person 1: 你看起来不舒服。",
+            "Person 2: 是的，我发烧了。",
+            "Person 1: 你去医院了吗？",
+            "Person 2: 还没，我想先休息一下。",
+            "Person 1: 多喝水，早点休息。",
+            "Person 2: 谢谢，我会的。"
+        ]
+    },
+    {
+        "hsk-level": "2",
+        "topic": "basic health issues",
+        "conversation": [
+            "Person 1: 你怎么了？",
+            "Person 2: 我肚子疼，可能吃坏了东西。",
+            "Person 1: 你要不要去看医生？",
+            "Person 2: 先看看情况，如果不好就去。",
+            "Person 1: 你今天别吃太油的东西。",
+            "Person 2: 好的，我会注意。"
+        ]
+    },
+    {
+        "hsk-level": "2",
+        "topic": "ordering online",
+        "conversation": [
+            "Customer: 我昨天买的手机什么时候到？",
+            "Support: 预计三天后送到。",
+            "Customer: 能快一点吗？",
+            "Support: 我们会尽量安排最快的配送。"
+        ]
+    },
+    {
+        "hsk-level": "2",
+        "topic": "ordering online",
+        "conversation": [
+            "Customer: 这个衣服不合适，可以退货吗？",
+            "Support: 可以，请在七天内申请退货。",
+            "Customer: 退货需要付运费吗？",
+            "Support: 不需要，我们提供免费退货服务。"
+        ]
+    },
+    {
+        "hsk-level": "2",
+        "topic": "ordering online",
+        "conversation": [
+            "Customer: 你们有这款电脑吗？",
+            "Support: 有的，请问你要什么颜色？",
+            "Customer: 黑色的有货吗？",
+            "Support: 有，我们可以今天发货。",
+            "Customer: 太好了，那我下单！"
+        ]
+    },
+    {
+        "hsk-level": "2",
+        "topic": "talking about future plans",
+        "conversation": [
+            "Person 1: 你周末有什么计划？",
+            "Person 2: 我打算去公园散步。",
+            "Person 1: 你一个人去吗？",
+            "Person 2: 不是，我和朋友一起去。",
+            "Person 1: 听起来很不错！"
+        ]
+    },
+    {
+        "hsk-level": "2",
+        "topic": "talking about future plans",
+        "conversation": [
+            "Person 1: 你假期想去哪里玩？",
+            "Person 2: 我想去海边。",
+            "Person 1: 你要去几天？",
+            "Person 2: 计划去三天。",
+            "Person 1: 你准备好东西了吗？",
+            "Person 2: 还没有，我明天去买。"
+        ]
+    },
+    {
+        "hsk-level": "2",
+        "topic": "talking about future plans",
+        "conversation": [
+            "Person 1: 你明年有什么计划？",
+            "Person 2: 我想学一门新语言。",
+            "Person 1: 你想学什么语言？",
+            "Person 2: 我想学法语。",
+            "Person 1: 很好！希望你学得开心。"
+        ]
+    }      
+]
+  
