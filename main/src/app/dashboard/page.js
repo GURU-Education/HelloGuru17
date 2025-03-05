@@ -1703,7 +1703,7 @@ const MandarinDashboard = () => {
                             style={{ display: "inline-block" }}
                           >
                             <Badge
-                              pill
+                              // pill
                               className="m-1"
                               style={{
                                 fontSize: `${fontSize}px`,
@@ -1716,6 +1716,7 @@ const MandarinDashboard = () => {
                                 border: "1px solid rgba(255, 255, 255, 0.5)",
                                 boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
                                 color: "white",
+                                borderRadius: "30px"
                               }}
                               onClick={() => handleWordClick(word.text)}
                             >
