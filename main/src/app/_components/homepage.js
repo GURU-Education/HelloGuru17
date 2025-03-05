@@ -3,7 +3,7 @@ import StreamVideo from "./stream-video";
 import Spline from "@splinetool/react-spline";
 import { Button, Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./homepage.css";
+import "../styles/homepage.css";
 import { useQuery } from "@tanstack/react-query";
 
 const fetchUser = async (email) => {

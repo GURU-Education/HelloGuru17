@@ -5,7 +5,7 @@ import Login from "./login";
 import Welcome from "./welcome";
 import Signup from "./signup";
 import HomePage from "./homepage";
-import "./home.css";
+import "../styles/stream-video.css";
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState("welcome");

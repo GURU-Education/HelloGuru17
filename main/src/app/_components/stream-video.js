@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { useMutation } from "@tanstack/react-query";
-import "./stream-video.css"; // Import the CSS file
+import "../styles/stream-video.css";
 
 function StreamVideo() {
   const videoRef = useRef(null);
