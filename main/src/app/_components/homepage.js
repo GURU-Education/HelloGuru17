@@ -16,7 +16,7 @@ const fetchUser = async (email) => {
 
 export default function HomePage() {
   const email = JSON.parse(localStorage.getItem("user"))?.email;
-  console.log("Email:", email);
+  // console.log("Email:", email);
   const {
     data: user,
     isLoading,
@@ -27,13 +27,13 @@ export default function HomePage() {
     enabled: !!email,
   });
 
-  console.log("User:", user);
+  // console.log("User:", user);
   const [images, setImages] = useState([null, null, null]);
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     if (user?.user?.photo_urls?.length === 0) {
-      console.log(user?.user?.photo_urls);
+      // console.log(user?.user?.photo_urls);
       setShowModal(true);
     }
   }, [user]);
@@ -57,7 +57,7 @@ export default function HomePage() {
   const uploadImages = async () => {
     const user = JSON.parse(localStorage.getItem("user"));
     const email = user?.email;
-    console.log("Email:", email);
+    // console.log("Email:", email);
     if (!email) {
       console.error("User email not found in local storage");
       return;

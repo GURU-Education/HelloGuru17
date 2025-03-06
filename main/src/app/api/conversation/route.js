@@ -5,7 +5,7 @@ export async function GET(req) {
   try {
     await connectToDatabase();
     const conversationObjects = await conversations.find();
-    console.log(conversationObjects);
+    // console.log(conversationObjects);
     return Response.json({ success: true, conversationObjects });
   } catch (error) {
     return Response.json(

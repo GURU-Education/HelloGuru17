@@ -23,7 +23,7 @@ export async function POST(req) {
     const buffer = Buffer.from(audioData, "base64");
     fs.writeFileSync(inputFilePath, buffer);
 
-    console.log(`Converting ${inputFilePath} to WAV...`);
+    // console.log(`Converting ${inputFilePath} to WAV...`);
 
     return new Promise((resolve, reject) => {
       ffmpeg(inputFilePath)
@@ -31,7 +31,7 @@ export async function POST(req) {
         .audioCodec("pcm_s16le")
         .audioFrequency(16000)
         .on("end", () => {
-          console.log("Conversion complete:", outputFilePath);
+        //   console.log("Conversion complete:", outputFilePath);
           resolve(
             new Response(JSON.stringify({ success: true, path: `/recordings/${filename}` }), {
               status: 200,
