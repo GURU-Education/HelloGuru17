@@ -103,19 +103,27 @@ export default function RoleplayComponent() {
 
   useEffect(() => {
     const mappedData = conversations.reduce((acc, doc) => {
+      // Find if this HSK level already exists in the array
       let levelObj = acc.find((item) => item.level === doc.hskLevel);
       if (!levelObj) {
         levelObj = { level: doc.hskLevel, topics: [] };
         acc.push(levelObj);
       }
-      levelObj.topics.push({
-        name: doc.topic,
-        conversation: doc.conversation,
-      });
+
+      // Check if the topic name already exists in `levelObj.topics`
+      const hasTopic = levelObj.topics.some((t) => t.name === doc.topic);
+      if (!hasTopic) {
+        // Only push if the topic doesn't exist yet
+        levelObj.topics.push({
+          name: doc.topic,
+          conversation: doc.conversation,
+        });
+      }
+
       return acc;
     }, []);
 
-    console.log("mappedData: ", mappedData);
+    console.log("mappedData (no duplicates): ", mappedData);
     setHskLevels(mappedData);
   }, [conversations]);
 
