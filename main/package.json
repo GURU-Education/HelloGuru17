@@ -12,9 +12,29 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@mui/material": "^6.4.5",
+    "@radix-ui/react-slot": "^1.1.2",
+    "@splinetool/react-spline": "^4.0.0",
+    "@tailwindcss/postcss": "^4.0.8",
+    "@tanstack/react-query": "^5.66.9",
+    "bootstrap": "^5.3.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.4.7",
+    "lodash": "^4.17.21",
+    "lucide-react": "^0.475.0",
     "mongoose": "^8.10.1",
     "next": "15.1.7",
+    "postcss": "^8.5.3",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-bootstrap": "^2.10.9",
+    "react-dom": "^19.0.0",
+    "recharts": "^2.15.1",
+    "tailwind-merge": "^3.0.2",
+    "tailwindcss": "^4.0.8",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@types/node": "22.13.8",
+    "typescript": "5.8.2"
   }
 }
