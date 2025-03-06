@@ -320,3 +320,23 @@
   height: 600px !important;
   background: transparent !important;
 }
+
+.spline-wrapper-chat {
+  position: absolute;
+  top: -15%;
+  left: -3%;
+  width: 1000px; /* bounding box for the wrapper */
+  height: 1000px;
+  overflow: hidden; /* hide overflow if we scale down the canvas */
+  pointer-events: none;
+}
+
+/* The Spline library typically renders a <div> with a canvas inside.
+   Target that <div> directly and scale it. You may need to adjust the selector. */
+.spline-wrapper-chat > div {
+  transform: scale(0.8) translate(0px, 0); /* 50% smaller */
+  transform-origin: top left; /* anchor the scale to top-left corner */
+  width: 1200px !important; /* must be bigger than the wrapper so we can scale down */
+  height: 1200px !important;
+  background: transparent !important;
+}

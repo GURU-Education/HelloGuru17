@@ -256,7 +256,7 @@ export default function RoleplayComponent() {
    ******************************************************************** */
   return (
     <div className="background-container">
-      <div className="spline-wrapper">
+      <div className="spline-wrapper-chat">
         <Spline scene="https://prod.spline.design/ZCLA7cXZ95aBo0pU/scene.splinecode" />
       </div>
 
