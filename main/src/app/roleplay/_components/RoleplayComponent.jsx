@@ -122,8 +122,6 @@ export default function RoleplayComponent() {
 
       return acc;
     }, []);
-
-    console.log("mappedData (no duplicates): ", mappedData);
     setHskLevels(mappedData);
   }, [conversations]);
 
