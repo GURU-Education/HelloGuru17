@@ -1,6 +1,6 @@
 [
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "job interview & career choices",
         "conversation": [
             "Interviewer: 你能介绍一下自己吗？",
@@ -15,7 +15,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "job interview & career choices",
         "conversation": [
             "Interviewer: 你以前有相关的工作经验吗？",
@@ -29,7 +29,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "job interview & career choices",
         "conversation": [
             "Interviewer: 你对未来的职业发展有什么计划？",
@@ -42,7 +42,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "job interview & career choices",
         "conversation": [
             "Interviewer: 我们的公司经常需要加班，你可以接受吗？",
@@ -55,7 +55,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "job interview & career choices",
         "conversation": [
             "Interviewer: 你为什么从上一家公司离职？",
@@ -69,7 +69,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "giving & receiving advice",
         "conversation": [
             "Person 1: 我最近学习压力很大，总是觉得时间不够用，你有什么建议吗？",
@@ -80,7 +80,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "giving & receiving advice",
         "conversation": [
             "Person 1: 我想换工作，但又担心新环境不适应，你觉得我应该怎么办？",
@@ -91,7 +91,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "giving & receiving advice",
         "conversation": [
             "Person 1: 我最近准备考HSK4级，但总觉得词汇量不够，你有什么学习方法吗？",
@@ -102,7 +102,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "giving & receiving advice",
         "conversation": [
             "Person 1: 我最近想学编程，但不知道从哪里开始，你有什么建议吗？",
@@ -113,7 +113,7 @@
         ]
     },      
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "handling emergencies",
         "conversation": [
             "Person 1: 你好，我的护照丢了，我该怎么办？",
@@ -126,7 +126,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "handling emergencies",
         "conversation": [
             "Person 1: 警察先生，我的手机被偷了！",
@@ -139,7 +139,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "handling emergencies",
         "conversation": [
             "Person 1: 糟糕，我的钱包丢了！里面有信用卡和身份证。",
@@ -152,7 +152,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "handling emergencies",
         "conversation": [
             "Person 1: 你好，我的朋友晕倒了，需要急救！",
@@ -165,7 +165,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "handling emergencies",
         "conversation": [
             "Person 1: 我刚刚发现家里好像有煤气泄漏，怎么办？",
@@ -177,7 +177,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "social media & online trends",
         "conversation": [
             "Person 1: 你最常用的社交媒体是什么？",
@@ -189,7 +189,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "social media & online trends",
         "conversation": [
             "Person 1: 你关注哪些网红或者博主？",
@@ -201,7 +201,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "social media & online trends",
         "conversation": [
             "Person 1: 你觉得现在的社交媒体对年轻人影响大吗？",
@@ -213,7 +213,7 @@
         ]
         },
         {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "social media & online trends",
         "conversation": [
             "Person 1: 你知道最近网上很火的挑战吗？",
@@ -225,7 +225,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "discussing news & current events",
         "conversation": [
             "Person 1: 你最近有关注国际新闻吗？",
@@ -237,7 +237,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "discussing news & current events",
         "conversation": [
             "Person 1: 你有没有听说最近的经济新闻？",
@@ -249,7 +249,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "discussing news & current events",
         "conversation": [
             "Person 1: 最近关于人工智能的新闻越来越多了。",
@@ -261,7 +261,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "discussing news & current events",
         "conversation": [
             "Person 1: 你知道最近的体育新闻吗？",
@@ -275,7 +275,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "debating pros & cons",
         "conversation": [
             "Person 1: 你觉得出国留学好不好？",
@@ -287,7 +287,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "debating pros & cons",
         "conversation": [
             "Person 1: 你更喜欢网购还是去实体店购物？",
@@ -299,7 +299,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "debating pros & cons",
         "conversation": [
             "Person 1: 你觉得工作经验比学历重要吗？",
@@ -311,7 +311,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "debating pros & cons",
         "conversation": [
             "Person 1: 你觉得住在城市好还是乡下好？",
@@ -323,7 +323,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "debating pros & cons",
         "conversation": [
             "Person 1: 你觉得电动车比汽油车好吗？",
@@ -335,7 +335,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "explaining cultural differences",
         "conversation": [
             "Person 1: 你知道在中国送礼物有什么讲究吗？",
@@ -347,7 +347,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "explaining cultural differences",
         "conversation": [
             "Person 1: 你觉得中西方的餐桌礼仪有什么不同？",
@@ -359,7 +359,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "explaining cultural differences",
         "conversation": [
             "Person 1: 你发现中国和你国家的打招呼方式有什么不同吗？",
@@ -371,7 +371,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "explaining cultural differences",
         "conversation": [
             "Person 1: 你觉得中国的节日和西方的节日有什么不同？",
@@ -383,7 +383,7 @@
         ]
     },      
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "resolving misunderstandings",
         "conversation": [
             "Person 1: 你为什么今天没来开会？",
@@ -395,7 +395,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "resolving misunderstandings",
         "conversation": [
             "Person 1: 你怎么还没把报告发给我？",
@@ -408,7 +408,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "resolving misunderstandings",
         "conversation": [
             "Person 1: 你怎么生气了？",
@@ -421,7 +421,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "resolving misunderstandings",
         "conversation": [
           "Person 1: 你为什么没有回复我的信息？",
@@ -434,7 +434,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "giving instructions & teaching someone",
         "conversation": [
             "Person 1: 我刚下载了这个应用，但不知道怎么用。",
@@ -447,7 +447,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "giving instructions & teaching someone",
         "conversation": [
             "Person 1: 这个购物应用怎么付款？",
@@ -460,7 +460,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "giving instructions & teaching someone",
         "conversation": [
             "Person 1: 这个导航软件怎么用？",
@@ -473,7 +473,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "giving instructions & teaching someone",
         "conversation": [
             "Person 1: 你知道怎么用这个翻译应用吗？",
@@ -486,7 +486,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "giving instructions & teaching someone",
         "conversation": [
             "Person 1: 这个视频编辑软件好复杂，你能教我吗？",
@@ -499,7 +499,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "talking about environmental issues",
         "conversation": [
             "Person 1: 你觉得我们城市的空气污染怎么样？",
@@ -511,7 +511,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "talking about environmental issues",
         "conversation": [
             "Person 1: 你听说了吗？最近海洋污染越来越严重。",
@@ -523,7 +523,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "talking about environmental issues",
         "conversation": [
             "Person 1: 你觉得全球变暖是个严重的问题吗？",
@@ -535,7 +535,7 @@
         ]
     },
     {
-        "hsk-level": "4",
+        "hskLevel": "4",
         "topic": "talking about environmental issues",
         "conversation": [
             "Person 1: 你平时怎么做环保？",

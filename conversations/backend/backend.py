@@ -7,12 +7,15 @@ from dotenv import load_dotenv  # Load .env file
 load_dotenv()
 
 # Connect to MongoDB Atlas
-mongo_uri = os.getenv("MONGO_URI")
+# mongo_uri = os.getenv("MONGO_URI")
+mongo_uri="mongodb+srv://catherine:UKisYUPY8yaJwzMd@helloguru.c0yty.mongodb.net/HelloGuru?retryWrites=true&w=majority&appName=HelloGuru";
+
 
 client = MongoClient(mongo_uri)
 
 db = client["HelloGuru"] 
 collection = db["conversations"] 
+
 
 # Read JSON files
 folder = "conversations/"
@@ -24,8 +27,8 @@ for file in files:
         data = json.load(f)
     
     for convo in data:
-        convo["hsk-level"] = hsk_level  # Add HSK level to document
-        filter_query = {"hsk-level": hsk_level, "topic": convo["topic"]}
+        convo["hskLevel"] = hsk_level  # Add HSK level to document
+        filter_query = {"hskLevel": hsk_level, "topic": convo["topic"]}
         collection.update_one(filter_query, {"$set": convo}, upsert=True)
 
 print("Data inserted/updated successfully!")

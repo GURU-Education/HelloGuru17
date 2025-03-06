@@ -1,6 +1,6 @@
 [
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "philosophy & life meaning",
         "conversation": [
             "Person 1: 你觉得人生的意义是什么？",
@@ -14,7 +14,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "philosophy & life meaning",
         "conversation": [
             "Person 1: 你相信命运吗？",
@@ -28,7 +28,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "philosophy & life meaning",
         "conversation": [
             "Person 1: 你觉得人生最大的遗憾是什么？",
@@ -42,7 +42,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "philosophy & life meaning",
         "conversation": [
             "Person 1: 你觉得成功的人生是什么样的？",
@@ -56,7 +56,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "philosophy & life meaning",
         "conversation": [
             "Person 1: 你觉得人生是短暂的，还是漫长的？",
@@ -70,7 +70,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "philosophy & life meaning",
         "conversation": [
             "Person 1: 你觉得人的一生最终都会归于平凡吗？",
@@ -84,7 +84,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "climate change & sustainability",
         "conversation": [
             "Person 1: 你认为全球变暖真的是人类造成的吗？",
@@ -98,7 +98,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "climate change & sustainability",
         "conversation": [
             "Person 1: 你支持碳税政策吗？",
@@ -112,7 +112,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "climate change & sustainability",
         "conversation": [
             "Person 1: 你觉得个人环保行为真的有用吗？",
@@ -126,7 +126,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "climate change & sustainability",
         "conversation": [
             "Person 1: 你怎么看待新能源车的普及？",
@@ -140,7 +140,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "climate change & sustainability",
         "conversation": [
             "Person 1: 你觉得我们应该减少肉类消费来降低碳排放吗？",
@@ -154,7 +154,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "climate change & sustainability",
         "conversation": [
             "Person 1: 你怎么看待植树造林作为应对气候变化的解决方案？",
@@ -168,7 +168,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "climate change & sustainability",
         "conversation": [
             "Person 1: 你觉得人类真的能在2050年实现碳中和吗？",
@@ -182,7 +182,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "advanced political discussions",
         "conversation": [
             "Person 1: 你怎么看待民主制度？",
@@ -196,7 +196,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "advanced political discussions",
         "conversation": [
             "Person 1: 你认为社会主义制度能否在现代社会成功运作？",
@@ -210,7 +210,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "advanced political discussions",
         "conversation": [
             "Person 1: 你怎么看待全球化对国际关系的影响？",
@@ -224,7 +224,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "advanced political discussions",
         "conversation": [
             "Person 1: 你怎么看待美国与中国的关系？",
@@ -238,7 +238,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "advanced political discussions",
         "conversation": [
             "Person 1: 你认为联合国在解决国际冲突方面有效吗？",
@@ -252,7 +252,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "advanced political discussions",
         "conversation": [
             "Person 1: 你怎么看待民族主义的兴起？",
@@ -266,7 +266,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "medical & scientific discoveries",
         "conversation": [
             "Person 1: 你怎么看待基因编辑技术，比如CRISPR？",
@@ -280,7 +280,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "medical & scientific discoveries",
         "conversation": [
             "Person 1: 你认为人工智能能否取代医生？",
@@ -294,7 +294,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "medical & scientific discoveries",
         "conversation": [
             "Person 1: 你对安乐死的看法是什么？",
@@ -308,7 +308,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "medical & scientific discoveries",
         "conversation": [
             "Person 1: 你觉得器官移植是否应该完全依靠自愿捐献？",
@@ -322,7 +322,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "medical & scientific discoveries",
         "conversation": [
             "Person 1: 你觉得疫苗强制接种政策合理吗？",
@@ -336,7 +336,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "medical & scientific discoveries",
         "conversation": [
             "Person 1: 你怎么看待人类寿命的延长？",
@@ -350,7 +350,7 @@
         ]
     }, 
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "the future of humanity",
         "conversation": [
             "Person 1: 你觉得人类未来能在火星上定居吗？",
@@ -364,7 +364,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "the future of humanity",
         "conversation": [
             "Person 1: 你觉得人类进化还会继续吗？",
@@ -378,7 +378,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "the future of humanity",
         "conversation": [
             "Person 1: 你觉得人工智能会影响人类的发展吗？",
@@ -392,7 +392,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "the future of humanity",
         "conversation": [
             "Person 1: 你觉得未来人类会移民到其他星球吗？",
@@ -406,7 +406,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "the future of humanity",
         "conversation": [
             "Person 1: 你觉得人类有可能实现永生吗？",
@@ -420,7 +420,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "the future of humanity",
         "conversation": [
             "Person 1: 未来人类会不会发展成“赛博人”，一半是人，一半是机器？",
@@ -434,7 +434,7 @@
         ]
     },  
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "cross-cultural identity & globalization",
         "conversation": [
             "Person 1: 你觉得全球化对文化有什么影响？",
@@ -446,7 +446,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "cross-cultural identity & globalization",
         "conversation": [
             "Person 1: 你觉得年轻人越来越喜欢西方文化，会不会影响本土文化？",
@@ -458,7 +458,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "cross-cultural identity & globalization",
         "conversation": [
             "Person 1: 你觉得在国外生活久了，会失去自己的文化身份吗？",
@@ -470,7 +470,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "cross-cultural identity & globalization",
         "conversation": [
             "Person 1: 你觉得文化融合会导致文化冲突吗？",
@@ -482,7 +482,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "cross-cultural identity & globalization",
         "conversation": [
             "Person 1: 你觉得多元文化的环境对个人成长有帮助吗？",
@@ -494,7 +494,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "cross-cultural identity & globalization",
         "conversation": [
             "Person 1: 现在很多国家的年轻人喜欢穿西方品牌的衣服，你觉得这是文化侵略吗？",
@@ -506,7 +506,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "discussing literature & art criticism",
         "conversation": [
             "Person 1: 你怎么看待《红楼梦》这本书？",
@@ -518,7 +518,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "discussing literature & art criticism",
         "conversation": [
             "Person 1: 你觉得毕加索的《格尔尼卡》想表达什么？",
@@ -530,7 +530,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "discussing literature & art criticism",
         "conversation": [
             "Person 1: 你对现代艺术怎么看？很多人觉得它太抽象了。",
@@ -542,7 +542,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "discussing literature & art criticism",
         "conversation": [
             "Person 1: 你觉得小说应该有明确的道德立场吗？",
@@ -554,7 +554,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "discussing literature & art criticism",
         "conversation": [
             "Person 1: 诗歌是不是一种过时的艺术形式？",
@@ -566,7 +566,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "discussing literature & art criticism",
         "conversation": [
             "Person 1: 电影是一种艺术吗？还是只是娱乐？",
@@ -578,7 +578,7 @@
         ]
     }, 
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "crime & punishment",
         "conversation": [
             "Person 1: 你觉得死刑应该被废除吗？",
@@ -590,7 +590,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "crime & punishment",
         "conversation": [
             "Person 1: 你觉得轻罪应该被宽容对待，还是严格惩罚？",
@@ -602,7 +602,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "crime & punishment",
         "conversation": [
             "Person 1: 你对美国的陪审团制度怎么看？",
@@ -614,7 +614,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "crime & punishment",
         "conversation": [
             "Person 1: 你觉得监狱的作用是什么？是惩罚还是改造？",
@@ -626,7 +626,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "crime & punishment",
         "conversation": [
             "Person 1: 为什么有些国家的犯罪率比其他国家低？",
@@ -640,7 +640,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "crime & punishment",
         "conversation": [
             "Person 1: 你怎么看待黑客犯罪？",
@@ -652,7 +652,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "corporate ethics & business morality",
         "conversation": [
             "Person 1: 你觉得公司应该给员工支付更高的工资，还是保持利润最大化？",
@@ -664,7 +664,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "corporate ethics & business morality",
         "conversation": [
             "Person 1: 你觉得企业在广告里夸大产品效果算欺骗消费者吗？",
@@ -676,7 +676,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "corporate ethics & business morality",
         "conversation": [
             "Person 1: 你怎么看待大公司为了降低成本，把工厂转移到发展中国家？",
@@ -688,7 +688,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "corporate ethics & business morality",
         "conversation": [
             "Person 1: 你觉得企业在生产过程中应该更关注环保问题吗？",
@@ -700,7 +700,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "corporate ethics & business morality",
         "conversation": [
             "Person 1: 你听说过“企业社会责任”这个概念吗？",
@@ -712,7 +712,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "corporate ethics & business morality",
         "conversation": [
             "Person 1: 你觉得企业应该公开透明地公布他们的财务情况吗？",
@@ -724,7 +724,7 @@
         ]
     },   
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "philosophical debates on technology",
         "conversation": [
             "Person 1: 你认为人工智能会不会取代人类的工作？",
@@ -736,7 +736,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "philosophical debates on technology",
         "conversation": [
             "Person 1: 机器人应该有法律上的权利吗？",
@@ -748,7 +748,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "philosophical debates on technology",
         "conversation": [
             "Person 1: 你怎么看待AI写作？它能否取代人类作家？",
@@ -760,7 +760,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "philosophical debates on technology",
         "conversation": [
             "Person 1: 你觉得未来人类和机器的关系会是什么样的？",
@@ -772,7 +772,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "philosophical debates on technology",
         "conversation": [
             "Person 1: 你觉得未来人类有可能和AI合并吗？比如把芯片植入大脑。",
@@ -784,7 +784,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "philosophical debates on technology",
         "conversation": [
             "Person 1: 你认为AI能否拥有道德判断？",
@@ -796,7 +796,7 @@
         ]
     },
     {
-        "hsk-level": "6",
+        "hskLevel": "6",
         "topic": "philosophical debates on technology",
         "conversation": [
             "Person 1: 你觉得科技的快速发展是好事还是坏事？",

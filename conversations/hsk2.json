@@ -1,6 +1,6 @@
 [
     {
-        "hsk-level": "2",
+        "hskLevel": "2",
         "topic": "talking about hobbies",
         "conversation": [
             "Person 1: 你有什么爱好？",
@@ -12,7 +12,7 @@
         ]
     },
     {
-        "hsk-level": "2",
+        "hskLevel": "2",
         "topic": "talking about hobbies",
         "conversation": [
             "Person 1: 你会弹钢琴吗？",
@@ -25,7 +25,7 @@
       ]
     },
     {
-        "hsk-level": "2",
+        "hskLevel": "2",
         "topic": "talking about hobbies",
         "conversation": [
             "Person 1: 你有什么爱好？",
@@ -38,7 +38,7 @@
         ]
       },
     {
-        "hsk-level": "2",
+        "hskLevel": "2",
         "topic": "making an appointment",
         "conversation": [
             "Person 1: 你明天有空吗？",
@@ -50,7 +50,7 @@
         ]
     },
     {
-        "hsk-level": "2",
+        "hskLevel": "2",
         "topic": "making an appointment",
         "conversation": [
             "Person 1: 你好，我想预约一个医生。",
@@ -62,7 +62,7 @@
         ]
     },
     {
-        "hsk-level": "2",
+        "hskLevel": "2",
         "topic": "transportation & travel",
         "conversation": [
             "Person 1: 请问，这班公交车去火车站吗？",
@@ -74,7 +74,7 @@
         ]
     },
     {
-        "hsk-level": "2",
+        "hskLevel": "2",
         "topic": "transportation & travel",
         "conversation": [
             "Person 1: 你知道去机场的地铁是几号线吗？",
@@ -86,7 +86,7 @@
         ]
     },
     {
-        "hsk-level": "2",
+        "hskLevel": "2",
         "topic": "transportation & travel",
         "conversation": [
             "Person 1: 你好，请问去机场怎么走？",
@@ -98,7 +98,7 @@
         ]
     },      
     {
-        "hsk-level": "2",
+        "hskLevel": "2",
         "topic": "shopping & bargaining",
         "conversation": [
             "Seller: 你好，这件衣服一共三百块。",
@@ -110,7 +110,7 @@
         ]
     },
     {
-        "hsk-level": "2",
+        "hskLevel": "2",
         "topic": "shopping & bargaining",
         "conversation": [
             "Seller: 这双鞋很不错，四百块。",
@@ -122,7 +122,7 @@
         ]
     },
     {
-        "hsk-level": "2",
+        "hskLevel": "2",
         "topic": "describing people & places",
         "conversation": [
             "Person 1: 你的老师长什么样？",
@@ -134,7 +134,7 @@
         ]
     },
     {
-        "hsk-level": "2",
+        "hskLevel": "2",
         "topic": "describing people & places",
         "conversation": [
             "Person 1: 你家附近有什么有趣的地方？",
@@ -146,7 +146,7 @@
         ]
     },
     {
-        "hsk-level": "2",
+        "hskLevel": "2",
         "topic": "describing people & places",
         "conversation": [
             "Person 1: 你的新同事怎么样？",
@@ -158,7 +158,7 @@
         ]
     },
     {
-        "hsk-level": "2",
+        "hskLevel": "2",
         "topic": "daily routines & schedules",
         "conversation": [
             "Person 1: 你每天几点起床？",
@@ -170,7 +170,7 @@
         ]
     },
     {
-        "hsk-level": "2",
+        "hskLevel": "2",
         "topic": "daily routines & schedules",
         "conversation": [
             "Person 1: 你周末一般做什么？",
@@ -182,7 +182,7 @@
         ]
     },
     {
-        "hsk-level": "2",
+        "hskLevel": "2",
         "topic": "daily routines & schedules",
         "conversation": [
             "Person 1: 你的工作时间是怎么样的？",
@@ -194,7 +194,7 @@
         ]
     },
     {
-        "hsk-level": "2",
+        "hskLevel": "2",
         "topic": "basic health issues",
         "conversation": [
             "Person 1: 你怎么了？",
@@ -206,7 +206,7 @@
         ]
       },
       {
-        "hsk-level": "2",
+        "hskLevel": "2",
         "topic": "basic health issues",
         "conversation": [
             "Person 1: 你看起来不舒服。",
@@ -218,7 +218,7 @@
         ]
       },
       {
-        "hsk-level": "2",
+        "hskLevel": "2",
         "topic": "basic health issues",
         "conversation": [
             "Person 1: 你怎么了？",
@@ -230,7 +230,7 @@
         ]
     },
     {
-        "hsk-level": "2",
+        "hskLevel": "2",
         "topic": "basic health issues",
         "conversation": [
             "Person 1: 你怎么了？",
@@ -242,7 +242,7 @@
         ]
     },
     {
-        "hsk-level": "2",
+        "hskLevel": "2",
         "topic": "basic health issues",
         "conversation": [
             "Person 1: 你看起来不舒服。",
@@ -254,7 +254,7 @@
         ]
     },
     {
-        "hsk-level": "2",
+        "hskLevel": "2",
         "topic": "basic health issues",
         "conversation": [
             "Person 1: 你怎么了？",
@@ -266,7 +266,7 @@
         ]
     },
     {
-        "hsk-level": "2",
+        "hskLevel": "2",
         "topic": "ordering online",
         "conversation": [
             "Customer: 我昨天买的手机什么时候到？",
@@ -276,7 +276,7 @@
         ]
     },
     {
-        "hsk-level": "2",
+        "hskLevel": "2",
         "topic": "ordering online",
         "conversation": [
             "Customer: 这个衣服不合适，可以退货吗？",
@@ -286,7 +286,7 @@
         ]
     },
     {
-        "hsk-level": "2",
+        "hskLevel": "2",
         "topic": "ordering online",
         "conversation": [
             "Customer: 你们有这款电脑吗？",
@@ -297,7 +297,7 @@
         ]
     },
     {
-        "hsk-level": "2",
+        "hskLevel": "2",
         "topic": "talking about future plans",
         "conversation": [
             "Person 1: 你周末有什么计划？",
@@ -308,7 +308,7 @@
         ]
     },
     {
-        "hsk-level": "2",
+        "hskLevel": "2",
         "topic": "talking about future plans",
         "conversation": [
             "Person 1: 你假期想去哪里玩？",
@@ -320,7 +320,7 @@
         ]
     },
     {
-        "hsk-level": "2",
+        "hskLevel": "2",
         "topic": "talking about future plans",
         "conversation": [
             "Person 1: 你明年有什么计划？",

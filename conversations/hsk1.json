@@ -1,6 +1,6 @@
 [
     {
-        "hsk-level": "1",
+        "hskLevel": "1",
         "topic": "self-introduction",
         "conversation": [
             "Person 1: 你好！你叫什么名字？我是丽丽。",
@@ -13,7 +13,7 @@
       ]
     },
     {
-        "hsk-level": "1",
+        "hskLevel": "1",
         "topic": "self-introduction",
         "conversation": [
           "Person 1: 你好！请介绍一下自己。",
@@ -24,7 +24,7 @@
         ]
       },
       {
-        "hsk-level": "1",
+        "hskLevel": "1",
         "topic": "self-introduction",
         "conversation": [
           "Person 1: 你叫什么名字？",
@@ -35,7 +35,7 @@
         ]
       },
     {
-        "hsk-level": "1",
+        "hskLevel": "1",
         "topic": "ordering food",
         "conversation": [
             "Waiter: 你好，欢迎光临！请问你要点什么？",
@@ -46,7 +46,7 @@
       ]
     },
     {
-        "hsk-level": "1",
+        "hskLevel": "1",
         "topic": "ordering food",
         "conversation": [
             "Waiter: 你好，这个十五块钱，你要买一个吗？",
@@ -55,7 +55,7 @@
       ]
     },
     {
-        "hsk-level": "1",
+        "hskLevel": "1",
         "topic": "asking for directions",
         "conversation": [
             "Person 1: 你好，请问厕所在哪里？",
@@ -65,7 +65,7 @@
       ]
     },
     {
-        "hsk-level": "1",
+        "hskLevel": "1",
         "topic": "asking for directions",
         "conversation": [
             "Person 1: 你好，请问银行在哪儿？",
@@ -75,7 +75,7 @@
       ]
     },
     {
-        "hsk-level": "1",
+        "hskLevel": "1",
         "topic": "numbers & prices",
         "conversation": [
             "Seller: 这个二十块，你要买吗？",
@@ -86,7 +86,7 @@
       ]
     },
     {
-        "hsk-level": "1",
+        "hskLevel": "1",
         "topic": "numbers & prices",
         "conversation": [
             "Seller: 这杯咖啡十块钱，两杯十八块。",
@@ -95,7 +95,7 @@
       ]
     },
     {
-        "hsk-level": "1",
+        "hskLevel": "1",
         "topic": "daily activities",
         "conversation": [
             "Person 1: 你每天几点起床？",
@@ -107,7 +107,7 @@
       ]
     },
     {
-        "hsk-level": "1",
+        "hskLevel": "1",
         "topic": "daily activities",
         "conversation": [
             "Person 1: 你晚上几点睡觉？",
@@ -120,7 +120,7 @@
       ]
     },
     {
-        "hsk-level": "1",
+        "hskLevel": "1",
         "topic": "family & friends",
         "conversation": [
           "Person 1: 这是你的家人吗？",
@@ -134,7 +134,7 @@
         ]
       },
       {
-        "hsk-level": "1",
+        "hskLevel": "1",
         "topic": "family & friends",
         "conversation": [
           "Person 1: 你有兄弟姐妹吗？",
@@ -146,7 +146,7 @@
         ]
       },
       {
-        "hsk-level": "1",
+        "hskLevel": "1",
         "topic": "shopping for essentials",
         "conversation": [
           "Seller: 你好，欢迎光临！你要买什么？",
@@ -158,7 +158,7 @@
         ]
       },
       {
-        "hsk-level": "1",
+        "hskLevel": "1",
         "topic": "shopping for essentials",
         "conversation": [
           "Seller: 你好，需要帮忙吗？",
@@ -172,7 +172,7 @@
         ]
       },
       {
-        "hsk-level": "1",
+        "hskLevel": "1",
         "topic": "likes & dislikes",
         "conversation": [
           "Person 1: 你喜欢什么颜色？",
@@ -183,7 +183,7 @@
         ]
       },
       {
-        "hsk-level": "1",
+        "hskLevel": "1",
         "topic": "likes & dislikes",
         "conversation": [
           "Person 1: 你喜欢吃什么？",
@@ -193,7 +193,7 @@
           "Person 1: 会，我会做米饭！"
         ]
       },{
-        "hsk-level": "1",
+        "hskLevel": "1",
         "topic": "telling the time & dates",
         "conversation": [
           "Person 1: 现在几点？",
@@ -205,7 +205,7 @@
         ]
       },
       {
-        "hsk-level": "1",
+        "hskLevel": "1",
         "topic": "telling the time & dates",
         "conversation": [
           "Person 1: 今天星期几？",
@@ -218,7 +218,7 @@
         ]
       },
       {
-        "hsk-level": "1",
+        "hskLevel": "1",
         "topic": "weather & seasons",
         "conversation": [
           "Person 1: 今天天气怎么样？",
@@ -230,7 +230,7 @@
         ]
       },
       {
-        "hsk-level": "1",
+        "hskLevel": "1",
         "topic": "weather & seasons",
         "conversation": [
           "Person 1: 你最喜欢哪个季节？",

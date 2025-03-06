@@ -1,6 +1,6 @@
 [
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "debating personal choices",
         "conversation": [
             "Person 1: 你觉得结婚是人生必须的吗？",
@@ -14,7 +14,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "debating personal choices",
         "conversation": [
             "Person 1: 你认为稳定的工作重要，还是追求梦想更重要？",
@@ -28,7 +28,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "debating personal choices",
         "conversation": [
             "Person 1: 你觉得年轻人应该早点买房，还是先租房比较好？",
@@ -42,7 +42,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "debating personal choices",
         "conversation": [
             "Person 1: 你觉得攒钱重要，还是享受生活更重要？",
@@ -56,7 +56,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "debating personal choices",
         "conversation": [
             "Person 1: 你觉得是应该自己创业，还是找一份稳定的工作？",
@@ -70,7 +70,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "debating personal choices",
         "conversation": [
             "Person 1: 你觉得是去大城市发展好，还是留在小城市生活好？",
@@ -84,7 +84,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "discussing political & economic issues",
         "conversation": [
             "Person 1: 你最近有关注全球的通货膨胀问题吗？",
@@ -98,7 +98,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "discussing political & economic issues",
         "conversation": [
             "Person 1: 你怎么看全球贸易战对经济的影响？",
@@ -112,7 +112,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "discussing political & economic issues",
         "conversation": [
             "Person 1: 最近股市波动很大，你觉得是什么原因？",
@@ -126,7 +126,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "discussing political & economic issues",
         "conversation": [
             "Person 1: 你觉得发展中国家如何才能实现经济增长？",
@@ -140,7 +140,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "discussing political & economic issues",
         "conversation": [
             "Person 1: 你怎么看数字货币的发展趋势？",
@@ -154,7 +154,7 @@
         ]
     },    
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "workplace conflicts & teamwork",
         "conversation": [
             "Person 1: 最近和你同事合作得怎么样？",
@@ -168,7 +168,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "workplace conflicts & teamwork",
         "conversation": [
             "Person 1: 你在公司有没有遇到过和同事意见不合的情况？",
@@ -182,7 +182,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "workplace conflicts & teamwork",
         "conversation": [
             "Person 1: 你觉得团队合作最重要的是什么？",
@@ -196,7 +196,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "workplace conflicts & teamwork",
         "conversation": [
             "Person 1: 你在公司有没有遇到过性格不合的同事？",
@@ -210,7 +210,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "workplace conflicts & teamwork",
         "conversation": [
             "Person 1: 你怎么看待团队中责任分配的问题？",
@@ -224,7 +224,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "reviewing a movie or book",
         "conversation": [
             "Person 1: 你最近看了什么电影？",
@@ -239,7 +239,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "reviewing a movie or book",
         "conversation": [
             "Person 1: 你觉得《三体》这本书怎么样？",
@@ -253,7 +253,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "reviewing a movie or book",
         "conversation": [
             "Person 1: 你看过《霸王别姬》吗？",
@@ -269,7 +269,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "reviewing a movie or book",
         "conversation": [
             "Person 1: 你最近读过什么有趣的小说吗？",
@@ -285,7 +285,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "reviewing a movie or book",
         "conversation": [
             "Person 1: 你看过《疯狂动物城》吗？",
@@ -301,7 +301,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "reviewing a movie or book",
         "conversation": [
             "Person 1: 你最近有没有看过什么值得推荐的纪录片？",
@@ -317,7 +317,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "mental health & stress",
         "conversation": [
             "Person 1: 你最近看起来有点累，工作很忙吗？",
@@ -331,7 +331,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "mental health & stress",
         "conversation": [
             "Person 1: 你觉得心理健康和身体健康哪个更重要？",
@@ -345,7 +345,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "mental health & stress",
         "conversation": [
             "Person 1: 你有没有经历过焦虑或者抑郁的时候？",
@@ -359,7 +359,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "mental health & stress",
         "conversation": [
             "Person 1: 现在的年轻人好像压力都很大，你觉得主要原因是什么？",
@@ -373,7 +373,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "mental health & stress",
         "conversation": [
             "Person 1: 你有没有听说过‘数字排毒’？",
@@ -387,7 +387,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "ethical dilemmas",
         "conversation": [
             "Person 1: 你怎么看待在工作中撒谎？比如，有时候公司要求我们隐瞒一些信息。",
@@ -400,7 +400,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "ethical dilemmas",
         "conversation": [
             "Person 1: 你觉得如果看到同事偷公司文件，我们应该举报他吗？",
@@ -413,7 +413,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "ethical dilemmas",
         "conversation": [
             "Person 1: 你怎么看待网络上的版权问题？很多人觉得下载电影或者书籍没什么大不了的。",
@@ -426,7 +426,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "ethical dilemmas",
         "conversation": [
             "Person 1: 如果你在路上看到有人晕倒了，你会马上去帮忙吗？",
@@ -439,7 +439,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "ethical dilemmas",
         "conversation": [
             "Person 1: 你怎么看待人工智能在招聘中的应用？有些公司用AI筛选简历，甚至决定谁能进入下一轮。",
@@ -452,7 +452,7 @@
         ]
     },      
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "technology & AI",
         "conversation": [
             "Person 1: 你觉得人工智能会不会取代我们的工作？",
@@ -465,7 +465,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "technology & AI",
         "conversation": [
             "Person 1: 你知道最近的AI绘画技术吗？很多艺术家都很担心。",
@@ -478,7 +478,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "technology & AI",
         "conversation": [
             "Person 1: 你觉得AI能取代老师吗？",
@@ -491,7 +491,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "technology & AI",
         "conversation": [
             "Person 1: 你听说了吗？有公司在用AI面试求职者！",
@@ -504,7 +504,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "technology & AI",
         "conversation": [
             "Person 1: 你觉得AI会影响创意产业吗？比如写作、音乐创作。",
@@ -517,7 +517,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "personal growth & self-improvement",
         "conversation": [
             "Person 1: 你有没有制定过长期目标？",
@@ -532,7 +532,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "personal growth & self-improvement",
         "conversation": [
             "Person 1: 你觉得怎样才能养成好的习惯？",
@@ -545,7 +545,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "personal growth & self-improvement",
         "conversation": [
             "Person 1: 你如何面对失败？",
@@ -560,7 +560,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "personal growth & self-improvement",
         "conversation": [
             "Person 1: 你有没有想过提高自己的时间管理能力？",
@@ -573,7 +573,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "personal growth & self-improvement",
         "conversation": [
             "Person 1: 你觉得阅读对个人成长有帮助吗？",
@@ -586,7 +586,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "personal growth & self-improvement",
         "conversation": [
             "Person 1: 你觉得设定目标重要吗？",
@@ -599,7 +599,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "talking about historical events",
         "conversation": [
             "Person 1: 你觉得哪一场战争对世界影响最大？",
@@ -612,7 +612,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "talking about historical events",
         "conversation": [
             "Person 1: 你对法国大革命了解多少？",
@@ -625,7 +625,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "talking about historical events",
         "conversation": [
             "Person 1: 你觉得中国历史上最重要的事件是什么？",
@@ -638,7 +638,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "talking about historical events",
         "conversation": [
             "Person 1: 你对冷战有什么看法？",
@@ -651,7 +651,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "talking about historical events",
         "conversation": [
             "Person 1: 你听说过文艺复兴吗？",
@@ -664,7 +664,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "planning for retirement & old age",
         "conversation": [
             "Person 1: 你有考虑过你的退休计划吗？",
@@ -676,7 +676,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "planning for retirement & old age",
         "conversation": [
             "Person 1: 你觉得退休后生活应该是什么样的？",
@@ -688,7 +688,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "planning for retirement & old age",
         "conversation": [
             "Person 1: 你听说过养老保险吗？",
@@ -701,7 +701,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "planning for retirement & old age",
         "conversation": [
             "Person 1: 你觉得中国的养老体系怎么样？",
@@ -714,7 +714,7 @@
         ]
     },
     {
-        "hsk-level": "5",
+        "hskLevel": "5",
         "topic": "planning for retirement & old age",
         "conversation": [
             "Person 1: 你觉得我们应该从什么时候开始考虑退休计划？",
