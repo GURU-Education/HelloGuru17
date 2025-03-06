@@ -7,8 +7,7 @@ from dotenv import load_dotenv  # Load .env file
 load_dotenv()
 
 # Connect to MongoDB Atlas
-# mongo_uri = os.getenv("MONGO_URI")
-mongo_uri="mongodb+srv://catherine:UKisYUPY8yaJwzMd@helloguru.c0yty.mongodb.net/HelloGuru?retryWrites=true&w=majority&appName=HelloGuru";
+mongo_uri = os.getenv("MONGO_URI")
 
 
 client = MongoClient(mongo_uri)
