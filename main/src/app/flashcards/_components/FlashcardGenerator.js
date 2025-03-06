@@ -65,10 +65,10 @@ const FlashcardGenerator = () => {
     queryKey: ["audios"],
     queryFn: fetchAudios,
   });
-  console.log(
-    "audiodata",
-    audioData?.audios?.map((audio) => audio.flashcards)
-  );
+  // console.log(
+  //   "audiodata",
+  //   audioData?.audios?.map((audio) => audio.flashcards)
+  // );
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -81,7 +81,7 @@ const FlashcardGenerator = () => {
     if (!audioFile) return;
     const flashcardData = await mutation.mutateAsync(audioFile);
 
-    console.log("Generated flashcards:", flashcardData);
+    // console.log("Generated flashcards:", flashcardData);
     // Upload audio metadata to DB
     const audioMetadata = {
       title: audioFile.name,
@@ -90,7 +90,7 @@ const FlashcardGenerator = () => {
       flashcards: flashcardData,
     };
 
-    console.log("Uploading audio metadata:", audioMetadata);
+    // console.log("Uploading audio metadata:", audioMetadata);
 
     await uploadMutation.mutateAsync(audioMetadata);
     refetch(); // Refresh audio list
