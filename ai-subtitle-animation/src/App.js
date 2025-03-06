@@ -19,7 +19,8 @@ export default function App() {
   function openMouth() {
     if (!isMouthOpen.current) {
       console.log("Opening mouth!");
-      splineObj?.emitEvent("keyDown", "Mouth");
+      // splineObj?.emitEvent("keyDown", "Mouth");
+      splineObj?.emitEvent("keyDown", "mouth open vertical");
       isMouthOpen.current = true;
     }
   }
@@ -27,7 +28,8 @@ export default function App() {
   function closeMouth() {
     if (isMouthOpen.current) {
       console.log("Closing mouth!");
-      splineObj?.emitEvent("keyUp", "Mouth");
+      // splineObj?.emitEvent("keyUp", "Mouth");
+      splineObj?.emitEvent("keyUp", "mouth open vertical");
       isMouthOpen.current = false;
     }
   }
@@ -104,7 +106,8 @@ export default function App() {
     <div className="App">
       <div className="spline-container">
         <Spline 
-          scene="https://prod.spline.design/Njxbejqx8MuiFCUy/scene.splinecode" 
+          // scene="https://prod.spline.design/Njxbejqx8MuiFCUy/scene.splinecode" 
+          scene="https://prod.spline.design/dvoIpAXlkSLFWR8R/scene.splinecode"
           onLoad={handleSplineLoad}
         />
       </div>
