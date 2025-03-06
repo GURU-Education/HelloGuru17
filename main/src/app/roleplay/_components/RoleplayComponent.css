@@ -1,219 +1,322 @@
-/* ---------- COLOR VARIABLES (Light Mode) ---------- */
+/************************************************************
+ * GLOBAL & BACKGROUND
+ ************************************************************/
 :root {
-  --background-color: #f9f9f9;
-  --card-color: #ffffff;
-  --text-color: #333;
-  --button-color: #5f52f2;
-  --button-hover: #4928f0;
-  --button-text: #ffffff;
-  --reset-color: #ff4d4d;
-  --shadow-color: rgba(0, 0, 0, 0.1);
-  --person1-bg: #0078ff;
-  --person2-bg: #4caf50;
-  --chat-bg: #f0f0f0;
-  --font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --bg-gradient-start: #1d2671;
+  --bg-gradient-end: #c33764;
+
+  --orange-start: #f48c06;
+  --orange-end: #fbc531;
+
+  --primary-color: #0078ff;
+  --secondary-color: #4caf50;
+
+  --font-family: "Segoe UI", Roboto, Arial, sans-serif;
 }
 
-/* ---------- GLOBAL STYLES ---------- */
-html,
-body {
-  margin: 0;
-  padding: 0;
-  font-family: var(--font-family);
-  background: var(--background-color);
-  color: var(--text-color);
-}
-
-/* ---------- SPLIT SCREEN LAYOUT ---------- */
-.split-screen {
-  display: flex;
+/* Fullscreen gradient background */
+.background-container {
+  position: relative;
   width: 100vw;
   height: 100vh;
+  background: linear-gradient(
+    135deg,
+    var(--bg-gradient-start),
+    var(--bg-gradient-end)
+  );
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
 }
 
-.left-section {
-  width: 50%;
-  height: 100%;
-  background: #e8e8e8;
+/* ----- Smaller Spline Sprite in Top Left ----- */
+.spline-container {
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  /* Smaller fixed size so it's less obtrusive */
+  width: 100px;
+  height: 100px;
+  pointer-events: none; /* Let clicks pass through */
+  overflow: hidden; /* Hide any overflow from scaling */
+}
+
+.spline-container canvas {
+  /* Force the canvas to fill the container (no extra background) */
+  width: 100% !important;
+  height: 100% !important;
+  background: transparent !important; /* Removes default BG if present */
+  /* If you still see a white background, set Spline's background to "transparent" in Spline's editor */
+}
+
+/************************************************************
+ * HEADINGS & TEXT
+ ************************************************************/
+.main-title {
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+  z-index: 2;
+  line-height: 1.2;
+}
+
+.main-title span {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.subtitle {
+  margin: 10px 0 30px;
+  font-size: 24px;
+  font-weight: 400;
+  z-index: 2;
+  text-align: center;
+}
+
+.pro-tip {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+  opacity: 0.8;
+  text-align: center;
+}
+
+/************************************************************
+ * HORIZONTAL CIRCLE ROW for Level and Topic Selection
+ ************************************************************/
+.circle-row {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  z-index: 2;
 }
 
-.right-section {
-  width: 50%;
-  height: 100%;
-  padding: 40px;
-  background: var(--background-color);
+.circle {
+  width: 120px;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+  padding: 10;
+  text-align: center;
+}
+
+.circle:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.circle p {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+
+/************************************************************
+ * ROLE SELECTION
+ ************************************************************/
+.role-container {
+  display: flex;
+  gap: 20px;
+  z-index: 2;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.role-btn {
+  padding: 14px 20px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: #3498db;
+  color: #fff;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.role-btn:hover {
+  background: #2980b9;
+  transform: scale(1.05);
+}
+
+.back-btn {
+  background: #555;
+}
+
+/************************************************************
+ * CONVERSATION PANEL (ORANGE BUBBLE on the right)
+ ************************************************************/
+.conversation-panel {
+  position: absolute;
+  right: 3%;
+  top: 10%;
+  width: 40vw;
+  min-width: 350px;
+  height: 80vh;
+  background: linear-gradient(135deg, var(--orange-start), var(--orange-end));
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  z-index: 3;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  overflow-y: auto; /* Let the right side scroll if content overflows */
+  justify-content: flex-start;
+  color: #333;
 }
 
-/* ---------- TITLE ---------- */
-.title {
-  font-size: 32px;
+.conv-title {
+  margin: 0;
+  font-size: 26px;
   font-weight: 700;
-  margin-bottom: 30px;
-  color: var(--button-color);
-}
-
-/* ---------- STEPS & BUTTONS ---------- */
-.step {
-  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px #444;
   margin-bottom: 20px;
 }
 
-.step h2 {
-  font-size: 20px;
-  margin-bottom: 16px;
-}
-
-.button-column {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  align-items: center;
-}
-
-/* ---------- SHARED BUTTON STYLING ---------- */
-.btn {
-  padding: 14px 20px;
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--button-text);
-  background: var(--button-color);
-  cursor: pointer;
-  transition: background 0.3s ease-in-out, transform 0.2s;
-  box-shadow: 0 2px 6px var(--shadow-color);
-  width: 200px;
-  text-align: center;
-  margin: 0 auto;
-}
-
-.btn:hover {
-  background: var(--button-hover);
-  transform: scale(1.02);
-}
-
-/* ---------- CHAT CONTAINER ---------- */
-.chat-container {
-  width: 100%;
-  max-width: 600px;
-  background: var(--card-color);
-  border-radius: 12px;
-  box-shadow: 0 4px 12px var(--shadow-color);
-  padding: 20px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-/* Title inside the chat container */
-.chat-title {
-  font-size: 22px;
-  font-weight: 600;
-  margin: 0;
-  color: var(--text-color);
-}
-
-/* Chat Box */
+/* The chat area */
 .chat-box {
-  background: var(--chat-bg);
+  flex: 1;
+  background: rgba(255, 255, 255, 0.4);
   border-radius: 10px;
-  box-shadow: 0 2px 8px var(--shadow-color);
-  padding: 16px;
-  height: 300px; /* fixed height so it doesn't push the buttons off-screen */
+  padding: 20px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-/* Chat Bubbles */
+/* Bubbles */
 .chat-bubble {
   max-width: 70%;
-  padding: 12px 16px;
-  border-radius: 16px;
+  padding: 10px 15px;
+  border-radius: 15px;
   font-size: 16px;
-  line-height: 1.4;
-  box-shadow: 0 1px 3px var(--shadow-color);
-  color: #fff;
+  background: #fff;
+  color: #333;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-.chat-bubble.right {
-  background: var(--person1-bg);
+.person1 {
   align-self: flex-end;
-  text-align: left;
-  border-bottom-right-radius: 6px;
+  background: #dff3ff;
 }
 
-.chat-bubble.left {
-  background: var(--person2-bg);
+.person2 {
   align-self: flex-start;
-  text-align: left;
-  border-bottom-left-radius: 6px;
+  background: #e6ffe6;
 }
 
-/* ---------- NEXT & RESET BUTTONS ---------- */
-.button-row {
+/* Bottom buttons */
+.conv-buttons {
   display: flex;
+  justify-content: flex-end;
   gap: 12px;
-  justify-content: center;
+  margin-top: 10px;
 }
 
-.next-btn {
-  background-color: var(--button-color); /* Example: orange color for 'Next' */
+.conv-next,
+.conv-reset {
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.conv-next {
+  background: #3498db;
   color: #fff;
 }
 
-.next-btn:disabled {
-  opacity: 0.6;
+.conv-next:hover {
+  background: #2980b9;
+  transform: scale(1.05);
+}
+
+.conv-next:disabled {
+  background: #bbb;
   cursor: not-allowed;
 }
 
-.reset-btn {
-  background: var(--reset-color);
+.conv-reset {
+  background: #ff4d4d;
   color: #fff;
 }
 
-.reset-btn:hover {
+.conv-reset:hover {
   background: #cc0000;
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
 
-/* Targeting the chat-box element's scrollbar */
+/************************************************************
+ * SCROLLBAR CUSTOMIZATION
+ ************************************************************/
 .chat-box::-webkit-scrollbar {
-  width: 8px; /* Width of the scrollbar track */
+  width: 8px;
 }
 
-/* Scrollbar track styling */
 .chat-box::-webkit-scrollbar-track {
-  background: #f0f0f0; /* Background color of the track */
+  background: #f0f0f0;
   border-radius: 4px;
 }
 
-/* Scrollbar thumb (the draggable part) */
 .chat-box::-webkit-scrollbar-thumb {
-  background-color: #999; /* Initial thumb color */
-  border-radius: 6px; /* Roundness of the thumb corners */
-  border: 2px solid #f0f0f0; /* Creates space around thumb for a "groove" effect */
+  background-color: #999;
+  border-radius: 6px;
+  border: 2px solid #f0f0f0;
 }
 
-/* Hover state for the scrollbar thumb */
 .chat-box::-webkit-scrollbar-thumb:hover {
-  background-color: #666; /* Darker color on hover */
+  background-color: #666;
 }
 
-.button-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns on larger screens */
-  gap: 16px; /* spacing between items */
-  max-width: 700px; /* optional, to control overall width */
-  margin: 0 auto; /* center the grid if you like */
+/************************************************************
+ * RESPONSIVE DESIGN
+ ************************************************************/
+@media (max-width: 768px) {
+  .circle-row {
+    flex-direction: column;
+  }
+  .conversation-panel {
+    width: 80vw;
+    left: 10%;
+    top: 10%;
+  }
+  .spline-container {
+    width: 30vw;
+    height: 30vw;
+  }
+}
+
+.spline-wrapper {
+  position: absolute;
+  top: 0%;
+  left: -3%;
+  width: 1000px; /* bounding box for the wrapper */
+  height: 1000px;
+  overflow: hidden; /* hide overflow if we scale down the canvas */
+  pointer-events: none;
+}
+
+/* The Spline library typically renders a <div> with a canvas inside.
+   Target that <div> directly and scale it. You may need to adjust the selector. */
+.spline-wrapper > div {
+  transform: scale(0.5) translate(50px, 0); /* 50% smaller */
+  transform-origin: top left; /* anchor the scale to top-left corner */
+  width: 600px !important; /* must be bigger than the wrapper so we can scale down */
+  height: 600px !important;
+  background: transparent !important;
 }
