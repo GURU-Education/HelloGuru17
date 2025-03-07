@@ -46,7 +46,7 @@ export function useAudioRecorder(setPronunciationAnalysisResult) {
       reader.onloadend = async () => {
         const base64Data = reader.result.split(",")[1];
         try {
-          const response = await fetch("http://localhost:3000/save-audio", {
+          const response = await fetch("http://localhost:3000/api/save-audio", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ audioData: base64Data, filename }),
@@ -64,7 +64,7 @@ export function useAudioRecorder(setPronunciationAnalysisResult) {
   useEffect(() => {
     if (audioBlob && audioBlob.length !== 0) {
       saveRecordingToServer("audio_output.wav").then(() => {
-        fetch("http://localhost:3000/recognize-audio", {
+        fetch("http://localhost:3000/api/recognize-audio", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ filename: "audio_output.wav" }),
@@ -80,5 +80,5 @@ export function useAudioRecorder(setPronunciationAnalysisResult) {
     }
   }, [audioBlob]);
 
-  return { startRecording, stopRecording, audioBlob }; // Added audioBlob to the return
+  return { startRecording, stopRecording, audioBlob };
 }
