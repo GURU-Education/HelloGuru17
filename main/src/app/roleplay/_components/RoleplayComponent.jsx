@@ -1,8 +1,8 @@
 // RoleplayComponent.jsx
 "use client";
-import { useStateManagement } from "./stateManagement";
-import { useAudioRecorder } from "./audioRecorder";
-import { useSessionManager } from "./sessionManager";
+import { useStateManagement } from "./StateManagement";
+import { useAudioRecorder } from "./AudioRecorder";
+import { useSessionManager } from "./SessionManager";
 import LevelSelection from "./screens/LevelSelection";
 import TopicSelection from "./screens/TopicSelection";
 import RoleSelection from "./screens/RoleSelection";
@@ -15,8 +15,12 @@ export default function RoleplayComponent() {
   const session = useSessionManager(
     state.pronunciationAnalysisResult,
     state.selectedTopicData,
-    audio.startRecording,  // Pass startRecording
-    audio.stopRecording   // Pass stopRecording
+    state.selectedRole,
+    audio.startRecording,
+    audio.stopRecording,
+    state.selectedHSK,
+    state.selectedTopic,
+    state.selectedConversation
   );
 
   if (!state.selectedLevel) {

@@ -4,6 +4,7 @@ import ffmpeg from "fluent-ffmpeg";
 
 export async function POST(req) {
   try {
+    console.log("audio called")
     const { audioData, filename } = await req.json();
     if (!audioData) {
       return new Response(JSON.stringify({ error: "No audio data provided" }), {

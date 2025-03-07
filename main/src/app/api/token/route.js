@@ -1,5 +1,4 @@
 export async function GET() {
-    console.log("key is", process.env.OPENAI_API_KEY)
     try {
       const response = await fetch("https://api.openai.com/v1/realtime/sessions", {
         method: "POST",

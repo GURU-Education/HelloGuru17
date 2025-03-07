@@ -10,6 +10,7 @@ export default function ConversationScreen({
   handleNextLine,
   handleReset,
   startSession,
+  stopSession
 }) {
   return (
     <div className="background-container">
@@ -50,6 +51,9 @@ export default function ConversationScreen({
           </button>
           <button onClick={startSession} className="btn next-btn">
             Start Session
+          </button>
+          <button onClick={stopSession} className="btn next-btn">
+            Stop Session
           </button>
           <button className="conv-reset" onClick={handleReset}>
             Start Over
