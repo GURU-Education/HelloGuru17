@@ -4,75 +4,9 @@ import { useState, useRef, useEffect } from "react";
 import Spline from "@splinetool/react-spline";
 import "./RoleplayComponent.css";
 
-// Example data (Replace with your mapped data)
-const mockHskLevels = [
-  {
-    level: 1,
-    topics: [
-      {
-        name: "Self Introduction",
-        conversation: ["Person 1: 你叫什么名字？", "Person 2: 我叫小张。"],
-      },
-      {
-        name: "Ordering Food",
-        conversation: ["Person 1: 我要点菜", "Person 2: 好的，请说"],
-      },
-    ],
-  },
-  {
-    level: 2,
-    topics: [
-      {
-        name: "Asking for Directions",
-        conversation: ["Person 1: 请问...", "Person 2: 向前走"],
-      },
-      {
-        name: "Numbers & Prices",
-        conversation: ["Person 1: 多少钱？", "Person 2: 五十块"],
-      },
-    ],
-  },
-  {
-    level: 3,
-    topics: [
-      {
-        name: "Daily Activities",
-        conversation: ["Person 1: 今天干什么？", "Person 2: 去上班"],
-      },
-    ],
-  },
-  {
-    level: 4,
-    topics: [
-      {
-        name: "Family & Friends",
-        conversation: ["Person 1: 你有兄弟姐妹吗？", "Person 2: 有，一个妹妹"],
-      },
-    ],
-  },
-  {
-    level: 5,
-    topics: [
-      {
-        name: "Hobbies",
-        conversation: ["Person 1: 你喜欢做什么？", "Person 2: 我喜欢跑步"],
-      },
-    ],
-  },
-  {
-    level: 6,
-    topics: [
-      {
-        name: "Travel",
-        conversation: ["Person 1: 你去过哪里？", "Person 2: 我去过北京和上海"],
-      },
-    ],
-  },
-];
-
 export default function RoleplayComponent() {
   // In real usage, you'll fetch or map your data. Here we use the mock:
-  const [hskLevels, setHskLevels] = useState(mockHskLevels);
+  const [hskLevels, setHskLevels] = useState(null);
   const [conversations, setConversations] = useState([]);
   const [selectedLevel, setSelectedLevel] = useState(null);
   const [selectedTopic, setSelectedTopic] = useState(null);
@@ -82,7 +16,7 @@ export default function RoleplayComponent() {
   const chatBoxRef = useRef(null);
 
   // Identify selected HSK & Topic
-  const selectedHSK = hskLevels.find((hsk) => hsk.level === selectedLevel);
+  const selectedHSK = hskLevels && hskLevels.find((hsk) => hsk.level === selectedLevel);
   const selectedTopicData = selectedHSK?.topics.find(
     (t) => t.name === selectedTopic
   );
@@ -437,7 +371,7 @@ export default function RoleplayComponent() {
         <h2 className="subtitle">Select Your HSK Level:</h2>
 
         <div className="circle-row">
-          {hskLevels.map((hsk) => (
+          {hskLevels && hskLevels.map((hsk) => (
             <div
               key={hsk.level}
               className="circle"
