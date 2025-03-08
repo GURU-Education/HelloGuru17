@@ -216,7 +216,7 @@ def verify_face():
         return jsonify({"error": str(e)}), 500
 
 @app.route('/translate', methods=['POST'])
-def translate_text():
+async def translate_text():
     try:
         data = request.json
         text = data['text']
