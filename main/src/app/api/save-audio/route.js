@@ -4,6 +4,7 @@ import ffmpeg from "fluent-ffmpeg";
 
 export async function POST(req) {
   try {
+    console.log("audio called")
     const { audioData, filename } = await req.json();
     if (!audioData) {
       return new Response(JSON.stringify({ error: "No audio data provided" }), {
@@ -23,7 +24,7 @@ export async function POST(req) {
     const buffer = Buffer.from(audioData, "base64");
     fs.writeFileSync(inputFilePath, buffer);
 
-    console.log(`Converting ${inputFilePath} to WAV...`);
+    // console.log(`Converting ${inputFilePath} to WAV...`);
 
     return new Promise((resolve, reject) => {
       ffmpeg(inputFilePath)
@@ -31,7 +32,7 @@ export async function POST(req) {
         .audioCodec("pcm_s16le")
         .audioFrequency(16000)
         .on("end", () => {
-          console.log("Conversion complete:", outputFilePath);
+        //   console.log("Conversion complete:", outputFilePath);
           resolve(
             new Response(JSON.stringify({ success: true, path: `/recordings/${filename}` }), {
               status: 200,

@@ -25,7 +25,7 @@ function StreamVideo() {
       }
 
       const data = await response.json();
-      console.log("Response data:", data);
+      // console.log("Response data:", data);
       return data;
     },
     onError: (error) => {
@@ -39,7 +39,7 @@ function StreamVideo() {
       formData.append("image", imageBlob, "capture1.jpg");
       const user = JSON.parse(localStorage.getItem("user"));
       formData.append("email", user?.email);
-      console.log("User email:", user?.email);
+      // console.log("User email:", user?.email);
 
       const response = await fetch("http://127.0.0.1:5000/verify-face", {
         method: "POST",
@@ -52,7 +52,7 @@ function StreamVideo() {
       }
 
       const data = await response.json();
-      console.log("Response data:", data);
+      // console.log("Response data:", data);
       return data;
     },
     onError: (error) => {

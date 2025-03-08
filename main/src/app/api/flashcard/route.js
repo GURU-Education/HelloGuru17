@@ -5,7 +5,7 @@ export async function GET(req) {
   try {
     await connectToDatabase();
     const flashcards = await FlashCardStatic.find();
-    console.log(flashcards);
+    // console.log(flashcards);
     return Response.json({ success: true, flashcards });
   } catch (error) {
     return Response.json(

@@ -28,7 +28,7 @@ const Signup = ({ onNavigate }) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.message === "User registered successfully") {
-          console.log("✅ Account created:", data);
+          // console.log("✅ Account created:", data);
           setSuccess("Sign up sucessful!");
           setError(""); // Clear error
           // onNavigate("login"); // Redirect to login page after successful signup

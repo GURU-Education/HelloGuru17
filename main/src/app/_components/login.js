@@ -23,7 +23,7 @@ const Login = ({ onNavigate }) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.message === "Login successful") {
-          console.log("✅ Logged in successfully:");
+          // console.log("✅ Logged in successfully:");
           setSuccess("Login successful!");
           setError("");
           localStorage.setItem(
