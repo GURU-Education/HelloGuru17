@@ -428,3 +428,195 @@ button:disabled {
   font-weight: 500;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
+
+/************************************************************
+ * ROOT VARIABLES
+ ************************************************************/
+:root {
+  /* Background gradient (approximation) */
+  --bg-gradient-start: #1d2671;
+  --bg-gradient-end: #c33764;
+
+  /* Circle color progression from green to orange */
+  --circle-1: #80e27e; /* HSK 1 (green) */
+  --circle-2: #aee571;
+  --circle-3: #ffca28;
+  --circle-4: #ffc107;
+  --circle-5: #ffa726;
+  --circle-6: #fb8c00; /* HSK 6 (orange) */
+
+  --font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/************************************************************
+ * LAYOUT CONTAINER
+ ************************************************************/
+.level-selection-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    var(--bg-gradient-start),
+    var(--bg-gradient-end)
+  );
+  position: relative;
+  display: flex;
+  font-family: var(--font-family);
+  color: #fff;
+}
+
+/************************************************************
+ * LEFT PANEL: BUBBLE + TITLE
+ ************************************************************/
+.left-panel {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+/* Big bubble area for Spline */
+.bubble-wrapper {
+  position: absolute;
+  top: -10%;
+  left: 0%;
+  width: 900px;
+  height: 900px;
+  pointer-events: none;
+}
+
+.bubble-wrapper canvas {
+  width: 100% !important;
+  height: 100% !important;
+  background: transparent !important;
+}
+
+/* Title & subtitle near bubble */
+.title-area {
+  position: absolute;
+  top: 5%;
+  left: 1%; /* push text to the right of bubble */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.main-title {
+  font-size: 44px;
+  font-weight: 700;
+  margin: 0 0 10px;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+}
+
+/************************************************************
+ * RIGHT PANEL: LEVEL INSTRUCTION + VERTICAL CIRCLES
+ ************************************************************/
+.right-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  padding-right: 0px;
+  position: relative;
+}
+
+.level-instruction {
+  font-size: 24px;
+  margin: 0 0 40px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  margin-right: 60px;
+}
+
+/* The vertical stack of circles */
+.vertical-levels {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-right: 80px; /* position them further left if you want */
+}
+
+/* Each circle */
+.level-circle {
+  width: 160px;
+  height: 50px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.level-circle p {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Hover effect */
+.level-circle:hover {
+  transform: scale(1.05);
+}
+
+/************************************************************
+ * COLOR GRADIENT FOR CIRCLES (HSK 1..6)
+ ************************************************************/
+.circle-1 {
+  background-color: var(--circle-1);
+}
+.circle-2 {
+  background-color: var(--circle-2);
+}
+.circle-3 {
+  background-color: var(--circle-3);
+}
+.circle-4 {
+  background-color: var(--circle-4);
+}
+.circle-5 {
+  background-color: var(--circle-5);
+}
+.circle-6 {
+  background-color: var(--circle-6);
+}
+
+/************************************************************
+ * RESPONSIVE TWEAKS
+ ************************************************************/
+@media (max-width: 900px) {
+  .bubble-wrapper {
+    width: 240px;
+    height: 240px;
+    top: 15%;
+    left: 5%;
+  }
+  .title-area {
+    left: 25%;
+  }
+  .main-title {
+    font-size: 32px;
+  }
+  .subtitle,
+  .level-instruction {
+    font-size: 18px;
+  }
+  .level-circle {
+    width: 140px;
+    height: 44px;
+    border-radius: 22px;
+  }
+  .level-circle p {
+    font-size: 16px;
+  }
+}
