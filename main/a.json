@@ -1,0 +1,178 @@
+[
+  {
+    "Id": "0e078acf09b44342b650683235fd407b",
+    "RecognitionStatus": "Success",
+    "Offset": 168700000,
+    "Duration": 226000000,
+    "Channel": 0,
+    "DisplayText": "你好，就我一个人，请给我一个靠窗的座位，谢谢，我想点宫保鸡丁和一份米饭好的，谢谢。",
+    "SNR": 26.458223,
+    "NBest": [
+      {
+        "Confidence": 0.772628,
+        "Lexical": "你好 就 我 一个 人 请 给 我 一个 靠 窗 的 座位 谢谢 我 想 点 宫保鸡丁 和 一 份 米饭 好 的 谢谢",
+        "ITN": "你好 就 我 一个 人 请 给 我 一个 靠 窗 的 座位 谢谢 我 想 点 宫保鸡丁 和 一 份 米饭 好 的 谢谢",
+        "MaskedITN": "你好就我一个人请给我一个靠窗的座位谢谢我想点宫保鸡丁和一份米饭好的谢谢",
+        "Display": "你好，就我一个人，请给我一个靠窗的座位，谢谢，我想点宫保鸡丁和一份米饭好的，谢谢。",
+        "PronunciationAssessment": {
+          "AccuracyScore": 62,
+          "FluencyScore": 41,
+          "CompletenessScore": 52,
+          "PronScore": 47.4
+        },
+        "Words": [
+          {
+            "Word": "你好",
+            "Offset": 168700000,
+            "Duration": 11600000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 79,
+              "ErrorType": "None"
+            }
+          },
+          {
+            "Word": "就",
+            "Offset": 183700000,
+            "Duration": 3500000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 60,
+              "ErrorType": "None"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "1f29bcdf34a84212b983f7352fe56789",
+    "RecognitionStatus": "Success",
+    "Offset": 170000000,
+    "Duration": 230000000,
+    "Channel": 0,
+    "DisplayText": "你好，我想要一个靠窗的座位，谢谢，请给我宫保鸡丁和米饭。",
+    "SNR": 25.987654,
+    "NBest": [
+      {
+        "Confidence": 0.785432,
+        "Lexical": "你好 我 想 要 一个 靠 窗 的 座位 谢谢 请 给 我 宫保鸡丁 和 米饭",
+        "ITN": "你好 我 想 要 一个 靠 窗 的 座位 谢谢 请 给 我 宫保鸡丁 和 米饭",
+        "MaskedITN": "你好我想要一个靠窗的座位谢谢请给我宫保鸡丁和米饭",
+        "Display": "你好，我想要一个靠窗的座位，谢谢，请给我宫保鸡丁和米饭。",
+        "PronunciationAssessment": {
+          "AccuracyScore": 64,
+          "FluencyScore": 43,
+          "CompletenessScore": 55,
+          "PronScore": 49.1
+        },
+        "Words": [
+          {
+            "Word": "你好",
+            "Offset": 170000000,
+            "Duration": 12000000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 82,
+              "ErrorType": "None"
+            }
+          },
+          {
+            "Word": "我",
+            "Offset": 182500000,
+            "Duration": 3000000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 90,
+              "ErrorType": "None"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "2a3c4d5e6f784512acde90234567b890",
+    "RecognitionStatus": "Success",
+    "Offset": 172500000,
+    "Duration": 240000000,
+    "Channel": 0,
+    "DisplayText": "你好，我一个人，请给我一个靠窗的位置，谢谢，我想点宫保鸡丁和米饭。",
+    "SNR": 27.123456,
+    "NBest": [
+      {
+        "Confidence": 0.790321,
+        "Lexical": "你好 我 一个 人 请 给 我 一个 靠 窗 的 位置 谢谢 我 想 点 宫保鸡丁 和 米饭",
+        "ITN": "你好 我 一个 人 请 给 我 一个 靠 窗 的 位置 谢谢 我 想 点 宫保鸡丁 和 米饭",
+        "MaskedITN": "你好我一个人请给我一个靠窗的位置谢谢我想点宫保鸡丁和米饭",
+        "Display": "你好，我一个人，请给我一个靠窗的位置，谢谢，我想点宫保鸡丁和米饭。",
+        "PronunciationAssessment": {
+          "AccuracyScore": 65,
+          "FluencyScore": 45,
+          "CompletenessScore": 58,
+          "PronScore": 50.6
+        },
+        "Words": [
+          {
+            "Word": "你好",
+            "Offset": 172500000,
+            "Duration": 11500000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 85,
+              "ErrorType": "None"
+            }
+          },
+          {
+            "Word": "一个",
+            "Offset": 184000000,
+            "Duration": 3700000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 100,
+              "ErrorType": "None"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Id": "3b4d5e6f7a8b9c10def2345678901234",
+    "RecognitionStatus": "Success",
+    "Offset": 175000000,
+    "Duration": 235000000,
+    "Channel": 0,
+    "DisplayText": "你好，我想要靠窗的位置，谢谢，请给我一份宫保鸡丁和米饭。",
+    "SNR": 28.654321,
+    "NBest": [
+      {
+        "Confidence": 0.799876,
+        "Lexical": "你好 我 想 要 靠 窗 的 位置 谢谢 请 给 我 一 份 宫保鸡丁 和 米饭",
+        "ITN": "你好 我 想 要 靠 窗 的 位置 谢谢 请 给 我 一 份 宫保鸡丁 和 米饭",
+        "MaskedITN": "你好我想要靠窗的位置谢谢请给我一份宫保鸡丁和米饭",
+        "Display": "你好，我想要靠窗的位置，谢谢，请给我一份宫保鸡丁和米饭。",
+        "PronunciationAssessment": {
+          "AccuracyScore": 67,
+          "FluencyScore": 48,
+          "CompletenessScore": 60,
+          "PronScore": 52.3
+        },
+        "Words": [
+          {
+            "Word": "你好",
+            "Offset": 175000000,
+            "Duration": 11000000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 88,
+              "ErrorType": "None"
+            }
+          },
+          {
+            "Word": "位置",
+            "Offset": 186000000,
+            "Duration": 4000000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 92,
+              "ErrorType": "None"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

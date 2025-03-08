@@ -16,7 +16,6 @@ import requests
 from werkzeug.utils import secure_filename
 import whisperx
 
-from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
@@ -217,7 +216,7 @@ def verify_face():
         return jsonify({"error": str(e)}), 500
 
 @app.route('/translate', methods=['POST'])
-async def translate_text():
+def translate_text():
     try:
         data = request.json
         text = data['text']
@@ -233,6 +232,7 @@ async def translate_text():
         return jsonify(translation_map)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+    
 
 def transcribe_audio(audio_file):
     device = "cpu" 
