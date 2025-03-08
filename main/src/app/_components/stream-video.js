@@ -158,7 +158,7 @@ function StreamVideo() {
   return (
     <div className="emotion-analyzer">
       <div className="header">
-        <h1>Live Emotion Analysis</h1>
+        {/* <h1>Live Emotion Analysis</h1> */}
         <div className="pulse" style={{ backgroundColor: emotionColor }}></div>
       </div>
 

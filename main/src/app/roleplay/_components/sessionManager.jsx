@@ -9,13 +9,98 @@ export function useSessionManager(
   stopRecording,
   hskLevel,
   convoTopic,
-  conversationList
+  conversationList,
+  splineObj // Added splineObj parameter
 ) {
   const [isSessionActive, setIsSessionActive] = useState(false);
   const [events, setEvents] = useState([]);
   const [dataChannel, setDataChannel] = useState(null);
   const peerConnection = useRef(null);
   const audioElement = useRef(null);
+
+  // Animation related refs
+  const isMouthOpen = useRef(false);
+  const audioContextRef = useRef(null);
+  const animationRef = useRef(null);
+  const serverAudioStreamRef = useRef(null);
+
+  // Control mouth animations
+  function openMouth() {
+    if (!isMouthOpen.current && splineObj) {
+      // console.log("Opening mouth!");
+      try {
+        splineObj.emitEvent("keyDown", "Mouth");
+        isMouthOpen.current = true;
+      } catch (err) {
+        console.error("Error opening mouth:", err);
+      }
+    }
+  }
+
+  function closeMouth() {
+    if (isMouthOpen.current && splineObj) {
+      // console.log("Closing mouth!");
+      try {
+        splineObj.emitEvent("keyUp", "Mouth");
+        isMouthOpen.current = false;
+      } catch (err) {
+        console.error("Error closing mouth:", err);
+      }
+    }
+  }
+
+  // Setup audio processing for mouth animation
+  function setupAudioAnalysis(stream) {
+    console.log("Setting up audio analysis for mouth animation");
+
+    // Stop previous animation loop if running
+    if (animationRef.current) {
+      cancelAnimationFrame(animationRef.current);
+      animationRef.current = null;
+    }
+
+    // Close previous audio context if open
+    if (audioContextRef.current && audioContextRef.current.state !== "closed") {
+      audioContextRef.current.close().catch(() => {});
+      audioContextRef.current = null;
+    }
+
+    try {
+      // Create new audio context and analyzer
+      const audioContext = new (window.AudioContext ||
+        window.webkitAudioContext)();
+      audioContextRef.current = audioContext;
+
+      const analyser = audioContext.createAnalyser();
+      const source = audioContext.createMediaStreamSource(stream);
+      const dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+      source.connect(analyser);
+      // Don't connect to destination to avoid audio doubling
+
+      function checkVolume() {
+        analyser.getByteFrequencyData(dataArray);
+        const volume = dataArray.reduce((a, b) => a + b, 0) / dataArray.length;
+
+        // console.log("Current volume:", volume);
+
+        // Open/close mouth based on volume threshold
+        if (volume > 15 && !isMouthOpen.current) {
+          openMouth();
+        } else if (volume <= 15 && isMouthOpen.current) {
+          closeMouth();
+        }
+
+        animationRef.current = requestAnimationFrame(checkVolume);
+      }
+
+      // Start volume checking
+      audioContext.resume();
+      checkVolume();
+    } catch (err) {
+      console.error("Error setting up audio analysis:", err);
+    }
+  }
 
   useEffect(() => {
     const handlePronunciationResult = async () => {
@@ -87,67 +172,106 @@ export function useSessionManager(
   }, [dataChannel]);
 
   async function startSession() {
+    console.log("Starting session with Spline object:", splineObj);
     startRecording();
-    const tokenResponse = await fetch("api/token");
-    const data = await tokenResponse.json();
-    const EPHEMERAL_KEY = data.client_secret.value;
 
-    const pc = new RTCPeerConnection();
+    try {
+      const tokenResponse = await fetch("api/token");
+      const data = await tokenResponse.json();
+      const EPHEMERAL_KEY = data.client_secret.value;
 
-    audioElement.current = document.createElement("audio");
-    audioElement.current.autoplay = true;
-    audioElement.current.muted = false;
-    audioElement.current
-      .play()
-      .catch((error) => console.error("Autoplay blocked:", error));
+      const pc = new RTCPeerConnection();
 
-    pc.ontrack = (e) => {
-      audioElement.current.srcObject = e.streams[0];
-    };
+      audioElement.current = document.createElement("audio");
+      audioElement.current.autoplay = true;
+      audioElement.current.muted = false;
+      audioElement.current
+        .play()
+        .catch((error) => console.error("Autoplay blocked:", error));
 
-    const ms = await navigator.mediaDevices.getUserMedia({
-      audio: true,
-    });
+      pc.ontrack = (e) => {
+        console.log("Receiving AI audio stream:", e.streams[0]);
 
-    pc.addTrack(ms.getTracks()[0]);
+        // Save the stream reference for mouth animation
+        serverAudioStreamRef.current = e.streams[0];
 
-    const dc = pc.createDataChannel("oai-events");
-    setDataChannel(dc);
+        // Apply the stream to the audio element
+        audioElement.current.srcObject = e.streams[0];
 
-    const offer = await pc.createOffer();
-    await pc.setLocalDescription(offer);
+        // Set up audio analysis for mouth movements
+        if (splineObj) {
+          setupAudioAnalysis(e.streams[0]);
+        } else {
+          console.warn("No Spline object available for mouth animation");
+        }
+      };
 
-    const baseUrl = "https://api.openai.com/v1/realtime";
-    const model = "gpt-4o-realtime-preview-2024-12-17";
-    const sdpResponse = await fetch(`${baseUrl}?model=${model}`, {
-      method: "POST",
-      body: offer.sdp,
-      headers: {
-        Authorization: `Bearer ${EPHEMERAL_KEY}`,
-        "Content-Type": "application/sdp",
-      },
-    });
+      const ms = await navigator.mediaDevices.getUserMedia({
+        audio: true,
+      });
 
-    const answer = {
-      type: "answer",
-      sdp: await sdpResponse.text(),
-    };
-    await pc.setRemoteDescription(answer);
+      pc.addTrack(ms.getTracks()[0]);
 
-    peerConnection.current = pc;
+      const dc = pc.createDataChannel("oai-events");
+      setDataChannel(dc);
+
+      const offer = await pc.createOffer();
+      await pc.setLocalDescription(offer);
+
+      const baseUrl = "https://api.openai.com/v1/realtime";
+      const model = "gpt-4o-realtime-preview-2024-12-17";
+      const sdpResponse = await fetch(`${baseUrl}?model=${model}`, {
+        method: "POST",
+        body: offer.sdp,
+        headers: {
+          Authorization: `Bearer ${EPHEMERAL_KEY}`,
+          "Content-Type": "application/sdp",
+        },
+      });
+
+      const answer = {
+        type: "answer",
+        sdp: await sdpResponse.text(),
+      };
+      await pc.setRemoteDescription(answer);
+
+      peerConnection.current = pc;
+    } catch (error) {
+      console.error("Error starting session:", error);
+    }
   }
 
   function stopSession() {
+    // Stop analyzing audio for mouth movements
+    if (animationRef.current) {
+      cancelAnimationFrame(animationRef.current);
+      animationRef.current = null;
+    }
+
+    // Close audio context
+    if (audioContextRef.current && audioContextRef.current.state !== "closed") {
+      audioContextRef.current.close().catch(() => {});
+      audioContextRef.current = null;
+    }
+
+    // Close mouth if open
+    if (isMouthOpen.current && splineObj) {
+      closeMouth();
+    }
+
     stopRecording();
+
     if (dataChannel) {
       dataChannel.close();
     }
 
-    peerConnection.current.getSenders().forEach((sender) => {
-      if (sender.track) {
-        sender.track.stop();
-      }
-    });
+    if (peerConnection.current) {
+      peerConnection.current.getSenders().forEach((sender) => {
+        if (sender.track) {
+          sender.track.stop();
+        }
+      });
+    }
 
     if (peerConnection.current) {
       peerConnection.current.close();
@@ -156,6 +280,7 @@ export function useSessionManager(
     setIsSessionActive(false);
     setDataChannel(null);
     peerConnection.current = null;
+    serverAudioStreamRef.current = null;
   }
 
   function sendClientEvent(message) {
@@ -190,5 +315,10 @@ export function useSessionManager(
     sendClientEvent({ type: "response.create" });
   }
 
-  return { startSession, stopSession, isSessionActive };
+  return {
+    startSession,
+    stopSession,
+    isSessionActive,
+    events,
+  };
 }

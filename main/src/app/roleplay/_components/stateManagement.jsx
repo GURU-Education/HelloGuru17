@@ -31,7 +31,7 @@ export function useStateManagement() {
   }, []);
 
   useEffect(() => {
-    const mappedData = conversations.reduce((acc, doc) => {
+    const mappedData = conversations?.reduce((acc, doc) => {
       let levelObj = acc.find((item) => item.level === doc.hskLevel);
       if (!levelObj) {
         levelObj = { level: doc.hskLevel, topics: [] };
