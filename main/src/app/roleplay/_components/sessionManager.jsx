@@ -62,15 +62,21 @@ export function useSessionManager(pronunciationAnalysisResult, selectedTopicData
         dataChannel.addEventListener("open", () => {
             setIsSessionActive(true);
             setEvents([]);
-            sendTextMessage(
-            `We are role-playing. My role is ${selectedRole} and your role is the other one. 
-            I will read the ${selectedRole}’s lines aloud, and you will read the other role lines aloud. Do not generate new text 
-            outside of the given script below". 
-            ${conversationList.join("\n")}
-            "Do not respond until the user sends a message after session start. You always start with: "Let's start the conversation!". Then, if according to the conversation
-            list you are supposed to talk first, then you talk first after saying Let's start the conversation! if according to the conversation list you are the second person to talk, then just say "Let's start the conversation!"
-            and wait for user input
-            `);
+            const missionPrompt = 
+                "You are a professional Chinese teacher guiding a native English-speaking student through a language-learning task.\n\n" +
+                "## Mission Context:\n" +
+                "You are currently at a Chinese restaurant, and you need to order food in Chinese.\n\n" +
+                "## Your Goal:\n" +
+                "- Order at least three dishes in Chinese, each from a different category (for example: a meat dish, a vegetable dish, and a beverage).\n" +
+                "- Ask the waiter at least one question (e.g., about specialties or recommendations).\n\n" +
+                "## Teacher Role:\n" +
+                "- **Guide the conversation**: proactively ask questions and guide the student to complete the task.\n" +
+                "- **Provide real-time feedback**: point out grammar or pronunciation errors in the student's speech, and offer concise suggestions for improvement.\n" +
+                "- **Encourage open expression**: Allow students to express themselves freely, guiding gently and correcting significant errors without restricting their speech.\n\n" +
+                "To begin, clearly explain the mission context and goal in Chinese to the student, then say:\n" +
+                "「准备好了吗？我们开始吧！」 (\"Are you ready? Let's begin!\")\n\n" +
+                "Wait for the student's response before formally starting the conversation.";
+            sendTextMessage(missionPrompt);
         });
         }
     }, [dataChannel]);
