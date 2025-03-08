@@ -1,0 +1,62 @@
+/* Additional CSS for user input area */
+
+/* User input area for freeform conversation */
+.user-input-area {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.user-input {
+  flex: 1;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 20px;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.8);
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-input:focus {
+  outline: none;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.send-btn {
+  background: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 0 20px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.send-btn:hover {
+  background: #1976d2;
+  transform: scale(1.05);
+}
+
+/* Make chat area smaller when input is visible */
+.user-input-area + .chat-box {
+  max-height: calc(60vh - 80px);
+}
+
+/* Make phrases panel smaller on mobile */
+@media (max-width: 768px) {
+  .phrases-panel {
+    max-height: 20vh;
+  }
+
+  .user-input-area {
+    flex-direction: column;
+  }
+
+  .send-btn {
+    padding: 10px;
+  }
+}
