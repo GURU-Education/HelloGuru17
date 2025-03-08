@@ -7,5 +7,5 @@ const ConversationSchema = new mongoose.Schema({
 });
 
 // Ensure Mongoose doesn't redefine the model
-export default mongoose.models.converations ||
+export default mongoose.models.conversations ||
   mongoose.model("conversations", ConversationSchema, "conversations"); // <-- Explicit collection name

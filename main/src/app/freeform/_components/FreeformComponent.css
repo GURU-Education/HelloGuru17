@@ -1,0 +1,532 @@
+/************************************************************
+ * GLOBAL & BACKGROUND
+ ************************************************************/
+:root {
+  --bg-gradient-start: #1d2671;
+  --bg-gradient-end: #c33764;
+
+  --orange-start: #f48c06;
+  --orange-end: #fbc531;
+
+  --primary-color: #0078ff;
+  --secondary-color: #4caf50;
+
+  --font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Fullscreen gradient background */
+.background-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    135deg,
+    var(--bg-gradient-start),
+    var(--bg-gradient-end)
+  );
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+/* ----- Smaller Spline Sprite in Top Left ----- */
+.spline-container {
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  /* Smaller fixed size so it's less obtrusive */
+  width: 100px;
+  height: 100px;
+  pointer-events: none; /* Let clicks pass through */
+  overflow: hidden; /* Hide any overflow from scaling */
+}
+
+.spline-container canvas {
+  /* Force the canvas to fill the container (no extra background) */
+  width: 100% !important;
+  height: 100% !important;
+  background: transparent !important; /* Removes default BG if present */
+  /* If you still see a white background, set Spline's background to "transparent" in Spline's editor */
+}
+
+/************************************************************
+   * HEADINGS & TEXT
+   ************************************************************/
+.main-title {
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+  z-index: 2;
+  line-height: 1.2;
+}
+
+.main-title span {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.subtitle {
+  margin: 10px 0 30px;
+  font-size: 24px;
+  font-weight: 400;
+  z-index: 2;
+  text-align: center;
+}
+
+.pro-tip {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+  opacity: 0.8;
+  text-align: center;
+}
+
+/************************************************************
+   * HORIZONTAL CIRCLE ROW for Level and Topic Selection
+   ************************************************************/
+.circle-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  z-index: 2;
+}
+
+.circle {
+  width: 120px;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+  padding: 10;
+  text-align: center;
+}
+
+.circle:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.circle p {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+
+/************************************************************
+   * ROLE SELECTION
+   ************************************************************/
+.role-container {
+  display: flex;
+  gap: 20px;
+  z-index: 2;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.role-btn {
+  padding: 14px 20px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: #3498db;
+  color: #fff;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.role-btn:hover {
+  background: #2980b9;
+  transform: scale(1.05);
+}
+
+.back-btn {
+  background: #555;
+}
+
+/************************************************************
+   * CONVERSATION PANEL (ORANGE BUBBLE on the right)
+   ************************************************************/
+.conversation-panel {
+  position: absolute;
+  right: 3%;
+  top: 10%;
+  width: 40vw;
+  min-width: 350px;
+  height: 80vh;
+  background: linear-gradient(135deg, var(--orange-start), var(--orange-end));
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: #333;
+}
+
+.conv-title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 1px 1px #444;
+  margin-bottom: 20px;
+}
+
+/* The chat area */
+.chat-box {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Bubbles */
+.chat-bubble {
+  max-width: 70%;
+  padding: 10px 15px;
+  border-radius: 15px;
+  font-size: 16px;
+  background: #fff;
+  color: #333;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.person1 {
+  align-self: flex-end;
+  background: #dff3ff;
+}
+
+.person2 {
+  align-self: flex-start;
+  background: #e6ffe6;
+}
+
+/* Bottom buttons */
+.conv-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.conv-next,
+.conv-reset {
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.conv-next {
+  background: #3498db;
+  color: #fff;
+}
+
+.conv-next:hover {
+  background: #2980b9;
+  transform: scale(1.05);
+}
+
+.conv-next:disabled {
+  background: #bbb;
+  cursor: not-allowed;
+}
+
+.conv-reset {
+  background: #ff4d4d;
+  color: #fff;
+}
+
+.conv-reset:hover {
+  background: #cc0000;
+  transform: scale(1.05);
+}
+
+/************************************************************
+   * SCROLLBAR CUSTOMIZATION
+   ************************************************************/
+.chat-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-box::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 6px;
+  border: 2px solid #f0f0f0;
+}
+
+.chat-box::-webkit-scrollbar-thumb:hover {
+  background-color: #666;
+}
+
+/************************************************************
+   * RESPONSIVE DESIGN
+   ************************************************************/
+@media (max-width: 768px) {
+  .circle-row {
+    flex-direction: column;
+  }
+  .conversation-panel {
+    width: 80vw;
+    left: 10%;
+    top: 10%;
+  }
+  .spline-container {
+    width: 30vw;
+    height: 30vw;
+  }
+}
+
+.spline-wrapper {
+  position: absolute;
+  top: 0%;
+  left: -3%;
+  width: 1000px; /* bounding box for the wrapper */
+  height: 1000px;
+  overflow: hidden; /* hide overflow if we scale down the canvas */
+  pointer-events: none;
+}
+
+/* The Spline library typically renders a <div> with a canvas inside.
+     Target that <div> directly and scale it. You may need to adjust the selector. */
+.spline-wrapper > div {
+  transform: scale(0.5) translate(50px, 0); /* 50% smaller */
+  transform-origin: top left; /* anchor the scale to top-left corner */
+  width: 600px !important; /* must be bigger than the wrapper so we can scale down */
+  height: 600px !important;
+  background: transparent !important;
+}
+
+.spline-wrapper-chat {
+  position: absolute;
+  top: -15%;
+  left: -3%;
+  width: 1000px; /* bounding box for the wrapper */
+  height: 1000px;
+  overflow: hidden; /* hide overflow if we scale down the canvas */
+  pointer-events: none;
+}
+
+/* The Spline library typically renders a <div> with a canvas inside.
+     Target that <div> directly and scale it. You may need to adjust the selector. */
+.spline-wrapper-chat > div {
+  transform: scale(0.8) translate(0px, 0); /* 50% smaller */
+  transform-origin: top left; /* anchor the scale to top-left corner */
+  width: 1200px !important; /* must be bigger than the wrapper so we can scale down */
+  height: 1200px !important;
+  background: transparent !important;
+}
+
+/* AI Response bubble styling */
+.ai-response {
+  background-color: #e3f2fd; /* Light blue background */
+  border-left: 4px solid #2196f3;
+}
+
+/* Disabled button styling */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Animation for mouth movement */
+@keyframes mouthPulse {
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+.mouth-animated {
+  animation: mouthPulse 0.3s infinite;
+}
+
+/* Ensure Spline container has correct dimensions */
+.spline-wrapper-chat {
+  position: relative;
+  width: 100%;
+  /* height: 300px; Adjust based on your layout */
+  overflow: hidden;
+}
+
+/* Make sure the Spline object is centered */
+.spline-wrapper-chat canvas {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Loading indicator container */
+.spline-loading-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(
+    29,
+    38,
+    113,
+    0.3
+  ); /* Semi-transparent gradient start color */
+  z-index: 10;
+}
+
+/* Loading spinner animation */
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Loading text style */
+.spline-loading-indicator p {
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* Phrases panel in freeform conversation mode */
+.phrases-panel {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 15px;
+  max-height: 25vh;
+  overflow-y: auto;
+}
+
+.phrases-panel h3 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.phrases-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.phrase-item {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 100px;
+  max-width: calc(50% - 10px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.phrase-item:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.phrase-highlighted {
+  background: #ffeb3b;
+  border-left: 3px solid #ff9800;
+}
+
+.phrase-item .chinese {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.phrase-item .pinyin {
+  font-size: 14px;
+  font-style: italic;
+  margin-bottom: 4px;
+  opacity: 0.7;
+}
+
+.phrase-item .english {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Custom chat bubble styles for freeform mode */
+.system-message {
+  background: rgba(255, 255, 255, 0.6);
+  border-left: 4px solid #9c27b0;
+  align-self: center;
+  max-width: 90%;
+}
+
+/* Scrollbar styles for phrases panel */
+.phrases-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.phrases-panel::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.phrases-panel::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 6px;
+}
+
+.phrases-panel::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .phrases-container {
+    flex-direction: column;
+  }
+
+  .phrase-item {
+    max-width: 100%;
+  }
+}
