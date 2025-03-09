@@ -2,6 +2,7 @@
 import { useEffect, useState, useRef } from "react";
 import Spline from "@splinetool/react-spline";
 import "./FreeformConversationScreen.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function FreeformConversationScreen({
   selectedHSK,
@@ -313,9 +314,9 @@ export default function FreeformConversationScreen({
                 if (e.key === "Enter") handleSendMessage();
               }}
               placeholder="Type your message here..."
-              className="user-input"
+              className="form-control"
             />
-            <button onClick={handleSendMessage} className="send-btn">
+            <button onClick={handleSendMessage} className="btn btn-primary">
               Send
             </button>
           </div>
@@ -324,19 +325,19 @@ export default function FreeformConversationScreen({
         <div className="conv-buttons">
           <button
             onClick={startSession}
-            className="btn next-btn"
+            className="btn btn-success"
             disabled={isSessionActive || !splineLoaded}
           >
             {isSessionActive ? "Session Started" : "Start Session"}
           </button>
           <button
             onClick={stopSession}
-            className="btn next-btn"
+            className="btn btn-danger"
             disabled={!isSessionActive}
           >
             Stop Session
           </button>
-          <button className="conv-reset" onClick={handleReset}>
+          <button className="btn btn-secondary" onClick={handleReset}>
             Choose New Mission
           </button>
         </div>

@@ -1,7 +1,9 @@
-// screens/ConversationScreen.jsx
+// screens/ConversationScreen.jsx with pronunciation results modal
 import { useEffect, useState, useRef } from "react";
 import Spline from "@splinetool/react-spline";
 import "../RoleplayComponent.css";
+// import bootstrap
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function ConversationScreen({
   selectedLevel,
@@ -17,6 +19,9 @@ export default function ConversationScreen({
   isSessionActive,
   events,
   setSplineObj, // Receive setSplineObj function from parent
+  // Audio recorder props
+  currentTranscription = "",
+  isRecording = false,
 }) {
   // Generate subtitles from AI responses
   const [aiResponse, setAiResponse] = useState("");
@@ -25,8 +30,44 @@ export default function ConversationScreen({
   const [splineFullyLoaded, setSplineFullyLoaded] = useState(false); // Track if Spline is fully loaded
   const splineInitTimer = useRef(null);
 
+  // For subtitle display
+  const [showSubtitle, setShowSubtitle] = useState(false);
+  const subtitleTimerRef = useRef(null);
+
+  // For pronunciation results modal
+  const [showResultsModal, setShowResultsModal] = useState(false);
+  const [pronunciationResults, setPronunciationResults] = useState(null);
+
   // Force re-render of Spline component when needed
   const [splineKey, setSplineKey] = useState(0);
+
+  // Update subtitle visibility when transcription changes
+  useEffect(() => {
+    if (currentTranscription && currentTranscription.trim() !== "") {
+      setShowSubtitle(true);
+
+      // Clear any existing timer
+      if (subtitleTimerRef.current) {
+        clearTimeout(subtitleTimerRef.current);
+      }
+
+      // Set a new timer to hide subtitle after speaking stops
+      subtitleTimerRef.current = setTimeout(() => {
+        if (!isRecording) {
+          setShowSubtitle(false);
+        }
+      }, 3000);
+    } else if (!isRecording) {
+      // No transcription and not recording, hide subtitles
+      setShowSubtitle(false);
+    }
+
+    return () => {
+      if (subtitleTimerRef.current) {
+        clearTimeout(subtitleTimerRef.current);
+      }
+    };
+  }, [currentTranscription, isRecording]);
 
   // Handle Spline scene load
   function handleSplineLoad(spline) {
@@ -171,6 +212,9 @@ export default function ConversationScreen({
       if (splineInitTimer.current) {
         clearTimeout(splineInitTimer.current);
       }
+      if (subtitleTimerRef.current) {
+        clearTimeout(subtitleTimerRef.current);
+      }
     };
   }, []);
 
@@ -199,6 +243,150 @@ export default function ConversationScreen({
     }
   }, [events]);
 
+  // Function to show pronunciation results
+  const handleShowResults = () => {
+    // Load dummy data
+    const dummyResults = {
+      Id: "0e078acf09b44342b650683235fd407b",
+      RecognitionStatus: "Success",
+      Offset: 168700000,
+      Duration: 226000000,
+      Channel: 0,
+      DisplayText:
+        "你好，就我一个人，请给我一个靠窗的座位，谢谢，我想点宫保鸡丁和一份米饭好的，谢谢。",
+      SNR: 26.458223,
+      NBest: [
+        {
+          Confidence: 0.772628,
+          Lexical:
+            "你好 就 我 一个 人 请 给 我 一个 靠 窗 的 座位 谢谢 我 想 点 宫保鸡丁 和 一 份 米饭 好 的 谢谢",
+          ITN: "你好 就 我 一个 人 请 给 我 一个 靠 窗 的 座位 谢谢 我 想 点 宫保鸡丁 和 一 份 米饭 好 的 谢谢",
+          MaskedITN:
+            "你好就我一个人请给我一个靠窗的座位谢谢我想点宫保鸡丁和一份米饭好的谢谢",
+          Display:
+            "你好，就我一个人，请给我一个靠窗的座位，谢谢，我想点宫保鸡丁和一份米饭好的，谢谢。",
+          PronunciationAssessment: {
+            AccuracyScore: 62,
+            FluencyScore: 41,
+            CompletenessScore: 52,
+            PronScore: 47.4,
+          },
+          Words: [
+            {
+              Word: "你好",
+              Offset: 168700000,
+              Duration: 11600000,
+              PronunciationAssessment: {
+                AccuracyScore: 79,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "就",
+              Offset: 183700000,
+              Duration: 3500000,
+              PronunciationAssessment: {
+                AccuracyScore: 60,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "我",
+              Offset: 187500000,
+              Duration: 3000000,
+              PronunciationAssessment: {
+                AccuracyScore: 50,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "一个",
+              Offset: 190500000,
+              Duration: 4000000,
+              PronunciationAssessment: {
+                AccuracyScore: 70,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "人",
+              Offset: 194500000,
+              Duration: 3000000,
+              PronunciationAssessment: {
+                AccuracyScore: 65,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "请",
+              Offset: 197500000,
+              Duration: 3000000,
+              PronunciationAssessment: {
+                AccuracyScore: 75,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "给",
+              Offset: 200500000,
+              Duration: 3000000,
+              PronunciationAssessment: {
+                AccuracyScore: 40,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "我",
+              Offset: 203500000,
+              Duration: 3000000,
+              PronunciationAssessment: {
+                AccuracyScore: 85,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "一个",
+              Offset: 206500000,
+              Duration: 4000000,
+              PronunciationAssessment: {
+                AccuracyScore: 70,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "靠窗",
+              Offset: 210500000,
+              Duration: 4000000,
+              PronunciationAssessment: {
+                AccuracyScore: 65,
+                ErrorType: "None",
+              },
+            },
+          ],
+        },
+      ],
+    };
+
+    setPronunciationResults(dummyResults);
+    setShowResultsModal(true);
+  };
+
+  // Function to get color based on score
+  const getScoreColor = (score) => {
+    if (score >= 80) return "success";
+    if (score >= 60) return "primary";
+    if (score >= 40) return "warning";
+    return "danger";
+  };
+
+  // Function to get badge color based on score
+  const getScoreBadgeClass = (score) => {
+    if (score >= 80) return "bg-success";
+    if (score >= 60) return "bg-primary";
+    if (score >= 40) return "bg-warning text-dark";
+    return "bg-danger";
+  };
+
   return (
     <div className="background-container">
       {/* Loading state */}
@@ -222,6 +410,12 @@ export default function ConversationScreen({
           scene="https://prod.spline.design/Njxbejqx8MuiFCUy/scene.splinecode"
           onLoad={handleSplineLoad}
         />
+        {/* User speech subtitle overlay */}
+        {showSubtitle && currentTranscription && (
+          <div className="user-subtitle-container">
+            <div className="user-subtitle">{currentTranscription}</div>
+          </div>
+        )}
       </div>
 
       <div className="conversation-panel">
@@ -253,7 +447,7 @@ export default function ConversationScreen({
 
         <div className="conv-buttons">
           <button
-            className="conv-next"
+            className="btn btn-primary conv-next"
             onClick={handleNextLine}
             disabled={
               !selectedTopicData ||
@@ -266,19 +460,22 @@ export default function ConversationScreen({
           </button>
           <button
             onClick={startSession}
-            className="btn next-btn"
+            className="btn btn-success next-btn"
             disabled={isSessionActive || !splineLoaded}
           >
             {splineLoaded ? "Start Session" : "Loading..."}
           </button>
           <button
             onClick={stopSession}
-            className="btn next-btn"
+            className="btn btn-danger next-btn"
             disabled={!isSessionActive}
           >
             Stop Session
           </button>
-          <button className="conv-reset" onClick={handleReset}>
+          <button onClick={handleShowResults} className="btn btn-info next-btn">
+            <i className="bi bi-graph-up"></i> Get Results
+          </button>
+          <button className="btn btn-warning conv-reset" onClick={handleReset}>
             Start Over
           </button>
         </div>
@@ -287,6 +484,259 @@ export default function ConversationScreen({
           Pro Tip: Optimize your speaking lesson by enabling your microphone.
         </p>
       </div>
+
+      {/* Pronunciation Results Modal */}
+      {showResultsModal && pronunciationResults && (
+        <div
+          className="modal show pronunciation-modal"
+          style={{ display: "block" }}
+        >
+          <div className="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div className="modal-content">
+              <div className="modal-header bg-primary text-white">
+                <h5 className="modal-title">
+                  <i className="bi bi-mic-fill me-2"></i>
+                  Pronunciation Assessment Results
+                </h5>
+                <button
+                  type="button"
+                  className="btn-close btn-close-white"
+                  onClick={() => setShowResultsModal(false)}
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div className="modal-body">
+                {/* Overall Scores */}
+                <div className="row mb-4">
+                  <div className="col-12">
+                    <h4 className="text-center mb-3">Overall Performance</h4>
+                    <div className="row g-2 text-center">
+                      {pronunciationResults.NBest[0]
+                        .PronunciationAssessment && (
+                        <>
+                          <div className="col-md-3">
+                            <div className="card">
+                              <div className="card-body">
+                                <h5 className="card-title">Pronunciation</h5>
+                                <div
+                                  className="progress mb-2"
+                                  style={{ height: "20px" }}
+                                >
+                                  <div
+                                    className={`progress-bar bg-${getScoreColor(
+                                      pronunciationResults.NBest[0]
+                                        .PronunciationAssessment.PronScore
+                                    )}`}
+                                    role="progressbar"
+                                    style={{
+                                      width: `${pronunciationResults.NBest[0].PronunciationAssessment.PronScore}%`,
+                                    }}
+                                    aria-valuenow={
+                                      pronunciationResults.NBest[0]
+                                        .PronunciationAssessment.PronScore
+                                    }
+                                    aria-valuemin="0"
+                                    aria-valuemax="100"
+                                  >
+                                    {pronunciationResults.NBest[0].PronunciationAssessment.PronScore.toFixed(
+                                      1
+                                    )}
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="col-md-3">
+                            <div className="card">
+                              <div className="card-body">
+                                <h5 className="card-title">Accuracy</h5>
+                                <div
+                                  className="progress mb-2"
+                                  style={{ height: "20px" }}
+                                >
+                                  <div
+                                    className={`progress-bar bg-${getScoreColor(
+                                      pronunciationResults.NBest[0]
+                                        .PronunciationAssessment.AccuracyScore
+                                    )}`}
+                                    role="progressbar"
+                                    style={{
+                                      width: `${pronunciationResults.NBest[0].PronunciationAssessment.AccuracyScore}%`,
+                                    }}
+                                    aria-valuenow={
+                                      pronunciationResults.NBest[0]
+                                        .PronunciationAssessment.AccuracyScore
+                                    }
+                                    aria-valuemin="0"
+                                    aria-valuemax="100"
+                                  >
+                                    {
+                                      pronunciationResults.NBest[0]
+                                        .PronunciationAssessment.AccuracyScore
+                                    }
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="col-md-3">
+                            <div className="card">
+                              <div className="card-body">
+                                <h5 className="card-title">Fluency</h5>
+                                <div
+                                  className="progress mb-2"
+                                  style={{ height: "20px" }}
+                                >
+                                  <div
+                                    className={`progress-bar bg-${getScoreColor(
+                                      pronunciationResults.NBest[0]
+                                        .PronunciationAssessment.FluencyScore
+                                    )}`}
+                                    role="progressbar"
+                                    style={{
+                                      width: `${pronunciationResults.NBest[0].PronunciationAssessment.FluencyScore}%`,
+                                    }}
+                                    aria-valuenow={
+                                      pronunciationResults.NBest[0]
+                                        .PronunciationAssessment.FluencyScore
+                                    }
+                                    aria-valuemin="0"
+                                    aria-valuemax="100"
+                                  >
+                                    {
+                                      pronunciationResults.NBest[0]
+                                        .PronunciationAssessment.FluencyScore
+                                    }
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="col-md-3">
+                            <div className="card">
+                              <div className="card-body">
+                                <h5 className="card-title">Completeness</h5>
+                                <div
+                                  className="progress mb-2"
+                                  style={{ height: "20px" }}
+                                >
+                                  <div
+                                    className={`progress-bar bg-${getScoreColor(
+                                      pronunciationResults.NBest[0]
+                                        .PronunciationAssessment
+                                        .CompletenessScore
+                                    )}`}
+                                    role="progressbar"
+                                    style={{
+                                      width: `${pronunciationResults.NBest[0].PronunciationAssessment.CompletenessScore}%`,
+                                    }}
+                                    aria-valuenow={
+                                      pronunciationResults.NBest[0]
+                                        .PronunciationAssessment
+                                        .CompletenessScore
+                                    }
+                                    aria-valuemin="0"
+                                    aria-valuemax="100"
+                                  >
+                                    {
+                                      pronunciationResults.NBest[0]
+                                        .PronunciationAssessment
+                                        .CompletenessScore
+                                    }
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Recognized Text */}
+                <div className="card mb-4">
+                  <div className="card-header bg-light">
+                    <h5 className="mb-0">Recognized Text</h5>
+                  </div>
+                  <div className="card-body">
+                    <p className="display-text mb-0 fs-5">
+                      {pronunciationResults.DisplayText}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Word-by-word Analysis */}
+                <div className="card">
+                  <div className="card-header bg-light">
+                    <h5 className="mb-0">Word-by-word Analysis</h5>
+                  </div>
+                  <div className="card-body">
+                    <div className="table-responsive">
+                      <table className="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>Word</th>
+                            <th className="text-center">Accuracy Score</th>
+                            <th>Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {pronunciationResults.NBest[0].Words.map(
+                            (word, index) => (
+                              <tr key={index}>
+                                <td className="fs-5">{word.Word}</td>
+                                <td className="text-center">
+                                  <span
+                                    className={`badge ${getScoreBadgeClass(
+                                      word.PronunciationAssessment.AccuracyScore
+                                    )}`}
+                                  >
+                                    {word.PronunciationAssessment.AccuracyScore}
+                                  </span>
+                                </td>
+                                <td>
+                                  {word.PronunciationAssessment.ErrorType ===
+                                  "None" ? (
+                                    <span className="text-success">
+                                      <i className="bi bi-check-circle-fill me-1"></i>
+                                      Correct
+                                    </span>
+                                  ) : (
+                                    <span className="text-danger">
+                                      <i className="bi bi-x-circle-fill me-1"></i>
+                                      {word.PronunciationAssessment.ErrorType}
+                                    </span>
+                                  )}
+                                </td>
+                              </tr>
+                            )
+                          )}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={() => setShowResultsModal(false)}
+                >
+                  Close
+                </button>
+                <button type="button" className="btn btn-primary">
+                  <i className="bi bi-download me-1"></i> Save Results
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modal Backdrop */}
+      {showResultsModal && <div className="modal-backdrop show"></div>}
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Home from "./_components/home";
 
 import "./styles/page.css";
+import { redirect } from "next/navigation";
 
 const queryClient = new QueryClient();
 

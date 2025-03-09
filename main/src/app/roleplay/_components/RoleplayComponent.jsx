@@ -3,14 +3,13 @@
 import { useState } from "react";
 import { useStateManagement } from "./StateManagement";
 import { useAudioRecorder } from "./AudioRecorder";
-import { useSessionManager } from "./SessionManage";
+import { useSessionManager } from "./SessionManager";
 import LevelSelection from "./screens/LevelSelection";
 import TopicSelection from "./screens/TopicSelection";
 import RoleSelection from "./screens/RoleSelection";
 import ConversationScreen from "./screens/ConversationScreen";
-import { useAudioRecorder } from "./audioRecorder";
-import { useStateManagement } from "./stateManagement";
 import "./RoleplayComponent.css";
+import StreamVideo from "../../_components/stream-video";
 
 export default function RoleplayComponent() {
   const state = useStateManagement();
@@ -33,23 +32,29 @@ export default function RoleplayComponent() {
   );
 
   // Handle screen selection logic
-  if (!state.selectedLevel) {
-    return <LevelSelection {...state} />;
-  }
-  if (state.selectedLevel && !state.selectedTopic) {
-    return <TopicSelection {...state} />;
-  }
-  if (state.selectedLevel && state.selectedTopic && !state.selectedRole) {
-    return <RoleSelection {...state} />;
-  }
-
-  // Pass setSplineObj to ConversationScreen
   return (
-    <ConversationScreen
-      {...state}
-      {...audio}
-      {...session}
-      setSplineObj={setSplineObj}
-    />
+    <>
+      {!state.selectedLevel ? (
+        <LevelSelection {...state} />
+      ) : !state.selectedTopic ? (
+        <TopicSelection {...state} />
+      ) : !state.selectedRole ? (
+        <RoleSelection {...state} />
+      ) : (
+        // Pass both audio recorder's currentTranscription and isRecording
+        <>
+          <StreamVideo />
+          <ConversationScreen
+            {...state}
+            {...session}
+            setSplineObj={setSplineObj}
+            startRecording={audio.startRecording}
+            stopRecording={audio.stopRecording}
+            currentTranscription={audio.currentTranscription}
+            isRecording={audio.isRecording}
+          />
+        </>
+      )}
+    </>
   );
 }

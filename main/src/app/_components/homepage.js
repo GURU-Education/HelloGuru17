@@ -15,6 +15,7 @@ const fetchUser = async (email) => {
 };
 
 export default function HomePage() {
+  redirect("/dashboard");
   const email = JSON.parse(localStorage.getItem("user"))?.email;
   // console.log("Email:", email);
   const {

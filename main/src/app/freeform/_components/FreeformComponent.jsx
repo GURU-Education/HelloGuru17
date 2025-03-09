@@ -9,6 +9,7 @@ import TopicSelectionScreen from "./screens/TopicSelectionScreen";
 import MissionSelectionScreen from "./screens/MissionSelectionScreen";
 import FreeformConversationScreen from "./screens/FreeformConversationScreen";
 import "./FreeformComponent.css"; // Reuse existing styles
+import StreamVideo from "@/app/_components/stream-video";
 
 export default function FreeformComponent() {
   const state = useStateManagement();
@@ -110,15 +111,18 @@ export default function FreeformComponent() {
 
   // Render the conversation screen with mission data
   return (
-    <FreeformConversationScreen
-      {...audio}
-      {...session}
-      setSplineObj={setSplineObj}
-      selectedHSK={selectedHSK}
-      selectedTopic={selectedTopic}
-      selectedMission={selectedMission}
-      missionPhrases={missionPhrases}
-      handleReset={handleReset}
-    />
+    <>
+      <StreamVideo />
+      <FreeformConversationScreen
+        {...audio}
+        {...session}
+        setSplineObj={setSplineObj}
+        selectedHSK={selectedHSK}
+        selectedTopic={selectedTopic}
+        selectedMission={selectedMission}
+        missionPhrases={missionPhrases}
+        handleReset={handleReset}
+      />
+    </>
   );
 }

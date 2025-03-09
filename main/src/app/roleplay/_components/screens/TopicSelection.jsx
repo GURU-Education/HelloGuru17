@@ -29,7 +29,7 @@ export default function TopicSelection({
           Topic for HSK {selectedLevel}:
         </h2>
         <div className="topic-grid">
-          {selectedHSK.topics.map((topic) => (
+          {selectedHSK?.topics.map((topic) => (
             <div
               key={topic.name}
               className="topic-btn"
