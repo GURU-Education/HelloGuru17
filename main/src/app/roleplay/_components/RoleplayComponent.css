@@ -475,6 +475,7 @@ button:disabled {
   justify-content: center;
   align-items: flex-start;
   overflow: hidden;
+  /* background-color: blue; */
 }
 
 /* Big bubble area for Spline */
@@ -628,6 +629,57 @@ button:disabled {
 .topic-btn:hover {
   background: rgba(255, 176, 72, 0.846);
   transform: scale(1.03);
+}
+
+.right-panel-role-selection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  /* background-color: red; */
+  padding: 250px;
+}
+
+.instruction-role {
+  font-size: 32px;
+  margin-bottom: 100px;
+  margin-right: 0px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  align-self: center;
+  text-align: center;
+  justify-self: center;
+}
+
+/* Role container: horizontal row for role buttons */
+.role-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+/* Role buttons: similar style to topic selection buttons */
+.role-btn {
+  background: rgba(253, 154, 24, 0.846);
+  border: none;
+  border-radius: 12px;
+  padding: 20px 30px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.role-btn:hover {
+  background: rgba(255, 176, 72, 0.846);
+  transform: scale(1.05);
+}
+
+.back-btn {
+  background: #555;
 }
 
 /************************************************************

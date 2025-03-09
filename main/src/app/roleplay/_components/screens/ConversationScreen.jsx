@@ -5,6 +5,7 @@ import "../RoleplayComponent.css";
 
 export default function ConversationScreen({
   selectedLevel,
+  selectedRole,
   selectedTopic,
   selectedTopicData,
   dialogueIndex,
@@ -232,13 +233,14 @@ export default function ConversationScreen({
           {selectedTopicData.conversation
             .slice(0, dialogueIndex + 1)
             .map((line, index) => {
-              const isPerson1 = line.startsWith("Person 1");
+              console.log("selectedRole", selectedRole);
+              const isPerson1 = (selectedRole + index) % 2 == 1;
               return (
                 <div
                   key={index}
                   className={`chat-bubble ${isPerson1 ? "person1" : "person2"}`}
                 >
-                  {line.replace("Person 1: ", "").replace("Person 2: ", "")}
+                  {line}
                 </div>
               );
             })}
