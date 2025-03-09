@@ -20,7 +20,9 @@ export default function RoleplayComponent() {
     audio.stopRecording,
     state.selectedHSK,
     state.selectedTopic,
-    state.selectedConversation
+    state.selectedConversation,
+    state.completedPhrases,
+    state.setCompletedPhrases
   );
 
   if (!state.selectedLevel) {

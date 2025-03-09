@@ -10,6 +10,7 @@ export function useStateManagement() {
     const [selectedConversation, setSelectedConversation] = useState(null);
     const [dialogueIndex, setDialogueIndex] = useState(0);
     const [pronunciationAnalysisResult, setPronunciationAnalysisResult] = useState(null);
+    const [completedPhrases, setCompletedPhrases] = useState([]);
     
     const chatBoxRef = useRef(null);
 
@@ -59,13 +60,10 @@ export function useStateManagement() {
         setSelectedTopic(topic);
         const topicData = selectedHSK?.topics.find((t) => t.name === topic);
         setSelectedConversation(topicData?.conversation || null);
+        setCompletedPhrases([]);
+        setDialogueIndex(0);
     };
 
-    const handleNextLine = () => {
-        if (selectedTopicData && dialogueIndex < selectedTopicData.conversation.length - 1) {
-        setDialogueIndex((prev) => prev + 1);
-        }
-    };
 
     const handleReset = () => {
         setSelectedLevel(null);
@@ -85,12 +83,14 @@ export function useStateManagement() {
         selectedRole,
         setSelectedRole,
         dialogueIndex,
+        setDialogueIndex,
         chatBoxRef,
         selectedHSK,
         selectedTopicData,
-        handleNextLine,
         handleReset,
         pronunciationAnalysisResult,
-        setPronunciationAnalysisResult
+        setPronunciationAnalysisResult,
+        completedPhrases,
+        setCompletedPhrases,
     };
 }

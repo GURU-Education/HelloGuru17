@@ -10,8 +10,11 @@ export default function ConversationScreen({
   handleNextLine,
   handleReset,
   startSession,
-  stopSession
+  stopSession,
+  completedPhrases,
+  missionPhrases,
 }) {
+
   return (
     <div className="background-container">
       <div className="spline-wrapper-chat">
@@ -55,6 +58,10 @@ export default function ConversationScreen({
           <button onClick={stopSession} className="btn next-btn">
             Stop Session
           </button>
+          <h3>Progress</h3>
+          <p>
+              Completed: {completedPhrases.length} / {missionPhrases.length} phrases
+          </p>
           <button className="conv-reset" onClick={handleReset}>
             Start Over
           </button>
