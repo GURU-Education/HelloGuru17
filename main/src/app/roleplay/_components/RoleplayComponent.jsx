@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useStateManagement } from "./StateManagement";
 import { useAudioRecorder } from "./AudioRecorder";
-import { useSessionManager } from "./SessionManager";
+import { useSessionManager } from "./SessionManage";
 import LevelSelection from "./screens/LevelSelection";
 import TopicSelection from "./screens/TopicSelection";
 import RoleSelection from "./screens/RoleSelection";
