@@ -23,8 +23,9 @@ export default function TopicSelection({
       {/* Right Panel: Topic Selection */}
       <div className="right-panel">
         <h2 className="instruction-topic">
-          Select a Conversation Topic for <br />
-          HSK {selectedLevel}:
+          Select a Conversation
+          <br />
+          Topic for HSK {selectedLevel}:
         </h2>
         <div className="topic-grid">
           {selectedHSK.topics.map((topic) => (
