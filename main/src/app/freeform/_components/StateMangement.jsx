@@ -16,7 +16,7 @@ export function useStateManagement() {
       try {
         setIsLoading(true);
         // You can replace this with your actual API endpoint
-        const response = await fetch("/api/missions");
+        const response = await fetch("/api/mission");
         const data = await response.json();
 
         if (data.success) {
