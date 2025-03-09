@@ -8,6 +8,8 @@ import LevelSelection from "./screens/LevelSelection";
 import TopicSelection from "./screens/TopicSelection";
 import RoleSelection from "./screens/RoleSelection";
 import ConversationScreen from "./screens/ConversationScreen";
+import { useAudioRecorder } from "./audioRecorder";
+import { useStateManagement } from "./stateManagement";
 import "./RoleplayComponent.css";
 
 export default function RoleplayComponent() {

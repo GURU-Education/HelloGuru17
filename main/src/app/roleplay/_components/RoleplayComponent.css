@@ -428,3 +428,301 @@ button:disabled {
   font-weight: 500;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
+
+/************************************************************
+ * ROOT VARIABLES
+ ************************************************************/
+:root {
+  --bg-gradient-start: #1d2671;
+  --bg-gradient-end: #c33764;
+  --font-family: "Segoe UI", Roboto, Arial, sans-serif;
+
+  /* Colors for each HSK level rectangle (from green to orange) */
+  --hsk1-color: #80e27e;
+  --hsk2-color: #aee571;
+  --hsk3-color: #c6e16e;
+  --hsk4-color: #ffd06c;
+  --hsk5-color: #ffa726;
+  --hsk6-color: #fb8c00;
+}
+
+/************************************************************
+ * LAYOUT CONTAINER
+ ************************************************************/
+.level-selection-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    var(--bg-gradient-start),
+    var(--bg-gradient-end)
+  );
+  position: relative;
+  display: flex;
+  font-family: var(--font-family);
+  color: #fff;
+}
+
+/************************************************************
+ * LEFT PANEL: BUBBLE + TITLE
+ ************************************************************/
+.left-panel {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+  /* background-color: blue; */
+}
+
+/* Big bubble area for Spline */
+.bubble-wrapper {
+  position: absolute;
+  top: -10%;
+  left: 0%;
+  width: 900px;
+  height: 900px;
+  pointer-events: none;
+}
+
+.bubble-wrapper canvas {
+  width: 100% !important;
+  height: 100% !important;
+  background: transparent !important;
+}
+
+/* Title & subtitle near bubble */
+.title-area {
+  position: absolute;
+  top: 5%;
+  left: 5%; /* push text to the right of bubble */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.main-title {
+  font-size: 44px;
+  font-weight: 700;
+  margin: 0 0 10px;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+}
+/************************************************************
+ * RIGHT PANEL: Stacked Rounded Rectangles for Level Selection
+ ************************************************************/
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  /* background-color: red; */
+  padding-right: 150px;
+}
+
+.instruction {
+  font-size: 24px;
+  margin-bottom: 40px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Container for the level rectangles */
+.levels-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 600px;
+  align-items: flex-end;
+  /* background-color: blue; */
+}
+
+/* Each level rectangle base styles */
+.level-rectangle {
+  padding: 15px;
+  border-radius: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.level-rectangle:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.03);
+}
+
+.level-rectangle p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Increasing widths for a stair-like look */
+.level-rectangle:nth-child(1) {
+  background: var(--hsk1-color);
+  width: 280px;
+}
+.level-rectangle:nth-child(2) {
+  background: var(--hsk2-color);
+  width: 310px;
+}
+.level-rectangle:nth-child(3) {
+  background: var(--hsk3-color);
+  width: 330px;
+}
+.level-rectangle:nth-child(4) {
+  background: var(--hsk4-color);
+  width: 350px;
+}
+.level-rectangle:nth-child(5) {
+  background: var(--hsk5-color);
+  width: 380px;
+}
+.level-rectangle:nth-child(6) {
+  background: var(--hsk6-color);
+  width: 400px;
+}
+
+/************************************************************
+ * RIGHT PANEL: Topic Buttons
+ ************************************************************/
+
+/* Each topic button as a rectangular shape */
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Exactly 2 columns */
+  gap: 20px;
+  max-width: 600px;
+  margin-right: 40px;
+}
+
+.instruction-topic {
+  font-size: 32px;
+  margin-bottom: 40px;
+  margin-right: 30px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  align-self: center;
+  text-align: center;
+  justify-self: center;
+}
+
+.topic-btn {
+  background: rgba(253, 154, 24, 0.846);
+  border-radius: 12px;
+  padding: 14px 20px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.topic-btn:hover {
+  background: rgba(255, 176, 72, 0.846);
+  transform: scale(1.03);
+}
+
+.right-panel-role-selection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  /* background-color: red; */
+  padding: 250px;
+}
+
+.instruction-role {
+  font-size: 32px;
+  margin-bottom: 100px;
+  margin-right: 0px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  align-self: center;
+  text-align: center;
+  justify-self: center;
+}
+
+/* Role container: horizontal row for role buttons */
+.role-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+/* Role buttons: similar style to topic selection buttons */
+.role-btn {
+  background: rgba(253, 154, 24, 0.846);
+  border: none;
+  border-radius: 12px;
+  padding: 20px 30px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.role-btn:hover {
+  background: rgba(255, 176, 72, 0.846);
+  transform: scale(1.05);
+}
+/************************************************************
+ * BACK BUTTON
+ ************************************************************/
+.back-btn {
+  margin-top: 0px;
+  padding: 16px 24px;
+  font-size: 18px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: #555;
+  color: #fff;
+  transition: transform 0.3s, background 0.3s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.back-btn:hover {
+  background: #444;
+  transform: scale(1.05);
+}
+/************************************************************
+ * RESPONSIVE TWEAKS
+ ************************************************************/
+@media (max-width: 900px) {
+  .spline-container {
+    width: 80px;
+    height: 80px;
+  }
+  .title-area {
+    left: 25%;
+  }
+  .main-title {
+    font-size: 32px;
+  }
+  .subtitle,
+  .instruction {
+    font-size: 20px;
+  }
+  .levels-container {
+    width: 250px;
+    gap: 15px;
+  }
+  .level-rectangle {
+    padding: 12px;
+  }
+  .level-rectangle p {
+    font-size: 16px;
+  }
+}

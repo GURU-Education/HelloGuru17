@@ -1,30 +1,51 @@
-// screens/TopicSelection.jsx
+"use client";
+
 import Spline from "@splinetool/react-spline";
 
-export default function TopicSelection({ selectedLevel, selectedHSK, setSelectedTopic }) {
+export default function TopicSelection({
+  selectedLevel,
+  selectedHSK,
+  setSelectedTopic,
+  setSelectedLevel,
+}) {
   return (
-    <div className="background-container">
-      <div className="spline-wrapper">
-        <Spline scene="https://prod.spline.design/ZCLA7cXZ95aBo0pU/scene.splinecode" />
+    <div className="level-selection-container">
+      {/* Left Panel: Spline Bubble + Title */}
+      <div className="left-panel">
+        <div className="bubble-wrapper">
+          <Spline scene="https://prod.spline.design/ZCLA7cXZ95aBo0pU/scene.splinecode" />
+        </div>
+        <div className="title-area">
+          <h1 className="main-title">HSK Roleplay</h1>
+          <p className="subtitle">With Xiao Qiu</p>
+        </div>
       </div>
-      <h1 className="main-title">
-        HSK Roleplay
-        <br />
-        <span>With Xiao Qiu</span>
-      </h1>
-      <h2 className="subtitle">
-        Select a Conversation Topic for HSK {selectedLevel}:
-      </h2>
-      <div className="circle-row">
-        {selectedHSK.topics.map((topic) => (
-          <div
-            key={topic.name}
-            className="circle"
-            onClick={() => setSelectedTopic(topic.name)}
-          >
-            <p>{topic.name}</p>
-          </div>
-        ))}
+
+      {/* Right Panel: Topic Selection */}
+      <div className="right-panel">
+        <h2 className="instruction-topic">
+          Select a Conversation
+          <br />
+          Topic for HSK {selectedLevel}:
+        </h2>
+        <div className="topic-grid">
+          {selectedHSK.topics.map((topic) => (
+            <div
+              key={topic.name}
+              className="topic-btn"
+              onClick={() => setSelectedTopic(topic.name)}
+            >
+              {topic.name}
+            </div>
+          ))}
+        </div>
+        <button
+          className="back-btn"
+          style={{ marginTop: 20, marginRight: 35 }}
+          onClick={() => setSelectedLevel(null)}
+        >
+          ← Back
+        </button>
       </div>
     </div>
   );
