@@ -20,7 +20,9 @@ export function useAudioRecorder(setPronunciationAnalysisResult) {
       };
 
       mediaRecorder.onstop = () => {
-        const newBlob = new Blob(audioChunksRef.current, { type: "audio/webm" });
+        const newBlob = new Blob(audioChunksRef.current, {
+          type: "audio/webm",
+        });
         setAudioBlob((prevBlobs) => [...prevBlobs, newBlob]);
       };
 
