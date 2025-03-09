@@ -31,13 +31,14 @@ export default function RoleSelection({
           <button className="role-btn" onClick={() => setSelectedRole(2)}>
             Person 2
           </button>
-          {/* <button
-            className="role-btn back-btn"
-            onClick={() => setSelectedTopic(null)}
-          >
-            ← Back
-          </button> */}
         </div>
+        <button
+          className="back-btn"
+          style={{ marginTop: 40, marginRight: 5 }}
+          onClick={() => setSelectedTopic(null)}
+        >
+          ← Back
+        </button>
       </div>
     </div>
   );

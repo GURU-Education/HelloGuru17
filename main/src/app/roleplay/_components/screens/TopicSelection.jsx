@@ -6,6 +6,7 @@ export default function TopicSelection({
   selectedLevel,
   selectedHSK,
   setSelectedTopic,
+  setSelectedLevel,
 }) {
   return (
     <div className="level-selection-container">
@@ -38,6 +39,13 @@ export default function TopicSelection({
             </div>
           ))}
         </div>
+        <button
+          className="back-btn"
+          style={{ marginTop: 20, marginRight: 35 }}
+          onClick={() => setSelectedLevel(null)}
+        >
+          ← Back
+        </button>
       </div>
     </div>
   );
