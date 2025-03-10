@@ -321,16 +321,6 @@
   background: transparent !important;
 }
 
-.spline-wrapper-chat {
-  /* position: absolute;
-  top: -15%;
-  left: -3%;
-  width: 1000px; bounding box for the wrapper
-  height: 1000px;
-  overflow: hidden; hide overflow if we scale down the canvas
-  pointer-events: none; */
-}
-
 /* The Spline library typically renders a <div> with a canvas inside.
    Target that <div> directly and scale it. You may need to adjust the selector. */
 .spline-wrapper-chat > div {
@@ -478,11 +468,19 @@ button:disabled {
   /* background-color: blue; */
 }
 
+[data-nextjs-toast="true"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+
 /* Big bubble area for Spline */
 .bubble-wrapper {
   position: absolute;
   top: -40%;
-  left: -30%;
+  left: 0%;
   width: 100vw;
   height: 100vw;
   pointer-events: none;
@@ -524,6 +522,7 @@ button:disabled {
   align-items: flex-end;
   /* background-color: red; */
   padding-right: 150px;
+  margin-left: 80px;
 }
 
 .instruction {
@@ -567,27 +566,27 @@ button:disabled {
 /* Increasing widths for a stair-like look */
 .level-rectangle:nth-child(1) {
   background: var(--hsk1-color);
-  width: 280px;
+  width: 370px;
 }
 .level-rectangle:nth-child(2) {
   background: var(--hsk2-color);
-  width: 310px;
+  width: 400px;
 }
 .level-rectangle:nth-child(3) {
   background: var(--hsk3-color);
-  width: 330px;
+  width: 430px;
 }
 .level-rectangle:nth-child(4) {
   background: var(--hsk4-color);
-  width: 350px;
+  width: 460px;
 }
 .level-rectangle:nth-child(5) {
   background: var(--hsk5-color);
-  width: 380px;
+  width: 500px;
 }
 .level-rectangle:nth-child(6) {
   background: var(--hsk6-color);
-  width: 400px;
+  width: 530px;
 }
 
 /************************************************************
@@ -624,7 +623,13 @@ button:disabled {
   cursor: pointer;
   transition: background 0.3s, transform 0.3s;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  width: 250px; /* Set a fixed width */
+  max-width: 100%; /* Ensure it doesn't exceed the container */
+  white-space: nowrap; /* Prevents wrapping */
+  overflow: hidden; /* Hides overflowing text */
+  text-overflow: ellipsis; /* Adds "..." for overflow */
 }
+
 
 .topic-btn:hover {
   background: rgba(255, 176, 72, 0.846);
@@ -642,7 +647,7 @@ button:disabled {
 
 .instruction-role {
   font-size: 32px;
-  margin-bottom: 100px;
+  margin-bottom: 30px;
   margin-right: 0px;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   align-self: center;

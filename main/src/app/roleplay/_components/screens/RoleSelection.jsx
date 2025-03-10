@@ -26,10 +26,10 @@ export default function RoleSelection({
   return (
     <div className="level-selection-container">
       {/* Left Panel: Spline Bubble + Text */}
-      <div className="left-panel">
-        <div className="bubble-wrapper">
-          <Spline scene="https://prod.spline.design/ZCLA7cXZ95aBo0pU/scene.splinecode" />
+      <div className="bubble-wrapper">
+          <Spline scene="https://prod.spline.design/Njxbejqx8MuiFCUy/scene.splinecode" />
         </div>
+      <div className="left-panel">
         <div className="title-area">
           <h1 className="main-title">HSK {selectedLevel}</h1>
           <h2 className="subtitle">{selectedTopic}</h2>

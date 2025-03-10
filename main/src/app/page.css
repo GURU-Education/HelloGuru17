@@ -10,3 +10,7 @@
   padding: 20px 100px;
   background: white;
 }
+
+nextjs-portal {
+  display: none;
+}

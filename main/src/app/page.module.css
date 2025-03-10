@@ -26,6 +26,10 @@
   }
 }
 
+nextjs-portal {
+  display: none;
+}
+
 .main {
   display: flex;
   flex-direction: column;

@@ -11,10 +11,10 @@ export default function TopicSelection({
   return (
     <div className="level-selection-container">
       {/* Left Panel: Spline Bubble + Title */}
+      <div className="bubble-wrapper">
+          <Spline scene="https://prod.spline.design/Njxbejqx8MuiFCUy/scene.splinecode" />
+      </div>
       <div className="left-panel">
-        <div className="bubble-wrapper">
-          <Spline scene="https://prod.spline.design/ZCLA7cXZ95aBo0pU/scene.splinecode" />
-        </div>
         <div className="title-area">
           <h1 className="main-title">HSK Roleplay</h1>
           <p className="subtitle">With Xiao Qiu</p>

@@ -22,7 +22,7 @@ export default function Home() {
       <div className="container">
         {currentPage !== "home" && (
           <div className="spline-container">
-            <Spline scene="https://prod.spline.design/ZCLA7cXZ95aBo0pU/scene.splinecode" />
+            <Spline scene="https://prod.spline.design/Njxbejqx8MuiFCUy/scene.splinecode" />
           </div>
         )}
         <div className={`${currentPage}-container`}>

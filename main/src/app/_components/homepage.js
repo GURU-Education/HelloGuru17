@@ -155,7 +155,7 @@ export default function HomePage() {
       </Modal>
 
       <div className="spline-container">
-        <Spline scene="https://prod.spline.design/ZCLA7cXZ95aBo0pU/scene.splinecode" />
+        <Spline scene="https://prod.spline.design/Njxbejqx8MuiFCUy/scene.splinecode" />
       </div>
     </div>
   );

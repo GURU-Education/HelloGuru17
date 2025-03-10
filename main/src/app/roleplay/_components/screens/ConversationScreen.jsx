@@ -399,7 +399,6 @@ export default function ConversationScreen({
 
       {/* Spline container - hidden until fully loaded */}
       <div
-        className="spline-wrapper-chat"
         style={{
           opacity: splineFullyLoaded ? 1 : 0,
           transition: "opacity 0.5s ease-in-out",
@@ -416,7 +415,7 @@ export default function ConversationScreen({
             <div className="user-subtitle">{currentTranscription}</div>
           </div>
         )}
-      </div>
+        </div>
 
       <div className="conversation-panel">
         <h2 className="conv-title">

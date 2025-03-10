@@ -13,7 +13,6 @@ export function useStateManagement() {
     useState(null);
 
   const chatBoxRef = useRef(null);
-
   const selectedHSK = hskLevels?.find((hsk) => hsk.level === selectedLevel);
   const selectedTopicData = selectedHSK?.topics.find(
     (t) => t.name === selectedTopic
