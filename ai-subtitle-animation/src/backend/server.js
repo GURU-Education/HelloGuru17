@@ -129,30 +129,30 @@ app.post("/api/click", async (req, res) => {
   }
 });
 
-// // API to generate flashcards after session ends
-// app.post('/generate-flashcards', async (req, res) => {
-//   const { email, sessionId } = req.body;
+// API to generate flashcards after session ends
+app.post('/generate-flashcards', async (req, res) => {
+  const { email, sessionId } = req.body;
   
-//   if (!email || !sessionId) {
-//       return res.status(400).json({ error: "Missing email or sessionId" });
-//   }
+  if (!email || !sessionId) {
+      return res.status(400).json({ error: "Missing email or sessionId" });
+  }
 
-//   try {
-//       // Get all words clicked in the session
-//       const weakWords = await getWeakWords(email, sessionId);
+  try {
+      // Get all words clicked in the session
+      const weakWords = await getWeakWords(email, sessionId);
       
-//       // Generate flashcards for all clicked words
-//       const flashcards = weakWords.map(word => ({
-//           question: `What does "${word.word}" mean?`,
-//           answer: `Your answer...`,
-//       }));
+      // Generate flashcards for all clicked words
+      const flashcards = weakWords.map(word => ({
+          question: `What does "${word.word}" mean?`,
+          answer: `Your answer...`,
+      }));
 
-//       // Save only unique flashcards
-//       await saveFlashcards(email, flashcards);
-//       res.status(200).json({ message: "Flashcards generated successfully" });
-//   } catch (error) {
-//       res.status(500).json({ error: error.message });
-//   }
-// });
+      // Save only unique flashcards
+      await saveFlashcards(email, flashcards);
+      res.status(200).json({ message: "Flashcards generated successfully" });
+  } catch (error) {
+      res.status(500).json({ error: error.message });
+  }
+});
 
 app.listen(process.env.PORT, () => console.log(`Server running on port ${process.env.PORT}`));
