@@ -1,6 +1,28 @@
 // AudioRecorder.js with simple transcription
 import { useState, useRef, useEffect } from "react";
 
+
+async function updateConversations() {
+  try {
+    const response = await fetch("http://localhost:3000/api/update-conversation", {
+      method: "POST",
+    });
+    
+    const data = await response.json();
+    
+    if (!response.ok) {
+      throw new Error(data.error || "Failed to update conversations");
+    }
+
+    console.log("Update success:", data.message);
+  } catch (error) {
+    console.error("Error updating conversations:", error);
+  }
+}
+
+
+// updateConversations();
+
 export function useAudioRecorder(setPronunciationAnalysisResult) {
   const [audioBlob, setAudioBlob] = useState([]);
   const [currentTranscription, setCurrentTranscription] = useState("");

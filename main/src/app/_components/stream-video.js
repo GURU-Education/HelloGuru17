@@ -197,7 +197,7 @@ function StreamVideo() {
                       key={emotion}
                       className="emotion-bubble"
                       style={{
-                        transform: `scale(${Math.max(0.5, value)})`,
+                        transform: `scale(0.5)`,
                         animationDelay: `${index * 0.2}s`,
                         backgroundColor:
                           emotion ===
@@ -207,7 +207,7 @@ function StreamVideo() {
                       }}
                     >
                       {emotion}
-                      <span className="value">{Math.round(value * 100)}%</span>
+                      <span className="value">{value}%</span>
                     </div>
                   ))}
                 </div>
@@ -252,17 +252,14 @@ function StreamVideo() {
                     <div
                       className="score-fill"
                       style={{
-                        width: `${Math.min(
-                          100,
-                          verifyFaceMutation.data.score * 100
-                        )}%`,
+                        width: verifyFaceMutation.data.score * 100,
                         backgroundColor: verifyFaceMutation.data.verified
                           ? "#4caf50"
                           : "#f44336",
                       }}
                     ></div>
                     <span className="score-value">
-                      {Math.round(verifyFaceMutation.data.score * 100)}%
+                      {verifyFaceMutation.data.score * 100}%
                     </span>
                   </div>
                 )}
@@ -298,10 +295,10 @@ function StreamVideo() {
             className="particle"
             style={{
               backgroundColor: emotionColor,
-              animationDuration: `${Math.random() * 10 + 10}s`,
-              animationDelay: `${Math.random() * 5}s`,
-              left: `${Math.random() * 100}%`,
-              opacity: Math.random() * 0.5 + 0.1,
+              animationDuration: `${10 + 10}s`,
+              animationDelay: `${5}s`,
+              left: `${100}%`,
+              opacity: 0.5 + 0.1,
             }}
           ></div>
         ))}

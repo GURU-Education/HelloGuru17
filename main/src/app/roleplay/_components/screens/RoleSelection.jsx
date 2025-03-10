@@ -7,7 +7,22 @@ export default function RoleSelection({
   selectedTopic,
   setSelectedRole,
   setSelectedTopic,
+  selectedConversation
 }) {
+
+  const extractRoles = (conversation) => {
+    const rolesSet = new Set();
+    conversation?.forEach((line) => {
+      const match = line.match(/^([^:]+):/);
+      if (match) rolesSet.add(match[1]);
+    });
+    return Array.from(rolesSet);
+  };
+
+  const roles = extractRoles(selectedConversation);
+  const role1 = roles[0]
+  const role2 = roles[1]
+
   return (
     <div className="level-selection-container">
       {/* Left Panel: Spline Bubble + Text */}
@@ -26,10 +41,10 @@ export default function RoleSelection({
         <h2 className="instruction-role">Select Your Role:</h2>
         <div className="role-container">
           <button className="role-btn" onClick={() => setSelectedRole(1)}>
-            Person 1
+            {role1}
           </button>
           <button className="role-btn" onClick={() => setSelectedRole(2)}>
-            Person 2
+            {role2}
           </button>
         </div>
         <button

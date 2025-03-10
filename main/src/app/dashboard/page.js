@@ -141,7 +141,19 @@ const MandarinDashboard = () => {
   const [selectedWord, setSelectedWord] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [wordMetrics, setWordMetrics] = useState({});
-  const [, setWordHistory] = useState([]);
+  const [wordHistory, setWordHistory] = useState([]);
+  const [windowWidth, setWindowWidth] = useState(0);
+  const [windowHeight, setWindowHeight] = useState(0);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setWindowWidth(window.innerWidth); 
+    }
+
+    if (typeof window !== "undefined") {
+      setWindowHeight(window.innerHeight); 
+    }
+  }, []);
 
   useEffect(() => {
     // const styleElement = document.createElement("style");
@@ -536,18 +548,13 @@ const MandarinDashboard = () => {
         );
 
         // Generate some simulated metrics that might not be in the original data
-        const toneAccuracy = Math.min(
-          100,
-          (word.PronunciationAssessment?.AccuracyScore || 0) +
-            Math.floor(Math.random() * 15 - 5)
-        );
+        const toneAccuracy = 
+          (word.PronunciationAssessment?.AccuracyScore || 0) + 15 - 5
         const fluencyScore =
           session.NBest[0].PronunciationAssessment?.FluencyScore || 0;
-        const stressPattern = Math.min(
-          100,
-          fluencyScore + Math.floor(Math.random() * 20 - 10)
-        );
-        const speedWPM = 60 + Math.floor(Math.random() * 40);
+        const stressPattern = fluencyScore + 20 - 10
+
+        const speedWPM = 60 + 40;
 
         allWords[word.Word].toneAccuracy.push(toneAccuracy);
         allWords[word.Word].fluencyScores.push(fluencyScore);
@@ -1015,23 +1022,23 @@ const MandarinDashboard = () => {
                   key={i}
                   className="position-absolute rounded-circle"
                   style={{
-                    top: `${Math.random() * 80}%`,
-                    left: `${Math.random() * 80}%`,
-                    width: `${Math.random() * 40 + 20}px`,
-                    height: `${Math.random() * 40 + 20}px`,
+                    top: `${80}%`,
+                    left: `${80}%`,
+                    width: `${40 + 20}px`,
+                    height: `${40 + 20}px`,
                     background: `rgba(255, 255, 255, ${
-                      Math.random() * 0.3 + 0.1
+                      0.3 + 0.1
                     })`,
                     zIndex: 0,
                   }}
                   animate={{
-                    y: [0, Math.random() * 30 - 15, 0],
-                    x: [0, Math.random() * 30 - 15, 0],
-                    scale: [1, Math.random() * 0.5 + 0.8, 1],
+                    y: [0, 30 - 15, 0],
+                    x: [0, 30 - 15, 0],
+                    scale: [1, 0.5 + 0.8, 1],
                   }}
                   transition={{
                     repeat: Infinity,
-                    duration: Math.random() * 8 + 4,
+                    duration: 8 + 4,
                     ease: "easeInOut",
                   }}
                 />
@@ -1288,40 +1295,36 @@ const MandarinDashboard = () => {
             <motion.div
               key={i}
               initial={{
-                x: Math.random() * window.innerWidth,
-                y: Math.random() * window.innerHeight,
-                scale: Math.random() * 0.5 + 0.5,
-                rotate: Math.random() * 360,
+                x: windowWidth,
+                y: windowHeight,
+                scale: 0.5 + 0.5,
+                rotate: 360,
               }}
               animate={{
                 y: [
-                  Math.random() * window.innerHeight,
-                  Math.random() * window.innerHeight,
-                  Math.random() * window.innerHeight,
+                  windowHeight,
+                  windowHeight,
+                  windowHeight,
                 ],
                 x: [
-                  Math.random() * window.innerWidth,
-                  Math.random() * window.innerWidth,
-                  Math.random() * window.innerWidth,
+                  windowWidth,
+                  windowWidth,
+                  windowWidth,
                 ],
                 rotate: [0, 180, 360],
               }}
               transition={{
-                duration: Math.random() * 60 + 60,
+                duration: 60 + 60,
                 ease: "linear",
                 repeat: Infinity,
                 repeatType: "reverse",
               }}
               style={{
                 // position: "absolute",
-                width: Math.random() * 100 + 50,
-                height: Math.random() * 100 + 50,
+                width: 100 + 50,
+                height: 100 + 50,
                 borderRadius: "50%",
-                background: `rgba(${Math.floor(
-                  Math.random() * 255
-                )}, ${Math.floor(Math.random() * 255)}, ${Math.floor(
-                  Math.random() * 255
-                )}, 0.05)`,
+                background: `rgba(255, 255, 255, 0.05)`,
                 filter: "blur(20px)",
               }}
             />

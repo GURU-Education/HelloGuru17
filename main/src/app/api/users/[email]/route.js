@@ -58,7 +58,7 @@ export async function PATCH(req, { params }) {
     }
 
     let newExp = user.exp + expIncrease;
-    let newLevel = Math.floor(newExp / 1000);
+    let newLevel = newExp / 1000;
     // console.log("newLevel", newLevel);
 
     // Perform the EXP update

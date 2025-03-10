@@ -5,6 +5,7 @@ import { Button, Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/homepage.css";
 import { useQuery } from "@tanstack/react-query";
+import { redirect } from "next/navigation";
 
 const fetchUser = async (email) => {
   const response = await fetch("/api/users/" + email);
@@ -15,7 +16,6 @@ const fetchUser = async (email) => {
 };
 
 export default function HomePage() {
-  redirect("/dashboard");
   const email = JSON.parse(localStorage.getItem("user"))?.email;
   // console.log("Email:", email);
   const {
