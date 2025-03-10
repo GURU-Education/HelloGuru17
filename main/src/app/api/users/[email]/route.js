@@ -4,7 +4,10 @@ import User from "../../../../../models/User";
 export async function GET(req, { params }) {
   try {
     await connectToDatabase();
-    const { email } = params;
+    console.log("here")
+    console.log("params is", params)
+    const email = params.email;
+    console.log("email is", email)
 
     if (!email) {
       return new Response(
@@ -17,7 +20,7 @@ export async function GET(req, { params }) {
 
     if (!user) {
       return new Response(
-        JSON.stringify({ success: false, error: "User not found" }),
+        JSON.stringify({ success: false, error: "Usepr not found" }),
         { status: 404 }
       );
     }
@@ -37,7 +40,7 @@ export async function PATCH(req, { params }) {
   try {
     await connectToDatabase();
 
-    const { email } = await params;
+    const { email } = params.email;
     const { searchParams } = new URL(req.url);
     const expIncrease = parseInt(searchParams.get("exp"), 10); // Extract from query
     // console.log(expIncrease);

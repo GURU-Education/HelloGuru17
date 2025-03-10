@@ -165,9 +165,9 @@ function StreamVideo() {
       <div className="analyzer-container">
         <div className="results-section wide">
           <div className="emotion-results">
-            {analyzeEmotionMutation.isPending && (
+            {/* {analyzeEmotionMutation.isPending && (
               <div className="status-message">Analyzing emotions...</div>
-            )}
+            )} */}
 
             {/* {analyzeEmotionMutation.isError && (
               <div className="error-message">

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import StreamVideo from "./stream-video";
 import Spline from "@splinetool/react-spline";
 import { Button, Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -8,7 +7,6 @@ import { useQuery } from "@tanstack/react-query";
 import { redirect } from "next/navigation";
 
 const fetchUser = async (email) => {
-  console.log("email is", email)
   const response = await fetch("/api/users/" + email);
   if (!response.ok) {
     throw new Error("Failed to fetch user");

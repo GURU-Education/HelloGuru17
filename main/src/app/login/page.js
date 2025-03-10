@@ -1,11 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Spline from "@splinetool/react-spline";
-import Login from "./login";
+import Login from "../_components/login";
 import Welcome from "./welcome";
 import Signup from "./signup";
 import HomePage from "./homepage";
-import "../styles/stream-video.css";
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState("welcome");
@@ -16,8 +15,6 @@ export default function Home() {
       setCurrentPage("home");
     }
   }, []);
-
-  console.log("current page is", currentPage)
 
   return (
     <div className="App">

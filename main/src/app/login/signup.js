@@ -1,64 +1,54 @@
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
 
-const Login = ({ onNavigate }) => {
-  const router = useRouter();
+const Signup = ({ onNavigate }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  const handleLogin = (e) => {
+  const handleSignup = (e) => {
     e.preventDefault();
 
-    if (!email || !password) {
-      setError("Email and password are required");
-      setSuccess("");
+    if (!email || !password || !confirmPassword) {
+      setError("All fields are required");
       return;
     }
 
-    fetch("api/login", {
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+
+    fetch("/api/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.message === "Login successful") {
-          // console.log("✅ Logged in successfully:");
-          setSuccess("Login successful!");
-          setError("");
-          localStorage.setItem(
-            "user",
-            JSON.stringify({
-              email,
-            })
-          );
-          router.push("/dashboard"); // ✅ Correct way to navigate in Next.js
-
-          // ✅ If using `onNavigate` for navigation in a parent component
-          if (onNavigate) {
-            onNavigate("/dashboard");
-          }
-
+        if (data.message === "User registered successfully") {
+          // console.log("✅ Account created:", data);
+          setSuccess("Sign up sucessful!");
+          setError(""); // Clear error
+          // onNavigate("login"); // Redirect to login page after successful signup
         } else {
-          setError(data.message); // Show error message from backend
-          setSuccess("");
+          setError(data.message); // Show backend error message
         }
       })
       .catch((err) => {
-        console.error("❌ Login error:", err);
+        console.error("❌ Signup error:", err);
         setError("An error occurred. Please try again.");
       });
   };
 
   return (
     <div>
-      <h2 className="text-center mb-4">Login</h2>
+      <h2 className="text-center mb-4">Sign Up</h2>
       {success && <p className="text-success text-sm">{success}</p>}
-      {error && <p className="text-danger text-sm">{error}</p>}
+      {error && <p className="text-danger small">{error}</p>}
 
-      <form onSubmit={handleLogin} className="space-y-4">
+      <form onSubmit={handleSignup} className="space-y-4">
         <input
           type="email"
           placeholder="Email"
@@ -73,9 +63,16 @@ const Login = ({ onNavigate }) => {
           onChange={(e) => setPassword(e.target.value)}
           className="w-100 p-3 border rounded mt-2"
         />
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          className="w-100 p-3 border rounded mt-2"
+        />
 
         <button type="submit" className="btn btn-outline-dark mt-4 w-100">
-          Login
+          Sign Up
         </button>
       </form>
 
@@ -86,19 +83,19 @@ const Login = ({ onNavigate }) => {
         Back
       </button>
 
-      {/* Switch to Signup */}
+      {/* Switch to Login */}
       <p className="text-center mt-4">
-        Don't have an account?{" "}
+        Already have an account?{" "}
         <span
           className="d-block text-primary text-decoration-underline cursor-pointer"
-          onClick={() => onNavigate("signup")}
+          onClick={() => onNavigate("login")}
           style={{ cursor: "pointer" }}
         >
-          Create an account
+          Login
         </span>
       </p>
     </div>
   );
 };
 
-export default Login;
+export default Signup;

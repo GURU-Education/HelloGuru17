@@ -1181,7 +1181,7 @@ const MandarinDashboard = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4, duration: 0.6 }}
                 >
-                  <h4 className="mb-0 fw-bold">Welcome back James!</h4>
+                  <h4 className="mb-0 fw-bold">Welcome back William!</h4>
                   <p className="small mb-0 opacity-75">Keep up the good work</p>
                 </motion.div>
 

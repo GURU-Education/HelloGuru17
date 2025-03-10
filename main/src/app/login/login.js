@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
 
 const Login = ({ onNavigate }) => {
-  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -34,13 +32,7 @@ const Login = ({ onNavigate }) => {
               email,
             })
           );
-          router.push("/dashboard"); // ✅ Correct way to navigate in Next.js
-
-          // ✅ If using `onNavigate` for navigation in a parent component
-          if (onNavigate) {
-            onNavigate("/dashboard");
-          }
-
+          onNavigate("home");
         } else {
           setError(data.message); // Show error message from backend
           setSuccess("");
