@@ -1820,12 +1820,8 @@ const MandarinDashboard = () => {
                       </thead>
                       <tbody>
                         {sessions.map((session, index) => {
-                          const date = new Date(
-                            session.Offset / 10000
-                          ).toLocaleDateString();
-                          const duration = (
-                            session.Duration / 60000000
-                          ).toFixed(2);
+                          const date = new Date().toLocaleDateString();
+                          const duration = Math.floor(Number((session.Duration / 10000000).toFixed(2)))
                           const metrics =
                             session.NBest[0].PronunciationAssessment;
 

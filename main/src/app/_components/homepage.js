@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import StreamVideo from "./stream-video";
 import Spline from "@splinetool/react-spline";
 import { Button, Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/homepage.css";
 import { useQuery } from "@tanstack/react-query";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const fetchUser = async (email) => {
   console.log("email is", email)
@@ -17,6 +16,7 @@ const fetchUser = async (email) => {
 };
 
 export default function HomePage() {
+  const router = useRouter();
   const email = JSON.parse(localStorage.getItem("user"))?.email;
   // console.log("Email:", email);
   const {
@@ -32,6 +32,13 @@ export default function HomePage() {
   // console.log("User:", user);
   const [images, setImages] = useState([null, null, null]);
   const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user?.email) {
+      router.push("/dashboard");
+    }
+  }, []);
 
   useEffect(() => {
     if (user?.user?.photo_urls?.length === 0) {
@@ -88,9 +95,6 @@ export default function HomePage() {
 
   return (
     <div className="homepage">
-      <div className="stream-container">
-        <StreamVideo />
-      </div>
 
       <Modal show={showModal} onHide={handleModalClose}>
         <Modal.Header closeButton>
