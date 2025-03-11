@@ -1,9 +1,9 @@
 // RoleplayComponent.jsx
 "use client";
 import { useState } from "react";
-import { useStateManagement } from "./stateManagement";
-import { useAudioRecorder } from "./audioRecorder";
-import { useSessionManager } from "./sessionManager";
+import { useStateManagement } from "./StateManagement";
+import { useAudioRecorder } from "./AudioRecorder";
+import { useSessionManager } from "./SessionManager";
 import LevelSelection from "./screens/LevelSelection";
 import TopicSelection from "./screens/TopicSelection";
 import RoleSelection from "./screens/RoleSelection";

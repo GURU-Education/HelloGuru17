@@ -1,4 +1,6 @@
-// screens/LevelSelection.jsx
+"use client";
+
+import React from "react";
 import Spline from "@splinetool/react-spline";
 import { useState, useRef } from "react";
 
@@ -19,7 +21,7 @@ export default function LevelSelection({ setSelectedLevel }) {
   const [splineFullyLoaded, setSplineFullyLoaded] = useState(false);
   const [splineObj, setSplineObj] = useState(null);
   const splineInitTimer = useRef(null);
-
+  
   // Handle Spline scene load
   function handleSplineLoad(spline) {
     console.log("Spline scene loaded:", spline);
@@ -160,45 +162,44 @@ export default function LevelSelection({ setSelectedLevel }) {
     <div className="level-selection-container">
       {/* Left Panel: Big Bubble + Title (unchanged) */}
       <div className="bubble-wrapper">
-        {!splineFullyLoaded && (
-          <div className="spline-loading-indicator">
-            <div className="loading-spinner"></div>
-            <p>Loading avatar...</p>
-          </div>
-        )}
-        <Spline
-          key={splineKey} // Force re-render when key changes
-          scene="https://prod.spline.design/Njxbejqx8MuiFCUy/scene.splinecode"
-          onLoad={handleSplineLoad}
-          style={{
-            opacity: splineFullyLoaded ? 1 : 0,
-            transition: "opacity 0.5s ease-in-out",
-          }}
-        />
-      </div>
+      {!splineFullyLoaded && (
+        <div className="spline-loading-indicator">
+          <div className="loading-spinner"></div>
+          <p>Loading avatar...</p>
+        </div>
+      )}
+      <Spline
+        key={splineKey} // Force re-render when key changes
+        scene="https://prod.spline.design/Njxbejqx8MuiFCUy/scene.splinecode"
+        onLoad={handleSplineLoad}
+        style={{
+          opacity: splineFullyLoaded ? 1 : 0,
+          transition: "opacity 0.5s ease-in-out",
+        }}
+      />
+        </div>
       <div className="left-panel">
         <div className="title-area">
           <h1 className="main-title">HSK Roleplay</h1>
           <p className="subtitle">With Xiao Qiu</p>
         </div>
       </div>
-      <h1 className="main-title">
-        HSK Roleplay
-        <br />
-        <span>With Xiao Qiu</span>
-      </h1>
-      <h2 className="subtitle">Select Your HSK Level:</h2>
-      <div className="circle-row">
-        {hskLevels &&
-          hskLevels.map((hsk) => (
+
+      {/* Right Panel: Stacked Rounded Rectangles for Level Selection */}
+      <div className="right-panel">
+        <h2 className="instruction">Select Your HSK Level:</h2>
+        <div className="levels-container">
+          {hskLevels.map((hsk) => (
             <div
               key={hsk.level}
-              className="circle"
+              className="level-rectangle"
               onClick={() => setSelectedLevel(hsk.level)}
             >
               <p>HSK {hsk.level}</p>
             </div>
           ))}
+          <button className="back-btn">← Back</button>
+        </div>
       </div>
     </div>
   );

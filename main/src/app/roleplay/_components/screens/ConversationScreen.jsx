@@ -1,9 +1,13 @@
 // screens/ConversationScreen.jsx with persistent AI subtitles
 import { useEffect, useState, useRef } from "react";
 import Spline from "@splinetool/react-spline";
+import "../RoleplayComponent.css";
+// import bootstrap
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function ConversationScreen({
   selectedLevel,
+  selectedRole,
   selectedTopic,
   selectedTopicData,
   dialogueIndex,
@@ -293,8 +297,6 @@ export default function ConversationScreen({
     return "bg-danger";
   };
 
-  console.log("ss", selectedTopicData.conversation);
-
   return (
     <div className="background-container">
       {/* Loading state */}
@@ -330,24 +332,31 @@ export default function ConversationScreen({
         <h2 className="conv-title">
           HSK {selectedLevel} | {selectedTopic}
         </h2>
+
         <div className="chat-box" ref={chatBoxRef}>
           {selectedTopicData.conversation
             .slice(0, dialogueIndex + 1)
             .map((line, index) => {
-              const isPerson1 = line.startsWith("Person 1");
+              const isPerson1 = (selectedRole + index) % 2 == 1;
               return (
                 <div
                   key={index}
                   className={`chat-bubble ${isPerson1 ? "person1" : "person2"}`}
                 >
-                  {line.replace("Person 1: ", "").replace("Person 2: ", "")}
+                  {line}
                 </div>
               );
             })}
+
+          {/* Display AI Response as a chat bubble */}
+          {isSessionActive && aiResponse && (
+            <div className="chat-bubble ai-response">{aiResponse}</div>
+          )}
         </div>
+
         <div className="conv-buttons">
           <button
-            className="conv-next"
+            className="btn btn-primary conv-next"
             onClick={handleNextLine}
             disabled={
               !selectedTopicData ||
@@ -358,21 +367,28 @@ export default function ConversationScreen({
               ? "No More Lines"
               : "Next"}
           </button>
-          <button onClick={startSession} className="btn next-btn">
-            Start Session
+          <button
+            onClick={startSession}
+            className="btn btn-success next-btn"
+            disabled={isSessionActive || !splineLoaded}
+          >
+            {splineLoaded ? "Start Session" : "Loading..."}
           </button>
-          <button onClick={stopSession} className="btn next-btn">
+          <button
+            onClick={stopSession}
+            className="btn btn-danger next-btn"
+            disabled={!isSessionActive}
+          >
             Stop Session
           </button>
-          <h3>Progress</h3>
-          <p>
-            Completed: {completedPhrases.length} / {missionPhrases.length}{" "}
-            phrases
-          </p>
-          <button className="conv-reset" onClick={handleReset}>
+          <button onClick={handleShowResults} className="btn btn-info next-btn">
+            <i className="bi bi-graph-up"></i> Get Results
+          </button>
+          <button className="btn btn-warning conv-reset" onClick={handleReset}>
             Start Over
           </button>
         </div>
+
         <p className="pro-tip">
           Pro Tip: Optimize your speaking lesson by enabling your microphone.
         </p>
