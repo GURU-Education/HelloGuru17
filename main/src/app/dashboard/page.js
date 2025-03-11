@@ -29,10 +29,12 @@ import {
   RadialBarChart,
   RadialBar,
 } from "recharts";
-import { motion, AnimatePresence } from "framer-motion";
-import _ from "lodash";
+import { motion } from "framer-motion";
+import _, { tap } from "lodash";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useRouter } from "next/navigation";
 import Spline from "@splinetool/react-spline";
+import data from "./userstats.json";
 
 const MandarinDashboard = () => {
   // Parse the JSON data
@@ -43,6 +45,12 @@ const MandarinDashboard = () => {
   const [wordHistory, setWordHistory] = useState([]);
   const [windowWidth, setWindowWidth] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
+  const router = useRouter()
+
+  const handleTap = () => {
+    console.log("clicking")
+    router.push("/roleplay");
+  };
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -53,366 +61,6 @@ const MandarinDashboard = () => {
       setWindowHeight(window.innerHeight); 
     }
   }, []);
-
-  const data = [
-    {
-      Id: "0e078acf09b44342b650683235fd407b",
-      RecognitionStatus: "Success",
-      Offset: 168700000,
-      Duration: 226000000,
-      Channel: 0,
-      DisplayText:
-        "你好，就我一个人，请给我一个靠窗的座位，谢谢，我想点宫保鸡丁和一份米饭好的，谢谢。",
-      SNR: 26.458223,
-      NBest: [
-        {
-          Confidence: 0.772628,
-          Lexical:
-            "你好 就 我 一个 人 请 给 我 一个 靠 窗 的 座位 谢谢 我 想 点 宫保鸡丁 和 一 份 米饭 好 的 谢谢",
-          ITN: "你好 就 我 一个 人 请 给 我 一个 靠 窗 的 座位 谢谢 我 想 点 宫保鸡丁 和 一 份 米饭 好 的 谢谢",
-          MaskedITN:
-            "你好就我一个人请给我一个靠窗的座位谢谢我想点宫保鸡丁和一份米饭好的谢谢",
-          Display:
-            "你好，就我一个人，请给我一个靠窗的座位，谢谢，我想点宫保鸡丁和一份米饭好的，谢谢。",
-          PronunciationAssessment: {
-            AccuracyScore: 62,
-            FluencyScore: 41,
-            CompletenessScore: 52,
-            PronScore: 47.4,
-          },
-          Words: [
-            {
-              Word: "你好",
-              Offset: 168700000,
-              Duration: 11600000,
-              PronunciationAssessment: {
-                AccuracyScore: 79,
-                ErrorType: "None",
-              },
-            },
-            {
-              Word: "就",
-              Offset: 183700000,
-              Duration: 3500000,
-              PronunciationAssessment: {
-                AccuracyScore: 60,
-                ErrorType: "None",
-              },
-            },
-            {
-              Word: "我",
-              Offset: 187500000,
-              Duration: 3000000,
-              PronunciationAssessment: {
-                AccuracyScore: 50,
-                ErrorType: "None",
-              },
-            },
-            {
-              Word: "一个",
-              Offset: 190500000,
-              Duration: 4000000,
-              PronunciationAssessment: {
-                AccuracyScore: 70,
-                ErrorType: "None",
-              },
-            },
-            {
-              Word: "人",
-              Offset: 194500000,
-              Duration: 3000000,
-              PronunciationAssessment: {
-                AccuracyScore: 65,
-                ErrorType: "None",
-              },
-            },
-            {
-              Word: "请",
-              Offset: 197500000,
-              Duration: 3000000,
-              PronunciationAssessment: {
-                AccuracyScore: 75,
-                ErrorType: "None",
-              },
-            },
-            {
-              Word: "给",
-              Offset: 200500000,
-              Duration: 3000000,
-              PronunciationAssessment: {
-                AccuracyScore: 40,
-                ErrorType: "None",
-              },
-            },
-            {
-              Word: "我",
-              Offset: 203500000,
-              Duration: 3000000,
-              PronunciationAssessment: {
-                AccuracyScore: 85,
-                ErrorType: "None",
-              },
-            },
-            {
-              Word: "一个",
-              Offset: 206500000,
-              Duration: 4000000,
-              PronunciationAssessment: {
-                AccuracyScore: 70,
-                ErrorType: "None",
-              },
-            },
-            {
-              Word: "靠窗",
-              Offset: 210500000,
-              Duration: 4000000,
-              PronunciationAssessment: {
-                AccuracyScore: 65,
-                ErrorType: "None",
-              },
-            },
-          ],
-        },
-      ],
-    },
-    {
-      Id: "1f29bcdf34a84212b983f7352fe56789",
-      RecognitionStatus: "Success",
-      Offset: 170000000,
-      Duration: 230000000,
-      Channel: 0,
-      DisplayText: "你好，我想要一个靠窗的座位，谢谢，请给我宫保鸡丁和米饭。",
-      SNR: 25.987654,
-      NBest: [
-        {
-          Confidence: 0.785432,
-          Lexical:
-            "你好 我 想 要 一个 靠 窗 的 座位 谢谢 请 给 我 宫保鸡丁 和 米饭",
-          ITN: "你好 我 想 要 一个 靠 窗 的 座位 谢谢 请 给 我 宫保鸡丁 和 米饭",
-          MaskedITN: "你好我想要一个靠窗的座位谢谢请给我宫保鸡丁和米饭",
-          Display: "你好，我想要一个靠窗的座位，谢谢，请给我宫保鸡丁和米饭。",
-          PronunciationAssessment: {
-            AccuracyScore: 64,
-            FluencyScore: 43,
-            CompletenessScore: 55,
-            PronScore: 49.1,
-          },
-          Words: [
-            {
-              Word: "你好",
-              Offset: 170000000,
-              Duration: 12000000,
-              PronunciationAssessment: {
-                AccuracyScore: 82,
-                ErrorType: "None",
-              },
-            },
-            {
-              Word: "我",
-              Offset: 182500000,
-              Duration: 3000000,
-              PronunciationAssessment: {
-                AccuracyScore: 90,
-                ErrorType: "None",
-              },
-            },
-            {
-              Word: "想",
-              Offset: 185500000,
-              Duration: 4000000,
-              PronunciationAssessment: {
-                AccuracyScore: 75,
-                ErrorType: "None",
-              },
-            },
-            {
-              Word: "要",
-              Offset: 189500000,
-              Duration: 3000000,
-              PronunciationAssessment: {
-                AccuracyScore: 80,
-                ErrorType: "None",
-              },
-            },
-            {
-              Word: "一个",
-              Offset: 192500000,
-              Duration: 4000000,
-              PronunciationAssessment: {
-                AccuracyScore: 85,
-                ErrorType: "None",
-              },
-            },
-            {
-              Word: "靠窗",
-              Offset: 196500000,
-              Duration: 4000000,
-              PronunciationAssessment: {
-                AccuracyScore: 70,
-                ErrorType: "None",
-              },
-            },
-            {
-              Word: "的",
-              Offset: 200500000,
-              Duration: 3000000,
-              PronunciationAssessment: {
-                AccuracyScore: 75,
-                ErrorType: "None",
-              },
-            },
-            {
-              Word: "座位",
-              Offset: 203500000,
-              Duration: 4000000,
-              PronunciationAssessment: {
-                AccuracyScore: 80,
-                ErrorType: "None",
-              },
-            },
-            {
-              Word: "谢谢",
-              Offset: 207500000,
-              Duration: 4000000,
-              PronunciationAssessment: {
-                AccuracyScore: 85,
-                ErrorType: "None",
-              },
-            },
-            {
-              Word: "请",
-              Offset: 211500000,
-              Duration: 3000000,
-              PronunciationAssessment: {
-                AccuracyScore: 90,
-                ErrorType: "None",
-              },
-            },
-          ],
-        },
-      ],
-    },
-    {
-      Id: "2a3c4d5e6f784512acde90234567b890",
-      RecognitionStatus: "Success",
-      Offset: 172500000,
-      Duration: 240000000,
-      Channel: 0,
-      DisplayText:
-        "你好，我一个人，请给我一个靠窗的位置，谢谢，我想点宫保鸡丁和米饭。",
-      SNR: 27.123456,
-      NBest: [
-        {
-          Confidence: 0.790321,
-          Lexical:
-            "你好 我 一个 人 请 给 我 一个 靠 窗 的 位置 谢谢 我 想 点 宫保鸡丁 和 米饭",
-          ITN: "你好 我 一个 人 请 给 我 一个 靠 窗 的 位置 谢谢 我 想 点 宫保鸡丁 和 米饭",
-          MaskedITN:
-            "你好我一个人请给我一个靠窗的位置谢谢我想点宫保鸡丁和米饭",
-          Display:
-            "你好，我一个人，请给我一个靠窗的位置，谢谢，我想点宫保鸡丁和米饭。",
-          PronunciationAssessment: {
-            AccuracyScore: 65,
-            FluencyScore: 45,
-            CompletenessScore: 58,
-            PronScore: 50.6,
-          },
-          Words: [
-            {
-              Word: "你好",
-              Offset: 172500000,
-              Duration: 11500000,
-              PronunciationAssessment: {
-                AccuracyScore: 85,
-                ErrorType: "None",
-              },
-            },
-            {
-              Word: "一个",
-              Offset: 184000000,
-              Duration: 3700000,
-              PronunciationAssessment: {
-                AccuracyScore: 100,
-                ErrorType: "None",
-              },
-            },
-            {
-              Word: "人",
-              Offset: 187700000,
-              Duration: 3000000,
-              PronunciationAssessment: {
-                AccuracyScore: 90,
-                ErrorType: "None",
-              },
-            },
-            {
-              Word: "请",
-              Offset: 190700000,
-              Duration: 3000000,
-              PronunciationAssessment: {
-                AccuracyScore: 80,
-                ErrorType: "None",
-              },
-            },
-            {
-              Word: "给",
-              Offset: 193700000,
-              Duration: 3000000,
-              PronunciationAssessment: {
-                AccuracyScore: 85,
-                ErrorType: "None",
-              },
-            },
-            {
-              Word: "我",
-              Offset: 196700000,
-              Duration: 3000000,
-              PronunciationAssessment: {
-                AccuracyScore: 90,
-                ErrorType: "None",
-              },
-            },
-            {
-              Word: "一个",
-              Offset: 199700000,
-              Duration: 4000000,
-              PronunciationAssessment: {
-                AccuracyScore: 95,
-                ErrorType: "None",
-              },
-            },
-            {
-              Word: "靠窗",
-              Offset: 203700000,
-              Duration: 4000000,
-              PronunciationAssessment: {
-                AccuracyScore: 100,
-                ErrorType: "None",
-              },
-            },
-            {
-              Word: "的",
-              Offset: 207700000,
-              Duration: 3000000,
-              PronunciationAssessment: {
-                AccuracyScore: 85,
-                ErrorType: "None",
-              },
-            },
-            {
-              Word: "位置",
-              Offset: 210700000,
-              Duration: 4000000,
-              PronunciationAssessment: {
-                AccuracyScore: 90,
-                ErrorType: "None",
-              },
-            },
-          ],
-        },
-      ],
-    },
-  ];
 
   useEffect(() => {
     // const styleElement = document.createElement("style");
@@ -882,10 +530,10 @@ const MandarinDashboard = () => {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
+    <div
+      // initial={{ opacity: 0 }}
+      // animate={{ opacity: 1 }}
+      // transition={{ duration: 0.5 }}
     >
       <Container
         fluid
@@ -900,7 +548,7 @@ const MandarinDashboard = () => {
 
         {/* Dashboard Header */}
 
-        <motion.div
+        <div
           className="dashboard-header mb-5 overflow-hidden rounded-4 shadow-lg"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -918,7 +566,7 @@ const MandarinDashboard = () => {
             >
               {/* Animated floating circles */}
               {[...Array(5)].map((_, i) => (
-                <motion.div
+                <div
                   key={i}
                   className="position-absolute rounded-circle"
                   style={{
@@ -946,7 +594,7 @@ const MandarinDashboard = () => {
 
               <div className="position-relative z-1 d-flex flex-column justify-content-center align-items-start h-100">
                 {/* Background Chinese characters with animated glow effect */}
-                <motion.div
+                <div
                   className="position-absolute"
                   style={{
                     top: "5%",
@@ -954,7 +602,7 @@ const MandarinDashboard = () => {
                     fontSize: "18rem",
                     fontWeight: "bold",
                     fontFamily: "'Noto Serif SC', serif",
-                    zIndex: 0,
+                    zIndex: -110,
                     color: "rgba(255, 255, 255, 0.15)",
                     filter: "blur(2px)",
                   }}
@@ -972,9 +620,9 @@ const MandarinDashboard = () => {
                   }}
                 >
                   小球
-                </motion.div>
+                </div>
 
-                <motion.div
+                <div
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.3, duration: 0.8, type: "spring" }}
@@ -991,7 +639,7 @@ const MandarinDashboard = () => {
                     <span style={{ color: "#5F4B8B" }}>Xiao</span>Qiu
                   </h1>
 
-                  <motion.div
+                  <div
                     initial={{ width: 0 }}
                     animate={{ width: "100%" }}
                     transition={{ delay: 0.6, duration: 0.8 }}
@@ -1016,9 +664,9 @@ const MandarinDashboard = () => {
                   >
                     Dashboard
                   </motion.h4>
-                </motion.div>
+                </div>
 
-                <motion.div
+                <div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1.0, duration: 0.6 }}
@@ -1036,7 +684,34 @@ const MandarinDashboard = () => {
                     <br />
                     pronunciation progress and practice habits
                   </p>
-                </motion.div>
+
+                  <motion.button
+                    className="btn btn-primary btn-lg shadow"
+                    style={{
+                      background: "#5F4B8B",
+                      borderColor: "#5F4B8B",
+                      fontWeight: "bold",
+                      padding: "12px 24px",
+                      marginTop: "30px",
+                      borderRadius: "8px",
+                      transition: "all 0.3s ease",
+                    }}
+                    initial={{ opacity: 0, scale: 0.8 }} // Initial animation
+                    animate={{ opacity: 1, scale: 1 }} // Normal state
+                    whileHover={{
+                      scale: 1.1,
+                      boxShadow: "0px 0px 12px rgba(95, 75, 139, 0.6)",
+                      transition: { duration: 0.2 },
+                    }}
+                    whileTap={{
+                      scale: 0.9,
+                      transition: { duration: 0.1 },
+                    }}
+                    onClick={handleTap} // This will now trigger the function
+                  >
+                    Start Conversation with XiaoQiu!
+                  </motion.button>
+                </div>
               </div>
             </Col>
 
@@ -1056,16 +731,7 @@ const MandarinDashboard = () => {
                 preserveAspectRatio="none"
               >
                 <motion.path
-                  d="M0,50 C30,60 70,40 100,50 L100,100 L0,100 Z"
                   fill="rgba(255,255,255,0.2)"
-                  animate={{
-                    d: [
-                      "M0,50 C30,60 70,40 100,50 L100,100 L0,100 Z",
-                      "M0,40 C30,50 70,30 100,40 L100,100 L0,100 Z",
-                      "M0,60 C30,40 70,60 100,60 L100,100 L0,100 Z",
-                      "M0,50 C30,60 70,40 100,50 L100,100 L0,100 Z",
-                    ],
-                  }}
                   transition={{
                     duration: 20,
                     repeat: Infinity,
@@ -1075,7 +741,7 @@ const MandarinDashboard = () => {
               </svg>
 
               <div className="p-4 pt-4 position-relative z-1">
-                <motion.div
+                <div
                   className="text-white text-end mb-4"
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -1083,9 +749,9 @@ const MandarinDashboard = () => {
                 >
                   <h4 className="mb-0 fw-bold">Welcome back William!</h4>
                   <p className="small mb-0 opacity-75">Keep up the good work</p>
-                </motion.div>
+                </div>
 
-                <motion.div
+                <div
                   className="d-flex flex-column"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -1093,21 +759,21 @@ const MandarinDashboard = () => {
                 >
                   {/* Stats with cascading reveal animation */}
                   {[
-                    { label: "Most Improved", value: "78%", width: "60%" },
+                    { label: "Most Improved", value: "78%", width: "90%" },
                     {
                       label: "Total Practice (mins)",
                       value: "120",
-                      width: "55%",
+                      width: "80%",
                     },
-                    { label: "Last Session (days)", value: "1", width: "50%" },
+                    { label: "Last Session (days)", value: "1", width: "70%" },
                     {
                       label: "Top Word",
                       value: "你好",
-                      width: "45%",
+                      width: "60%",
                       isChinese: true,
                     },
                   ].map((stat, index) => (
-                    <motion.div
+                    <div
                       key={index}
                       className="stat-card mb-3 ms-auto"
                       style={{ width: stat.width }}
@@ -1118,10 +784,6 @@ const MandarinDashboard = () => {
                         duration: 0.7,
                         type: "spring",
                         stiffness: 100,
-                      }}
-                      whileHover={{
-                        scale: 1.02,
-                        boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
                       }}
                     >
                       <div
@@ -1170,14 +832,14 @@ const MandarinDashboard = () => {
                           {stat.value}
                         </motion.span>
                       </div>
-                    </motion.div>
+                    </div>
                   ))}
-                </motion.div>
+                </div>
               </div>
             </Col>
           </Row>
-        </motion.div>
-                <motion.div
+        </div>
+                <div
         className="w-24 h-24 bg-blue-400 rounded-full flex items-center justify-center relative"
         initial={{ scale: 0.8 }}
         animate={{ scale: 1 }}
@@ -1185,12 +847,7 @@ const MandarinDashboard = () => {
       >
         <div className="text-white text-3xl" style={{zIndex:100000}}></div>
         {/* Speech Bubble Attached to Sphere */}
-      </motion.div>
-         {/* Spline Object - Centered Between Panels */}
-        <div className="position-absolute" style={{ width: "100vw", height: "100vw", zIndex: 10, left: "-2%", top: "-36%" }}>
-          <Spline scene="https://prod.spline.design/CkOTkUDitBqB4z0K/scene.splinecode"/>
-        </div>
-        
+      </div>
         {/* Decorative floating elements */}
         <div
           className="decorative-elements"
@@ -1206,7 +863,7 @@ const MandarinDashboard = () => {
           }}
         >
           {[...Array(5)].map((_, i) => (
-            <motion.div
+            <div
               key={i}
               initial={{
                 x: windowWidth,
@@ -1246,7 +903,7 @@ const MandarinDashboard = () => {
         </div>
         <Row className="mb-4">
           <Col>
-            <motion.div
+            <div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -1256,7 +913,7 @@ const MandarinDashboard = () => {
                   <h4 className="mb-0">Speaking & Pronunciation Metrics</h4>
                 </Card.Header>
                 <Card.Body>
-                  <motion.div
+                  <div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: 0.3 }}
@@ -1273,7 +930,7 @@ const MandarinDashboard = () => {
                         by 35%!
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                   <Row>
                     {Object.keys(wordMetrics).map((word, index) => {
                       const metrics = wordMetrics[word];
@@ -1281,7 +938,7 @@ const MandarinDashboard = () => {
 
                       return (
                         <Col key={index} md={2} sm={4} className="mb-3">
-                          <motion.div
+                          <div
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{
@@ -1291,11 +948,6 @@ const MandarinDashboard = () => {
                               stiffness: 200,
                               damping: 20,
                             }}
-                            whileHover={{
-                              scale: 1.05,
-                              boxShadow: `0 0 15px rgba(var(--bs-${scoreColor}-rgb), 0.5)`,
-                            }}
-                            whileTap={{ scale: 0.98 }}
                           >
                             <Card
                               className="h-20 word-card shadow"
@@ -1309,7 +961,7 @@ const MandarinDashboard = () => {
                             >
                               <Card.Body className="text-center">
                                 <h4 className="mb-2">{word}</h4>
-                                <motion.div
+                                <div
                                   className="d-flex justify-content-center align-items-center mb-2"
                                   initial={{ scale: 0 }}
                                   animate={{ scale: 1 }}
@@ -1337,7 +989,7 @@ const MandarinDashboard = () => {
                                   >
                                     {metrics.avgAccuracy}%
                                   </div>
-                                </motion.div>
+                                </div>
                                 <div className="mt-2">
                                   <b className="text-muted d-block">
                                     Practice count: {metrics.count}
@@ -1358,20 +1010,20 @@ const MandarinDashboard = () => {
                                 </div>
                               </Card.Body>
                             </Card>
-                          </motion.div>
+                          </div>
                         </Col>
                       );
                     })}
                   </Row>
                 </Card.Body>
               </Card>
-            </motion.div>
+            </div>
           </Col>
         </Row>
 
         <Row className="mb-4">
           <Col md={6}>
-            <motion.div
+            <div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -1385,7 +1037,7 @@ const MandarinDashboard = () => {
                   {practiceMetrics && (
                     <Row>
                       <Col sm={6} className="mb-4">
-                        <motion.div
+                        <div
                           initial={{ y: 20, opacity: 0 }}
                           animate={{ y: 0, opacity: 1 }}
                           transition={{ delay: 0.5, duration: 0.5 }}
@@ -1410,11 +1062,11 @@ const MandarinDashboard = () => {
                               </motion.h2>
                             </Card.Body>
                           </Card>
-                        </motion.div>
+                        </div>
                       </Col>
 
                       <Col sm={6} className="mb-4">
-                        <motion.div
+                        <div
                           initial={{ y: 20, opacity: 0 }}
                           animate={{ y: 0, opacity: 1 }}
                           transition={{ delay: 0.6, duration: 0.5 }}
@@ -1439,11 +1091,11 @@ const MandarinDashboard = () => {
                               </motion.h2>
                             </Card.Body>
                           </Card>
-                        </motion.div>
+                        </div>
                       </Col>
 
                       <Col sm={6} className="mb-4">
-                        <motion.div
+                        <div
                           initial={{ y: 20, opacity: 0 }}
                           animate={{ y: 0, opacity: 1 }}
                           transition={{ delay: 0.7, duration: 0.5 }}
@@ -1453,7 +1105,7 @@ const MandarinDashboard = () => {
                               <h6 className="text-muted">Consistency Streak</h6>
                               <div className="d-flex justify-content-center">
                                 {[...Array(7)].map((_, i) => (
-                                  <motion.div
+                                  <div
                                     key={i}
                                     initial={{ scale: 0 }}
                                     animate={{ scale: 1 }}
@@ -1488,7 +1140,7 @@ const MandarinDashboard = () => {
                                     }}
                                   >
                                     {i + 1}
-                                  </motion.div>
+                                  </div>
                                 ))}
                               </div>
                               <p className="mt-2 mb-0 text-muted small">
@@ -1496,11 +1148,11 @@ const MandarinDashboard = () => {
                               </p>
                             </Card.Body>
                           </Card>
-                        </motion.div>
+                        </div>
                       </Col>
 
                       <Col sm={6} className="mb-4">
-                        <motion.div
+                        <div
                           initial={{ y: 20, opacity: 0 }}
                           animate={{ y: 0, opacity: 1 }}
                           transition={{ delay: 0.8, duration: 0.5 }}
@@ -1510,7 +1162,7 @@ const MandarinDashboard = () => {
                               <h6 className="text-muted text-center mb-3">
                                 Peak Learning Times
                               </h6>
-                              <motion.div
+                              <div
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 1.2, duration: 0.5 }}
@@ -1559,30 +1211,35 @@ const MandarinDashboard = () => {
                                     </Bar>
                                   </BarChart>
                                 </ResponsiveContainer>
-                              </motion.div>
+                              </div>
                             </Card.Body>
                           </Card>
-                        </motion.div>
+                        </div>
                       </Col>
                     </Row>
                   )}
                 </Card.Body>
               </Card>
-            </motion.div>
+            </div>
           </Col>
 
           <Col md={6}>
-            <motion.div
+            <div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
+                              <Button
+  onClick = {()=> {console.log("tingting")}}
+  title="Learn More"
+  color="#841584"
+>ssss </Button>
               <Card className="shadow-lg h-100 border-light">
                 <Card.Header className="bg-info text-white">
                   <h4 className="mb-0">Word Cloud & Common Phrases</h4>
                 </Card.Header>
                 <Card.Body className="text-center">
-                  <motion.div
+                  <div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.6 }}
@@ -1613,10 +1270,6 @@ const MandarinDashboard = () => {
                               type: "spring",
                               stiffness: 200,
                             }}
-                            whileHover={{
-                              scale: 1.2,
-                              boxShadow: "0 0 4px rgba(52, 152, 219, 0.6)",
-                            }}
                             style={{ display: "inline-block" }}
                           >
                             <Badge
@@ -1643,9 +1296,9 @@ const MandarinDashboard = () => {
                         );
                       })}
                     </div>
-                  </motion.div>
+                  </div>
 
-                  <motion.div
+                  <div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.9 }}
@@ -1660,7 +1313,7 @@ const MandarinDashboard = () => {
                           const metrics = wordMetrics[word];
                           return (
                             <Col key={index} md={6} className="mb-3">
-                              <motion.div
+                              <div
                                 initial={{
                                   opacity: 0,
                                   x: index % 2 === 0 ? -20 : 20,
@@ -1669,10 +1322,6 @@ const MandarinDashboard = () => {
                                 transition={{
                                   duration: 0.5,
                                   delay: 1.0 + index * 0.1,
-                                }}
-                                whileHover={{
-                                  scale: 1.05,
-                                  boxShadow: "0 0 15px rgba(220, 53, 69, 0.4)",
                                 }}
                               >
                                 <Card
@@ -1696,21 +1345,21 @@ const MandarinDashboard = () => {
                                     </p>
                                   </Card.Body>
                                 </Card>
-                              </motion.div>
+                              </div>
                             </Col>
                           );
                         })}
                     </Row>
-                  </motion.div>
+                  </div>
                 </Card.Body>
               </Card>
-            </motion.div>
+            </div>
           </Col>
         </Row>
 
         <Row>
           <Col>
-            <motion.div
+            <div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 1.1 }}
@@ -1748,10 +1397,6 @@ const MandarinDashboard = () => {
                                 duration: 0.3,
                                 delay: 1.2 + index * 0.1,
                               }}
-                              whileHover={{
-                                backgroundColor: "rgba(0, 123, 255, 0.05)",
-                                transition: { duration: 0.2 },
-                              }}
                             >
                               <td>
                                 {new Date(date).toLocaleDateString("en-GB", {
@@ -1766,7 +1411,6 @@ const MandarinDashboard = () => {
                                   className={`badge bg-${getScoreColor(
                                     metrics.AccuracyScore
                                   )}`}
-                                  whileHover={{ scale: 1.2 }}
                                 >
                                   {metrics.AccuracyScore}%
                                 </motion.span>
@@ -1776,7 +1420,6 @@ const MandarinDashboard = () => {
                                   className={`badge bg-${getScoreColor(
                                     metrics.FluencyScore
                                   )}`}
-                                  whileHover={{ scale: 1.2 }}
                                 >
                                   {metrics.FluencyScore}%
                                 </motion.span>
@@ -1786,7 +1429,6 @@ const MandarinDashboard = () => {
                                   className={`badge bg-${getScoreColor(
                                     metrics.CompletenessScore
                                   )}`}
-                                  whileHover={{ scale: 1.2 }}
                                 >
                                   {metrics.CompletenessScore}%
                                 </motion.span>
@@ -1796,7 +1438,6 @@ const MandarinDashboard = () => {
                                   className={`badge bg-${getScoreColor(
                                     metrics.PronScore
                                   )}`}
-                                  whileHover={{ scale: 1.2 }}
                                 >
                                   {metrics.PronScore.toFixed(1)}%
                                 </motion.span>
@@ -1809,12 +1450,12 @@ const MandarinDashboard = () => {
                   </div>
                 </Card.Body>
               </Card>
-            </motion.div>
+            </div>
           </Col>
         </Row>
 
         {/* Floating Action Button */}
-        <motion.div
+        <div
           className="position-fixed"
           style={{ bottom: "30px", right: "30px", zIndex: 999 }}
           initial={{ opacity: 0, scale: 0 }}
@@ -1825,8 +1466,6 @@ const MandarinDashboard = () => {
             stiffness: 260,
             damping: 20,
           }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
         >
           <Button
             style={{
@@ -1844,11 +1483,11 @@ const MandarinDashboard = () => {
           >
             <i className="bi bi-plus"></i>
           </Button>
-        </motion.div>
+        </div>
 
         {renderWordModal()}
       </Container>
-    </motion.div>
+    </div>
   );
 };
 
