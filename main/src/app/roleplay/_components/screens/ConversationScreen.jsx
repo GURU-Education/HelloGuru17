@@ -391,7 +391,10 @@ export default function ConversationScreen({
           <div className="ai-subtitle-container">
             <div
               className={`ai-subtitle ${
-                waitingForUserInput ? "user-prompt" : ""
+                waitingForUserInput
+                  ? // ? "user-prompt"
+                    ""
+                  : ""
               }`}
             >
               {aiSubtitle}
@@ -407,7 +410,8 @@ export default function ConversationScreen({
             </span>
             <span className="speaker-indicator">
               {(currentLineIndex + selectedRole) % 2 === 1
-                ? "Your turn"
+                ? // ? "Your turn"
+                  "AI turn"
                 : "AI turn"}
             </span>
           </div>
