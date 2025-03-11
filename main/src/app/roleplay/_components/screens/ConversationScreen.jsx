@@ -1,7 +1,6 @@
-// screens/ConversationScreen.jsx with persistent AI subtitles
+// screens/ConversationScreen.jsx - updated for scripted roleplay
 import { useEffect, useState, useRef } from "react";
 import Spline from "@splinetool/react-spline";
-import "../RoleplayComponent.css";
 // import bootstrap
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -18,8 +17,12 @@ export default function ConversationScreen({
   stopSession,
   isSessionActive,
   events,
-  setSplineObj, // Receive setSplineObj function from parent
+  setSplineObj,
+  currentLineIndex,
+  playNextLine,
+  handleUserFinishedSpeaking,
   // Audio recorder props
+  currentTranscription = "",
   isRecording = false,
 }) {
   // Generate subtitles from AI responses
@@ -29,6 +32,7 @@ export default function ConversationScreen({
   const [splineLoadAttempts, setSplineLoadAttempts] = useState(0);
   const [splineFullyLoaded, setSplineFullyLoaded] = useState(false); // Track if Spline is fully loaded
   const splineInitTimer = useRef(null);
+  const [waitingForUserInput, setWaitingForUserInput] = useState(false);
 
   // For subtitle display - only AI subtitles (no timeout)
   const [showAiSubtitle, setShowAiSubtitle] = useState(false);
@@ -39,6 +43,30 @@ export default function ConversationScreen({
 
   // Force re-render of Spline component when needed
   const [splineKey, setSplineKey] = useState(0);
+
+  // When a role or line needs to be spoken
+  useEffect(() => {
+    if (isSessionActive && selectedTopicData) {
+      // Determine if it's the user's turn to speak based on currentLineIndex and selectedRole
+      const isUserTurn = (currentLineIndex + selectedRole) % 2 === 1;
+      setWaitingForUserInput(isUserTurn);
+
+      // If it's the user's turn, display their line as a prompt
+      if (
+        isUserTurn &&
+        currentLineIndex < selectedTopicData.conversation.length
+      ) {
+        const line = selectedTopicData.conversation[currentLineIndex];
+        const dialogueOnly = line.includes(":")
+          ? line.split(":")[1].trim()
+          : line;
+
+        // Display the user's line as a prompt above the avatar
+        setAiSubtitle(`Your line: "${dialogueOnly}"`);
+        setShowAiSubtitle(true);
+      }
+    }
+  }, [isSessionActive, currentLineIndex, selectedRole, selectedTopicData]);
 
   // Extract AI transcript from response.output_item.done events
   useEffect(() => {
@@ -68,13 +96,41 @@ export default function ConversationScreen({
             // Update the AI subtitle - no timeout, stays visible until new content
             setAiSubtitle(contentItem.transcript);
             setShowAiSubtitle(true);
+
+            // After AI speaks, set waiting for user input
+            const isUserNext = (currentLineIndex + selectedRole) % 2 === 1;
+            setWaitingForUserInput(isUserNext);
           }
         }
       } catch (error) {
         console.error("Error extracting transcript:", error);
       }
     }
-  }, [events]);
+  }, [events, currentLineIndex, selectedRole]);
+
+  // Listen for user to finish speaking
+  useEffect(() => {
+    if (
+      isSessionActive &&
+      waitingForUserInput &&
+      !isRecording &&
+      currentTranscription
+    ) {
+      // Short delay to make sure user is done speaking
+      const timer = setTimeout(() => {
+        handleUserFinishedSpeaking();
+        setWaitingForUserInput(false);
+      }, 1500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [
+    isRecording,
+    currentTranscription,
+    waitingForUserInput,
+    isSessionActive,
+    handleUserFinishedSpeaking,
+  ]);
 
   // Handle Spline scene load
   function handleSplineLoad(spline) {
@@ -297,6 +353,16 @@ export default function ConversationScreen({
     return "bg-danger";
   };
 
+  // Function to manually progress to the next line (for testing)
+  const handleManualProgress = () => {
+    if (waitingForUserInput) {
+      handleUserFinishedSpeaking();
+      setWaitingForUserInput(false);
+    } else {
+      playNextLine();
+    }
+  };
+
   return (
     <div className="background-container">
       {/* Loading state */}
@@ -323,7 +389,27 @@ export default function ConversationScreen({
         {/* AI speech subtitle overlay */}
         {showAiSubtitle && aiSubtitle && (
           <div className="ai-subtitle-container">
-            <div className="ai-subtitle">{aiSubtitle}</div>
+            <div
+              className={`ai-subtitle ${
+                waitingForUserInput ? "user-prompt" : ""
+              }`}
+            >
+              {aiSubtitle}
+            </div>
+          </div>
+        )}
+
+        {/* Current line indicator */}
+        {isSessionActive && selectedTopicData && (
+          <div className="current-line-indicator">
+            <span className="line-number">
+              Line {currentLineIndex} of {selectedTopicData.conversation.length}
+            </span>
+            <span className="speaker-indicator">
+              {(currentLineIndex + selectedRole) % 2 === 1
+                ? "Your turn"
+                : "AI turn"}
+            </span>
           </div>
         )}
       </div>
@@ -334,8 +420,8 @@ export default function ConversationScreen({
         </h2>
 
         <div className="chat-box" ref={chatBoxRef}>
-          {selectedTopicData.conversation
-            .slice(0, dialogueIndex + 1)
+          {selectedTopicData?.conversation
+            .slice(0, currentLineIndex)
             .map((line, index) => {
               const isPerson1 = (selectedRole + index) % 2 == 1;
               return (
@@ -357,15 +443,10 @@ export default function ConversationScreen({
         <div className="conv-buttons">
           <button
             className="btn btn-primary conv-next"
-            onClick={handleNextLine}
-            disabled={
-              !selectedTopicData ||
-              dialogueIndex >= selectedTopicData.conversation.length - 1
-            }
+            onClick={handleManualProgress}
+            disabled={!isSessionActive}
           >
-            {dialogueIndex >= (selectedTopicData?.conversation.length || 0) - 1
-              ? "No More Lines"
-              : "Next"}
+            Next Line
           </button>
           <button
             onClick={startSession}
@@ -390,7 +471,8 @@ export default function ConversationScreen({
         </div>
 
         <p className="pro-tip">
-          Pro Tip: Optimize your speaking lesson by enabling your microphone.
+          Pro Tip: Repeat after the AI when it's your turn to practice
+          pronunciation.
         </p>
       </div>
 

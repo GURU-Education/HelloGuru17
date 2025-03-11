@@ -997,3 +997,55 @@ button:disabled {
     bottom: 5%;
   }
 }
+
+/* User prompt styling - when it's the user's turn */
+.user-prompt {
+  background-color: rgba(255, 193, 7, 0.8) !important; /* Amber background */
+  color: #333 !important; /* Dark text */
+  border: 2px solid #f0ad4e !important;
+}
+
+/* Current line indicator */
+.current-line-indicator {
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 8px 12px;
+  border-radius: 20px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  z-index: 10;
+  font-size: 14px;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.line-number {
+  font-weight: 500;
+}
+
+.speaker-indicator {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+/* Make the user prompt more visible */
+.user-prompt {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 193, 7, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
+  }
+}

@@ -1,4 +1,4 @@
-// sessionManager.js
+// sessionManager.js - updated for scripted roleplay
 import { useState, useRef, useEffect } from "react";
 
 export function useSessionManager(
@@ -10,13 +10,14 @@ export function useSessionManager(
   hskLevel,
   convoTopic,
   conversationList,
-  splineObj // Added splineObj parameter
+  splineObj
 ) {
   const [isSessionActive, setIsSessionActive] = useState(false);
   const [events, setEvents] = useState([]);
   const [dataChannel, setDataChannel] = useState(null);
   const peerConnection = useRef(null);
   const audioElement = useRef(null);
+  const [currentLineIndex, setCurrentLineIndex] = useState(0);
 
   // Animation related refs
   const isMouthOpen = useRef(false);
@@ -27,7 +28,6 @@ export function useSessionManager(
   // Control mouth animations
   function openMouth() {
     if (!isMouthOpen.current && splineObj) {
-      // console.log("Opening mouth!");
       try {
         splineObj.emitEvent("keyDown", "Mouth");
         isMouthOpen.current = true;
@@ -39,7 +39,6 @@ export function useSessionManager(
 
   function closeMouth() {
     if (isMouthOpen.current && splineObj) {
-      // console.log("Closing mouth!");
       try {
         splineObj.emitEvent("keyUp", "Mouth");
         isMouthOpen.current = false;
@@ -81,8 +80,6 @@ export function useSessionManager(
       function checkVolume() {
         analyser.getByteFrequencyData(dataArray);
         const volume = dataArray.reduce((a, b) => a + b, 0) / dataArray.length;
-
-        // console.log("Current volume:", volume);
 
         // Open/close mouth based on volume threshold
         if (volume > 15 && !isMouthOpen.current) {
@@ -144,34 +141,54 @@ export function useSessionManager(
   useEffect(() => {
     if (dataChannel && !pronunciationAnalysisResult) {
       dataChannel.addEventListener("message", (e) => {
-        console.log(
-          "HERE TARIN, I'M PRINTING THE EVENT CONSISTING THE WORDS THE MODEL SAY"
-        );
-        console.log("event is ", e);
         setEvents((prev) => [JSON.parse(e.data), ...prev]);
       });
 
       dataChannel.addEventListener("open", () => {
         setIsSessionActive(true);
         setEvents([]);
-        const missionPrompt =
-          "You are a professional Chinese teacher guiding a native English-speaking student through a language-learning task.\n\n" +
-          "## Mission Context:\n" +
-          "You are currently at a Chinese restaurant, and you need to order food in Chinese.\n\n" +
-          "## Your Goal:\n" +
-          "- Order at least three dishes in Chinese, each from a different category (for example: a meat dish, a vegetable dish, and a beverage).\n" +
-          "- Ask the waiter at least one question (e.g., about specialties or recommendations).\n\n" +
-          "## Teacher Role:\n" +
-          "- **Guide the conversation**: proactively ask questions and guide the student to complete the task.\n" +
-          "- **Provide real-time feedback**: point out grammar or pronunciation errors in the student's speech, and offer concise suggestions for improvement.\n" +
-          "- **Encourage open expression**: Allow students to express themselves freely, guiding gently and correcting significant errors without restricting their speech.\n\n" +
-          "To begin, clearly explain the mission context and goal in Chinese to the student, then say:\n" +
-          '「准备好了吗？我们开始吧！」 ("Are you ready? Let\'s begin!")\n\n' +
-          "Wait for the student's response before formally starting the conversation.";
-        sendTextMessage(missionPrompt);
+
+        // Start with the first line based on selected role
+        playNextLine();
       });
     }
   }, [dataChannel]);
+
+  // Function to play the next line in the conversation
+  const playNextLine = () => {
+    if (!selectedTopicData || !selectedTopicData.conversation) {
+      console.error("No conversation data available");
+      return;
+    }
+
+    // Check if there are more lines to play
+    if (currentLineIndex < selectedTopicData.conversation.length) {
+      const line = selectedTopicData.conversation[currentLineIndex];
+      const isCustomerLine = (currentLineIndex + selectedRole) % 2 === 1;
+
+      // Only send the prompt if it's the AI's turn to speak
+      if (!isCustomerLine) {
+        // Extract just the dialogue part (remove "Customer:" or "Waiter:" prefix)
+        const dialogueOnly = line.includes(":")
+          ? line.split(":")[1].trim()
+          : line;
+        sendTextMessage(dialogueOnly);
+      }
+
+      // Increment line index for next time
+      setCurrentLineIndex((prevIndex) => prevIndex + 1);
+    }
+  };
+
+  // User finished speaking their line, AI should respond with next line
+  const handleUserFinishedSpeaking = () => {
+    const isCustomerLine = (currentLineIndex + selectedRole) % 2 === 1;
+
+    // Only proceed if it's now the AI's turn to speak
+    if (!isCustomerLine) {
+      playNextLine();
+    }
+  };
 
   async function startSession() {
     startRecording();
@@ -282,6 +299,9 @@ export function useSessionManager(
     setDataChannel(null);
     peerConnection.current = null;
     serverAudioStreamRef.current = null;
+
+    // Reset line index
+    setCurrentLineIndex(0);
   }
 
   function sendClientEvent(message) {
@@ -321,5 +341,8 @@ export function useSessionManager(
     stopSession,
     isSessionActive,
     events,
+    currentLineIndex,
+    handleUserFinishedSpeaking,
+    playNextLine,
   };
 }
