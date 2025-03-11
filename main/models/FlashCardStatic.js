@@ -9,4 +9,4 @@ const FlashcardSchema = new mongoose.Schema({
 
 // Ensure Mongoose doesn't redefine the model
 export default mongoose.models.FlashCardStatic ||
-  mongoose.model("FlashCardStatic", FlashcardSchema, "flashcard-static"); // <-- Explicit collection name
+  mongoose.model("FlashCardStatic", FlashcardSchema, "flashcard-static");
