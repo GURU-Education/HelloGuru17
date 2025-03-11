@@ -475,7 +475,6 @@ button:disabled {
   pointer-events: none !important;
 }
 
-
 /* Big bubble area for Spline */
 .bubble-wrapper {
   position: absolute;
@@ -629,7 +628,6 @@ button:disabled {
   overflow: hidden; /* Hides overflowing text */
   text-overflow: ellipsis; /* Adds "..." for overflow */
 }
-
 
 .topic-btn:hover {
   background: rgba(255, 176, 72, 0.846);
@@ -911,5 +909,85 @@ button:disabled {
 
   .pronunciation-modal .progress-bar {
     font-size: 12px;
+  }
+}
+
+/* Add these styles to your RoleplayComponent.css file */
+
+/* AI speech subtitle container - positioned at the bottom of the Spline container */
+.ai-subtitle-container {
+  position: absolute;
+  bottom: 5%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  z-index: 5;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* AI subtitle styling */
+.ai-subtitle {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #4cffb9; /* Light teal color for AI speech */
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: 500;
+  max-width: 80%;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(76, 255, 185, 0.3);
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+}
+
+.user-subtitle {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: 500;
+  max-width: 80%;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.5px;
+}
+
+/* Animation for subtitle fade-in and fade-out */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ai-subtitle-container.hiding {
+  animation: fadeOut 3s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+/* Responsive subtitle container for mobile devices */
+@media (max-width: 768px) {
+  .ai-subtitle-container {
+    bottom: 5%;
   }
 }

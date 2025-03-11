@@ -21,10 +21,25 @@ export default function MissionSelectionScreen({
 
     // Extract missions for this topic
     const hskData = missionForLevel[selectedHSK];
-    if (!hskData || !hskData.topics || !hskData.topics[selectedTopic])
-      return [];
 
-    return hskData.topics[selectedTopic];
+    // Handle case where topics is an array of objects (as in your JSON)
+    if (hskData && hskData.topics && Array.isArray(hskData.topics)) {
+      // Find the topic object that matches the selected topic
+      const topicObj = hskData.topics.find(
+        (t) => Object.keys(t)[0] === selectedTopic
+      );
+      if (topicObj && topicObj[selectedTopic]) {
+        return topicObj[selectedTopic];
+      }
+      return [];
+    }
+
+    // Handle original case where topics is an object
+    if (hskData && hskData.topics && hskData.topics[selectedTopic]) {
+      return hskData.topics[selectedTopic];
+    }
+
+    return [];
   };
 
   const availableMissions = getMissions();
@@ -46,6 +61,7 @@ export default function MissionSelectionScreen({
               key={index}
               className="circle"
               onClick={() => onSelectMission(mission)}
+              style={{ width: "200px", height: "200px" }}
             >
               <p>{mission.missionTitle}</p>
             </div>
