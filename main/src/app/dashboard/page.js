@@ -33,108 +33,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import _ from "lodash";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Spline from "@splinetool/react-spline";
-// Custom dark theme CSS
-// const darkThemeStyles = `
-//   body {
-//     background-color: #121212;
-//     color: #e0e0e0;
-//   }
 
-//   .bg-dark-custom {
-//     background-color: #1e1e1e !important;
-//   }
-
-//   .bg-dark-accent {
-//     background-color: #2d2d2d !important;
-//   }
-
-//   .card {
-//     background-color: #1e1e1e;
-//     border: 1px solid #333;
-//   }
-
-//   .card-header {
-//     border-bottom: 1px solid #333;
-//   }
-
-//   .text-muted {
-//     color: #aaaaaa !important;
-//   }
-
-//   .table {
-//     color: #e0e0e0;
-//   }
-
-//   .table thead th {
-//     border-bottom-color: #333;
-//   }
-
-//   .table td, .table th {
-//     border-top-color: #333;
-//   }
-
-//   .modal-content {
-//     background-color: #1e1e1e;
-//     border: 1px solid #333;
-//   }
-
-//   .modal-header, .modal-footer {
-//     border-color: #333;
-//   }
-
-//   .list-group-item {
-//     background-color: #1e1e1e;
-//     border-color: #333;
-//   }
-
-//   .nav-tabs {
-//     border-bottom-color: #333;
-//   }
-
-//   .nav-tabs .nav-link.active {
-//     background-color: #2d2d2d;
-//     border-color: #333 #333 #2d2d2d;
-//     color: #e0e0e0;
-//   }
-
-//   .nav-tabs .nav-link {
-//     color: #aaaaaa;
-//   }
-
-//   .nav-tabs .nav-link:hover {
-//     border-color: #333 #333 #333;
-//   }
-
-//   .alert-info {
-//     background-color: #193047;
-//     border-color: #175073;
-//     color: #9fcdff;
-//   }
-
-//   /* Custom card glow effects */
-//   .card-glow:hover {
-//     box-shadow: 0 0 15px rgba(var(--glow-color-rgb), 0.7) !important;
-//     border-color: rgba(var(--glow-color-rgb), 0.7) !important;
-//   }
-
-//   /* Custom scrollbar */
-//   ::-webkit-scrollbar {
-//     width: 8px;
-//   }
-
-//   ::-webkit-scrollbar-track {
-//     background: #1e1e1e;
-//   }
-
-//   ::-webkit-scrollbar-thumb {
-//     background: #555;
-//     border-radius: 4px;
-//   }
-
-//   ::-webkit-scrollbar-thumb:hover {
-//     background: #777;
-//   }
-// `;
 const MandarinDashboard = () => {
   // Parse the JSON data
   const [sessions, setSessions] = useState([]);
@@ -155,370 +54,371 @@ const MandarinDashboard = () => {
     }
   }, []);
 
+  const data = [
+    {
+      Id: "0e078acf09b44342b650683235fd407b",
+      RecognitionStatus: "Success",
+      Offset: 168700000,
+      Duration: 226000000,
+      Channel: 0,
+      DisplayText:
+        "你好，就我一个人，请给我一个靠窗的座位，谢谢，我想点宫保鸡丁和一份米饭好的，谢谢。",
+      SNR: 26.458223,
+      NBest: [
+        {
+          Confidence: 0.772628,
+          Lexical:
+            "你好 就 我 一个 人 请 给 我 一个 靠 窗 的 座位 谢谢 我 想 点 宫保鸡丁 和 一 份 米饭 好 的 谢谢",
+          ITN: "你好 就 我 一个 人 请 给 我 一个 靠 窗 的 座位 谢谢 我 想 点 宫保鸡丁 和 一 份 米饭 好 的 谢谢",
+          MaskedITN:
+            "你好就我一个人请给我一个靠窗的座位谢谢我想点宫保鸡丁和一份米饭好的谢谢",
+          Display:
+            "你好，就我一个人，请给我一个靠窗的座位，谢谢，我想点宫保鸡丁和一份米饭好的，谢谢。",
+          PronunciationAssessment: {
+            AccuracyScore: 62,
+            FluencyScore: 41,
+            CompletenessScore: 52,
+            PronScore: 47.4,
+          },
+          Words: [
+            {
+              Word: "你好",
+              Offset: 168700000,
+              Duration: 11600000,
+              PronunciationAssessment: {
+                AccuracyScore: 79,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "就",
+              Offset: 183700000,
+              Duration: 3500000,
+              PronunciationAssessment: {
+                AccuracyScore: 60,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "我",
+              Offset: 187500000,
+              Duration: 3000000,
+              PronunciationAssessment: {
+                AccuracyScore: 50,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "一个",
+              Offset: 190500000,
+              Duration: 4000000,
+              PronunciationAssessment: {
+                AccuracyScore: 70,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "人",
+              Offset: 194500000,
+              Duration: 3000000,
+              PronunciationAssessment: {
+                AccuracyScore: 65,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "请",
+              Offset: 197500000,
+              Duration: 3000000,
+              PronunciationAssessment: {
+                AccuracyScore: 75,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "给",
+              Offset: 200500000,
+              Duration: 3000000,
+              PronunciationAssessment: {
+                AccuracyScore: 40,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "我",
+              Offset: 203500000,
+              Duration: 3000000,
+              PronunciationAssessment: {
+                AccuracyScore: 85,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "一个",
+              Offset: 206500000,
+              Duration: 4000000,
+              PronunciationAssessment: {
+                AccuracyScore: 70,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "靠窗",
+              Offset: 210500000,
+              Duration: 4000000,
+              PronunciationAssessment: {
+                AccuracyScore: 65,
+                ErrorType: "None",
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      Id: "1f29bcdf34a84212b983f7352fe56789",
+      RecognitionStatus: "Success",
+      Offset: 170000000,
+      Duration: 230000000,
+      Channel: 0,
+      DisplayText: "你好，我想要一个靠窗的座位，谢谢，请给我宫保鸡丁和米饭。",
+      SNR: 25.987654,
+      NBest: [
+        {
+          Confidence: 0.785432,
+          Lexical:
+            "你好 我 想 要 一个 靠 窗 的 座位 谢谢 请 给 我 宫保鸡丁 和 米饭",
+          ITN: "你好 我 想 要 一个 靠 窗 的 座位 谢谢 请 给 我 宫保鸡丁 和 米饭",
+          MaskedITN: "你好我想要一个靠窗的座位谢谢请给我宫保鸡丁和米饭",
+          Display: "你好，我想要一个靠窗的座位，谢谢，请给我宫保鸡丁和米饭。",
+          PronunciationAssessment: {
+            AccuracyScore: 64,
+            FluencyScore: 43,
+            CompletenessScore: 55,
+            PronScore: 49.1,
+          },
+          Words: [
+            {
+              Word: "你好",
+              Offset: 170000000,
+              Duration: 12000000,
+              PronunciationAssessment: {
+                AccuracyScore: 82,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "我",
+              Offset: 182500000,
+              Duration: 3000000,
+              PronunciationAssessment: {
+                AccuracyScore: 90,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "想",
+              Offset: 185500000,
+              Duration: 4000000,
+              PronunciationAssessment: {
+                AccuracyScore: 75,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "要",
+              Offset: 189500000,
+              Duration: 3000000,
+              PronunciationAssessment: {
+                AccuracyScore: 80,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "一个",
+              Offset: 192500000,
+              Duration: 4000000,
+              PronunciationAssessment: {
+                AccuracyScore: 85,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "靠窗",
+              Offset: 196500000,
+              Duration: 4000000,
+              PronunciationAssessment: {
+                AccuracyScore: 70,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "的",
+              Offset: 200500000,
+              Duration: 3000000,
+              PronunciationAssessment: {
+                AccuracyScore: 75,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "座位",
+              Offset: 203500000,
+              Duration: 4000000,
+              PronunciationAssessment: {
+                AccuracyScore: 80,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "谢谢",
+              Offset: 207500000,
+              Duration: 4000000,
+              PronunciationAssessment: {
+                AccuracyScore: 85,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "请",
+              Offset: 211500000,
+              Duration: 3000000,
+              PronunciationAssessment: {
+                AccuracyScore: 90,
+                ErrorType: "None",
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      Id: "2a3c4d5e6f784512acde90234567b890",
+      RecognitionStatus: "Success",
+      Offset: 172500000,
+      Duration: 240000000,
+      Channel: 0,
+      DisplayText:
+        "你好，我一个人，请给我一个靠窗的位置，谢谢，我想点宫保鸡丁和米饭。",
+      SNR: 27.123456,
+      NBest: [
+        {
+          Confidence: 0.790321,
+          Lexical:
+            "你好 我 一个 人 请 给 我 一个 靠 窗 的 位置 谢谢 我 想 点 宫保鸡丁 和 米饭",
+          ITN: "你好 我 一个 人 请 给 我 一个 靠 窗 的 位置 谢谢 我 想 点 宫保鸡丁 和 米饭",
+          MaskedITN:
+            "你好我一个人请给我一个靠窗的位置谢谢我想点宫保鸡丁和米饭",
+          Display:
+            "你好，我一个人，请给我一个靠窗的位置，谢谢，我想点宫保鸡丁和米饭。",
+          PronunciationAssessment: {
+            AccuracyScore: 65,
+            FluencyScore: 45,
+            CompletenessScore: 58,
+            PronScore: 50.6,
+          },
+          Words: [
+            {
+              Word: "你好",
+              Offset: 172500000,
+              Duration: 11500000,
+              PronunciationAssessment: {
+                AccuracyScore: 85,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "一个",
+              Offset: 184000000,
+              Duration: 3700000,
+              PronunciationAssessment: {
+                AccuracyScore: 100,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "人",
+              Offset: 187700000,
+              Duration: 3000000,
+              PronunciationAssessment: {
+                AccuracyScore: 90,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "请",
+              Offset: 190700000,
+              Duration: 3000000,
+              PronunciationAssessment: {
+                AccuracyScore: 80,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "给",
+              Offset: 193700000,
+              Duration: 3000000,
+              PronunciationAssessment: {
+                AccuracyScore: 85,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "我",
+              Offset: 196700000,
+              Duration: 3000000,
+              PronunciationAssessment: {
+                AccuracyScore: 90,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "一个",
+              Offset: 199700000,
+              Duration: 4000000,
+              PronunciationAssessment: {
+                AccuracyScore: 95,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "靠窗",
+              Offset: 203700000,
+              Duration: 4000000,
+              PronunciationAssessment: {
+                AccuracyScore: 100,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "的",
+              Offset: 207700000,
+              Duration: 3000000,
+              PronunciationAssessment: {
+                AccuracyScore: 85,
+                ErrorType: "None",
+              },
+            },
+            {
+              Word: "位置",
+              Offset: 210700000,
+              Duration: 4000000,
+              PronunciationAssessment: {
+                AccuracyScore: 90,
+                ErrorType: "None",
+              },
+            },
+          ],
+        },
+      ],
+    },
+  ];
+
   useEffect(() => {
     // const styleElement = document.createElement("style");
     // styleElement.innerHTML = darkThemeStyles;
     // document.head.appendChild(styleElement);
     // In a real app, you would fetch this data
-    const data = [
-      {
-        Id: "0e078acf09b44342b650683235fd407b",
-        RecognitionStatus: "Success",
-        Offset: 168700000,
-        Duration: 226000000,
-        Channel: 0,
-        DisplayText:
-          "你好，就我一个人，请给我一个靠窗的座位，谢谢，我想点宫保鸡丁和一份米饭好的，谢谢。",
-        SNR: 26.458223,
-        NBest: [
-          {
-            Confidence: 0.772628,
-            Lexical:
-              "你好 就 我 一个 人 请 给 我 一个 靠 窗 的 座位 谢谢 我 想 点 宫保鸡丁 和 一 份 米饭 好 的 谢谢",
-            ITN: "你好 就 我 一个 人 请 给 我 一个 靠 窗 的 座位 谢谢 我 想 点 宫保鸡丁 和 一 份 米饭 好 的 谢谢",
-            MaskedITN:
-              "你好就我一个人请给我一个靠窗的座位谢谢我想点宫保鸡丁和一份米饭好的谢谢",
-            Display:
-              "你好，就我一个人，请给我一个靠窗的座位，谢谢，我想点宫保鸡丁和一份米饭好的，谢谢。",
-            PronunciationAssessment: {
-              AccuracyScore: 62,
-              FluencyScore: 41,
-              CompletenessScore: 52,
-              PronScore: 47.4,
-            },
-            Words: [
-              {
-                Word: "你好",
-                Offset: 168700000,
-                Duration: 11600000,
-                PronunciationAssessment: {
-                  AccuracyScore: 79,
-                  ErrorType: "None",
-                },
-              },
-              {
-                Word: "就",
-                Offset: 183700000,
-                Duration: 3500000,
-                PronunciationAssessment: {
-                  AccuracyScore: 60,
-                  ErrorType: "None",
-                },
-              },
-              {
-                Word: "我",
-                Offset: 187500000,
-                Duration: 3000000,
-                PronunciationAssessment: {
-                  AccuracyScore: 50,
-                  ErrorType: "None",
-                },
-              },
-              {
-                Word: "一个",
-                Offset: 190500000,
-                Duration: 4000000,
-                PronunciationAssessment: {
-                  AccuracyScore: 70,
-                  ErrorType: "None",
-                },
-              },
-              {
-                Word: "人",
-                Offset: 194500000,
-                Duration: 3000000,
-                PronunciationAssessment: {
-                  AccuracyScore: 65,
-                  ErrorType: "None",
-                },
-              },
-              {
-                Word: "请",
-                Offset: 197500000,
-                Duration: 3000000,
-                PronunciationAssessment: {
-                  AccuracyScore: 75,
-                  ErrorType: "None",
-                },
-              },
-              {
-                Word: "给",
-                Offset: 200500000,
-                Duration: 3000000,
-                PronunciationAssessment: {
-                  AccuracyScore: 40,
-                  ErrorType: "None",
-                },
-              },
-              {
-                Word: "我",
-                Offset: 203500000,
-                Duration: 3000000,
-                PronunciationAssessment: {
-                  AccuracyScore: 85,
-                  ErrorType: "None",
-                },
-              },
-              {
-                Word: "一个",
-                Offset: 206500000,
-                Duration: 4000000,
-                PronunciationAssessment: {
-                  AccuracyScore: 70,
-                  ErrorType: "None",
-                },
-              },
-              {
-                Word: "靠窗",
-                Offset: 210500000,
-                Duration: 4000000,
-                PronunciationAssessment: {
-                  AccuracyScore: 65,
-                  ErrorType: "None",
-                },
-              },
-            ],
-          },
-        ],
-      },
-      {
-        Id: "1f29bcdf34a84212b983f7352fe56789",
-        RecognitionStatus: "Success",
-        Offset: 170000000,
-        Duration: 230000000,
-        Channel: 0,
-        DisplayText: "你好，我想要一个靠窗的座位，谢谢，请给我宫保鸡丁和米饭。",
-        SNR: 25.987654,
-        NBest: [
-          {
-            Confidence: 0.785432,
-            Lexical:
-              "你好 我 想 要 一个 靠 窗 的 座位 谢谢 请 给 我 宫保鸡丁 和 米饭",
-            ITN: "你好 我 想 要 一个 靠 窗 的 座位 谢谢 请 给 我 宫保鸡丁 和 米饭",
-            MaskedITN: "你好我想要一个靠窗的座位谢谢请给我宫保鸡丁和米饭",
-            Display: "你好，我想要一个靠窗的座位，谢谢，请给我宫保鸡丁和米饭。",
-            PronunciationAssessment: {
-              AccuracyScore: 64,
-              FluencyScore: 43,
-              CompletenessScore: 55,
-              PronScore: 49.1,
-            },
-            Words: [
-              {
-                Word: "你好",
-                Offset: 170000000,
-                Duration: 12000000,
-                PronunciationAssessment: {
-                  AccuracyScore: 82,
-                  ErrorType: "None",
-                },
-              },
-              {
-                Word: "我",
-                Offset: 182500000,
-                Duration: 3000000,
-                PronunciationAssessment: {
-                  AccuracyScore: 90,
-                  ErrorType: "None",
-                },
-              },
-              {
-                Word: "想",
-                Offset: 185500000,
-                Duration: 4000000,
-                PronunciationAssessment: {
-                  AccuracyScore: 75,
-                  ErrorType: "None",
-                },
-              },
-              {
-                Word: "要",
-                Offset: 189500000,
-                Duration: 3000000,
-                PronunciationAssessment: {
-                  AccuracyScore: 80,
-                  ErrorType: "None",
-                },
-              },
-              {
-                Word: "一个",
-                Offset: 192500000,
-                Duration: 4000000,
-                PronunciationAssessment: {
-                  AccuracyScore: 85,
-                  ErrorType: "None",
-                },
-              },
-              {
-                Word: "靠窗",
-                Offset: 196500000,
-                Duration: 4000000,
-                PronunciationAssessment: {
-                  AccuracyScore: 70,
-                  ErrorType: "None",
-                },
-              },
-              {
-                Word: "的",
-                Offset: 200500000,
-                Duration: 3000000,
-                PronunciationAssessment: {
-                  AccuracyScore: 75,
-                  ErrorType: "None",
-                },
-              },
-              {
-                Word: "座位",
-                Offset: 203500000,
-                Duration: 4000000,
-                PronunciationAssessment: {
-                  AccuracyScore: 80,
-                  ErrorType: "None",
-                },
-              },
-              {
-                Word: "谢谢",
-                Offset: 207500000,
-                Duration: 4000000,
-                PronunciationAssessment: {
-                  AccuracyScore: 85,
-                  ErrorType: "None",
-                },
-              },
-              {
-                Word: "请",
-                Offset: 211500000,
-                Duration: 3000000,
-                PronunciationAssessment: {
-                  AccuracyScore: 90,
-                  ErrorType: "None",
-                },
-              },
-            ],
-          },
-        ],
-      },
-      {
-        Id: "2a3c4d5e6f784512acde90234567b890",
-        RecognitionStatus: "Success",
-        Offset: 172500000,
-        Duration: 240000000,
-        Channel: 0,
-        DisplayText:
-          "你好，我一个人，请给我一个靠窗的位置，谢谢，我想点宫保鸡丁和米饭。",
-        SNR: 27.123456,
-        NBest: [
-          {
-            Confidence: 0.790321,
-            Lexical:
-              "你好 我 一个 人 请 给 我 一个 靠 窗 的 位置 谢谢 我 想 点 宫保鸡丁 和 米饭",
-            ITN: "你好 我 一个 人 请 给 我 一个 靠 窗 的 位置 谢谢 我 想 点 宫保鸡丁 和 米饭",
-            MaskedITN:
-              "你好我一个人请给我一个靠窗的位置谢谢我想点宫保鸡丁和米饭",
-            Display:
-              "你好，我一个人，请给我一个靠窗的位置，谢谢，我想点宫保鸡丁和米饭。",
-            PronunciationAssessment: {
-              AccuracyScore: 65,
-              FluencyScore: 45,
-              CompletenessScore: 58,
-              PronScore: 50.6,
-            },
-            Words: [
-              {
-                Word: "你好",
-                Offset: 172500000,
-                Duration: 11500000,
-                PronunciationAssessment: {
-                  AccuracyScore: 85,
-                  ErrorType: "None",
-                },
-              },
-              {
-                Word: "一个",
-                Offset: 184000000,
-                Duration: 3700000,
-                PronunciationAssessment: {
-                  AccuracyScore: 100,
-                  ErrorType: "None",
-                },
-              },
-              {
-                Word: "人",
-                Offset: 187700000,
-                Duration: 3000000,
-                PronunciationAssessment: {
-                  AccuracyScore: 90,
-                  ErrorType: "None",
-                },
-              },
-              {
-                Word: "请",
-                Offset: 190700000,
-                Duration: 3000000,
-                PronunciationAssessment: {
-                  AccuracyScore: 80,
-                  ErrorType: "None",
-                },
-              },
-              {
-                Word: "给",
-                Offset: 193700000,
-                Duration: 3000000,
-                PronunciationAssessment: {
-                  AccuracyScore: 85,
-                  ErrorType: "None",
-                },
-              },
-              {
-                Word: "我",
-                Offset: 196700000,
-                Duration: 3000000,
-                PronunciationAssessment: {
-                  AccuracyScore: 90,
-                  ErrorType: "None",
-                },
-              },
-              {
-                Word: "一个",
-                Offset: 199700000,
-                Duration: 4000000,
-                PronunciationAssessment: {
-                  AccuracyScore: 95,
-                  ErrorType: "None",
-                },
-              },
-              {
-                Word: "靠窗",
-                Offset: 203700000,
-                Duration: 4000000,
-                PronunciationAssessment: {
-                  AccuracyScore: 100,
-                  ErrorType: "None",
-                },
-              },
-              {
-                Word: "的",
-                Offset: 207700000,
-                Duration: 3000000,
-                PronunciationAssessment: {
-                  AccuracyScore: 85,
-                  ErrorType: "None",
-                },
-              },
-              {
-                Word: "位置",
-                Offset: 210700000,
-                Duration: 4000000,
-                PronunciationAssessment: {
-                  AccuracyScore: 90,
-                  ErrorType: "None",
-                },
-              },
-            ],
-          },
-        ],
-      },
-    ];
 
     setSessions(data);
 
@@ -1277,6 +1177,20 @@ const MandarinDashboard = () => {
             </Col>
           </Row>
         </motion.div>
+                <motion.div
+        className="w-24 h-24 bg-blue-400 rounded-full flex items-center justify-center relative"
+        initial={{ scale: 0.8 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
+      >
+        <div className="text-white text-3xl" style={{zIndex:100000}}></div>
+        {/* Speech Bubble Attached to Sphere */}
+      </motion.div>
+         {/* Spline Object - Centered Between Panels */}
+        <div className="position-absolute" style={{ width: "100vw", height: "100vw", zIndex: 10, left: "-2%", top: "-36%" }}>
+          <Spline scene="https://prod.spline.design/CkOTkUDitBqB4z0K/scene.splinecode"/>
+        </div>
+        
         {/* Decorative floating elements */}
         <div
           className="decorative-elements"
