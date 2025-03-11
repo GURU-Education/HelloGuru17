@@ -17,8 +17,6 @@ export default function Home() {
     }
   }, []);
 
-  console.log("current page is", currentPage)
-
   return (
     <div className="App">
       <div className="container">

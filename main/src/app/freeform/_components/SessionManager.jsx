@@ -50,7 +50,6 @@ export function useSessionManager(
 
   // Setup audio processing for mouth animation
   function setupAudioAnalysis(stream) {
-    console.log("Setting up audio analysis for mouth animation");
 
     // Stop previous animation loop if running
     if (animationRef.current) {
@@ -144,8 +143,6 @@ export function useSessionManager(
         setEvents((prev) => [JSON.parse(e.data), ...prev]);
       });
 
-      console.log("selected role is", selectedRole);
-
       dataChannel.addEventListener("open", () => {
         setIsSessionActive(true);
         setEvents([]);
@@ -210,7 +207,6 @@ export function useSessionManager(
   };
 
   async function startSession() {
-    console.log("Starting session with Spline object:", splineObj);
     startRecording();
 
     try {

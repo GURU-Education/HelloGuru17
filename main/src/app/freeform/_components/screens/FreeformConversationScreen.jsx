@@ -35,26 +35,26 @@ export default function FreeformConversationScreen({
 
   // Handle Spline scene load
   function handleSplineLoad(spline) {
-    console.log("Spline scene loaded:", spline);
+    // console.log("Spline scene loaded:", spline);
 
     // Check if the scene is properly loaded by checking for objects
     const isProperlyLoaded =
       spline._proxyObjectCache && spline._proxyObjectCache.size > 0;
 
-    console.log(
-      `Spline properly loaded: ${isProperlyLoaded} (${
-        spline._proxyObjectCache?.size || 0
-      } objects)`
-    );
+    // console.log(
+    //   `Spline properly loaded: ${isProperlyLoaded} (${
+    //     spline._proxyObjectCache?.size || 0
+    //   } objects)`
+    // );
 
     if (!isProperlyLoaded) {
       // If not properly loaded and we haven't tried too many times, try reloading
       if (splineLoadAttempts < 3) {
-        console.log(
-          `Spline not properly loaded, attempt ${
-            splineLoadAttempts + 1
-          } - retrying...`
-        );
+        // console.log(
+        //   `Spline not properly loaded, attempt ${
+        //     splineLoadAttempts + 1
+        //   } - retrying...`
+        // );
 
         // Clear any existing timer
         if (splineInitTimer.current) {
@@ -82,7 +82,7 @@ export default function FreeformConversationScreen({
     if (typeof spline.getAvailableEvents === "function") {
       try {
         const events = spline.getAvailableEvents();
-        console.log("Available Spline events:", events);
+        // console.log("Available Spline events:", events);
       } catch (err) {
         console.warn("Could not get available events:", err);
       }
@@ -92,7 +92,7 @@ export default function FreeformConversationScreen({
     if (typeof spline.getAllObjects === "function") {
       try {
         const objects = spline.getAllObjects();
-        console.log("Available Spline objects:", objects);
+        // console.log("Available Spline objects:", objects);
 
         // Try to identify objects that might be the mouth or head
         const potentialMouthObjects = objects.filter((obj) => {
@@ -106,7 +106,7 @@ export default function FreeformConversationScreen({
         });
 
         if (potentialMouthObjects.length > 0) {
-          console.log("Potential mouth objects:", potentialMouthObjects);
+          // console.log("Potential mouth objects:", potentialMouthObjects);
         }
       } catch (err) {
         console.warn("Could not get available objects:", err);
@@ -119,12 +119,12 @@ export default function FreeformConversationScreen({
 
     // Test mouth animation if spline is loaded
     try {
-      console.log("Testing mouth animation with various methods...");
+      // console.log("Testing mouth animation with various methods...");
 
       // Try standard event
       try {
         spline.emitEvent("keyDown", "Mouth");
-        console.log("Emitted keyDown Mouth event");
+        // console.log("Emitted keyDown Mouth event");
       } catch (err) {
         console.warn("Failed standard Mouth event", err);
       }
@@ -142,7 +142,7 @@ export default function FreeformConversationScreen({
       testEventNames.forEach((eventName) => {
         try {
           spline.emitEvent("keyDown", eventName);
-          console.log(`Tested alternative event: ${eventName}`);
+          // console.log(`Tested alternative event: ${eventName}`);
         } catch (err) {
           // Silently fail for alternative events
         }

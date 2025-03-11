@@ -9,11 +9,8 @@ export async function POST(req) {
     const conversations = await Conversation.find();
 
     for (let convo of conversations) {
-      console.log("updating")
       convo.conversation = convo.conversation.map((line) => {
-        console.log("Before:", line);
         const updatedLine = line.replace(/^Person 1:/, '小丽:').replace(/^Person 2:/, '小刚:');
-        console.log("After:", updatedLine);
         return updatedLine;
       });
       

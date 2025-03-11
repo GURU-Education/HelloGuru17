@@ -1044,7 +1044,7 @@ const MandarinDashboard = () => {
                 />
               ))}
 
-              <div className="position-relative z-1 d-flex flex-column justify-content-center align-items-end h-100">
+              <div className="position-relative z-1 d-flex flex-column justify-content-center align-items-start h-100">
                 {/* Background Chinese characters with animated glow effect */}
                 <motion.div
                   className="position-absolute"
@@ -1122,7 +1122,7 @@ const MandarinDashboard = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1.0, duration: 0.6 }}
-                  className="mt-3 text-end"
+                  className="mt-3 text-start"
                 >
                   <p
                     className="lead mb-0"
@@ -1193,17 +1193,17 @@ const MandarinDashboard = () => {
                 >
                   {/* Stats with cascading reveal animation */}
                   {[
-                    { label: "Most Improved", value: "78%", width: "80%" },
+                    { label: "Most Improved", value: "78%", width: "60%" },
                     {
                       label: "Total Practice (mins)",
                       value: "120",
-                      width: "85%",
+                      width: "55%",
                     },
-                    { label: "Last Session (days)", value: "1", width: "90%" },
+                    { label: "Last Session (days)", value: "1", width: "50%" },
                     {
                       label: "Top Word",
                       value: "你好",
-                      width: "95%",
+                      width: "45%",
                       isChinese: true,
                     },
                   ].map((stat, index) => (

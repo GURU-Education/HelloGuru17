@@ -144,10 +144,10 @@ export function useSessionManager(
   useEffect(() => {
     if (dataChannel && !pronunciationAnalysisResult) {
       dataChannel.addEventListener("message", (e) => {
+        console.log("HERE TARIN, I'M PRINTING THE EVENT CONSISTING THE WORDS THE MODEL SAY")
+        console.log("event is ", e)
         setEvents((prev) => [JSON.parse(e.data), ...prev]);
       });
-
-      console.log("selected role is", selectedRole);
 
       dataChannel.addEventListener("open", () => {
         setIsSessionActive(true);
@@ -172,7 +172,6 @@ export function useSessionManager(
   }, [dataChannel]);
 
   async function startSession() {
-    console.log("Starting session with Spline object:", splineObj);
     startRecording();
 
     try {

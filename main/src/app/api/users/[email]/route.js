@@ -4,10 +4,7 @@ import User from "../../../../../models/User";
 export async function GET(req, { params }) {
   try {
     await connectToDatabase();
-    console.log("here")
-    console.log("params is", params)
     const email = params.email;
-    console.log("email is", email)
 
     if (!email) {
       return new Response(
