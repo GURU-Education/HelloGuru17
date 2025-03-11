@@ -19,8 +19,33 @@ export function useStateManagement() {
         const response = await fetch("/api/mission");
         const data = await response.json();
 
-        if (data.success) {
-          setMissions(data.missions);
+        // Format the data correctly for our state
+        if (data) {
+          // Remove MongoDB ObjectId and create a consistent missions array
+          const formattedMissions = [];
+
+          // Check if data has keys like HSK1, HSK2, etc.
+          const hskKeys = Object.keys(data).filter((key) =>
+            key.startsWith("HSK")
+          );
+
+          if (hskKeys.length > 0) {
+            // Structure is like your third document
+            hskKeys.forEach((hskKey) => {
+              const hskData = data[hskKey];
+              const missionObj = {};
+              missionObj[hskKey] = hskData;
+              formattedMissions.push(missionObj);
+            });
+          } else if (data.missions) {
+            // Structure has a missions array
+            formattedMissions.push(...data.missions);
+          } else {
+            // Assume it's a single mission object
+            formattedMissions.push(data);
+          }
+
+          setMissions(formattedMissions);
         } else {
           console.error("Failed to fetch missions");
         }
@@ -59,9 +84,25 @@ export function useStateManagement() {
     if (!missionForLevel) return [];
 
     const hskLevelData = missionForLevel[selectedHSKLevel];
-    if (!hskLevelData || !hskLevelData.topics) return [];
 
-    return Object.keys(hskLevelData.topics);
+    // Check if structure has 'topics' array (like in your third document)
+    if (hskLevelData.topics && Array.isArray(hskLevelData.topics)) {
+      // Extract topic names from the array of topic objects
+      return hskLevelData.topics.map((topicObj) => {
+        return Object.keys(topicObj)[0];
+      });
+    }
+
+    // Original format: topics is an object with keys as topic names
+    if (
+      hskLevelData &&
+      hskLevelData.topics &&
+      typeof hskLevelData.topics === "object"
+    ) {
+      return Object.keys(hskLevelData.topics);
+    }
+
+    return [];
   };
 
   // Get available topics for the selected HSK level
@@ -81,19 +122,32 @@ export function useStateManagement() {
 
   // Function to load missions for a specific topic
   const loadMissionsForTopic = (hskLevel, topic) => {
-    if (!missions) return;
+    if (!missions) return [];
 
     const missionForLevel = missions.find(
       (mission) => Object.keys(mission)[0] === hskLevel
     );
-    if (!missionForLevel) return;
+    if (!missionForLevel) return [];
 
     const hskLevelData = missionForLevel[hskLevel];
-    if (!hskLevelData || !hskLevelData.topics || !hskLevelData.topics[topic])
-      return;
 
-    const missionsForTopic = hskLevelData.topics[topic];
-    return missionsForTopic;
+    // Handle the array format from your third document
+    if (hskLevelData.topics && Array.isArray(hskLevelData.topics)) {
+      const topicObj = hskLevelData.topics.find(
+        (t) => Object.keys(t)[0] === topic
+      );
+      if (topicObj) {
+        return topicObj[topic]; // This should be an array of missions
+      }
+      return [];
+    }
+
+    // Original format
+    if (hskLevelData && hskLevelData.topics && hskLevelData.topics[topic]) {
+      return hskLevelData.topics[topic];
+    }
+
+    return [];
   };
 
   // Get missions for the selected topic

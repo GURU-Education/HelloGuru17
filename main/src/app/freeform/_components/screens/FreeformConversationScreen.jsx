@@ -215,13 +215,28 @@ export default function FreeformConversationScreen({
   }, [aiResponse]);
 
   // Function to handle phrase click for pronunciation focus
+  // const handlePhraseClick = (phrase) => {
+  //   // Highlight the selected phrase
+  //   setHighlightedPhrase(phrase);
+
+  //   // If a session is active, send a message to practice this phrase
+  //   if (isSessionActive && focusOnPhrase) {
+  //     focusOnPhrase(phrase);
+  //   }
+  // };
   const handlePhraseClick = (phrase) => {
     // Highlight the selected phrase
     setHighlightedPhrase(phrase);
 
     // If a session is active, send a message to practice this phrase
     if (isSessionActive && focusOnPhrase) {
-      focusOnPhrase(phrase);
+      // Make sure we can handle both object phrases and string phrases
+      if (typeof phrase === "object" && phrase.chinese) {
+        focusOnPhrase(phrase);
+      } else if (typeof phrase === "string") {
+        // If it's just a string, create a simple object
+        focusOnPhrase({ chinese: phrase });
+      }
     }
   };
 

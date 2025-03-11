@@ -15,19 +15,30 @@ export default function TopicSelectionScreen({
     const missionForLevel = missions.find((mission) => {
       return Object.keys(mission).includes(selectedHSK);
     });
+    console.log(missionForLevel);
 
     if (!missionForLevel) return [];
 
     // Extract topics from the HSK level data
     const hskData = missionForLevel[selectedHSK];
-    if (!hskData || !hskData.topics) return [];
 
-    // Return topic names as an array, excluding "_id"
-    return Object.keys(hskData.topics).filter((topic) => topic !== "_id");
+    // Handle the case where topics is an array of objects (as in your JSON)
+    if (hskData && hskData.topics && Array.isArray(hskData.topics)) {
+      // Extract topic names from each object in the array
+      return hskData.topics.map((topicObj) => Object.keys(topicObj)[0]);
+    }
+
+    // Handle the original case where topics is an object
+    if (hskData && hskData.topics && typeof hskData.topics === "object") {
+      // Return topic names as an array, excluding "_id"
+      return Object.keys(hskData.topics).filter((topic) => topic !== "_id");
+    }
+
+    return [];
   };
 
   const topics = getTopics();
-  console.log(topics);
+
   return (
     <div className="background-container">
       <h1 className="main-title">
@@ -45,6 +56,7 @@ export default function TopicSelectionScreen({
               key={index}
               className="circle"
               onClick={() => onSelectTopic(topic)}
+              style={{ width: "200px", height: "200px" }}
             >
               <p>{topic}</p>
             </div>

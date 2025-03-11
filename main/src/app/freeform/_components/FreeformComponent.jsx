@@ -9,7 +9,7 @@ import TopicSelectionScreen from "./screens/TopicSelectionScreen";
 import MissionSelectionScreen from "./screens/MissionSelectionScreen";
 import FreeformConversationScreen from "./screens/FreeformConversationScreen";
 import "./FreeformComponent.css"; // Reuse existing styles
-import StreamVideo from "@/app/_components/stream-video";
+import StreamVideo from "../../_components/stream-video";
 
 export default function FreeformComponent() {
   const state = useStateManagement();
