@@ -63,10 +63,6 @@ const MandarinDashboard = () => {
   }, []);
 
   useEffect(() => {
-    // const styleElement = document.createElement("style");
-    // styleElement.innerHTML = darkThemeStyles;
-    // document.head.appendChild(styleElement);
-    // In a real app, you would fetch this data
 
     setSessions(data);
 
@@ -544,8 +540,6 @@ const MandarinDashboard = () => {
           backgroundPosition: "center",
         }}
       >
-        {/* <Spline scene="https://prod.spline.design/ZCLA7cXZ95aBo0pU/scene.splinecode" /> */}
-
         {/* Dashboard Header */}
 
         <div
@@ -1229,11 +1223,6 @@ const MandarinDashboard = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-                              <Button
-  onClick = {()=> {console.log("tingting")}}
-  title="Learn More"
-  color="#841584"
->ssss </Button>
               <Card className="shadow-lg h-100 border-light">
                 <Card.Header className="bg-info text-white">
                   <h4 className="mb-0">Word Cloud & Common Phrases</h4>

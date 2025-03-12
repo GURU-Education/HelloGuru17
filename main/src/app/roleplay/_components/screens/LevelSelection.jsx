@@ -161,7 +161,7 @@ export default function LevelSelection({ setSelectedLevel }) {
   return (
     <div className="level-selection-container">
       {/* Left Panel: Big Bubble + Title (unchanged) */}
-      <div className="bubble-wrapper">
+      <div className="bubble-wrapper" style={{zIndex: 100}}>
       {!splineFullyLoaded && (
         <div className="spline-loading-indicator">
           <div className="loading-spinner"></div>
@@ -175,6 +175,8 @@ export default function LevelSelection({ setSelectedLevel }) {
         style={{
           opacity: splineFullyLoaded ? 1 : 0,
           transition: "opacity 0.5s ease-in-out",
+          zIndex: 100,
+          pointerEvents: "auto"
         }}
       />
         </div>
@@ -188,11 +190,12 @@ export default function LevelSelection({ setSelectedLevel }) {
       {/* Right Panel: Stacked Rounded Rectangles for Level Selection */}
       <div className="right-panel">
         <h2 className="instruction">Select Your HSK Level:</h2>
-        <div className="levels-container">
+        <div className="levels-container" style={{zIndex: 101}}>
           {hskLevels.map((hsk) => (
             <div
               key={hsk.level}
               className="level-rectangle"
+              style={{zIndex: 101}}
               onClick={() => setSelectedLevel(hsk.level)}
             >
               <p>HSK {hsk.level}</p>
