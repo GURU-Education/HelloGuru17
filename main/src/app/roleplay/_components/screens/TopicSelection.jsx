@@ -11,8 +11,11 @@ export default function TopicSelection({
   return (
     <div className="level-selection-container">
       {/* Left Panel: Spline Bubble + Title */}
-      <div className="bubble-wrapper" style={{zIndex: 100, pointerEvents: "auto",}}>
-          <Spline scene="https://prod.spline.design/Njxbejqx8MuiFCUy/scene.splinecode" />
+      <div
+        className="bubble-wrapper"
+        style={{ zIndex: 100, pointerEvents: "auto" }}
+      >
+        <Spline scene="https://prod.spline.design/Njxbejqx8MuiFCUy/scene.splinecode" />
       </div>
       <div className="left-panel">
         <div className="title-area">
@@ -28,12 +31,12 @@ export default function TopicSelection({
           <br />
           Topic for HSK {selectedLevel}:
         </h2>
-        <div className="topic-grid" >
+        <div className="topic-grid">
           {selectedHSK?.topics.map((topic) => (
             <div
               key={topic.name}
               className="topic-btn"
-              style={{zIndex: 101}}
+              style={{ zIndex: 101 }}
               onClick={() => setSelectedTopic(topic.name)}
             >
               {topic.name}
@@ -42,7 +45,7 @@ export default function TopicSelection({
         </div>
         <button
           className="back-btn"
-          style={{ marginTop: 20, marginRight: 35 }}
+          style={{ marginTop: 20, marginRight: 35, zIndex: 100 }}
           onClick={() => setSelectedLevel(null)}
         >
           ← Back

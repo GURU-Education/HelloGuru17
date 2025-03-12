@@ -7,9 +7,8 @@ export default function RoleSelection({
   selectedTopic,
   setSelectedRole,
   setSelectedTopic,
-  selectedConversation
+  selectedConversation,
 }) {
-
   const extractRoles = (conversation) => {
     const rolesSet = new Set();
     conversation?.forEach((line) => {
@@ -20,15 +19,18 @@ export default function RoleSelection({
   };
 
   const roles = extractRoles(selectedConversation);
-  const role1 = roles[0]
-  const role2 = roles[1]
+  const role1 = roles[0];
+  const role2 = roles[1];
 
   return (
     <div className="level-selection-container">
       {/* Left Panel: Spline Bubble + Text */}
-      <div className="bubble-wrapper" style={{zIndex: 100, pointerEvents: "auto"}}>
-          <Spline scene="https://prod.spline.design/Njxbejqx8MuiFCUy/scene.splinecode" />
-        </div>
+      <div
+        className="bubble-wrapper"
+        style={{ zIndex: 100, pointerEvents: "auto" }}
+      >
+        <Spline scene="https://prod.spline.design/Njxbejqx8MuiFCUy/scene.splinecode" />
+      </div>
       <div className="left-panel">
         <div className="title-area">
           <h1 className="main-title">HSK {selectedLevel}</h1>
@@ -39,7 +41,7 @@ export default function RoleSelection({
       {/* Right Panel: Role Selection */}
       <div className="right-panel-role-selection">
         <h2 className="instruction-role">Select Your Role:</h2>
-        <div className="role-container" style={{zIndex: 110}}>
+        <div className="role-container" style={{ zIndex: 110 }}>
           <button className="role-btn" onClick={() => setSelectedRole(1)}>
             {role1}
           </button>
@@ -49,7 +51,7 @@ export default function RoleSelection({
         </div>
         <button
           className="back-btn"
-          style={{ marginTop: 40, marginRight: 5 }}
+          style={{ marginTop: 40, marginRight: 5, zIndex: 100 }}
           onClick={() => setSelectedTopic(null)}
         >
           ← Back
