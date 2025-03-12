@@ -11,7 +11,7 @@ export default function TopicSelection({
   return (
     <div className="level-selection-container">
       {/* Left Panel: Spline Bubble + Title */}
-      <div className="bubble-wrapper">
+      <div className="bubble-wrapper-2">
         <Spline scene="https://prod.spline.design/Njxbejqx8MuiFCUy/scene.splinecode" />
       </div>
       <div className="left-panel">

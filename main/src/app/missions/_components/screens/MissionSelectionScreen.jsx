@@ -101,7 +101,7 @@ export default function MissionSelectionScreen({
   return (
     <div className="level-selection-container">
       {/* Left Panel: Big Bubble + Title */}
-      <div className="bubble-wrapper" style={{ zIndex: 100 }}>
+      <div className="bubble-wrapper-2" style={{ zIndex: 100 }}>
         {/* {!splineFullyLoaded && (
           <div className="spline-loading-indicator">
             <div className="loading-spinner"></div>

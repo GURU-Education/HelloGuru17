@@ -485,6 +485,15 @@ button:disabled {
   pointer-events: none;
 }
 
+.bubble-wrapper-2 {
+  position: absolute;
+  top: -0%;
+  left: 0%;
+  width: 100vw;
+  height: 100vw;
+  pointer-events: none;
+}
+
 .bubble-wrapper canvas {
   width: 100% !important;
   height: 100% !important;

@@ -95,7 +95,7 @@ export default function TopicSelectionScreen({
   return (
     <div className="level-selection-container">
       {/* Left Panel: Big Bubble + Title */}
-      <div className="bubble-wrapper" style={{ zIndex: 100 }}>
+      <div style={{ zIndex: 100 }}>
         {/* {!splineFullyLoaded && (
           <div className="spline-loading-indicator">
             <div className="loading-spinner"></div>
@@ -113,7 +113,7 @@ export default function TopicSelectionScreen({
             pointerEvents: "auto",
           }}
         /> */}
-        <div className="">
+        <div className="bubble-wrapper">
           <Spline scene="https://prod.spline.design/Njxbejqx8MuiFCUy/scene.splinecode" />
         </div>
       </div>
