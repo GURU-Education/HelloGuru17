@@ -1,4 +1,3 @@
-// screens/freeform/MissionSelectionScreen.jsx
 "use client";
 
 import React, { useState, useRef } from "react";
