@@ -119,7 +119,7 @@ export default function MissionSelectionScreen({
             pointerEvents: "auto",
           }}
         /> */}
-        <div className="bubble-wrapper">
+        <div className="">
           <Spline scene="https://prod.spline.design/Njxbejqx8MuiFCUy/scene.splinecode" />
         </div>
       </div>
