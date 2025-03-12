@@ -76,7 +76,7 @@ export default function LevelSelection({ setSelectedLevel }) {
   return (
     <div className="level-selection-container">
       {/* Left Panel: Big Bubble + Title */}
-      <div className="bubble-wrapper" style={{ zIndex: 100 }}>
+      <div className="bubble-wrapper" style={{ zIndex: 0 }}>
         {!splineFullyLoaded && (
           <div className="spline-loading-indicator">
             <div className="loading-spinner"></div>
@@ -110,13 +110,13 @@ export default function LevelSelection({ setSelectedLevel }) {
             <div
               key={hsk.level}
               className="level-rectangle"
-              style={{ zIndex: 101 }}
+              style={{ zIndex: 100 }}
               onClick={() => setSelectedLevel(hsk.level)}
             >
               <p>HSK {hsk.level}</p>
             </div>
           ))}
-          <button className="back-btn">← Back</button>
+          {/* <button className="back-btn">← Back</button> */}
         </div>
       </div>
     </div>
