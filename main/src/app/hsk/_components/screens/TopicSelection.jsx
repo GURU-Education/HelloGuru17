@@ -12,7 +12,7 @@ export default function TopicSelection({
     <div className="level-selection-container">
       {/* Left Panel: Spline Bubble + Title */}
       <div className="bubble-wrapper">
-          <Spline scene="https://prod.spline.design/Njxbejqx8MuiFCUy/scene.splinecode" />
+        <Spline scene="https://prod.spline.design/Njxbejqx8MuiFCUy/scene.splinecode" />
       </div>
       <div className="left-panel">
         <div className="title-area">
@@ -41,7 +41,7 @@ export default function TopicSelection({
         </div>
         <button
           className="back-btn"
-          style={{ marginTop: 20, marginRight: 35 }}
+          style={{ marginTop: 20, marginRight: 35, zIndex: 100 }}
           onClick={() => setSelectedLevel(null)}
         >
           ← Back
