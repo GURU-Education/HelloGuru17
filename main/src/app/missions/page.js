@@ -3,8 +3,8 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import dynamic from "next/dynamic";
 
-const FreeformComponent = dynamic(
-  () => import("./_components/FreeformComponent"),
+const MissionComponent = dynamic(
+  () => import("./_components/MissionComponent"),
   { ssr: false }
 );
 
@@ -14,7 +14,7 @@ export default function RoleplayPage() {
   return (
     <QueryClientProvider client={queryClient}>
       <div>
-        <FreeformComponent />
+        <MissionComponent />
       </div>
     </QueryClientProvider>
   );

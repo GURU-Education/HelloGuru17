@@ -323,8 +323,8 @@
 
 .spline-wrapper-chat {
   position: absolute;
-  top: -15%;
-  left: -3%;
+  top: -5%;
+  left: 15%;
   width: 1000px; /* bounding box for the wrapper */
   height: 1000px;
   overflow: hidden; /* hide overflow if we scale down the canvas */
@@ -421,7 +421,7 @@ button:disabled {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-/* Phrases panel in freeform conversation mode */
+/* Phrases panel in mission conversation mode */
 .phrases-panel {
   background: rgba(255, 255, 255, 0.3);
   border-radius: 10px;
@@ -485,7 +485,7 @@ button:disabled {
   color: #333;
 }
 
-/* Custom chat bubble styles for freeform mode */
+/* Custom chat bubble styles for mission mode */
 .system-message {
   background: rgba(255, 255, 255, 0.6);
   border-left: 4px solid #9c27b0;

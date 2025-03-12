@@ -1,4 +1,3 @@
-// screens/freeform/TopicSelectionScreen.jsx
 import React from "react";
 
 export default function TopicSelectionScreen({

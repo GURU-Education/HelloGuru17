@@ -1,10 +1,9 @@
-// screens/freeform/FreeformConversationScreen.jsx - Updated
 import { useEffect, useState, useRef } from "react";
 import Spline from "@splinetool/react-spline";
-import "./FreeformConversationScreen.css";
+import "./MissionConversationScreen.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export default function FreeformConversationScreen({
+export default function MissionConversationScreen({
   selectedHSK,
   selectedTopic,
   selectedMission,

@@ -1,4 +1,3 @@
-// screens/freeform/HSKSelectionScreen.jsx
 import { useEffect } from "react";
 
 export default function HSKSelectionScreen({

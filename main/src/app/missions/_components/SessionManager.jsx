@@ -11,7 +11,7 @@ export function useSessionManager(
   convoTopic,
   conversationList,
   splineObj, // Spline object for animations
-  missionData = null // Optional mission data for freeform mode
+  missionData = null // Optional mission data for mission mode
 ) {
   const [isSessionActive, setIsSessionActive] = useState(false);
   const [events, setEvents] = useState([]);
@@ -195,7 +195,7 @@ export function useSessionManager(
     }
   }, [dataChannel, missionData]);
 
-  // Function to focus on a specific phrase (for freeform mode)
+  // Function to focus on a specific phrase (for mission mode)
   const focusOnPhrase = (phrase) => {
     if (dataChannel && isSessionActive) {
       const promptText =
