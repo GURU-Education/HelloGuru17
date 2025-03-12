@@ -1,5 +1,6 @@
 // screens/LevelSelection.jsx
 import Spline from "@splinetool/react-spline";
+import "../RoleplayComponent.css";
 
 export default function LevelSelection({ hskLevels, setSelectedLevel }) {
   return (

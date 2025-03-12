@@ -304,7 +304,7 @@
 .spline-wrapper {
   position: absolute;
   top: 0%;
-  left: -3%;
+  left: 0%;
   width: 1000px; /* bounding box for the wrapper */
   height: 1000px;
   overflow: hidden; /* hide overflow if we scale down the canvas */
@@ -475,7 +475,6 @@ button:disabled {
   pointer-events: none !important;
 }
 
-
 /* Big bubble area for Spline */
 .bubble-wrapper {
   position: absolute;
@@ -629,7 +628,6 @@ button:disabled {
   overflow: hidden; /* Hides overflowing text */
   text-overflow: ellipsis; /* Adds "..." for overflow */
 }
-
 
 .topic-btn:hover {
   background: rgba(255, 176, 72, 0.846);
