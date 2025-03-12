@@ -1,4 +1,4 @@
-// SessionManager.js
+// SessionManager.js for Mission Mode
 import { useState, useRef, useEffect } from "react";
 
 export function useSessionManager(
@@ -50,7 +50,6 @@ export function useSessionManager(
 
   // Setup audio processing for mouth animation
   function setupAudioAnalysis(stream) {
-
     // Stop previous animation loop if running
     if (animationRef.current) {
       cancelAnimationFrame(animationRef.current);
@@ -70,6 +69,7 @@ export function useSessionManager(
       audioContextRef.current = audioContext;
 
       const analyser = audioContext.createAnalyser();
+      analyser.fftSize = 256;
       const source = audioContext.createMediaStreamSource(stream);
       const dataArray = new Uint8Array(analyser.frequencyBinCount);
 
@@ -91,8 +91,9 @@ export function useSessionManager(
       }
 
       // Start volume checking
-      audioContext.resume();
-      checkVolume();
+      audioContext.resume().then(() => {
+        checkVolume();
+      });
     } catch (err) {
       console.error("Error setting up audio analysis:", err);
     }
@@ -149,62 +150,50 @@ export function useSessionManager(
 
         let promptText;
 
-        // Check if we have mission data and use that for the prompt
-        // Create a mission-based prompt
-        promptText =
-          `You are a professional Chinese teacher guiding a native English-speaking student through a specific mission.\n\n` +
-          `## Mission Context:\n` +
-          `The mission title is: "${missionData.title}"\n\n` +
-          `## Key Phrases for this Mission:\n`;
+        if (missionData && missionData.title) {
+          // Create a mission-based prompt
+          promptText =
+            `You are a professional Chinese teacher guiding a native English-speaking student through a specific mission.\n\n` +
+            `## Mission Context:\n` +
+            `The mission title is: "${missionData.title}"\n\n` +
+            `## Key Phrases for this Mission:\n`;
 
           // Add key phrases if available
-          const demoScript = [
-            { speaker: "AI", mood: "Cheerful", text: "Hey Tarin! 好久不见 (hǎo jiǔ bú jiàn)! How’s my favorite student doing today?" },
-            { speaker: "Student", mood: "Casual", text: "Hey XiaoQiu, I'm pretty good, thanks! Ready for another lesson." },
-            { speaker: "AI", mood: "Excited", text: "Awesome! 今天我们要聊聊旅游 (lǚyóu), traveling! I know you mentioned last time that you're excited to travel more." },
-            { speaker: "Student", mood: "Enthusiastic", text: "Yeah, totally! I've actually been thinking about planning a trip soon, maybe to 中国 or 韩国." },
-            { speaker: "AI", mood: "Encouraging", text: "Great! Let's start with this word: 旅行 (lǚxíng), meaning 'travel.' Repeat after me: 旅行 (lǚxíng)." },
-            { speaker: "Student", mood: "Attempting", text: "lǔxing1." },
-            { speaker: "AI", mood: "Supportive", text: "Almost! Pay attention to your pronunciation and tone. You said 'lǔxing1,' but it's actually 'lǚxíng.' Try again?" },
-            { speaker: "Student", mood: "Retrying", text: "旅行 (lǚxíng)." },
-            { speaker: "AI", mood: "Encouraging", text: "Perfect! Much better. Much better. Now, can you use it in a sentence now" },
-            { speaker: "Student", mood: "Curious", text: "Actually, XiaoQiu, what's the difference between 旅游 (lǚyóu) and 旅行 (lǚxíng)?" },
-            { speaker: "AI", mood: "Explaining", text: "Good question! 旅行 generally means any kind of travel or journey. 旅游, on the other hand, specifically refers to leisure travel, sightseeing, or vacation." },
-            { speaker: "Student", mood: "Understanding", text: "Ah, that clears it up." },
-            { speaker: "AI", mood: "Joking", text: "Exactly! So, a quick trip to your fridge for snacks wouldn't count as 旅游, that's just a short 旅行." },
-            { speaker: "Student", mood: "Laughing", text: "Very funny, XiaoQiu." },
-            { speaker: "AI", mood: "Teasing", text: "Remember last lesson when you struggled with 酒店 (jiǔdiàn), meaning hotel? Want to give it another shot?" },
-            { speaker: "Student", mood: "Confident", text: "酒店 (jiǔdiàn)." },
-            { speaker: "AI", mood: "Surprised and praising", text: "Excellent pronunciation! You've definitely improved since last time." },
-            { speaker: "Student", mood: "Playful", text: "Yeah, I practiced a lot since last time." },
-            { speaker: "AI", mood: "Laughing", text: "I can tell! Great job. Now, can you try making a sentence using 旅行 (lǚxíng)?" },
-            { speaker: "Student", mood: "Thinking", text: "嗯...我想去中国旅行和朋友一起。(wǒ xiǎng qù zhōngguó lǚxíng hé péngyou yìqǐ)." },
-            { speaker: "AI", mood: "Gently correcting", text: "Nice effort! Your idea is clear, but the word order needs a slight adjustment. It sounds more natural to say: 我想和朋友一起去中国旅行 (wǒ xiǎng hé péngyou yìqǐ qù zhōngguó lǚxíng)." },
-            { speaker: "Student", mood: "Retrying", text: "我想和朋友一起去中国旅行。(wǒ xiǎng hé péngyou yìqǐ qù zhōngguó lǚxíng)." },
-            { speaker: "AI", mood: "Praising", text: "Perfect! That sounds great. You're really improving!" },
-            { speaker: "Student", mood: "Playful", text: "XiaoQiu, can you teach me something fun I can say to my friends?" },
-            { speaker: "AI", mood: "Excited", text: "Of course! How about: 世界这么大，我想去看看。(shìjiè zhème dà, wǒ xiǎng qù kànkan) – 'The world is so big, I want to see it!' Pretty cool, huh?" },
-            { speaker: "Student", mood: "Practicing", text: "世界这么大，我想去看看。(shìjiè zhème dà, wǒ xiǎng qù kànkan)" },
-            { speaker: "AI", mood: "Praising", text: "Excellent! Now you're ready to impress your friends." },
-            { speaker: "AI", mood: "Joking", text: "Just make sure you actually go somewhere interesting—beyond the kitchen!" },
-            { speaker: "Student", mood: "Laughing", text: "Got it 谢谢 Xiaoqiu! " },
-            { speaker: "AI", mood: "Playful", text: "不客气 tarin! great job today. 下次见 (xià cì jiàn)! See you next lesson, and don't forget to revise for the next leason" }
-        ];
+          if (missionData.phrases && missionData.phrases.length > 0) {
+            missionData.phrases.forEach((phrase, index) => {
+              promptText += `${index + 1}. **${phrase.chinese}** (${
+                phrase.pinyin
+              }) - ${phrase.english}\n`;
+            });
+          }
 
-        const instructionScript = "Instruction for AI: You're XiaoQiu, a fun, energetic, patient Chinese tutor guiding Tarin (HSK Level 3). Strictly follow this demoScript during interaction. Provide pronunciation and grammar feedback exactly as scripted. Keep interactions playful, humorous, and engaging. Explicitly call the trackProgress function as scripted. \n\n"
-        
-        const scriptToString = demoScript.map(line => {
-            const actionText = line.action ? ` [Action: ${line.action}]` : '';
-            return `${line.speaker} (${line.mood}): ${line.text}${actionText}`;
-        }).join('\n');
-
-        const prompt = instructionScript + "\n\n" + scriptToString;
-        
+          promptText +=
+            `\n## Instructions:\n` +
+            `1. Act as a friendly, encouraging Chinese tutor named Xiao Qiu.\n` +
+            `2. Introduce yourself and welcome the student to today's lesson.\n` +
+            `3. Slowly introduce the key phrases, explaining their meaning and usage.\n` +
+            `4. Help the student practice each phrase with proper pronunciation.\n` +
+            `5. Respond naturally to the student's questions or attempts to use the phrases.\n` +
+            `6. Keep your responses clear and concise, using simple Chinese with English translations when helpful.\n` +
+            `7. Be encouraging and supportive, praising good attempts and gently correcting mistakes.\n` +
+            `8. When you speak Chinese, ALWAYS provide pinyin and English translation.\n` +
+            `9. Focus on proper usage of the target phrases in real-life contexts.\n\n` +
+            `Begin the lesson with a warm greeting and introduce the mission topic.`;
+        } else {
+          // Default generic prompt if no mission data
+          promptText =
+            `You are a professional Chinese language tutor. Your student is an English speaker learning Chinese at approximately HSK ${
+              hskLevel || 1
+            } level.\n\n` +
+            `Be encouraging, supportive, and focus on practical language usage. When you speak Chinese, always include pinyin and English translations.\n\n` +
+            `Start by introducing yourself as Xiao Qiu and begin a casual conversation to help the student practice.`;
+        }
 
         // Send the appropriate prompt
-        sendTextMessage(prompt);
-    }, [dataChannel, missionData]) 
-  }})
+        sendTextMessage(promptText);
+      });
+    }
+  }, [dataChannel, missionData, hskLevel]);
 
   // Function to focus on a specific phrase (for mission mode)
   const focusOnPhrase = (phrase) => {

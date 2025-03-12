@@ -14,16 +14,19 @@ export default function MissionConversationScreen({
   isSessionActive,
   events,
   setSplineObj,
-  focusOnPhrase, // New function for phrase practice
-  sendTextMessage, // Direct message sending
+  focusOnPhrase,
+  sendTextMessage,
 }) {
   // Generate subtitles from AI responses
   const [aiResponse, setAiResponse] = useState("");
+  const [aiSubtitle, setAiSubtitle] = useState(""); // State for AI subtitle text
+  const [showAiSubtitle, setShowAiSubtitle] = useState(false); // Control subtitle visibility
   const [splineLoaded, setSplineLoaded] = useState(false);
   const [splineLoadAttempts, setSplineLoadAttempts] = useState(0);
-  const [splineFullyLoaded, setSplineFullyLoaded] = useState(false); // Track if Spline is fully loaded
+  const [splineFullyLoaded, setSplineFullyLoaded] = useState(false);
   const splineInitTimer = useRef(null);
   const chatBoxRef = useRef(null);
+  const subtitleTimerRef = useRef(null);
 
   // Force re-render of Spline component when needed
   const [splineKey, setSplineKey] = useState(0);
@@ -34,27 +37,13 @@ export default function MissionConversationScreen({
 
   // Handle Spline scene load
   function handleSplineLoad(spline) {
-    // console.log("Spline scene loaded:", spline);
-
     // Check if the scene is properly loaded by checking for objects
     const isProperlyLoaded =
       spline._proxyObjectCache && spline._proxyObjectCache.size > 0;
 
-    // console.log(
-    //   `Spline properly loaded: ${isProperlyLoaded} (${
-    //     spline._proxyObjectCache?.size || 0
-    //   } objects)`
-    // );
-
     if (!isProperlyLoaded) {
       // If not properly loaded and we haven't tried too many times, try reloading
       if (splineLoadAttempts < 3) {
-        // console.log(
-        //   `Spline not properly loaded, attempt ${
-        //     splineLoadAttempts + 1
-        //   } - retrying...`
-        // );
-
         // Clear any existing timer
         if (splineInitTimer.current) {
           clearTimeout(splineInitTimer.current);
@@ -81,7 +70,6 @@ export default function MissionConversationScreen({
     if (typeof spline.getAvailableEvents === "function") {
       try {
         const events = spline.getAvailableEvents();
-        // console.log("Available Spline events:", events);
       } catch (err) {
         console.warn("Could not get available events:", err);
       }
@@ -91,7 +79,6 @@ export default function MissionConversationScreen({
     if (typeof spline.getAllObjects === "function") {
       try {
         const objects = spline.getAllObjects();
-        // console.log("Available Spline objects:", objects);
 
         // Try to identify objects that might be the mouth or head
         const potentialMouthObjects = objects.filter((obj) => {
@@ -103,10 +90,6 @@ export default function MissionConversationScreen({
             name.includes("talk")
           );
         });
-
-        if (potentialMouthObjects.length > 0) {
-          // console.log("Potential mouth objects:", potentialMouthObjects);
-        }
       } catch (err) {
         console.warn("Could not get available objects:", err);
       }
@@ -118,12 +101,9 @@ export default function MissionConversationScreen({
 
     // Test mouth animation if spline is loaded
     try {
-      // console.log("Testing mouth animation with various methods...");
-
       // Try standard event
       try {
         spline.emitEvent("keyDown", "Mouth");
-        // console.log("Emitted keyDown Mouth event");
       } catch (err) {
         console.warn("Failed standard Mouth event", err);
       }
@@ -141,7 +121,6 @@ export default function MissionConversationScreen({
       testEventNames.forEach((eventName) => {
         try {
           spline.emitEvent("keyDown", eventName);
-          // console.log(`Tested alternative event: ${eventName}`);
         } catch (err) {
           // Silently fail for alternative events
         }
@@ -175,6 +154,9 @@ export default function MissionConversationScreen({
       if (splineInitTimer.current) {
         clearTimeout(splineInitTimer.current);
       }
+      if (subtitleTimerRef.current) {
+        clearTimeout(subtitleTimerRef.current);
+      }
     };
   }, []);
 
@@ -201,6 +183,46 @@ export default function MissionConversationScreen({
 
       setAiResponse(fullText);
     }
+
+    // Look for audio transcripts for subtitles
+    const doneEvents = events.filter(
+      (event) => event.type === "response.output_item.done"
+    );
+
+    if (doneEvents.length > 0) {
+      // Get the most recent done event
+      const latestDoneEvent = doneEvents[0]; // Events are stored newest first
+
+      try {
+        // Extract the transcript from the content array
+        if (
+          latestDoneEvent.item &&
+          latestDoneEvent.item.content &&
+          latestDoneEvent.item.content.length > 0
+        ) {
+          const contentItem = latestDoneEvent.item.content.find(
+            (item) => item.type === "audio" && item.transcript
+          );
+
+          if (contentItem && contentItem.transcript) {
+            // Update the AI subtitle
+            setAiSubtitle(contentItem.transcript);
+            setShowAiSubtitle(true);
+
+            // Hide subtitle after a delay
+            if (subtitleTimerRef.current) {
+              clearTimeout(subtitleTimerRef.current);
+            }
+
+            subtitleTimerRef.current = setTimeout(() => {
+              setShowAiSubtitle(false);
+            }, 8000); // Adjust time as needed
+          }
+        }
+      } catch (error) {
+        console.error("Error extracting transcript:", error);
+      }
+    }
   }, [events]);
 
   // Scroll to bottom when new messages appear
@@ -214,15 +236,6 @@ export default function MissionConversationScreen({
   }, [aiResponse]);
 
   // Function to handle phrase click for pronunciation focus
-  // const handlePhraseClick = (phrase) => {
-  //   // Highlight the selected phrase
-  //   setHighlightedPhrase(phrase);
-
-  //   // If a session is active, send a message to practice this phrase
-  //   if (isSessionActive && focusOnPhrase) {
-  //     focusOnPhrase(phrase);
-  //   }
-  // };
   const handlePhraseClick = (phrase) => {
     // Highlight the selected phrase
     setHighlightedPhrase(phrase);
@@ -270,6 +283,13 @@ export default function MissionConversationScreen({
           scene="https://prod.spline.design/Njxbejqx8MuiFCUy/scene.splinecode"
           onLoad={handleSplineLoad}
         />
+
+        {/* AI speech subtitle overlay */}
+        {/* {showAiSubtitle && aiSubtitle && (
+          <div className="ai-subtitle-container">
+            <div className="ai-subtitle">{aiSubtitle}</div>
+          </div>
+        )} */}
       </div>
 
       <div className="conversation-panel">
