@@ -35,6 +35,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useRouter } from "next/navigation";
 import Spline from "@splinetool/react-spline";
 import data from "./userstats.json";
+import ModeSelectionButton from "./_components/ModeSelectionButton";
 
 const MandarinDashboard = () => {
   // Parse the JSON data
@@ -45,20 +46,21 @@ const MandarinDashboard = () => {
   const [wordHistory, setWordHistory] = useState([]);
   const [windowWidth, setWindowWidth] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
-  const router = useRouter()
+  const router = useRouter();
+  const [showRouterModal, setShowRouterModal] = useState(false);
 
   const handleTap = () => {
-    console.log("clicking")
-    router.push("/roleplay");
+    console.log("clicking");
+    setShowRouterModal(true);
   };
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setWindowWidth(window.innerWidth); 
+      setWindowWidth(window.innerWidth);
     }
 
     if (typeof window !== "undefined") {
-      setWindowHeight(window.innerHeight); 
+      setWindowHeight(window.innerHeight);
     }
   }, []);
 
@@ -96,11 +98,11 @@ const MandarinDashboard = () => {
         );
 
         // Generate some simulated metrics that might not be in the original data
-        const toneAccuracy = 
-          (word.PronunciationAssessment?.AccuracyScore || 0) + 15 - 5
+        const toneAccuracy =
+          (word.PronunciationAssessment?.AccuracyScore || 0) + 15 - 5;
         const fluencyScore =
           session.NBest[0].PronunciationAssessment?.FluencyScore || 0;
-        const stressPattern = fluencyScore + 20 - 10
+        const stressPattern = fluencyScore + 20 - 10;
 
         const speedWPM = 60 + 40;
 
@@ -531,9 +533,9 @@ const MandarinDashboard = () => {
 
   return (
     <div
-      // initial={{ opacity: 0 }}
-      // animate={{ opacity: 1 }}
-      // transition={{ duration: 0.5 }}
+    // initial={{ opacity: 0 }}
+    // animate={{ opacity: 1 }}
+    // transition={{ duration: 0.5 }}
     >
       <Container
         fluid
@@ -574,9 +576,7 @@ const MandarinDashboard = () => {
                     left: `${80}%`,
                     width: `${40 + 20}px`,
                     height: `${40 + 20}px`,
-                    background: `rgba(255, 255, 255, ${
-                      0.3 + 0.1
-                    })`,
+                    background: `rgba(255, 255, 255, ${0.3 + 0.1})`,
                     zIndex: 0,
                   }}
                   animate={{
@@ -685,32 +685,7 @@ const MandarinDashboard = () => {
                     pronunciation progress and practice habits
                   </p>
 
-                  <motion.button
-                    className="btn btn-primary btn-lg shadow"
-                    style={{
-                      background: "#5F4B8B",
-                      borderColor: "#5F4B8B",
-                      fontWeight: "bold",
-                      padding: "12px 24px",
-                      marginTop: "30px",
-                      borderRadius: "8px",
-                      transition: "all 0.3s ease",
-                    }}
-                    initial={{ opacity: 0, scale: 0.8 }} // Initial animation
-                    animate={{ opacity: 1, scale: 1 }} // Normal state
-                    whileHover={{
-                      scale: 1.1,
-                      boxShadow: "0px 0px 12px rgba(95, 75, 139, 0.6)",
-                      transition: { duration: 0.2 },
-                    }}
-                    whileTap={{
-                      scale: 0.9,
-                      transition: { duration: 0.1 },
-                    }}
-                    onClick={handleTap} // This will now trigger the function
-                  >
-                    Start Conversation with XiaoQiu!
-                  </motion.button>
+                  <ModeSelectionButton />
                 </div>
               </div>
             </Col>
@@ -740,7 +715,7 @@ const MandarinDashboard = () => {
                 />
               </svg>
 
-              <div className="p-4 pt-4 position-relative z-1">
+              <div className="p-4 pt-4 position-relative z-1000">
                 <div
                   className="text-white text-end mb-4"
                   initial={{ opacity: 0, y: -20 }}
@@ -839,15 +814,15 @@ const MandarinDashboard = () => {
             </Col>
           </Row>
         </div>
-                <div
-        className="w-24 h-24 bg-blue-400 rounded-full flex items-center justify-center relative"
-        initial={{ scale: 0.8 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
-      >
-        <div className="text-white text-3xl" style={{zIndex:100000}}></div>
-        {/* Speech Bubble Attached to Sphere */}
-      </div>
+        <div
+          className="w-24 h-24 bg-blue-400 rounded-full flex items-center justify-center relative"
+          initial={{ scale: 0.8 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
+        >
+          <div className="text-white text-3xl" style={{ zIndex: 100000 }}></div>
+          {/* Speech Bubble Attached to Sphere */}
+        </div>
         {/* Decorative floating elements */}
         <div
           className="decorative-elements"
@@ -872,16 +847,8 @@ const MandarinDashboard = () => {
                 rotate: 360,
               }}
               animate={{
-                y: [
-                  windowHeight,
-                  windowHeight,
-                  windowHeight,
-                ],
-                x: [
-                  windowWidth,
-                  windowWidth,
-                  windowWidth,
-                ],
+                y: [windowHeight, windowHeight, windowHeight],
+                x: [windowWidth, windowWidth, windowWidth],
                 rotate: [0, 180, 360],
               }}
               transition={{
@@ -1229,11 +1196,15 @@ const MandarinDashboard = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-                              <Button
-  onClick = {()=> {console.log("tingting")}}
-  title="Learn More"
-  color="#841584"
->ssss </Button>
+              <Button
+                onClick={() => {
+                  console.log("tingting");
+                }}
+                title="Learn More"
+                color="#841584"
+              >
+                ssss{" "}
+              </Button>
               <Card className="shadow-lg h-100 border-light">
                 <Card.Header className="bg-info text-white">
                   <h4 className="mb-0">Word Cloud & Common Phrases</h4>
@@ -1286,7 +1257,7 @@ const MandarinDashboard = () => {
                                 border: "1px solid rgba(255, 255, 255, 0.5)",
                                 boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
                                 color: "white",
-                                borderRadius: "30px"
+                                borderRadius: "30px",
                               }}
                               onClick={() => handleWordClick(word.text)}
                             >
@@ -1384,7 +1355,9 @@ const MandarinDashboard = () => {
                       <tbody>
                         {sessions.map((session, index) => {
                           const date = new Date().toLocaleDateString();
-                          const duration = Math.floor(Number((session.Duration / 10000000).toFixed(2)))
+                          const duration = Math.floor(
+                            Number((session.Duration / 10000000).toFixed(2))
+                          );
                           const metrics =
                             session.NBest[0].PronunciationAssessment;
 
