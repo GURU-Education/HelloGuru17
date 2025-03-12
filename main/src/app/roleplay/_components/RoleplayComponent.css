@@ -538,6 +538,7 @@ button:disabled {
   gap: 20px;
   width: 600px;
   align-items: flex-end;
+  z-index: 101;
   /* background-color: blue; */
 }
 
@@ -720,10 +721,7 @@ button:disabled {
   .instruction {
     font-size: 20px;
   }
-  .levels-container {
-    width: 250px;
-    gap: 15px;
-  }
+
   .level-rectangle {
     padding: 12px;
   }

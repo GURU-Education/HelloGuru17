@@ -26,7 +26,7 @@ export default function RoleSelection({
   return (
     <div className="level-selection-container">
       {/* Left Panel: Spline Bubble + Text */}
-      <div className="bubble-wrapper">
+      <div className="bubble-wrapper" style={{zIndex: 100, pointerEvents: "auto"}}>
           <Spline scene="https://prod.spline.design/Njxbejqx8MuiFCUy/scene.splinecode" />
         </div>
       <div className="left-panel">
@@ -39,7 +39,7 @@ export default function RoleSelection({
       {/* Right Panel: Role Selection */}
       <div className="right-panel-role-selection">
         <h2 className="instruction-role">Select Your Role:</h2>
-        <div className="role-container">
+        <div className="role-container" style={{zIndex: 110}}>
           <button className="role-btn" onClick={() => setSelectedRole(1)}>
             {role1}
           </button>
