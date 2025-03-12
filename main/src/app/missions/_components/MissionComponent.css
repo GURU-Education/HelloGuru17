@@ -478,7 +478,7 @@ button:disabled {
 /* Big bubble area for Spline */
 .bubble-wrapper {
   position: absolute;
-  top: -40%;
+  top: 5%;
   left: 0%;
   width: 100vw;
   height: 100vw;
