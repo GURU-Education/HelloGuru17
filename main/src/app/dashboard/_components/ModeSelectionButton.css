@@ -1,0 +1,331 @@
+/* ModeSelectionButton.css */
+
+/* Main button styling */
+.xiaoqiu-button {
+  z-index: 1000;
+  background: #5f4b8b;
+  color: white;
+  font-weight: bold;
+  padding: 12px 24px;
+  margin-top: 30px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal overlay (background) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(29, 38, 113, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.3s ease;
+  perspective: 1200px; /* Add perspective for 3D effect */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal container - made much larger to fill the page */
+.modal-container {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  width: 95%;
+  height: 90vh;
+  max-width: 1800px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  animation: slideIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  color: white;
+  transform-style: preserve-3d;
+  transform: rotateX(2deg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(60px) rotateX(10deg);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) rotateX(2deg);
+    opacity: 1;
+  }
+}
+
+/* Modal header */
+.modal-header {
+  padding: 25px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.15) 100%
+  );
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 600;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 36px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  opacity: 0.7;
+  transition: all 0.2s;
+  transform: translateZ(10px);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.close-button:hover {
+  opacity: 1;
+  transform: translateZ(15px) scale(1.1);
+}
+
+/* Modal body */
+.modal-body {
+  padding: 40px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  background: radial-gradient(
+    circle at center,
+    rgba(76, 255, 185, 0.03) 0%,
+    rgba(29, 38, 113, 0.03) 100%
+  );
+}
+
+/* Mode cards container - updated to ensure single row */
+.mode-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+/* Mode card styling - enhanced 3D effects */
+.mode-card {
+  position: relative;
+  width: 30%;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 3px 10px rgba(0, 0, 0, 0.1);
+  transform: translateZ(0px);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.mode-card:hover {
+  transform: translateY(-15px) translateZ(30px) rotateX(5deg);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.mode-card.featured {
+  background: rgba(76, 255, 185, 0.15);
+  border: 1px solid rgba(76, 255, 185, 0.5);
+  box-shadow: 0 15px 35px rgba(76, 255, 185, 0.2), 0 3px 10px rgba(0, 0, 0, 0.1),
+    0 0 30px rgba(76, 255, 185, 0.1);
+}
+
+.mode-card.featured:hover {
+  background: rgba(76, 255, 185, 0.22);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.2),
+    0 0 40px rgba(76, 255, 185, 0.2);
+}
+
+.featured-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(76, 255, 185, 0.9);
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: translateZ(20px);
+  z-index: 10;
+}
+
+.mode-card-inner {
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+/* 3D float effect for elements inside cards */
+.mode-card-inner > * {
+  transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.mode-card:hover .mode-card-inner > * {
+  transform: translateZ(20px);
+}
+
+.mode-card-icon {
+  font-size: 60px;
+  margin-bottom: 25px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.mode-card:hover .mode-card-icon {
+  transform: translateZ(40px);
+  text-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+.mode-card h3 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  font-weight: 600;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.mode-card p {
+  font-size: 16px;
+  opacity: 0.9;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+.mode-button {
+  background: white;
+  color: #333;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.mode-button:hover {
+  background: #f0f0f0;
+  transform: translateZ(30px) scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Modal footer */
+.modal-footer {
+  padding: 25px 40px;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.15) 100%
+  );
+}
+
+.cancel-button {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transform: translateZ(0);
+  letter-spacing: 0.5px;
+}
+
+.cancel-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: white;
+  transform: translateZ(10px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .mode-cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .mode-card {
+    width: 45%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mode-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mode-card {
+    width: 90%;
+    max-width: 400px;
+    height: 350px;
+  }
+
+  .modal-header h2 {
+    font-size: 24px;
+  }
+
+  .modal-body {
+    padding: 20px;
+  }
+}
