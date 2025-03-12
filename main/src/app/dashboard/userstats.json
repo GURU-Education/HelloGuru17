@@ -38,6 +38,78 @@
               "AccuracyScore": 60,
               "ErrorType": "None"
             }
+          },
+          {
+            "Word": "我",
+            "Offset": 187500000,
+            "Duration": 3000000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 50,
+              "ErrorType": "None"
+            }
+          },
+          {
+            "Word": "一个",
+            "Offset": 190500000,
+            "Duration": 4000000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 70,
+              "ErrorType": "None"
+            }
+          },
+          {
+            "Word": "人",
+            "Offset": 194500000,
+            "Duration": 3000000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 65,
+              "ErrorType": "None"
+            }
+          },
+          {
+            "Word": "请",
+            "Offset": 197500000,
+            "Duration": 3000000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 75,
+              "ErrorType": "None"
+            }
+          },
+          {
+            "Word": "给",
+            "Offset": 200500000,
+            "Duration": 3000000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 40,
+              "ErrorType": "None"
+            }
+          },
+          {
+            "Word": "我",
+            "Offset": 203500000,
+            "Duration": 3000000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 85,
+              "ErrorType": "None"
+            }
+          },
+          {
+            "Word": "一个",
+            "Offset": 206500000,
+            "Duration": 4000000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 70,
+              "ErrorType": "None"
+            }
+          },
+          {
+            "Word": "靠窗",
+            "Offset": 210500000,
+            "Duration": 4000000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 65,
+              "ErrorType": "None"
+            }
           }
         ]
       }
@@ -77,6 +149,78 @@
           {
             "Word": "我",
             "Offset": 182500000,
+            "Duration": 3000000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 90,
+              "ErrorType": "None"
+            }
+          },
+          {
+            "Word": "想",
+            "Offset": 185500000,
+            "Duration": 4000000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 75,
+              "ErrorType": "None"
+            }
+          },
+          {
+            "Word": "要",
+            "Offset": 189500000,
+            "Duration": 3000000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 80,
+              "ErrorType": "None"
+            }
+          },
+          {
+            "Word": "一个",
+            "Offset": 192500000,
+            "Duration": 4000000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 85,
+              "ErrorType": "None"
+            }
+          },
+          {
+            "Word": "靠窗",
+            "Offset": 196500000,
+            "Duration": 4000000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 70,
+              "ErrorType": "None"
+            }
+          },
+          {
+            "Word": "的",
+            "Offset": 200500000,
+            "Duration": 3000000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 75,
+              "ErrorType": "None"
+            }
+          },
+          {
+            "Word": "座位",
+            "Offset": 203500000,
+            "Duration": 4000000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 80,
+              "ErrorType": "None"
+            }
+          },
+          {
+            "Word": "谢谢",
+            "Offset": 207500000,
+            "Duration": 4000000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 85,
+              "ErrorType": "None"
+            }
+          },
+          {
+            "Word": "请",
+            "Offset": 211500000,
             "Duration": 3000000,
             "PronunciationAssessment": {
               "AccuracyScore": 90,
@@ -124,6 +268,78 @@
             "Duration": 3700000,
             "PronunciationAssessment": {
               "AccuracyScore": 100,
+              "ErrorType": "None"
+            }
+          },
+          {
+            "Word": "人",
+            "Offset": 187700000,
+            "Duration": 3000000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 90,
+              "ErrorType": "None"
+            }
+          },
+          {
+            "Word": "请",
+            "Offset": 190700000,
+            "Duration": 3000000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 80,
+              "ErrorType": "None"
+            }
+          },
+          {
+            "Word": "给",
+            "Offset": 193700000,
+            "Duration": 3000000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 85,
+              "ErrorType": "None"
+            }
+          },
+          {
+            "Word": "我",
+            "Offset": 196700000,
+            "Duration": 3000000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 90,
+              "ErrorType": "None"
+            }
+          },
+          {
+            "Word": "一个",
+            "Offset": 199700000,
+            "Duration": 4000000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 95,
+              "ErrorType": "None"
+            }
+          },
+          {
+            "Word": "靠窗",
+            "Offset": 203700000,
+            "Duration": 4000000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 100,
+              "ErrorType": "None"
+            }
+          },
+          {
+            "Word": "的",
+            "Offset": 207700000,
+            "Duration": 3000000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 85,
+              "ErrorType": "None"
+            }
+          },
+          {
+            "Word": "位置",
+            "Offset": 210700000,
+            "Duration": 4000000,
+            "PronunciationAssessment": {
+              "AccuracyScore": 90,
               "ErrorType": "None"
             }
           }
