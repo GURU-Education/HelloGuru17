@@ -21,7 +21,7 @@ HelloGuru17
 │   │   ├── components
 │   │   ├── dashboard
 │   │   ├── flashcards
-│   │   ├── freeform
+│   │   ├── mission
 │   │   ├── login
 │   │   ├── roleplay
 │   │   ├── globals.css

@@ -1,4 +1,4 @@
-// FreeformComponent.jsx
+// MissionComponent.jsx
 "use client";
 import { useState } from "react";
 import { useStateManagement } from "./StateMangement";
@@ -7,11 +7,11 @@ import { useSessionManager } from "./SessionManager";
 import HSKSelectionScreen from "./screens/HSKSelectionScreen";
 import TopicSelectionScreen from "./screens/TopicSelectionScreen";
 import MissionSelectionScreen from "./screens/MissionSelectionScreen";
-import FreeformConversationScreen from "./screens/FreeformConversationScreen";
-import "./FreeformComponent.css"; // Reuse existing styles
+import MissionConversationScreen from "./screens/MissionConversationScreen";
+import "./MissionComponent.css"; // Reuse existing styles
 import StreamVideo from "../../_components/stream-video";
 
-export default function FreeformComponent() {
+export default function MissionComponent() {
   const state = useStateManagement();
   const audio = useAudioRecorder(state.setPronunciationAnalysisResult);
 
@@ -30,13 +30,13 @@ export default function FreeformComponent() {
   // Pass splineObj to SessionManager
   const session = useSessionManager(
     state.pronunciationAnalysisResult,
-    null, // No topic data in freeform mode
+    null, // No topic data in mission mode
     "student", // Default role
     audio.startRecording,
     audio.stopRecording,
     selectedHSK,
     selectedTopic,
-    null, // No conversation data in freeform mode
+    null, // No conversation data in mission mode
     splineObj, // Pass the splineObj to SessionManager
     {
       title: selectedMission?.missionTitle || "",
@@ -113,7 +113,7 @@ export default function FreeformComponent() {
   return (
     <>
       <StreamVideo />
-      <FreeformConversationScreen
+      <MissionConversationScreen
         {...audio}
         {...session}
         setSplineObj={setSplineObj}
